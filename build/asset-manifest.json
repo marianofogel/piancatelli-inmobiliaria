@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/piancatelli-inmobiliaria/static/css/main.bf01dc0c.css",
+    "main.js": "/piancatelli-inmobiliaria/static/js/main.30fc5583.js",
+    "index.html": "/piancatelli-inmobiliaria/index.html",
+    "main.bf01dc0c.css.map": "/piancatelli-inmobiliaria/static/css/main.bf01dc0c.css.map",
+    "main.30fc5583.js.map": "/piancatelli-inmobiliaria/static/js/main.30fc5583.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bf01dc0c.css",
+    "static/js/main.30fc5583.js"
+  ]
+}
