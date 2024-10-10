@@ -1,68 +1,34 @@
 .navbar {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1100;
-  background-color: rgba(0, 0, 0, 0);
   transition: background-color 1s ease;
-  font-family: "Open Sans", "Helvetica Neue", sans-serif;
+
+}
+
+#inicio-navbar {
   font-weight: bold;
 }
 
 .navbar.scrolled {
   background-color: rgb(232, 169, 106);
-  /* Color fijo después del scroll */
-  box-shadow: 0px 4px 2px -2px gray;
-  /* Añade un efecto sutil de sombra para realzar la navbar */
-  justify-content: center;
-  align-items: center;
-}
-
-#link-admin {
-  background-color: grey;
-  border-radius: 15px;
-  color: white;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  border-color: black;
 }
 
 .navbar .links-navbar,
 .navbar #basic-nav-dropdown {
-  color: rgb(168, 48, 48);
+  color: rgb(255, 255, 255);
   transition: color 1s ease;
-}
-
-.navbar .links-navbar:hover,
-.navbar #basic-nav-dropdown:hover {
-  color: rgb(0, 0, 0);
-  transition: color 1s ease;
-}
-
-.navbar.scrolled .links-navbar,
-.navbar.scrolled #basic-nav-dropdown {
-  color: rgb(0, 0, 0);
-}
-
-.navbar.scrolled .links-navbar:hover,
-.navbar.scrolled #basic-nav-dropdown:hover {
-  color: rgb(168, 48, 48);
+  padding-left: 25px !important;
+  padding-right: 25px !important;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 #basic-navbar-nav {
   justify-content: flex-end;
 }
 
-.collapse, .collapsing {
+.collapse,
+.collapsing {
   text-align: center;
   font-size: 15px;
-}
-
-.collapse #link-admin {
-  justify-content: center;
 }
 
 .container-fluid {
@@ -70,11 +36,8 @@
   padding-right: 15px;
 }
 
-#navbar-item-drop{
-  background-color: rgb(250, 217, 177)
-}
 
-.dropdown-menu.show{
+.dropdown-menu.show {
   padding: 0;
   margin: 0;
 }

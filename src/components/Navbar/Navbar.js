@@ -61,10 +61,10 @@ const NavbarComponent = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" className="colapse" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto" id="nav-general">
-              <Nav.Link href="/home" className="links-navbar">
-                HOME
+              <Nav.Link href="/home" className="links-navbar" id="inicio-navbar">
+                INICIO
               </Nav.Link>
-              <NavDropdown title="CATÁLOGO" id="basic-nav-dropdown">
+              <NavDropdown title="PROPIEDADES" id="basic-nav-dropdown">
                 <NavDropdown.Item href="/casas" id="navbar-item-drop">CASAS</NavDropdown.Item>
                 <NavDropdown.Item href="/departamentos" id="navbar-item-drop">
                   DEPARTAMENTOS

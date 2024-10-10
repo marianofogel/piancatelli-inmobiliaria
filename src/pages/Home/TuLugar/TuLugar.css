@@ -62,7 +62,7 @@
 
 .titulo {
     text-align: center;
-    padding-top: 90vh; /* le da el espacio entre el buscador y el componente TuLugar */
+    /* le da el espacio entre el buscador y el componente TuLugar */
 }
 
 
