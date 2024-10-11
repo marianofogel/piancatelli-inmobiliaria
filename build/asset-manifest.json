@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/piancatelli-inmobiliaria/static/css/main.bf01dc0c.css",
-    "main.js": "/piancatelli-inmobiliaria/static/js/main.3a1f8727.js",
+    "main.css": "/piancatelli-inmobiliaria/static/css/main.4146a069.css",
+    "main.js": "/piancatelli-inmobiliaria/static/js/main.36bc8e31.js",
     "index.html": "/piancatelli-inmobiliaria/index.html",
-    "main.bf01dc0c.css.map": "/piancatelli-inmobiliaria/static/css/main.bf01dc0c.css.map",
-    "main.3a1f8727.js.map": "/piancatelli-inmobiliaria/static/js/main.3a1f8727.js.map"
+    "main.4146a069.css.map": "/piancatelli-inmobiliaria/static/css/main.4146a069.css.map",
+    "main.36bc8e31.js.map": "/piancatelli-inmobiliaria/static/js/main.36bc8e31.js.map"
   },
   "entrypoints": [
-    "static/css/main.bf01dc0c.css",
-    "static/js/main.3a1f8727.js"
+    "static/css/main.4146a069.css",
+    "static/js/main.36bc8e31.js"
   ]
 }
