@@ -7,9 +7,9 @@ import Propiedades from "./pages/Propiedades";
 export default function App() {
   return (
     <Routes>
-      <Route path="/" element={<Layout />}>
+      <Route path="/piancatelli-inmobiliaria" element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="/propiedades" element={<Propiedades />} />
+        <Route path="propiedades" element={<Propiedades />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
