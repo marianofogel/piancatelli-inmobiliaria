@@ -52,9 +52,9 @@
 /*  SOMBRA TRIPLE*/
 
 
-.card:hover {
+/* .card:hover {
     box-shadow: 3px 3px 0px 0px #e1e1e6, 6px 6px 0px 0px #a19aff, 9px 9px 0px 0px #6459f7;
-}
+} */
 
 .banner:hover {
     box-shadow: 3px 3px 0px 0px #e1e1e6, 6px 6px 0px 0px #a19aff, 9px 9px 0px 0px #6459f7;

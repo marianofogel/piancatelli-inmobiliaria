@@ -1,49 +1,75 @@
-import React, { useState } from "react";
-import { IoMdCart, IoIosBed } from "react-icons/io";
-import { BsPersonFill } from "react-icons/bs";
-import { FaBath } from "react-icons/fa";
-import { AiOutlineFileSearch } from "react-icons/ai";
+import React from "react";
+import { FaBed, FaBath, FaCar, FaRulerCombined } from "react-icons/fa";
+import { Card, Col, Row, Badge } from "react-bootstrap";
+import { formatPrice } from "../../utils/formatPrice";
 
-const Item = (props) => {
+const Item = ({ property, onClick }) => {
   return (
-    <div
-      className="col-6 col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 card-container rounded"
+    <Col
+      xs={6}
+      md={4}
+      lg={3}
+      xl={3}
+      className="card-container rounded w-100"
       style={{ cursor: "pointer" }}
+      onClick={() => onClick(property)}
     >
-      <div className="card shadow mb-4" style={{ borderRadius: "100" }}>
-        <img src={'props.image'} className="card-img-top" alt="..." />
-        <div className="card-body">
-          <h6 className="card-title">{'props.title'}</h6>
-          <div className="row">
-            <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 m-0 details text-secondary mb-2">
-              <span className="d-block">
-                <BsPersonFill size="12" />
-                <span className="align-middle ps-1">6 People</span>
-              </span>
-              <span className="d-block">
-                <IoIosBed size="12" />
-                <span className="align-middle ps-1">2 Bed Rooms</span>
-              </span>
-              <span className="d-block">
-                <FaBath size="12" />
-                <span className="align-middle ps-1">3 Bathrooms</span>
-              </span>
-            </div>
-            <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 m-0">
-              <div className="badge bg-success text-wrap d-block mb-1 p-2">
-                $ 1000 / month
-              </div>
-              <div
-                className="badge bg-primary text-wrap d-block mb-1 p-2"
-                onClick={null}
-              >
-                <AiOutlineFileSearch /> More Info
-              </div>
-            </div>
-          </div>
+      <Card className="shadow p-0" style={{ borderRadius: "100" }}>
+        <div style={{ position: "relative" }}>
+          <Card.Img variant="top" src={property.images[0]} alt="..." />
+          <Badge
+            bg="light"
+            text="dark"
+            style={{
+              position: "absolute",
+              top: "10px",
+              left: "10px",
+              padding: "5px 10px",
+              fontSize: "0.75rem",
+              textTransform: "capitalize",
+            }}
+          >
+            {property.type}
+          </Badge>
         </div>
-      </div>
-    </div>
+        <Card.Body className="pb-0">
+          <Card.Title>
+            <div
+              style={{
+                color: "green",
+                fontWeight: "bold",
+                fontSize: "1.25rem",
+              }}
+            >
+              {formatPrice(property.price)}
+            </div>
+          </Card.Title>
+          <Row>
+            <Col xs={12}>
+              <div style={{ fontWeight: "bold" }}>{property.title}</div>
+              <div style={{ color: "gray" }}>{property.address}</div>
+            </Col>
+            <Col xs={12} className="mt-auto m-1 p-2">
+              <div className="d-flex justify-content-around">
+                <div>
+                  <FaBed color="cornflowerblue" /> {property.bedrooms}
+                </div>
+                <div>
+                  <FaBath color="cornflowerblue" /> {property.bathrooms}
+                </div>
+                <div>
+                  <FaCar color="cornflowerblue" /> {property.garage}
+                </div>
+                <div>
+                  <FaRulerCombined color="cornflowerblue" /> {property.surface}{" "}
+                  m²
+                </div>
+              </div>
+            </Col>
+          </Row>
+        </Card.Body>
+      </Card>
+    </Col>
   );
 };
 
