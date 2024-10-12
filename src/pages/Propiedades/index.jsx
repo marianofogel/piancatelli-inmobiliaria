@@ -169,7 +169,7 @@ const PropertiesLayout = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedProperty, setSelectedProperty] = useState(null);
   const [filters, setFilters] = useState({});
-
+  console.log(filters);
   const handleCardClick = (property) => {
     setSelectedProperty(property);
     setShowModal(true);
@@ -190,17 +190,26 @@ const PropertiesLayout = () => {
       if (key === "bedrooms" && filters[key] === 4) {
         return property[key] > 4;
       }
-      if (key === "price") {
-        const propertyPrice = parseFloat(property[key].replace(/[^0-9.-]+/g, ""));
-        const filterPrice = parseFloat(filters[key].replace(/[^0-9.-]+/g, ""));
-        return propertyPrice >= filterPrice;
+      if (key === "minPrice") {
+        const propertyPrice = parseFloat(
+          property["price"].replace(/[^0-9.-]+/g, "")
+        );
+        const minPrice = parseFloat(filters[key].replace(/[^0-9.-]+/g, ""));
+        return propertyPrice >= minPrice;
+      }
+      if (key === "maxPrice") {
+        const propertyPrice = parseFloat(
+          property["price"].replace(/[^0-9.-]+/g, "")
+        );
+        const maxPrice = parseFloat(filters[key].replace(/[^0-9.-]+/g, ""));
+        return propertyPrice <= maxPrice;
       }
       return property[key] === filters[key];
     });
   });
 
   return (
-    <FilterLayout onFilterChange={handleFilterChange}>
+    <FilterLayout onFilterChange={handleFilterChange} filters={filters}>
       {filteredProperties.length > 0 ? (
         <Masonry columns={{ 100: 1, 520: 2, 992: 3, 1200: 4 }} gap={16}>
           {filteredProperties.map((property) => (

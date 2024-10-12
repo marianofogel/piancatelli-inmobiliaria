@@ -1,4 +1,3 @@
-import React from "react";
 import { Modal, Image } from "react-bootstrap";
 import "./styles.css";
 
