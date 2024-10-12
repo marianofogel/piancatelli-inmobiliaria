@@ -1,4 +1,3 @@
-import React from "react";
 import { FaBed, FaBath, FaCar, FaRulerCombined } from "react-icons/fa";
 import { Card, Col, Row, Badge } from "react-bootstrap";
 import { formatPrice } from "../../utils/formatPrice";

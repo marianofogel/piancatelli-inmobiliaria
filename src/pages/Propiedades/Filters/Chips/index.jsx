@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Badge, Container, Stack } from "react-bootstrap";
 
-const FilterChips = ({ onFilterChange }) => {
+const FilterChips = ({ onFilterChange, filters }) => {
   const [selected, setSelected] = useState(0);
 
   const handleSelect = (index) => {
     setSelected(index);
     const bedrooms = index === 0 ? 0 : index;
-    onFilterChange({bedrooms});
+    onFilterChange({ ...filters, bedrooms });
   };
 
   const badges = [

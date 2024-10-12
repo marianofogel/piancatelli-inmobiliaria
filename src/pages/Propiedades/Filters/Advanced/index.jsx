@@ -1,16 +1,7 @@
-import React, { useState } from "react";
-import { Form, Button, FloatingLabel, Container } from "react-bootstrap";
+import { Form, FloatingLabel, Container, Button } from "react-bootstrap";
 import { formatPrice } from "../../../../utils/formatPrice";
 
-const AdvancedFilters = ({ onFilterChange }) => {
-  const [direccion, setDireccion] = useState("");
-  const [tipo, setTipo] = useState("");
-  const [precio, setPrecio] = useState("");
-
-  const handleFilterChange = () => {
-    onFilterChange({ address: direccion, type: tipo, price: precio });
-  };
-
+const AdvancedFilters = ({ onFilterChange, filters }) => {
   return (
     <Container>
       <Form>
@@ -21,35 +12,75 @@ const AdvancedFilters = ({ onFilterChange }) => {
         >
           <Form.Control
             type="text"
-            value={direccion}
-            onChange={(e) => setDireccion(e.target.value)}
+            value={filters?.address}
+            onChange={(e) =>
+              onFilterChange({ ...filters, address: e.target.value })
+            }
           />
         </FloatingLabel>
 
         <FloatingLabel controlId="formTipo" label="Tipo" className="mb-3">
-          <Form.Select value={tipo} onChange={(e) => setTipo(e.target.value)}>
+          <Form.Select
+            value={filters?.type}
+            onChange={(e) =>
+              onFilterChange({ ...filters, type: e.target.value })
+            }
+          >
             <option value="">Seleccione un tipo</option>
             <option value="casa">Casa</option>
             <option value="departamento">Departamento</option>
             <option value="pozo">Pozo</option>
           </Form.Select>
         </FloatingLabel>
-
-        <FloatingLabel controlId="formPrecio" label="Precio" className="pb-4">
-          <Form.Control
-            type="text"
-            value={formatPrice(precio)}
-            onChange={(e) => setPrecio(e.target.value.replace(/\D/g, ""))}
-          />
-          <Form.Range
-            value={precio}
-            onChange={(e) => setPrecio(e.target.value)}
-          />
-        </FloatingLabel>
-
-        <Button variant="primary" onClick={handleFilterChange}>
-          Buscar
-        </Button>
+        <div className="border rounded p-2">
+          <Form.Label className="d-block ">Precio</Form.Label>
+          <div className="d-flex justify-content-between">
+            <FloatingLabel
+              controlId="formMinPrecio"
+              label="Mínimo"
+              className="me-2"
+            >
+              <Form.Control
+                type="text"
+                value={formatPrice(filters?.minPrice)}
+                onChange={(e) =>
+                  onFilterChange({
+                    ...filters,
+                    minPrice: e.target.value.replace(/\D/g, ""),
+                  })
+                }
+              />
+            </FloatingLabel>
+            <FloatingLabel controlId="formMaxPrecio" label="Máximo">
+              <Form.Control
+                type="text"
+                value={formatPrice(filters?.maxPrice)}
+                onChange={(e) =>
+                  onFilterChange({
+                    ...filters,
+                    maxPrice: e.target.value.replace(/\D/g, ""),
+                  })
+                }
+              />
+            </FloatingLabel>
+          </div>
+        </div>
+        <div className="d-flex justify-content-end mt-3">
+          <Button
+            type="button"
+            className="btn btn-secondary"
+            onClick={() =>
+              onFilterChange({
+                address: "",
+                type: "",
+                minPrice: "",
+                maxPrice: "",
+              })
+            }
+          >
+            Resetear Filtros
+          </Button>
+        </div>
       </Form>
     </Container>
   );
