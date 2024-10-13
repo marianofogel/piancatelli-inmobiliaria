@@ -3,7 +3,7 @@ import { formatPrice } from "../../../../utils/formatPrice";
 
 const AdvancedFilters = ({ onFilterChange, filters }) => {
   return (
-    <Container>
+    <Container className="mt-2">
       <Form>
         <FloatingLabel
           controlId="formDireccion"
@@ -68,7 +68,7 @@ const AdvancedFilters = ({ onFilterChange, filters }) => {
         <div className="d-flex justify-content-end mt-3">
           <Button
             type="button"
-            className="btn btn-secondary"
+            className="btn btn-secondary mb-2"
             onClick={() =>
               onFilterChange({
                 address: "",

@@ -1,0 +1,15 @@
+.image-gallery-image{
+    border-radius: 1em;
+}
+
+.image-gallery-index{
+    border-radius: 0 1em 0 0;
+}
+
+.image-gallery-thumbnail-image{
+    border-radius: 0.5em;
+}
+
+.image-gallery-thumbnail{
+    border-radius: 0.7em;
+}
