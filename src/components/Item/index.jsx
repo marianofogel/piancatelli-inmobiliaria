@@ -2,7 +2,7 @@ import { FaBed, FaBath, FaCar, FaRulerCombined } from "react-icons/fa";
 import { Card, Col, Row, Badge } from "react-bootstrap";
 import { formatPrice } from "../../utils/formatPrice";
 
-const Item = ({ property, onClick }) => {
+const Item = ({ property }) => {
   return (
     <Col
       xs={6}
@@ -11,7 +11,6 @@ const Item = ({ property, onClick }) => {
       xl={3}
       className="card-container rounded w-100"
       style={{ cursor: "pointer" }}
-      onClick={() => onClick(property)}
     >
       <Card className="shadow p-0" style={{ borderRadius: "100" }}>
         <div style={{ position: "relative" }}>

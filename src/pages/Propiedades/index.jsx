@@ -1,19 +1,25 @@
 import React, { useState } from "react";
-import PropertyModal from "./Modal";
-import { Item } from "../../components/Item/Item";
+import { Item } from "../../components/Item";
 import Masonry from "react-layout-masonry";
 import FilterLayout from "./Filters";
 import { CgSearchFound } from "react-icons/cg";
 import { Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import useFilterStore from "../../store";
 
-const properties = [
+export const properties = [
   {
     id: 1,
     title: "Property 1",
     address: "123 Main St",
     description: "Description for property 1",
     price: "$100000",
-    images: ["https://via.placeholder.com/300x150"],
+    images: [
+      "https://via.placeholder.com/300x150",
+      "https://via.placeholder.com/300x150",
+      "https://via.placeholder.com/300x150",
+      "https://via.placeholder.com/300x150",
+    ],
     bedrooms: 3,
     bathrooms: 2,
     garage: 1,
@@ -166,19 +172,7 @@ const properties = [
 ];
 
 const PropertiesLayout = () => {
-  const [showModal, setShowModal] = useState(false);
-  const [selectedProperty, setSelectedProperty] = useState(null);
-  const [filters, setFilters] = useState({});
-  console.log(filters);
-  const handleCardClick = (property) => {
-    setSelectedProperty(property);
-    setShowModal(true);
-  };
-
-  const handleCloseModal = () => {
-    setShowModal(false);
-    setSelectedProperty(null);
-  };
+  const { filters, setFilters } = useFilterStore();
 
   const handleFilterChange = (newFilters) => {
     setFilters(newFilters);
@@ -211,13 +205,14 @@ const PropertiesLayout = () => {
   return (
     <FilterLayout onFilterChange={handleFilterChange} filters={filters}>
       {filteredProperties.length > 0 ? (
-        <Masonry columns={{ 100: 1, 520: 2, 992: 3, 1200: 4 }} gap={16}>
+        <Masonry
+          columns={{ 100: 1, 520: 2, 992: 3, 1200: 4, 1500: 5 }}
+          gap={16}
+        >
           {filteredProperties.map((property) => (
-            <Item
-              key={property.id}
-              property={property}
-              onClick={handleCardClick}
-            />
+            <Link to={`${property.id}`} style={{ textDecoration: "none" }}>
+              <Item key={property.id} property={property} />
+            </Link>
           ))}
         </Masonry>
       ) : (
@@ -227,13 +222,6 @@ const PropertiesLayout = () => {
             <p>No se encontraron propiedades con esos filtros.</p>
           </Container>
         )
-      )}
-      {selectedProperty && (
-        <PropertyModal
-          show={showModal}
-          property={selectedProperty}
-          onHide={handleCloseModal}
-        />
       )}
     </FilterLayout>
   );

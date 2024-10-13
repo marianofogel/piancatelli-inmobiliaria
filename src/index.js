@@ -4,6 +4,7 @@ import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import 'react-image-gallery/styles/css/image-gallery.css';
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
