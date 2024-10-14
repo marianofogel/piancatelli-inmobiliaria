@@ -60,9 +60,9 @@
     box-shadow: 3px 3px 0px 0px #e1e1e6, 6px 6px 0px 0px #a19aff, 9px 9px 0px 0px #6459f7;
 }
 
-.titulo {
+#titulo-tu-lugar {
     text-align: center;
-    padding-top: 90vh; /* le da el espacio entre el buscador y el componente TuLugar */
+    /* le da el espacio entre el buscador y el componente TuLugar */
 }
 
 

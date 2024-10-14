@@ -8,7 +8,7 @@ const TuLugar = () => {
 
         <>
             <Container fluid>
-                <div className="titulo">
+                <div id="titulo-tu-lugar">
                     <h2>Encuentra tu lugar</h2>
                 </div>
                 <div className="contenedor">
