@@ -35,7 +35,7 @@
 .buscador-titulo {
     text-align: center;
     font-size: 30px;
-    color: red;
+    color: #e3151b;
     font-weight: bold;
     padding-bottom: 25px;
 }
@@ -53,7 +53,7 @@
 
 #buscador-boton {
     color: rgb(255, 255, 255);
-    background-color: rgb(134, 36, 36);
+    background-color: #e3151b;
     font-size: 20px;
     padding: 2px 30px;
     border-radius: 5px;
@@ -71,10 +71,11 @@ input.buscador-input-text::placeholder {
     box-sizing: border-box;
     font-size: 20px;
     border: none;
+    gap: 5px;
 }
 
 #buscador-select:focus {
-    box-shadow: 0px 0px 5px 0.5px rgb(173, 46, 46)
+    box-shadow: 0px 0px 5px 0.5px #e3151b
     
 }
 
@@ -103,7 +104,7 @@ input.buscador-input-text::placeholder {
     .buscador-titulo {
         text-align: center;
         font-size: 45px;
-        color: red;
+        color: #e3151b;
         font-weight: bold;
         padding-bottom: 25px;
     }
