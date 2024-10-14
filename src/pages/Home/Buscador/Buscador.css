@@ -1,48 +1,127 @@
 .buscador-contenedor {
+    background: url('../../../../public/img/edificio-buscador.jpeg');
     width: 100%;
+    /* Si */
     top: 0;
+    /* Si, lo pone arriba de todo */
     min-height: 100vh;
+    /* Si hace que ocupe todo el alto */
     display: flex;
+    /* Si ayuda a la distribucion del buscador*/
     justify-content: center;
+    /* Si ayuda a la distribucion del buscador*/
     align-items: center;
+    /* Si ayuda a la distribucion del buscador*/
     background-size: cover;
+    /* Si hace que no se repita la imagen */
     background-position: center center;
+    /* Si la mantiene siempre en el centro */
     background-attachment: scroll;
-
-
-    z-index: 1;
-    /* Asegura que esté debajo de la navbar */
     position: absolute;
 }
 
+.buscador-fondo {
+    background-color: rgba(255, 255, 255, 0.9);
+    /* Fondo blanco */
+    padding: 40px;
+    /* le agregamos el borde */
+    border-radius: 15px;
+    width: 60%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
 .buscador-titulo {
-    max-width: 100%;
-    height: auto;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-    /* Añade algo de legibilidad al texto sobre la imagen */
+    text-align: center;
+    font-size: 30px;
+    color: #e3151b;
+    font-weight: bold;
+    padding-bottom: 25px;
 }
 
-.buscador-input {
-    background: rgba(255, 255, 255, 0.63);
-    border-radius: 10px;
+.buscador-form {
+    background-color: rgba(255, 255, 255, 0.9);
+    /* Fondo blanco semitransparente */
+    padding: 10px;
+    border-radius: 15px;
+    /* Bordes redondeados */
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.638);
+    /* Sombra */
+    text-align: center;
 }
 
-.buscador-boton {
-
-    color: white;
-    padding: 10px 20px;
-    border-radius: 10px;
+#buscador-boton {
+    color: rgb(255, 255, 255);
+    background-color: #e3151b;
+    font-size: 20px;
+    padding: 2px 30px;
+    border-radius: 5px;
     cursor: pointer;
-}
-
-
-.option-select {
-    color: black;
+    border: none;
+    margin-top: 12px;
 }
 
 input.buscador-input-text::placeholder {
-    color: #ffffff;
+    color: #000000;
 }
 
+#buscador-select {
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 20px;
+    border: none;
+    gap: 5px;
+}
 
-@media (max-width: 450px) {}
+#buscador-select:focus {
+    box-shadow: 0px 0px 5px 0.5px #e3151b
+}
+
+.buscador-form-group {
+    margin: auto;
+    text-align: center;
+}
+
+.contenedor-boton-conocermas {
+    position: absolute;
+    top: 90%;
+}
+
+#boton-conocermas {
+    background-color: #e3151b;
+    color: #ffffff;
+    font-size: 20px;
+    border-radius: 7px;
+    border: none;
+    align-items: center;
+}
+
+@media (min-width: 1275px) {
+    .buscador-form {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+
+    #buscador-select {
+        align-items: center;
+        width: 180px;
+        font-size: 20px;
+        box-sizing: border-box;
+        border: none;
+    }
+
+    .buscador-titulo {
+        text-align: center;
+        font-size: 45px;
+        color: #e3151b;
+        font-weight: bold;
+        padding-bottom: 25px;
+    }
+
+    .contenedor-boton-conocermas {
+        position: absolute;
+        top: 75%;
+    }
+}

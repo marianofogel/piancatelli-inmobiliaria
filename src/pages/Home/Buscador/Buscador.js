@@ -1,73 +1,55 @@
 import "./Buscador.css"
-import { Container, Form, InputGroup } from 'react-bootstrap';
+import { Container, Form, FormGroup, Button } from 'react-bootstrap';
+import { IoIosArrowDown } from "react-icons/io";
+import { TuLugar } from "../TuLugar"
 
 const Buscador = () => {
 
     return (
-        <Container fluid className="p-0" >
-            <div className="buscador-general-contendor">
-                <div className="buscador-contenedor" style={{
-                    backgroundImage: `url(${process.env.PUBLIC_URL + "/img/edificio-buscador.jpeg"})`
+        <Container fluid className="search-container justify-content-center align-items-center p-0 vh-100">
+            <div>
+                <div className="buscador-contenedor">
+                    <div className="buscador-fondo">
+                        <h2 className="buscador-titulo">Encontrá tu próximo hogar</h2>
 
-                }}>
-                    <div className="text-center text-white" style={{ padding: "50px 0" }}>
-                        <h2 className="buscador-titulo">ENCONTRA TU NUEVO HOGAR</h2>
-
-                        <div className="buscador-form">
-                            <InputGroup id='buscador-input-grupo' className="mb-3" style={{ margin: "auto" }}>
-                                <Form.Select
-                                    className="buscador-select"
-                                    aria-label="Tipo"
-                                    style={{
-                                        backgroundColor: "transparent", // Fondo blanco para los selects
-                                        border: "1px solid #ffffff",
-                                        color: "white",
-                                    }}
-                                >
-                                    <option hidden selected>Tipo</option>
-                                    <option className="option-select">Casa</option>
-                                    <option className="option-select">Departamento</option>
-                                    <option className="option-select">Local</option>
-                                    <option className="option-select">Oficina</option>
+                        <Form className="buscador-form">
+                            <FormGroup className="buscador-form-group">
+                                <Form.Select className="d-flex" id="buscador-select">
+                                    <option hidden selected> Tipo </option>
+                                    <option className="option-select">CASA</option>
+                                    <option className="option-select">DEPARTAMENTOS</option>
+                                    <option className="option-select">LOCAL</option>
+                                    <option className="option-select">OFICINA</option>
                                 </Form.Select>
-                                <Form.Select
-                                    className="buscador-select"
-                                    aria-label="Estado"
-                                    style={{
-                                        backgroundColor: "transparent", // Fondo blanco para los selects
-                                        border: "1px solid #ffffff",
-                                        color: "white",
-
-                                    }}
-
-                                >
-                                    <option hidden selected>Estado</option>
-                                    <option className="option-select">Venta</option>
-                                    <option className="option-select">Alquiler</option>
+                            </FormGroup>
+                            <FormGroup className="buscador-form-group">
+                                <Form.Select className="d-flex" id="buscador-select">
+                                    <option hidden selected> Operación </option>
+                                    <option className="option-select">VENTA</option>
+                                    <option className="option-select">ALQUILER</option>
                                 </Form.Select>
-                                <Form.Control
-                                    className="buscador-input-text"
-                                    type="text"
-                                    placeholder="Ubicacion"
-                                    style={{
-                                        backgroundColor: "transparent" , // Fondo blanco para los selects
-                                        border: "1px solid #ffffff",
-                                    }}
-                                />
-                                <button
-                                    className="buscador-boton"
-                                    style={{
-                                        backgroundColor: "rgb(232, 169, 106)", // Fondo blanco para los selects
-                                        border: "1px solid #ffffff",
-                                        color: "black",
+                            </FormGroup>
+                            <Form.Group className="buscador-form-group">
+                                <Form.Control className="buscador-input-text" type="text" placeholder="Ubicación" id="buscador-select" />
+                            </Form.Group>
 
-                                    }}
+                            <Button id='buscador-boton' className="search-btn mb-3" > Buscar </Button>
+                        </Form>
 
-                                >Buscar</button>
-                            </InputGroup>
-                        </div>
                     </div>
 
+                    <div className="contenedor-boton-conocermas">
+                        <Button id="boton-conocermas" onClick={() => {
+                            // Inicia el scroll suave
+                            document.getElementById("titulo-tu-lugar").scrollIntoView({
+                                block: "start",
+                                behavior: "smooth"
+                            });
+                            setTimeout(() => {
+                                window.scrollBy(0, -90); 
+                            }, 1); // realizo ajuste para que no caiga la navbar en color sobre el titulo de TuLugar
+                        }}> Conocé Más <IoIosArrowDown /> </Button>
+                    </div>
                 </div>
             </div>
         </Container >
