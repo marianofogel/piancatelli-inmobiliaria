@@ -2,7 +2,7 @@ export const properties = [
   {
     id: 1,
     title: "Property 1",
-    address: "123 Main St",
+    address: "Av. Corrientes 123, Buenos Aires",
     description: "Description for property 1",
     price: "$100000",
     images: [
@@ -24,7 +24,7 @@ export const properties = [
   {
     id: 2,
     title: "Property 2",
-    address: "456 Elm St",
+    address: "Calle Florida 456, Buenos Aires",
     description: "Description for property 2",
     price: "$200000",
     images: ["https://via.placeholder.com/300x150"],
@@ -41,7 +41,7 @@ export const properties = [
   {
     id: 3,
     title: "Property 3",
-    address: "789 Oak St",
+    address: "Av. Santa Fe 789, Buenos Aires",
     description: "Description for property 3",
     price: "$300000",
     images: ["https://via.placeholder.com/300"],
@@ -58,7 +58,7 @@ export const properties = [
   {
     id: 4,
     title: "Property 4",
-    address: "101 Pine St",
+    address: "Calle Lavalle 101, Buenos Aires",
     description: "Description for property 4",
     price: "$400000",
     images: ["https://via.placeholder.com/150"],
@@ -75,7 +75,7 @@ export const properties = [
   {
     id: 5,
     title: "Property 5",
-    address: "202 Maple St",
+    address: "Av. Callao 202, Buenos Aires",
     description: "Description for property 5",
     price: "$500000",
     images: ["https://via.placeholder.com/100x150"],
@@ -92,7 +92,7 @@ export const properties = [
   {
     id: 6,
     title: "Property 6",
-    address: "303 Birch St",
+    address: "Calle Rivadavia 303, Buenos Aires",
     description: "Description for property 6",
     price: "$600000",
     images: ["https://via.placeholder.com/300x250"],
@@ -109,7 +109,7 @@ export const properties = [
   {
     id: 7,
     title: "Property 7",
-    address: "404 Cedar St",
+    address: "Av. Belgrano 404, Buenos Aires",
     description: "Description for property 7",
     price: "$700000",
     images: ["https://via.placeholder.com/200x150"],
@@ -126,7 +126,7 @@ export const properties = [
   {
     id: 8,
     title: "Property 8",
-    address: "505 Walnut St",
+    address: "Calle San Martín 505, Buenos Aires",
     description: "Description for property 8",
     price: "$800000",
     images: ["https://via.placeholder.com/250x200"],
@@ -143,7 +143,7 @@ export const properties = [
   {
     id: 9,
     title: "Property 9",
-    address: "606 Chestnut St",
+    address: "Av. de Mayo 606, Buenos Aires",
     description: "Description for property 9",
     price: "$900000",
     images: ["https://via.placeholder.com/350x150"],
@@ -160,7 +160,7 @@ export const properties = [
   {
     id: 10,
     title: "Property 10",
-    address: "707 Spruce St",
+    address: "Calle Reconquista 707, Buenos Aires",
     description: "Description for property 10",
     price: "$1000000",
     images: ["https://via.placeholder.com/300x200"],
@@ -177,7 +177,7 @@ export const properties = [
   {
     id: 11,
     title: "Property 11",
-    address: "808 Fir St",
+    address: "Av. Pueyrredón 808, Buenos Aires",
     description: "Description for property 11",
     price: "$1100000",
     images: ["https://via.placeholder.com/400x300"],
@@ -194,7 +194,7 @@ export const properties = [
   {
     id: 12,
     title: "Property 12",
-    address: "909 Redwood St",
+    address: "Calle Tucumán 909, Buenos Aires",
     description: "Description for property 12",
     price: "$1200000",
     images: ["https://via.placeholder.com/150x100"],

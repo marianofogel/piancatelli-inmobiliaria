@@ -1,17 +1,17 @@
 .image-gallery-image, .image-gallery-slides{
-    border-radius: 1em;
+    border-radius: 0.375em;
 }
 
 .image-gallery-index{
-    border-radius: 0 1em;
+    border-radius: 0 0.375em;
 }
 
 .image-gallery-thumbnail-image{
-    border-radius: 0.5em;
+    border-radius: 0.25em;
 }
 
 .image-gallery-thumbnail{
-    border-radius: 0.7em;
+    border-radius: 0.45em;
 }
 
 .image-gallery-svg{

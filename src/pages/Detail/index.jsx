@@ -11,6 +11,7 @@ import { properties } from "../../_data";
 import { useParams, useNavigate } from "react-router-dom";
 import ImageGallery from "react-image-gallery";
 import { formatPrice } from "../../utils";
+import GoogleMapComponent from "../../components/Map";
 import "./styles.css";
 
 const Detail = () => {
@@ -88,6 +89,13 @@ const Detail = () => {
               <strong>{property.age}</strong> años antigüedad
             </Col>
           </Row>
+        </Card.Body>
+      </Card>
+      <Card className="mt-3 shadow-sm">
+        <Card.Body>
+          <Card.Title>Ubicación</Card.Title>
+          <Card.Text>{property.address}</Card.Text>
+          <GoogleMapComponent address={property.address} />
         </Card.Body>
       </Card>
     </Container>

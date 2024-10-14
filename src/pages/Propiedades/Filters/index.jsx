@@ -16,45 +16,22 @@ const FilterLayout = ({
         <AdvancedFilters onFilterChange={onFilterChange} filters={filters} />
       </aside>
       <header className="filter-layout__header">
-        <Container>
+        <Container fluid>
           <Row className="mb-2 d-flex justify-content-between flex-column flex-md-row p-0">
             <Col sm={12} md={9} lg={10}>
               <FilterChips onFilterChange={onFilterChange} filters={filters} />
             </Col>
-            <Col sm={12} md={3} lg={2} className="mt-2 mt-md-0">
+            <Col sm={12} xxl={2} lg={3} className="mt-2 mt-md-0">
               <Form.Select
                 aria-label="Ordenar por"
                 onChange={handleSortChange}
-                value={sortKey}
+                value={`${sortKey.key}:${sortKey.order}`}
               >
                 <option value="">Ordenar por</option>
-                <option
-                  value={`createdAt:${
-                    sortKey?.key === "createdAt" && sortKey?.order === -1
-                      ? "1"
-                      : "-1"
-                  }`}
-                >
-                  Recientes
-                </option>
-                <option
-                  value={`price:${
-                    sortKey?.key === "price" && sortKey?.order === -1
-                      ? "1"
-                      : "-1"
-                  }`}
-                >
-                  Precio
-                </option>
-                <option
-                  value={`rooms:${
-                    sortKey?.key === "rooms" && sortKey?.order === -1
-                      ? "1"
-                      : "-1"
-                  }`}
-                >
-                  Ambientes
-                </option>
+                <option value={`createdAt:-1`}>Más recientes</option>
+                <option value={`createdAt:1`}>Menos recientes</option>
+                <option value={`price:-1`}>Mayor precio</option>
+                <option value={`price:1`}>Menor precio</option>
               </Form.Select>
             </Col>
           </Row>
