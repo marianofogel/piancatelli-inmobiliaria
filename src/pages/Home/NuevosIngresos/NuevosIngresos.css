@@ -1,0 +1,18 @@
+.contenedor-ingresos{
+    background-color: #191919;
+    text-align: center;
+    
+}
+
+.contenedor-cards{
+    display: flex;
+    width: 95%;
+    justify-content: center;
+    padding: 25px;
+    margin: auto;
+}
+
+.nuevos-ingresos-titulo{
+    padding: 20px;
+    color: white;
+}

@@ -1,0 +1,49 @@
+.contenedor-actividades {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    padding: 20px;
+    border: 2px solid white;
+    background-color: #11111b;
+    text-align: left;
+    display: grid;
+    margin: 20px;
+    box-sizing: border-box;
+}
+
+.actividades {
+    margin-top: 30px;
+    color: #f8f7f7;
+}
+
+.descripcion-actividades {
+    color: #f8f7f7;
+}
+
+.foto-circulo {
+    position: absolute;
+    top: -40px;
+    /* ! POSICIONO EL CIRCULO */
+    left: 30px;
+    /* ! POSICIONO EL CIRCULO */
+    width: 90px;
+    height: 90px;
+    background-color: white;
+    border-radius: 50%;
+    border: 10px solid #11111b;
+}
+
+@media (max-width: 800px) {
+    .contenedor-actividades {
+        position: relative;
+        width: 80%;
+        height: 200px;
+        padding: 20px;
+        border: 2px solid white;
+        background-color: #11111b;
+        text-align: left;
+        display: grid;
+        margin: 20px;
+        box-sizing: border-box;
+    }
+}
