@@ -25,7 +25,6 @@ const Buscador = () => {
                                     <option hidden selected> Operación </option>
                                     <option className="option-select">VENTA</option>
                                     <option className="option-select">ALQUILER</option>
-                                    <option className="option-select">ALQUILERaaaaaaaa</option>
                                 </Form.Select>
                             </FormGroup>
                             <Form.Group className="buscador-form-group">

@@ -51,10 +51,10 @@ const NavbarComponent = () => {
           <Navbar.Brand>
             <Link href="#">
               <Image
-                src={process.env.PUBLIC_URL + "/img/piancatelli-blanco.jpeg"}
+                src={process.env.PUBLIC_URL + "/img/Piancatelli.png"}
                 alt="Company Logo"
-                width={125}
-                height={100}
+                width={130}
+                height={60}
               />
             </Link>
           </Navbar.Brand>
