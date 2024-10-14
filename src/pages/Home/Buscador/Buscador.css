@@ -76,15 +76,26 @@ input.buscador-input-text::placeholder {
 
 #buscador-select:focus {
     box-shadow: 0px 0px 5px 0.5px #e3151b
-    
 }
 
-.buscador-form-group{
+.buscador-form-group {
     margin: auto;
     text-align: center;
 }
 
+.contenedor-boton-conocermas {
+    position: absolute;
+    top: 90%;
+}
 
+#boton-conocermas {
+    background-color: #e3151b;
+    color: #ffffff;
+    font-size: 20px;
+    border-radius: 7px;
+    border: none;
+    align-items: center;
+}
 
 @media (min-width: 1275px) {
     .buscador-form {
@@ -92,7 +103,7 @@ input.buscador-input-text::placeholder {
         width: 100%;
         justify-content: center;
     }
-    
+
     #buscador-select {
         align-items: center;
         width: 180px;
@@ -107,5 +118,10 @@ input.buscador-input-text::placeholder {
         color: #e3151b;
         font-weight: bold;
         padding-bottom: 25px;
+    }
+
+    .contenedor-boton-conocermas {
+        position: absolute;
+        top: 75%;
     }
 }

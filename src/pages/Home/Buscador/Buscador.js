@@ -1,5 +1,6 @@
 import "./Buscador.css"
 import { Container, Form, FormGroup, Button } from 'react-bootstrap';
+import { IoIosArrowDown } from "react-icons/io";
 
 const Buscador = () => {
 
@@ -11,7 +12,7 @@ const Buscador = () => {
                         <h2 className="buscador-titulo">Encontrá tu próximo hogar</h2>
 
                         <Form className="buscador-form">
-                            <FormGroup  className="buscador-form-group">
+                            <FormGroup className="buscador-form-group">
                                 <Form.Select className="d-flex" id="buscador-select">
                                     <option hidden selected> Tipo </option>
                                     <option className="option-select">CASA</option>
@@ -20,7 +21,7 @@ const Buscador = () => {
                                     <option className="option-select">OFICINA</option>
                                 </Form.Select>
                             </FormGroup>
-                            <FormGroup  className="buscador-form-group">
+                            <FormGroup className="buscador-form-group">
                                 <Form.Select className="d-flex" id="buscador-select">
                                     <option hidden selected> Operación </option>
                                     <option className="option-select">VENTA</option>
@@ -30,10 +31,14 @@ const Buscador = () => {
                             <Form.Group className="buscador-form-group">
                                 <Form.Control className="buscador-input-text" type="text" placeholder="Ubicación" id="buscador-select" />
                             </Form.Group>
-                            
-                            <Button id='buscador-boton' className="search-btn mb-3"> Buscar </Button>
 
+                            <Button id='buscador-boton' className="search-btn mb-3" > Buscar </Button>
                         </Form>
+
+                    </div>
+
+                    <div className="contenedor-boton-conocermas">
+                        <Button id="boton-conocermas"> Conocé Más <IoIosArrowDown /> </Button>
                     </div>
                 </div>
             </div>
