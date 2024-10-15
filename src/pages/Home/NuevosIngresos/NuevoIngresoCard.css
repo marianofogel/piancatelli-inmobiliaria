@@ -5,7 +5,6 @@
     overflow: hidden;
 }
 
-
 .imagen-nuevos-ingresos {
     position: relative;
     border: 2px solid #f8f7f7;
@@ -19,12 +18,10 @@
     position: absolute;
     right: 3%;
     top: 3%;
-
     font-size: 20px;
     border-radius: 5px;
     padding-left: 10px;
     padding-right: 10px;
-
 }
 
 .nombre-casa {
@@ -44,5 +41,15 @@
     color: white;
     text-align: right;
     padding: 10px;
+}
 
+.fecha-de-publicacion{
+    background-color: #cda523;
+    position: absolute;
+    left: 3%;
+    top: 3%;
+    font-size: 15px;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
 }

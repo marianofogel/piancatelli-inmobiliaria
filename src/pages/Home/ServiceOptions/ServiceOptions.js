@@ -23,7 +23,7 @@ const servicios = [
 const ServiceOptions = () => {
     return (
         <Container fluid className="p-0">
-            <div className="contenedor-principal">
+            <div id="contenedor-principal-servicios">
                 <h1 className="grid-que-hacen-titulo"> Servicios </h1>
                 <h2 className="grid-que-hacen-titulo"> En Piancatelli Propiedades entendemos que... por eso, tambien ofrecemos... para que ...</h2>
 

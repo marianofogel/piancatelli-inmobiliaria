@@ -32,10 +32,8 @@ const Buscador = () => {
                             <Form.Group className="buscador-form-group">
                                 <Form.Control className="buscador-input-text" type="text" placeholder="Ubicación" id="buscador-select" />
                             </Form.Group>
-
                             <Button id='buscador-boton' className="search-btn mb-3" > Buscar </Button>
                         </Form>
-
                     </div>
 
                     <div className="contenedor-boton-conocermas">
