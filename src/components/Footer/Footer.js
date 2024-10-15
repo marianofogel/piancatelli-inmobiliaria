@@ -5,17 +5,15 @@ import {
     Container,
     Stack,
     Image,
-    NavLink
+    NavLink,
 } from "react-bootstrap";
 import {
     FaInstagram,
-    FaFacebook,
-    FaLinkedin,
     FaMapMarkerAlt,
     FaPhoneAlt,
     FaEnvelope,
     FaWhatsapp,
-    FaRegCopyright,
+
 } from "react-icons/fa"
 import "./Footer.css";
 import FormContacto from "./Contacto";
@@ -30,10 +28,10 @@ const Footer = () => {
         <>
             <footer id="contact-form">
                 <Container fluid>
-                    <Row>
+                    <Row className="footer-row">
                         <Col className="py-3">
                             <Stack>
-                                <div className="col1">
+                                <div className="mx-auto">
                                     <Image
                                         src={process.env.PUBLIC_URL + "/img/piancatelli-blanco.jpeg"}
                                         alt="Company Logo"
@@ -41,17 +39,28 @@ const Footer = () => {
                                         height={150}
                                     />
                                     <h2>Juana Piancatelli</h2>
-                                    <div className="footer-icons">
-                                        <NavLink>
-                                            <FaInstagram size={25} />
-                                        </NavLink>
-                                        <NavLink>
-                                            <FaFacebook size={25} />
-                                        </NavLink>
-                                        <NavLink>
-                                            <FaLinkedin size={25} />
-                                        </NavLink>
+
+                                    <div className="footer-contact">
+                                        <FaMapMarkerAlt />
+                                        Ricchieri 1534 - Hurlingham
                                     </div>
+
+                                    <div className="footer-contact">
+                                        <FaEnvelope />
+                                        tumail@gmail.com
+                                    </div>
+
+                                    <div className="footer-contact">
+                                        <FaPhoneAlt />
+                                        4665-2438
+                                    </div>
+
+                                    <div className="footer-contact">
+                                        <FaWhatsapp />
+                                        1132817839
+                                    </div>
+
+
 
                                     <div className="data-fiscal">
                                         <Image
@@ -62,42 +71,32 @@ const Footer = () => {
                                         />
                                     </div>
                                 </div>
-                            </Stack>
-                        </Col>
-
-                        <Col className="py-3">
-                            <Stack>
-                                <h2>Contactanos</h2>
-
-                                <div className="footer-contact">
-                                    <FaMapMarkerAlt />
-                                    Ricchieri 1534 - Hurlingham
-                                </div>
-
-                                <div className="footer-contact">
-                                    <FaEnvelope />
-                                    tumail@gmail.com
-                                </div>
-
-                                <div className="footer-contact">
-                                    <FaPhoneAlt />
-                                    4665-2438
-                                </div>
-
-                                <div className="footer-contact">
-                                    <FaWhatsapp />
-                                    1132817839
-                                </div>
-
-
 
                             </Stack>
                         </Col>
 
                         <Col className="py-3">
-                            <h2>Envianos tu mensaje!</h2>
+                            <Stack >
+                                <div className="mx-auto">
+                                    <h2 className="footer-titulo">Busqueda Rapida</h2>
+                                    <NavLink className="footer-links" >Ventas en Barrio Privados</NavLink>
+                                    <NavLink className="footer-links">Ventas en Countries</NavLink>
+                                    <NavLink className="footer-links">Alquileres en Barrios Privados</NavLink>
+                                    <NavLink className="footer-links">Alquileres en Countries</NavLink>
+                                    <NavLink className="footer-links">Casas en zona</NavLink>
+                                    <NavLink className="footer-links">Lotes en zona</NavLink>
+                                    <NavLink className="footer-links">Casas en zona</NavLink>
+                                    <NavLink className="footer-links">Lotes en zona</NavLink>
+                                </div>
+                            </Stack>
+                        </Col>
 
-                            <FormContacto />
+                        <Col className="py-3">
+                            <div className="d-grid justify-content-center">
+                                <h2>Envianos tu mensaje!</h2>
+
+                                <FormContacto />
+                            </div>
                         </Col>
                     </Row>
                 </Container>

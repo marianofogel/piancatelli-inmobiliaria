@@ -1,72 +1,3 @@
-.contenedor {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-    padding: 40px 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 20px;
-    
-}
-
-.contenedor-cards {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 20px;
-}
-
-.card {
-    border-radius: 10px;
-    min-height: 215px;
-    font-weight: bold;
-    padding: 20px;
-    position: relative;
-    overflow: hidden;
-    display: inline-block;
-    background-size: cover;
-    background-position: center center;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
-    
-}
-
-.banner {
-    border-radius: 10px;
-    min-height: 450px;
-    text-align: center;
-    font-weight: bold;
-    position: relative;
-    overflow: hidden;
-    padding: 20px;
-    background-size: cover;
-    background-position: center center;
-    
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
-    /*eliminar si dejamos sombra triple*/
-}
-
-
-.link-card {
-    max-height: 200px;
-}
-
-/*  SOMBRA TRIPLE*/
-
-
-/* .card:hover {
-    box-shadow: 3px 3px 0px 0px #e1e1e6, 6px 6px 0px 0px #a19aff, 9px 9px 0px 0px #6459f7;
-} */
-
-.banner:hover {
-    box-shadow: 3px 3px 0px 0px #e1e1e6, 6px 6px 0px 0px #a19aff, 9px 9px 0px 0px #6459f7;
-}
-
-#titulo-tu-lugar {
-    text-align: center;
-    /* le da el espacio entre el buscador y el componente TuLugar */
-}
-
-
-
 
 @media (max-width: 750px) {
     .contenedor {
@@ -75,9 +6,5 @@
         
     }
 
-    .banner,
-    .card {
-        min-height: 200px;
-        text-align: left;
-    }
+
 }

@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
-import { Form } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 import emailjs from "@emailjs/browser"
+import "./Footer.css";
 export default function FormContacto() {
 
     const refForm = useRef();
@@ -20,12 +21,13 @@ export default function FormContacto() {
     }
 
     return (
-        <Form ref={refForm} onSubmit={handleSubmit}>
+
+        <Form className="form-contacto" ref={refForm} onSubmit={handleSubmit}>
             <Form.Group className="mb-3" >
                 <Form.Control
                     name="from_name"
                     type="text"
-                    placeholder="Nombre Completo"
+                    placeholder="Nombre y Apellido"
                     required
                     minLength={2}
                     maxLength={25}
@@ -33,45 +35,37 @@ export default function FormContacto() {
             </Form.Group>
             <Form.Group className="mb-3" >
                 <Form.Control
-
-                    name="email"
-                    id="email"
-                    type="email"
-                    placeholder="Correo electronico"
-                    required
-                />
-            </Form.Group>
-            <Form.Group className="mb-3">
-                <Form.Control
                     className="number"
                     type="number"
                     name="number"
-                    placeholder="Numero de Telefono"
+                    placeholder="Telefono"
                     minLength={8}
                     maxLength={14}
                 />
             </Form.Group>
             <Form.Group className="mb-3">
                 <Form.Control
-                    type="text"
-                    name="asunto"
-                    placeholder="Asunto"
-                    minLength={3}
-                    maxLength={40}
+                    name="email"
+                    id="email"
+                    type="email"
+                    placeholder="E-mail"
                     required
                 />
+
             </Form.Group>
             <Form.Group className="mb-3">
                 <Form.Control
                     as="textarea"
-                    rows={3}
+                    rows={5}
                     name="message"
                     placeholder="Ingrese su consulta"
                     required
                 />
+
             </Form.Group>
-            <button className="boton-form">Enviar</button>
-        </Form>
+            <Button className="boton-form">Enviar</Button>
+        </Form >
+
     )
 
 
