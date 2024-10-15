@@ -45,27 +45,29 @@ const NavbarComponent = () => {
     <>
       <Navbar
         className={`navbar sticky-top ${navbarTransparente ? "scrolled" : ""}`}
-        expand="md"
+        expand="lg"
       >
         <Container fluid>
           <Navbar.Brand>
             <Link href="#">
               <Image
-                src={process.env.PUBLIC_URL + "/img/piancatelli-blanco.jpeg"}
+                src={process.env.PUBLIC_URL + "/img/Piancatelli.png"}
                 alt="Company Logo"
-                width={125}
-                height={100}
+                width={130}
+                height={60}
               />
             </Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" className="colapse" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto" id="nav-general">
-              <Nav.Link href="/home" className="links-navbar">
-                HOME
+              <Nav.Link href="/" className="links-navbar" id="inicio-navbar">
+                INICIO
               </Nav.Link>
-              <NavDropdown title="CATÁLOGO" id="basic-nav-dropdown">
-                <NavDropdown.Item href="/casas" id="navbar-item-drop">CASAS</NavDropdown.Item>
+              <NavDropdown title="PROPIEDADES" id="basic-nav-dropdown" alignRight>
+                <NavDropdown.Item href="/casas" id="navbar-item-drop">
+                  CASAS
+                </NavDropdown.Item>
                 <NavDropdown.Item href="/departamentos" id="navbar-item-drop">
                   DEPARTAMENTOS
                 </NavDropdown.Item>
@@ -73,10 +75,23 @@ const NavbarComponent = () => {
                   MONOAMBIENTE
                 </NavDropdown.Item>
               </NavDropdown>
-              <Nav.Link href="/servicios" className="links-navbar">
+              <Nav.Link className="links-navbar" onClick={() => {
+                document.getElementById("contenedor-principal-servicios").scrollIntoView({
+                })
+                setTimeout(() => {
+                  window.scrollBy(0, -78);
+                }, 1);;
+              }}>
                 SERVICIOS
               </Nav.Link>
-              <Nav.Link href="/destacadas" className="links-navbar">
+              <Nav.Link className="links-navbar" onClick={() => {
+                document.getElementById("contenedor-ingresos").scrollIntoView({
+                })
+
+                setTimeout(() => {
+                  window.scrollBy(0, -78);
+                }, 1);
+              }}>
                 DESTACADAS
               </Nav.Link>
               <Nav.Link

@@ -1,0 +1,59 @@
+.contenedor-nuevos-ingresos {
+    width: 100%;
+    border: 1px solid #f8f7f7;
+    position: relative;
+    overflow: hidden;
+}
+
+.imagen-nuevos-ingresos {
+    position: relative;
+    border: 2px solid #f8f7f7;
+    width: 100%;
+    height: 350px;
+    box-sizing: border-box;
+}
+
+.estado-casa {
+    background-color: #e3151b;
+    position: absolute;
+    right: 3%;
+    top: 3%;
+
+    font-size: 20px;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+}
+
+.nombre-casa {
+    font-size: 30px;
+}
+
+.contenedor-textos-nuevos-ingresos {
+    border: 2px solid #f8f7f7;
+    color: #f8f7f7;
+    text-align: left;
+    padding-left: 10px;
+    font-size: 13px;
+}
+
+.valor-casa {
+    border: 2px solid #f8f7f7;
+    color: white;
+    text-align: right;
+    padding: 10px;
+}
+
+.fecha-de-publicacion{
+    background-color: #cda523;
+    position: absolute;
+    left: 3%;
+    top: 3%;
+
+    font-size: 15px;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+}
