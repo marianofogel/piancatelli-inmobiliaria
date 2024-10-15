@@ -4,7 +4,7 @@ import { Container, Form, InputGroup } from 'react-bootstrap';
 const Buscador = () => {
 
     return (
-        <Container fluid className="p-0" >
+        <Container fluid className="p-0 vh-100" >
             <div className="buscador-general-contendor">
                 <div className="buscador-contenedor" style={{
                     backgroundImage: `url(${process.env.PUBLIC_URL + "/img/edificio-buscador.jpeg"})`
@@ -50,7 +50,7 @@ const Buscador = () => {
                                     type="text"
                                     placeholder="Ubicacion"
                                     style={{
-                                        backgroundColor: "transparent" , // Fondo blanco para los selects
+                                        backgroundColor: "transparent", // Fondo blanco para los selects
                                         border: "1px solid #ffffff",
                                     }}
                                 />
