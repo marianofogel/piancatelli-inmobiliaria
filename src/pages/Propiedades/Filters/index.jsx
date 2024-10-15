@@ -1,6 +1,5 @@
 import { Col, Container, Form, Row } from "react-bootstrap";
 import AdvancedFilters from "../Filters/Advanced";
-import FilterChips from "../Filters/Chips";
 import "./style.css";
 
 const FilterLayout = ({
@@ -18,14 +17,15 @@ const FilterLayout = ({
       <header className="filter-layout__header">
         <Container fluid>
           <Row className="mb-2 d-flex justify-content-between flex-column flex-md-row p-0">
-            <Col sm={12} md={9} lg={10}>
-              <FilterChips onFilterChange={onFilterChange} filters={filters} />
+            <Col>
+              <h3 style={{ color: "red" }}>Propiedades {filters.type ?? ""}</h3>
             </Col>
             <Col sm={12} xxl={2} lg={3} className="mt-2 mt-md-0">
               <Form.Select
                 aria-label="Ordenar por"
                 onChange={handleSortChange}
                 value={`${sortKey.key}:${sortKey.order}`}
+                style={{ color: "#c59f37", borderColor: "#c59f37" }}
               >
                 <option value="">Ordenar por</option>
                 <option value={`createdAt:-1`}>Más recientes</option>

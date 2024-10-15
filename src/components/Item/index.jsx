@@ -16,12 +16,12 @@ const Item = ({ property }) => {
         <div style={{ position: "relative" }}>
           <Card.Img variant="top" src={property.images[0]} alt="..." />
           <Badge
-            bg="light"
-            text="dark"
+            bg="danger"
             style={{
               position: "absolute",
-              top: "10px",
-              left: "10px",
+              top: window.innerWidth > 230 ? "10px" : "40px",
+              right: window.innerWidth > 230 ? "10px" : "",
+              left: window.innerWidth <= 230 ? "10px" : "",
               padding: "5px 10px",
               fontSize: "0.75rem",
               textTransform: "capitalize",
@@ -30,13 +30,12 @@ const Item = ({ property }) => {
             {property.operation}
           </Badge>
           <Badge
-            bg="primary"
-            text="white"
+            bg="warning"
             style={{
               position: "absolute",
-              top: window.innerWidth > 230 ? "10px" : "40px",
-              right: window.innerWidth > 230 ? "10px" : "",
-              left: window.innerWidth <= 230 ? "10px" : "",
+              backgroundColor: "#c59f37",
+              top: "10px",
+              left: "10px",
               padding: "5px 10px",
               fontSize: "0.75rem",
               textTransform: "capitalize",
@@ -49,7 +48,7 @@ const Item = ({ property }) => {
           <Card.Title>
             <div
               style={{
-                color: "green",
+                color: "#c59f37",
                 fontWeight: "bold",
                 fontSize: "1.25rem",
               }}
@@ -65,22 +64,24 @@ const Item = ({ property }) => {
             <Col xs={12} className="mt-auto m-1 p-2">
               <div className="d-flex justify-content-around">
                 <div>
-                  <FaBed color="cornflowerblue" /> {property.rooms}
+                  <FaBed color="#c59f37" /> {property.rooms}
                 </div>
                 <div>
-                  <FaBath color="cornflowerblue" /> {property.bathrooms}
+                  <FaBath color="#c59f37" /> {property.bathrooms}
                 </div>
                 <div>
-                  <FaCar color="cornflowerblue" /> {property.garage}
+                  <FaCar color="#c59f37" /> {property.garage}
                 </div>
                 <div>
-                  <FaRulerCombined color="cornflowerblue" /> {property.surface}{" "}
-                  m²
+                  <FaRulerCombined color="#c59f37" /> {property.surface} m²
                 </div>
               </div>
             </Col>
           </Row>
         </Card.Body>
+        <Card.Footer>
+          <small className="text-muted">Más detalles</small>
+        </Card.Footer>
       </Card>
     </Col>
   );
