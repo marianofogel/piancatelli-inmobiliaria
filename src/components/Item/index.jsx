@@ -1,6 +1,6 @@
 import { FaBed, FaBath, FaCar, FaRulerCombined } from "react-icons/fa";
 import { Card, Col, Row, Badge } from "react-bootstrap";
-import { formatPrice } from "../../utils/formatPrice";
+import { formatPrice } from "../../utils";
 
 const Item = ({ property }) => {
   return (
@@ -22,6 +22,21 @@ const Item = ({ property }) => {
               position: "absolute",
               top: "10px",
               left: "10px",
+              padding: "5px 10px",
+              fontSize: "0.75rem",
+              textTransform: "capitalize",
+            }}
+          >
+            {property.operation}
+          </Badge>
+          <Badge
+            bg="primary"
+            text="white"
+            style={{
+              position: "absolute",
+              top: window.innerWidth > 230 ? "10px" : "40px",
+              right: window.innerWidth > 230 ? "10px" : "",
+              left: window.innerWidth <= 230 ? "10px" : "",
               padding: "5px 10px",
               fontSize: "0.75rem",
               textTransform: "capitalize",
@@ -50,7 +65,7 @@ const Item = ({ property }) => {
             <Col xs={12} className="mt-auto m-1 p-2">
               <div className="d-flex justify-content-around">
                 <div>
-                  <FaBed color="cornflowerblue" /> {property.bedrooms}
+                  <FaBed color="cornflowerblue" /> {property.rooms}
                 </div>
                 <div>
                   <FaBath color="cornflowerblue" /> {property.bathrooms}
