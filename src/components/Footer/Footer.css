@@ -1,14 +1,20 @@
-/* USA CLASES PROPIAS
-.row {
+
+.footer-row {
   background-color: #0a212b;
   color: #c7c7c7;
-} */
+} 
 
 .footer-bottom {
   background-color: #03161d;
+  color: white;
 }
 
-
+.footer-links{
+  display: flex;
+  padding-top: 15px !important;
+ color: black;
+ width: 220px;
+}
 .boton-form {
   border-radius: 8px;
 }
@@ -49,9 +55,24 @@
   float: right;
 }
 
-.githubButton {
-  border-radius: 20px;
-  border-color: #7e7e7e;
+
+
+
+.footer-titulo{
+ 
+  text-align: center ;
+}
+
+.form-contacto{
+  width: 400px !important;
+  
+ 
+}
+
+.boton-form{
+  margin-left: 130px;
+  width: 150px;
+  background-color: #99610d !important;
 }
 
 @layer base {
