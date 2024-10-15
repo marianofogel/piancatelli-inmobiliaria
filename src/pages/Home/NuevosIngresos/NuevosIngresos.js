@@ -10,7 +10,7 @@ const NuevosIngresos = () => {
     return (
         <>
             <Container fluid className="p-0">
-                <div className="contenedor-ingresos">
+                <div id="contenedor-ingresos">
                     <h1 className="nuevos-ingresos-titulo"> Nuevos Ingresos </h1>
                     <div className="contenedor-cards">
                         {lastThree.map((nuevoIngreso, index) => (
