@@ -8,9 +8,9 @@ const TuLugar = () => {
     return (
 
         <>
-            <Container fluid>
+            <Container className="p-0" fluid>
 
-                <h1 className="text-center">Encuentra tu lugar!</h1>
+                <h1 id="titulo-tu-lugar" className="text-center">Encuentra tu lugar!</h1>
 
                 <SliderTuLugar />
 
