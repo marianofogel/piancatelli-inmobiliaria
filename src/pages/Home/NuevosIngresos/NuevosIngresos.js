@@ -1,41 +1,10 @@
 import { NuevosIngresosCard } from "./NuevoIngresoCard"
 import { Container } from "react-bootstrap"
 import './NuevosIngresos.css'
+import { properties } from "../../../_data/index"
 
-const nuevosIngresos = [
-    {
-        imageSrc: "/img/piancatelli-gris.jpeg",
-        casaNombre: "Casa 1",
-        barrioCasa: "Hurlingham",
-        metrosCuadradoCasa: "200m2",
-        dormitoriosCasa: "4 dormitorios",
-        banosCasa: "2 baños",
-        casaValor: "200.000.000",
-        estadoCasa: "Alquiler"
-    },
-    {
-        imageSrc: "/img/hurlingham.jpg",
-        casaNombre: "Casa 2",
-        barrioCasa: "Hurlingham",
-        metrosCuadradoCasa: "600m2",
-        dormitoriosCasa: "2 dormitorios",
-        banosCasa: "1 baños",
-        casaValor: "100.000.000",
-        estadoCasa: "Alquiler"
-    },
-    {
-        imageSrc: "/img/piancatelli-gris.jpeg",
-        casaNombre: "Casa 3",
-        barrioCasa: "Hurlingham",
-        metrosCuadradoCasa: "2000m2",
-        dormitoriosCasa: "10 dormitorios",
-        banosCasa: "14 baños",
-        casaValor: "500.000",
-        estadoCasa: "Alquiler"
-    },
-
-]
-
+const sortCreatedAt = properties.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+const lastThree = sortCreatedAt.slice(0, 3)
 
 const NuevosIngresos = () => {
     return (
@@ -44,17 +13,19 @@ const NuevosIngresos = () => {
                 <div className="contenedor-ingresos">
                     <h1 className="nuevos-ingresos-titulo"> Nuevos Ingresos </h1>
                     <div className="contenedor-cards">
-                        {nuevosIngresos.map((nuevoIngreso, index) => (
+                        {lastThree.map((nuevoIngreso, index) => (
                             <NuevosIngresosCard key={index}
-                                imageSrc={nuevoIngreso.imageSrc}
-                                casaNombre={nuevoIngreso.casaNombre}
-                                barrioCasa={nuevoIngreso.barrioCasa}
-                                metrosCuadradoCasa={nuevoIngreso.metrosCuadradoCasa}
-                                dormitoriosCasa={nuevoIngreso.dormitoriosCasa}
-                                banosCasa={nuevoIngreso.banosCasa}
-                                casaDescripcion={nuevoIngreso.casaDescripcion}
-                                casaValor={nuevoIngreso.casaValor}
-                                estadoCasa={nuevoIngreso.estadoCasa} />
+                                imageSrc={nuevoIngreso.images}
+                                casaNombre={nuevoIngreso.title}
+                                barrioCasa={nuevoIngreso.address}
+                                metrosCuadradoCasa={nuevoIngreso.surface + "m2"}
+                                dormitoriosCasa={nuevoIngreso.rooms + " habitaciones"}
+                                banosCasa={nuevoIngreso.bathrooms + " baños"}
+                                casaDescripcion={nuevoIngreso.description}
+                                casaValor={nuevoIngreso.price}
+                                estadoCasa={nuevoIngreso.operation}
+                                createdAt={nuevoIngreso.createdAt} />
+
                         ))}
                     </div>
                 </div>
