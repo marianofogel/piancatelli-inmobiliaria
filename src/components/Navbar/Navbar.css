@@ -5,19 +5,12 @@
 
 }
 
-#inicio-navbar {
-  font-weight: bold;
-  
-}
-
 .navbar.scrolled {
   background-color: rgb(232, 169, 106);
 }
 
-.navbar .links-navbar,
-.navbar #basic-nav-dropdown {
+.navbar .links-navbar{
   position: relative;
-  color: rgb(255, 255, 255);
   transition: color 1s ease;
   padding-left: 25px !important;
   padding-right: 25px !important;
@@ -28,11 +21,6 @@
 .links-navbar:hover{
   color: rgb(255, 255, 255) !important;
 }
-
-.links-navbar:focus{
-  color: rgb(255, 255, 255) !important;
-}
-
 
 #basic-navbar-nav {
   justify-content: flex-end;
