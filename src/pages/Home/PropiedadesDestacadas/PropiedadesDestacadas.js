@@ -1,14 +1,11 @@
-
 import React, { useRef, useState } from 'react';
 import { Card, Image, Container } from 'react-bootstrap';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
 import 'swiper/css';
 import 'swiper/css/pagination';
-
 import { Autoplay, Pagination } from "swiper/modules";
-
 import "./PropiedadesDestacadas.css"
+import { DestacadasSwiperCard } from './DestacadasCard';
 
 const PropertyCarousel = () => {
 
@@ -20,8 +17,8 @@ const PropertyCarousel = () => {
     };
 
     return (
-        <Container fluid>
-            <div className='swiper-container'>
+        <Container fluid className='p-0'>
+            <div className='swiper-container '>
                 <Swiper
                     spaceBetween={10}
                     centeredSlides={true}
@@ -35,73 +32,20 @@ const PropertyCarousel = () => {
                     modules={[Pagination]}
                     onAutoplayTimeLeft={onAutoplayTimeLeft}
                     className='swiperDestacadas'
-
-
                 >
 
                     <SwiperSlide className="slide-destacadas">
-                        <div className='div-slide-propiedades'>
-                            <Image className='slide-imagen'
-                                src={process.env.PUBLIC_URL + "/img/edificio-buscador.jpeg"}
-                            />
-
-                            <Card className="card-destacadas">
-                                <Card.Body>
-                                    <Card.Title>Alquiler</Card.Title>
-                                    <Card.Text>
-                                        Nombre de la propiedad<br />
-                                        Barrio<br />
-                                        Mts²
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-
-
-
-                        </div>
+                        <DestacadasSwiperCard />
                     </SwiperSlide>
+
                     <SwiperSlide className="slide-destacadas">
-                        <div className='div-slide-propiedades'>
-                            <Image className='slide-imagen'
-                                src={process.env.PUBLIC_URL + "/img/edificio-buscador.jpeg"}
-                            />
-
-                            <Card className="card-destacadas">
-                                <Card.Body>
-                                    <Card.Title>Alquiler</Card.Title>
-                                    <Card.Text>
-                                        Nombre de la propiedad<br />
-                                        Barrio<br />
-                                        Mts²
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-
-
-
-                        </div>
+                        <DestacadasSwiperCard />
                     </SwiperSlide>
+
                     <SwiperSlide className="slide-destacadas">
-                        <div className='div-slide-propiedades'>
-                            <Image className='slide-imagen'
-                                src={process.env.PUBLIC_URL + "/img/edificio-buscador.jpeg"}
-                            />
-
-                            <Card className="card-destacadas">
-                                <Card.Body>
-                                    <Card.Title>Alquiler</Card.Title>
-                                    <Card.Text>
-                                        Nombre de la propiedad<br />
-                                        Barrio<br />
-                                        Mts²
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-
-
-
-                        </div>
+                        <DestacadasSwiperCard />
                     </SwiperSlide>
+
 
                     <div className="autoplay-progress" slot="container-end">
                         <svg viewBox="0 0 48 48" ref={progressCircle}>
