@@ -10,15 +10,17 @@ const FilterLayout = ({
   sortKey,
 }) => {
   return (
-    <div className="filter-layout">
+    <div className="filter-layout mb-5">
       <aside className="filter-layout__aside">
         <AdvancedFilters onFilterChange={onFilterChange} filters={filters} />
       </aside>
       <header className="filter-layout__header">
-        <Container fluid>
+        <Container fluid className="pt-2">
           <Row className="mb-2 d-flex justify-content-between flex-column flex-md-row p-0">
             <Col>
-              <h3 style={{ color: "red" }}>Propiedades {filters.type ?? ""}</h3>
+              <h3 style={{ color: "red" }}>
+                Propiedades {filters.operation ? `en ${filters.operation}` : ""}
+              </h3>
             </Col>
             <Col sm={12} xxl={2} lg={3} className="mt-2 mt-md-0">
               <Form.Select

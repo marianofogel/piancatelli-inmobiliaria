@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Item } from "../../components/Item";
 import Masonry from "react-layout-masonry";
 import FilterLayout from "./Filters";

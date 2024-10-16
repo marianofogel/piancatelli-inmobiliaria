@@ -1,9 +1,10 @@
 import {
   Form,
-  FloatingLabel,
   Container,
   Button,
   ButtonGroup,
+  FloatingLabel,
+  Dropdown,
 } from "react-bootstrap";
 import { formatPrice } from "../../../../utils/formatPrice";
 
@@ -28,7 +29,7 @@ const AdvancedFilters = ({ onFilterChange, filters }) => {
                           onFilterChange({ ...filters, [key]: "" })
                         }
                       >
-                        {key}: {filters[key]} &times;
+                        {filters[key]} &times;
                       </Button>
                     );
                   }
@@ -46,11 +47,11 @@ const AdvancedFilters = ({ onFilterChange, filters }) => {
         </div>
       )}
       <Form>
-        <FloatingLabel
+        <Form.Group
           controlId="formDireccion"
-          label="Dirección"
-          className="mb-3"
+          className="border rounded p-2 mb-3"
         >
+          <Form.Label style={{ color: "red" }}>Dirección</Form.Label>
           <Form.Control
             type="text"
             value={filters?.address}
@@ -58,8 +59,9 @@ const AdvancedFilters = ({ onFilterChange, filters }) => {
               onFilterChange({ ...filters, address: e.target.value })
             }
           />
-        </FloatingLabel>
-        <FloatingLabel controlId="formTipo" label="Tipo" className="mb-3">
+        </Form.Group>
+        <Form.Group controlId="formTipo" className="border rounded p-2 mb-3">
+          <Form.Label style={{ color: "red" }}>Tipo de propiedad</Form.Label>
           <Form.Select
             value={filters?.type}
             onChange={(e) =>
@@ -71,12 +73,12 @@ const AdvancedFilters = ({ onFilterChange, filters }) => {
             <option value="departamento">Departamento</option>
             <option value="pozo">Terreno o lote</option>
           </Form.Select>
-        </FloatingLabel>
-        <FloatingLabel
+        </Form.Group>
+        <Form.Group
           controlId="formOperacion"
-          label="Operación"
-          className="mb-3"
+          className="border rounded p-2 mb-3"
         >
+          <Form.Label style={{ color: "red" }}>Tipo de operación</Form.Label>
           <Form.Select
             value={filters?.operation}
             onChange={(e) =>
@@ -88,9 +90,31 @@ const AdvancedFilters = ({ onFilterChange, filters }) => {
             <option value="alquiler">Alquiler</option>
             <option value="alquiler temporal">Alquiler Temporal</option>
           </Form.Select>
-        </FloatingLabel>
+        </Form.Group>
         <div className="border rounded p-2 mb-3">
-          <Form.Label className="d-block ">Precio</Form.Label>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              marginBottom: "0.5em",
+            }}
+          >
+            <Form.Label className="d-block" style={{ color: "red" }}>
+              Precio
+            </Form.Label>
+            <Form.Select
+              size="sm"
+              value={filters?.ccy}
+              onChange={(e) =>
+                onFilterChange({ ...filters, ccy: e.target.value })
+              }
+              className="w-50"
+            >
+              <option value="">Moneda</option>
+              <option value="ars">ARS</option>
+              <option value="usd">USD</option>
+            </Form.Select>
+          </div>
           <div className="d-flex justify-content-between">
             <FloatingLabel
               controlId="formMinPrecio"
@@ -152,11 +176,11 @@ const AdvancedFilters = ({ onFilterChange, filters }) => {
             ))}
           </ButtonGroup>
         </div>
-        <FloatingLabel
+        <Form.Group
           controlId="formAntiguedad"
-          label="Antiguedad"
-          className="mb-3"
+          className="border rounded p-2 mb-3"
         >
+          <Form.Label style={{ color: "red" }}>Antiguedad</Form.Label>
           <Form.Select
             value={filters?.age}
             onChange={(e) =>
@@ -171,7 +195,7 @@ const AdvancedFilters = ({ onFilterChange, filters }) => {
             <option value="30">Menos de 30 años</option>
             <option value="50">Más de 50 años</option>
           </Form.Select>
-        </FloatingLabel>
+        </Form.Group>
       </Form>
     </Container>
   );
