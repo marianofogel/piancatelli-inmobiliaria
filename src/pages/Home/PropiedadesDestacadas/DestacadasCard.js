@@ -21,9 +21,6 @@ const DestacadasSwiperCard = () => {
                     </Card.Body>
                 </Card>
             </div>
-
-
-
         </div>
     )
 }
