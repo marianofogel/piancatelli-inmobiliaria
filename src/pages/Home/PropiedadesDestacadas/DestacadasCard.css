@@ -1,0 +1,54 @@
+.div-slide-propiedades {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Centrar horizontalmente */
+    align-items: center;
+    /* Centrar verticalmente */
+    height: 100%;
+    width: 100%;
+}
+
+.slide-imagen {
+    width: 85% !important;
+    height: 90%;
+    object-fit: cover; 
+}
+
+.datos-destacadas{
+    position:absolute;
+    bottom: 0%;
+    right: 5%;
+    width: 20%;    
+}
+
+
+.card-destacadas-body {
+    background-color: rgb(234, 181, 57);
+}
+
+.card-destacadas-estado {
+    font-weight: bold !important;
+    font-size: x-large !important;
+    text-align: left;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.903);
+    border-radius: 2px;
+    padding: 3px;
+}
+
+.card-destacadas-textos{
+    font-size: large;
+}
+
+@media (max-width: 800px) {
+    .datos-destacadas{
+        position:absolute;
+        bottom: 0%;
+        
+        width: 60%;    
+    }
+    
+}
