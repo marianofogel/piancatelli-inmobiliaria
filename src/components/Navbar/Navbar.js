@@ -94,11 +94,11 @@ const NavbarComponent = () => {
                 className="links-navbar"
                 onClick={() => {
                   document
-                    .getElementById("contenedor-ingresos")
+                    .getElementById("titulo-swiper-destacadas")
                     .scrollIntoView({});
 
                   setTimeout(() => {
-                    window.scrollBy(0, -78);
+                    window.scrollBy(0, -98);
                   }, 1);
                 }}
               >
