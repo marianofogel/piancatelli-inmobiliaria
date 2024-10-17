@@ -3,6 +3,7 @@
   height: 70vh;
   padding-top: 50px;
   padding-bottom: 50px;
+  display: flex;
 }
 
 .swiper-slide {
@@ -10,9 +11,7 @@
   background-size: cover;
   width: 400px;
   height: 400px;
-
   transition: transform 0.3s ease, opacity 0.3s ease;
-
 }
 
 .swiper-slide-prev,
@@ -30,14 +29,15 @@
 }
 
 .swiper-slide img {
-  display: block;
+  display: flex;
   width: 100%;
 }
 
 .swipper-div-contenedor {
+  display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(46, 7, 7);
+  background-color: rgb(255, 0, 0);
 }
 
 @media (max-width: 750px) {

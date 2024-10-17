@@ -119,8 +119,6 @@ const NavbarComponent = () => {
               >
                 CONTACTO
               </Nav.Link>
-
-
             </Nav>
           </Navbar.Collapse>
         </Container>
