@@ -50,3 +50,21 @@
   stroke-dasharray: 125.6;
   transform: rotate(-90deg);
 }
+
+/* Puntos inactivos */
+.swiper-container .swiper-pagination-bullet {
+  width: 20px;
+  height: 20px;
+  background-color: #ffffff; /* Color de los puntos inactivos */
+  border-radius: 50%;
+  border: 2px solid #cda523;
+  margin: 0 8px; 
+  opacity: 0.5; 
+  transition: background-color 0.3s ease, transform 0.3s ease; 
+}
+
+/* Punto activo */
+.swiper-container .swiper-pagination-bullet-active {
+  background-color: #cda523;
+  transform: scale(1); 
+}

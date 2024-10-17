@@ -7,7 +7,7 @@ const TuLugar = () => {
     return (
 
         <>
-            <Container className="p-0" fluid>
+            <Container className="contenerdor-tu-lugar-ahora p-0" fluid>
 
                 <h1 id="titulo-tu-lugar" className="text-center" >Encuentra tu lugar!</h1>
 

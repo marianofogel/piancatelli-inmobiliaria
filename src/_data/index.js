@@ -6,12 +6,7 @@ export const properties = [
     description: "Description for property 1",
     price: "$100000",
     ccy: "ars",
-    images: [
-      "https://via.placeholder.com/300x150",
-      "https://via.placeholder.com/300x150",
-      "https://via.placeholder.com/300x150",
-      "https://via.placeholder.com/300x150",
-    ],
+    images: ["/img/piancatelli-blanco.jpeg"],
     rooms: 3,
     bathrooms: 2,
     garage: 1,
@@ -21,6 +16,7 @@ export const properties = [
     reserved: false,
     age: 5,
     createdAt: "2024-01-01",
+    highlighted: true
   },
   {
     id: 2,
@@ -38,7 +34,8 @@ export const properties = [
     operation: "alquiler",
     reserved: true,
     age: 10,
-    createdAt: "2023-02-01",
+    createdAt: "2024-02-01",
+    highlighted: false
   },
   {
     id: 3,
@@ -56,7 +53,8 @@ export const properties = [
     operation: "venta",
     reserved: false,
     age: 1,
-    createdAt: "2023-03-01",
+    createdAt: "2024-03-01",
+    highlighted: true
   },
   {
     id: 4,
@@ -74,7 +72,8 @@ export const properties = [
     operation: "alquiler",
     reserved: true,
     age: 15,
-    createdAt: "2023-04-01",
+    createdAt: "2024-04-01",
+    highlighted: true
   },
   {
     id: 5,
@@ -93,6 +92,7 @@ export const properties = [
     reserved: false,
     age: 20,
     createdAt: "2023-05-01",
+    highlighted: false
   },
   {
     id: 6,
@@ -111,6 +111,7 @@ export const properties = [
     reserved: true,
     age: 25,
     createdAt: "2023-06-01",
+    highlighted: true
   },
   {
     id: 7,
@@ -183,6 +184,7 @@ export const properties = [
     reserved: true,
     age: 45,
     createdAt: "2023-10-01",
+    highlighted: true
   },
   {
     id: 11,
@@ -201,6 +203,7 @@ export const properties = [
     reserved: false,
     age: 50,
     createdAt: "2023-11-01",
+    highlighted: true
   },
   {
     id: 12,

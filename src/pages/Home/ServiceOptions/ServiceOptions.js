@@ -4,17 +4,17 @@ import { ServiceCard } from "./ServiceCard";
 
 const servicios = [
     {
-        imageSrc: "/img/piancatelli-gris.jpeg",
+        imageSrc: "/img/logo-asistencia.png",
         nameService: 'Servicio 1',
         descriptionService: 'Descripcion Servicio 1'
     },
     {
-        imageSrc: "/img/piancatelli-gris.jpeg",
+        imageSrc: "/img/logo-asistencia.png",
         nameService: 'Servicio 2',
         descriptionService: 'Descripcion Servicio 2'
     },
     {
-        imageSrc: "/img/piancatelli-gris.jpeg",
+        imageSrc: "/img/logo-asistencia.png",
         nameService: 'Servicio 3',
         descriptionService: 'Descripcion Servicio 3'
     },
