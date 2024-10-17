@@ -18,7 +18,7 @@ const PropertyCarousel = () => {
 
     return (
         <Container fluid className='p-0'>
-            <div className='swiper-container '>
+            <div className='swiper-container'>
                 <Swiper
                     spaceBetween={10}
                     centeredSlides={true}

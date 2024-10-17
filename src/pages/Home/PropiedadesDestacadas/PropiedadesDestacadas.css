@@ -8,20 +8,20 @@
   background-color: rgb(255, 255, 255);
 }
 
-.swiperDestacadas {
+.swiper-container .swiperDestacadas {
   width: 90%;
   height: 85vh;
   padding-bottom: 50px;
 }
 
 
-.slide-destacadas{
+.swiper-container .slide-destacadas{
   height: auto;
   background-color: rgba(255, 255, 255, 0.508);
 }
 
 
-.autoplay-progress {
+.swiper-container .autoplay-progress {
   position: absolute;
   right: 16px;
   bottom: 16px;
@@ -35,7 +35,7 @@
   color: #cda523;
 }
 
-.autoplay-progress svg {
+.swiper-container .autoplay-progress svg {
   --progress: 0;
   position: absolute;
   left: 0;

@@ -11,32 +11,33 @@ import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
 const SliderTuLugar = () => {
 
     return (
+        <div className='swiper-contenedor-tulugar'>
+            <Swiper
+                effect='coverflow'
+                overflowEffect={{
+                    rotate: 50,
+                    stretch: 0,
+                    depth: 100,
+                    modifier: 1,
+                    slideShadows: true,
+                }}
+                slidesPerView={1}
+                spaceBetween={10}
+                draggable={false}
+                centeredSlides={true}
+                pagination={true}
+                navigation={false}
+                loop={true}
+                modules={[Pagination, EffectCoverflow, Navigation]}
+                className='swiper-tulugar'
+                breakpoints={{
+                    1000: {
+                        slidesPerView: 3,
+                        spaceBetween: 22,
+                    },
+                }}
+            >
 
-        <Swiper
-
-            overflowEffect={{
-                rotate: 50,
-                stretch: 0,
-                depth: 100,
-                modifier: 1,
-                slideShadows: true,
-            }}
-            slidesPerView={1}
-            spaceBetween={10}
-            draggable={false}
-            centeredSlides={true}
-            navigation={true}
-            loop={true}
-            modules={[Pagination, Navigation, EffectCoverflow]}
-            className='swiper-tulugar'
-            breakpoints={{
-                768: {
-                    slidesPerView: 3,
-                    spaceBetween: 20,
-                },
-            }}
-        >
-            <div className='swipper-div-contenedor'>
                 <SwiperSlide className='swiper-slide-tulugar'
                 >
                     <Image
@@ -69,8 +70,9 @@ const SliderTuLugar = () => {
                         src={process.env.PUBLIC_URL + "/img/piancatelli-gris.jpeg"}
                     />
                 </SwiperSlide>
-            </div>
-        </Swiper>
+
+            </Swiper >
+        </div>
     )
 
 }

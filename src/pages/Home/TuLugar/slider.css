@@ -1,27 +1,26 @@
-.swiper-tulugar {
+.swiper-contenedor-tulugar .swiper-tulugar {
   width: 100%;
-  height: 70vh;
   padding-top: 50px;
   padding-bottom: 50px;
 }
 
-.swiper-slide {
+.swiper-contenedor-tulugar .swiper-slide {
   background-position: center;
   background-size: cover;
   width: 400px;
-  height: 400px;
+ 
 
   transition: transform 0.3s ease, opacity 0.3s ease;
 
 }
 
-.swiper-slide-prev,
-.swiper-slide-next {
+.swiper-contenedor-tulugar .swiper-slide-prev,
+.swiper-contenedor-tulugar .swiper-slide-next {
   opacity: 0.3;
   transform: scale (0.8);
 }
 
-.swiper-slide-active {
+.swiper-contenedor-tulugar .swiper-slide-active {
   opacity: 1;
   /*el slide activo sera completamente visible*/
   transform: scale(1);
@@ -29,15 +28,15 @@
 
 }
 
-.swiper-slide img {
+.swiper-contenedor-tulugar .swiper-slide img {
   display: block;
   width: 100%;
 }
 
-.swipper-div-contenedor {
+.swiper-contenedor-tulugar .swipper-div-contenedor {
   align-items: center;
   justify-content: center;
-  background-color: rgb(46, 7, 7);
+  background-color: rgb(255, 255, 255);
 }
 
 @media (max-width: 750px) {
@@ -45,6 +44,6 @@
     background-position: center;
     background-size: cover;
     width: 200px;
-    height: 200px;
+   
   }
 }
