@@ -12,7 +12,8 @@ const SliderTuLugar = () => {
 
     return (
 
-        <Swiper fluid
+        <Swiper
+
             overflowEffect={{
                 rotate: 50,
                 stretch: 0,
@@ -27,7 +28,7 @@ const SliderTuLugar = () => {
             navigation={true}
             loop={true}
             modules={[Pagination, Navigation, EffectCoverflow]}
-            className='mySwiper'
+            className='swiper-tulugar'
             breakpoints={{
                 768: {
                     slidesPerView: 3,
@@ -35,8 +36,8 @@ const SliderTuLugar = () => {
                 },
             }}
         >
-            <div>
-                <SwiperSlide className='swipper-div-contenedor' 
+            <div className='swipper-div-contenedor'>
+                <SwiperSlide className='swiper-slide-tulugar'
                 >
                     <Image
                         src={process.env.PUBLIC_URL + "/img/piancatelli-blanco.jpeg"}

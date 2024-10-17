@@ -44,7 +44,7 @@ const Buscador = () => {
                                 behavior: "smooth"
                             });
                             setTimeout(() => {
-                                window.scrollBy(0, -90); 
+                                window.scrollBy(0, -90);
                             }, 1); // realizo ajuste para que no caiga la navbar en color sobre el titulo de TuLugar
                         }}> Conocé Más <IoIosArrowDown /> </Button>
                     </div>

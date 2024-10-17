@@ -20,7 +20,7 @@ export const properties = [
     operation: "venta",
     reserved: false,
     age: 5,
-    createdAt: "2023-01-01",
+    createdAt: "2024-01-01",
   },
   {
     id: 2,

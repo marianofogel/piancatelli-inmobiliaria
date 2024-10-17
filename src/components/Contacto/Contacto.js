@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { Form, Button } from "react-bootstrap";
 import emailjs from "@emailjs/browser"
-import "./Footer.css";
+import "./Contacto.css"
 export default function FormContacto() {
 
     const refForm = useRef();

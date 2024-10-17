@@ -29,7 +29,7 @@ const PropertyCarousel = () => {
                     pagination={{
                         clickable: true,
                     }}
-                    modules={[Pagination]}
+                    modules={[Autoplay, Pagination]}
                     onAutoplayTimeLeft={onAutoplayTimeLeft}
                     className='swiperDestacadas'
                 >
