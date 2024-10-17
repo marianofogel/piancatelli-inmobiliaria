@@ -16,7 +16,7 @@ import {
 
 } from "react-icons/fa"
 import "./Footer.css";
-import FormContacto from "./Contacto";
+
 
 
 const fecha = new Date(); //tomamos la fecha actual
@@ -91,13 +91,7 @@ const Footer = () => {
                             </Stack>
                         </Col>
 
-                        <Col className="py-3">
-                            <div className="d-grid justify-content-center">
-                                <h2>Envianos tu mensaje!</h2>
 
-                                <FormContacto />
-                            </div>
-                        </Col>
                     </Row>
                 </Container>
             </footer >

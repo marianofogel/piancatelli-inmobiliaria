@@ -49,6 +49,15 @@
   width: 20%;
 }
 
+.boton-contacto{
+  background-color: red !important;
+  color: white !important;
+  width: 30%;
+  
+}
+
+
+
 #navbar-item-drop{
   padding-right: 0;
   color: white;

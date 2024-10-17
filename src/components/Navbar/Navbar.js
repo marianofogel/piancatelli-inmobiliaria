@@ -3,6 +3,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Image from "react-bootstrap/Image";
+import { Button } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
@@ -72,6 +73,7 @@ const NavbarComponent = () => {
                 }}
               >
                 PROPIEDADES
+
               </Nav.Link>
               <Nav.Link
                 as={NavLink}
@@ -106,20 +108,19 @@ const NavbarComponent = () => {
                 as={NavLink}
                 className="links-navbar"
                 onClick={() => {
-                  document.getElementById("contact-form").scrollIntoView({});
+                  document
+                    .getElementById("contenedor-ingresos")
+                    .scrollIntoView({});
+
+                  setTimeout(() => {
+                    window.scrollBy(0, -78);
+                  }, 1);
                 }}
               >
                 CONTACTO
               </Nav.Link>
-              {/*
-              <Button to="/Login" id="link-admin" onClick={handleLogeado}>
-                <Image
-                  src={process.env.PUBLIC_URL + "/img/casa.png"}
-                  width={17}
-                />
-                {estaLogeado ? "Log Out" : "Sign In"}{" "}
-                {/* Pasarle un sistema que valide el inicio de sesion 
-              </Button> */}
+
+
             </Nav>
           </Navbar.Collapse>
         </Container>

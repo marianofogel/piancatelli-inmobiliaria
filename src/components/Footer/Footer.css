@@ -63,23 +63,3 @@
   text-align: center ;
 }
 
-.form-contacto{
-  width: 400px !important;
-  
- 
-}
-
-.boton-form{
-  margin-left: 130px;
-  width: 150px;
-  background-color: #99610d !important;
-}
-
-@layer base {
-
-  input[type="number"]::-webkit-inner-spin-button,
-  input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-}
