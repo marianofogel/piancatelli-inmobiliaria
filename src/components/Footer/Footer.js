@@ -8,11 +8,13 @@ import {
     Image,
     NavLink,
 } from "react-bootstrap";
+import { GoDot } from "react-icons/go";
 import {
     FaMapMarkerAlt,
     FaPhoneAlt,
     FaEnvelope,
     FaWhatsapp,
+    FaDotCircle
 
 } from "react-icons/fa"
 import "./Footer.css";
@@ -29,16 +31,16 @@ const Footer = () => {
             <footer id="contact-form">
                 <Container fluid>
                     <Row className="footer-row">
-                        <Col className="py-3">
+                        <Col className="py-3 sm=true">
                             <Stack>
                                 <div className="mx-auto">
-                                    <Image
+                                    <Image className="logo-footer"
                                         src={process.env.PUBLIC_URL + "/img/Piancatelli.png"}
                                         alt="Company Logo"
                                         width={230}
                                         height={100}
                                     />
-                                    <h2>Juana Piancatelli</h2>
+                                    <h2 className="nombre-footer">Alejandra Baeta</h2>
 
                                     <div className="footer-contact">
                                         <FaMapMarkerAlt />
@@ -81,10 +83,10 @@ const Footer = () => {
                             </Stack>
                         </Col>
 
-                        <Col className="py-3">
+                        <Col className="py-3 sm=true">
                             <Stack >
                                 <div className="mx-auto">
-                                    <h2 className="footer-titulo">Búsqueda Rápida</h2>
+                                    <h2 className="footer-busqueda">Búsqueda Rápida</h2>
                                     <Link className="footer-links" >Ventas en Barrio Privados</Link>
                                     <Link className="footer-links">Ventas en Countries</Link>
                                     <Link className="footer-links">Alquileres en Barrios Privados</Link>

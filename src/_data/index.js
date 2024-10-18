@@ -6,7 +6,7 @@ export const properties = [
     description: "Description for property 1",
     price: "$100000",
     ccy: "ars",
-    images: ["/img/piancatelli-blanco.jpeg"],
+    images: ["/img/piancatelli-blanco.jpeg", "/img/piancatelli-blanco.jpeg", "/img/piancatelli-blanco.jpeg"],
     rooms: 3,
     bathrooms: 2,
     garage: 1,

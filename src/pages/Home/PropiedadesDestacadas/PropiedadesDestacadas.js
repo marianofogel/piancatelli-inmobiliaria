@@ -28,6 +28,7 @@ const PropertyCarousel = () => {
                 <Swiper
                     spaceBetween={10}
                     centeredSlides={true}
+                    loop={true}
                     autoplay={{
                         delay: 5000,
                         disableOnInteraction: false,
@@ -35,6 +36,9 @@ const PropertyCarousel = () => {
                     pagination={{
                         clickable: true,
                     }}
+
+                    allowTouchMove={false}
+
                     modules={[Autoplay, Pagination]}
 
                     className='swiperDestacadas'
