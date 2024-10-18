@@ -12,7 +12,6 @@
  
 
   transition: transform 0.3s ease, opacity 0.3s ease;
-
 }
 
 .swiper-contenedor-tulugar .swiper-slide-prev,
@@ -49,6 +48,5 @@
     background-position: center;
     background-size: cover;
     width: 200px;
-   
   }
 }

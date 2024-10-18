@@ -6,6 +6,11 @@ import 'swiper/css/pagination';
 import { Autoplay, Pagination } from "swiper/modules";
 import "./PropiedadesDestacadas.css"
 import { DestacadasSwiperCard } from './DestacadasCard';
+import { properties } from "../../../_data/index"
+
+const filterByHighlighted = properties.filter(casa => casa.highlighted)
+const sortCreatedAt = filterByHighlighted.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+const lastThreeAndHighlighted = sortCreatedAt.slice(0, 5)
 
 const PropertyCarousel = () => {
 
@@ -18,6 +23,7 @@ const PropertyCarousel = () => {
 
     return (
         <Container fluid className='p-0'>
+            <h1 id='titulo-swiper-destacadas'> Propiedades Destacadas </h1>
             <div className='swiper-container'>
                 <Swiper
                     spaceBetween={10}
@@ -30,29 +36,23 @@ const PropertyCarousel = () => {
                         clickable: true,
                     }}
                     modules={[Autoplay, Pagination]}
-                    onAutoplayTimeLeft={onAutoplayTimeLeft}
+
                     className='swiperDestacadas'
                 >
 
-                    <SwiperSlide className="slide-destacadas">
-                        <DestacadasSwiperCard />
-                    </SwiperSlide>
+                    {lastThreeAndHighlighted.map((nuevaDestacada, index) => (
+                        <SwiperSlide className="slide-destacadas">
+                            <DestacadasSwiperCard key={index}
+                                imageSrc={nuevaDestacada.images}
+                                casaNombre={nuevaDestacada.title}
+                                barrioCasa={nuevaDestacada.address}
+                                metrosCuadradoCasa={nuevaDestacada.surface + "m2"}
+                                estadoCasa={nuevaDestacada.operation}
+                                casaValor={nuevaDestacada.price} />
+                        </SwiperSlide>
+                    ))}
 
-                    <SwiperSlide className="slide-destacadas">
-                        <DestacadasSwiperCard />
-                    </SwiperSlide>
 
-                    <SwiperSlide className="slide-destacadas">
-                        <DestacadasSwiperCard />
-                    </SwiperSlide>
-
-
-                    <div className="autoplay-progress" slot="container-end">
-                        <svg viewBox="0 0 48 48" ref={progressCircle}>
-                            <circle cx="24" cy="24" r="20"></circle>
-                        </svg>
-                        <span ref={progressContent}></span>
-                    </div>
 
                 </Swiper>
             </div>

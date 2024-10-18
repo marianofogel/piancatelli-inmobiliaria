@@ -3,6 +3,7 @@
     border: 1px solid #f8f7f7;
     position: relative;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .imagen-nuevos-ingresos {
@@ -11,6 +12,7 @@
     width: 100%;
     height: 350px;
     box-sizing: border-box;
+    
 }
 
 .estado-casa {
@@ -22,6 +24,7 @@
     border-radius: 5px;
     padding-left: 10px;
     padding-right: 10px;
+    
 }
 
 .nombre-casa {
@@ -34,6 +37,7 @@
     text-align: left;
     padding-left: 10px;
     font-size: 13px;
+    
 }
 
 .valor-casa {
@@ -43,7 +47,7 @@
     padding: 10px;
 }
 
-.fecha-de-publicacion{
+.fecha-de-publicacion {
     background-color: #cda523;
     position: absolute;
     left: 3%;
@@ -52,4 +56,10 @@
     border-radius: 5px;
     padding-left: 10px;
     padding-right: 10px;
+    
+}
+
+.link-card-nuevos-ingresos {
+    text-decoration: none;
+    color: inherit;
 }
