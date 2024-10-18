@@ -2,6 +2,7 @@
   width: 100%;
   padding-top: 50px;
   padding-bottom: 50px;
+  display: flex;
 }
 
 .swiper-contenedor-tulugar .swiper-slide {
@@ -11,7 +12,6 @@
  
 
   transition: transform 0.3s ease, opacity 0.3s ease;
-
 }
 
 .swiper-contenedor-tulugar .swiper-slide-prev,
@@ -44,6 +44,5 @@
     background-position: center;
     background-size: cover;
     width: 200px;
-   
   }
 }
