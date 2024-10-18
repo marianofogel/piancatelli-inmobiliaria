@@ -1,4 +1,21 @@
+.alternativa-div{
+    background-color: #cda523;
+    color: white;
+    height: 100px;
 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-top: -90px;
+    margin-bottom: 30px;
+    
+}
+
+#titulo-tu-lugar{
+    color: #e3151b ;
+    font-weight: bold;
+}
 @media (max-width: 750px) {
     .contenedor {
         display: flex;

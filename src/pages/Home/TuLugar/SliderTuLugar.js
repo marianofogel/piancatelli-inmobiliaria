@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Image } from "react-bootstrap";
 import { Swiper, SwiperSlide, } from 'swiper/react';
 import 'swiper/css';
@@ -13,7 +14,7 @@ const SliderTuLugar = () => {
     return (
         <div className='swiper-contenedor-tulugar'>
             <Swiper
-                effect='coverflow'
+
                 overflowEffect={{
                     rotate: 50,
                     stretch: 0,
@@ -32,7 +33,7 @@ const SliderTuLugar = () => {
                 className='swiper-tulugar'
                 breakpoints={{
                     1000: {
-                        slidesPerView: 3,
+                        slidesPerView: 4,
                         spaceBetween: 22,
                     },
                 }}
@@ -40,9 +41,11 @@ const SliderTuLugar = () => {
 
                 <SwiperSlide className='swiper-slide-tulugar'
                 >
+
                     <Image
                         src={process.env.PUBLIC_URL + "/img/piancatelli-blanco.jpeg"}
                     />
+
                 </SwiperSlide>
                 <SwiperSlide>
                     <Image
