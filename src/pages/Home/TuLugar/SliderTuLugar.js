@@ -23,59 +23,89 @@ const SliderTuLugar = () => {
                     slideShadows: true,
                 }}
                 slidesPerView={1}
-                spaceBetween={10}
+                spaceBetween={12}
                 draggable={false}
                 centeredSlides={true}
-                pagination={true}
-                navigation={false}
+                pagination={false}
+                navigation={true}
                 loop={true}
                 modules={[Pagination, EffectCoverflow, Navigation]}
                 className='swiper-tulugar'
                 breakpoints={{
                     1000: {
-                        slidesPerView: 4,
+                        slidesPerView: 3,
                         spaceBetween: 22,
                     },
                 }}
+
             >
 
                 <SwiperSlide className='swiper-slide-tulugar'
                 >
-
-                    <Image
-                        src={process.env.PUBLIC_URL + "/img/piancatelli-blanco.jpeg"}
-                    />
+                    <Link>
+                        <div className='card-tulugar'>
+                            <Image className='imagen-tulugar'
+                                src={process.env.PUBLIC_URL + "/img/piancatelli-gris.jpeg"}
+                            />
+                            <p className='texto-tulugar'>Hurlingham</p>
+                        </div>
+                    </Link>
 
                 </SwiperSlide>
                 <SwiperSlide>
-                    <Image
-                        src={process.env.PUBLIC_URL + "/img/piancatelli-gris.jpeg"}
-                    />
+                    <Link>
+                        <div className='card-tulugar'>
+                            <Image className='imagen-tulugar'
+                                src={process.env.PUBLIC_URL + "/img/piancatelli-blanco.jpeg"}
+                            />
+                            <p className='texto-tulugar'>Moron</p>
+                        </div>
+                    </Link>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <Image
-                        src={process.env.PUBLIC_URL + "/img/piancatelli-blanco.jpeg"}
-                    />
+                    <Link>
+                        <div className='card-tulugar'>
+                            <Image className='imagen-tulugar'
+                                src={process.env.PUBLIC_URL + "/img/piancatelli-gris.jpeg"}
+                            />
+                            <p className='texto-tulugar'>Haedo</p>
+                        </div>
+                    </Link>
                 </SwiperSlide>
                 <SwiperSlide
                 >
-                    <Image
-                        src={process.env.PUBLIC_URL + "/img/piancatelli-gris.jpeg"}
-                    />
+                    <Link>
+                        <div className='card-tulugar'>
+                            <Image className='imagen-tulugar'
+                                src={process.env.PUBLIC_URL + "/img/piancatelli-blanco.jpeg"}
+                            />
+                            <p className='texto-tulugar'>Bella Vista</p>
+                        </div>
+                    </Link>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <Image
-                        src={process.env.PUBLIC_URL + "/img/piancatelli-blanco.jpeg"}
-                    />
+                    <Link>
+                        <div className='card-tulugar'>
+                            <Image className='imagen-tulugar'
+                                src={process.env.PUBLIC_URL + "/img/piancatelli-gris.jpeg"}
+                            />
+                            <p className='texto-tulugar'>San Miguel</p>
+                        </div>
+                    </Link>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <Image
-                        src={process.env.PUBLIC_URL + "/img/piancatelli-gris.jpeg"}
-                    />
+                    <Link>
+                        <div className='card-tulugar'>
+                            <Image className='imagen-tulugar'
+                                src={process.env.PUBLIC_URL + "/img/piancatelli-blanco.jpeg"}
+                            />
+                            <p className='texto-tulugar'>Hurlingham</p>
+                        </div>
+                    </Link>
                 </SwiperSlide>
 
             </Swiper >
-        </div>
+        </div >
     )
 
 }
