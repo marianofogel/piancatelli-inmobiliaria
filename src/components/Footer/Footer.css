@@ -12,9 +12,13 @@
 .footer-links{
   display: flex;
   padding-top: 15px !important;
- color: rgb(255, 255, 255);
+ color: #c7c7c7;
  width: 220px;
  text-decoration: none;
+}
+
+.footer-links:hover{
+   color: rgb(255, 255, 255);
 }
 
 
@@ -62,12 +66,37 @@
   font-weight: bold;
 }
 
+.link-seguinos:hover{
+  color: #f8f7f7;
+  font-weight: bold;
+}
+
 .link-insta{
   padding-top: 8px;
 }
 
-.footer-titulo{
+.nombre-footer{
+   color: white;
+}
+.footer-busqueda{
  
   text-align: center ;
+  color: white;
 }
 
+@media (max-width: 750px) {
+  .footer-row{
+    flex-direction: column;
+  }
+  .footer-links,
+  .footer-busqueda,
+  .logo-footer,
+  .nombre-footer,
+  .footer-contact,
+  .link-insta{
+    justify-content: center;
+    text-align: center;
+  }
+  
+
+}
