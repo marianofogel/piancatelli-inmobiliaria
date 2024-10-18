@@ -7,14 +7,17 @@ const TuLugar = () => {
     return (
 
         <>
-            <Container className="contenerdor-tu-lugar-ahora p-0" fluid>
+            <Container className="p-0" fluid>
+                <div className="alternativa-div">
+                    <h2 className="display-5">Una alternativa superior en Bienes Raices</h2>
 
-                <h1 id="titulo-tu-lugar" className="text-center" >Encuentra tu lugar!</h1>
+                </div>
+                <h1 id="titulo-tu-lugar" className="text-center" >Descubri tu barrio ideal</h1>
 
                 <SliderTuLugar />
 
 
-            </Container>
+            </Container >
         </>
     )
 

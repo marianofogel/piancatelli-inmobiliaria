@@ -2,7 +2,7 @@
   width: 100%;
   padding-top: 50px;
   padding-bottom: 50px;
-  display: flex;
+
 }
 
 .swiper-contenedor-tulugar .swiper-slide {
@@ -15,12 +15,15 @@
 }
 
 .swiper-contenedor-tulugar .swiper-slide-prev,
-.swiper-contenedor-tulugar .swiper-slide-next {
+.swiper-contenedor-tulugar .swiper-slide-next
+{
   opacity: 0.3;
   transform: scale (0.8);
+
 }
 
 .swiper-contenedor-tulugar .swiper-slide-active {
+  
   opacity: 1;
   /*el slide activo sera completamente visible*/
   transform: scale(1);
@@ -37,6 +40,7 @@
   align-items: center;
   justify-content: center;
   background-color: rgb(255, 255, 255);
+  
 }
 
 @media (max-width: 750px) {

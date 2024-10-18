@@ -1,20 +1,23 @@
 
 .footer-row {
-  background-color: #0a212b;
+  background-color: #49545e;
   color: #c7c7c7;
 } 
 
 .footer-bottom {
-  background-color: #03161d;
+  background-color:#191919;
   color: white;
 }
 
 .footer-links{
   display: flex;
   padding-top: 15px !important;
- color: black;
+ color: rgb(255, 255, 255);
  width: 220px;
+ text-decoration: none;
 }
+
+
 .boton-form {
   border-radius: 8px;
 }
@@ -44,19 +47,24 @@
 
 .footer-contact {
   display: flex;
-  gap: 3px;
-  padding-top: 10px;
+  gap: 5px;
+  padding-top: 8px;
   align-items: center;
-  padding-top: 20px;
-
 }
 
 .text-right {
   float: right;
 }
 
+.link-seguinos{
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
 
-
+.link-insta{
+  padding-top: 8px;
+}
 
 .footer-titulo{
  
