@@ -11,7 +11,7 @@ import { filterAndSort } from "../../utils";
 
 const PropertiesLayout = () => {
   const { filters, setFilters, sortKey, setSortKey } = useFilterStore();
-
+  console.log(filters)
   const handleFilterChange = (newFilters) => {
     setFilters(newFilters);
   };

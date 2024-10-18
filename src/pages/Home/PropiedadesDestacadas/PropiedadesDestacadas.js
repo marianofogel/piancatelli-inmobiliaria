@@ -7,6 +7,7 @@ import { Autoplay, Pagination } from "swiper/modules";
 import "./PropiedadesDestacadas.css"
 import { DestacadasSwiperCard } from './DestacadasCard';
 import { properties } from "../../../_data/index"
+import { Navigate } from 'react-router';
 
 const filterByHighlighted = properties.filter(casa => casa.highlighted)
 const sortCreatedAt = filterByHighlighted.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
@@ -14,12 +15,15 @@ const lastThreeAndHighlighted = sortCreatedAt.slice(0, 5)
 
 const PropertyCarousel = () => {
 
+
+
     const progressCircle = useRef(null);
     const progressContent = useRef(null);
     const onAutoplayTimeLeft = (s, time, progress) => {
         progressCircle.current.style.setProperty('--progress', 1 - progress);
         progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
     };
+
 
     return (
         <Container fluid className='p-0'>
@@ -48,7 +52,8 @@ const PropertyCarousel = () => {
                                 barrioCasa={nuevaDestacada.address}
                                 metrosCuadradoCasa={nuevaDestacada.surface + "m2"}
                                 estadoCasa={nuevaDestacada.operation}
-                                casaValor={nuevaDestacada.price} />
+                                casaValor={nuevaDestacada.price}
+                                id={nuevaDestacada.id} />
                         </SwiperSlide>
                     ))}
 
