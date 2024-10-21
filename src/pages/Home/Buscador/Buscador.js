@@ -22,11 +22,11 @@ const Buscador = () => {
         const filters = {}
 
         if (type && type !== "Tipo") {
-            filters.tipo = type;
+            filters.type = type;
         }
 
         if (operation && operation !== "Operación") {
-            filters.operacion = operation;
+            filters.operation = operation;
         }
 
         if (address) {
