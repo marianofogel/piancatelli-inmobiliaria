@@ -3,27 +3,40 @@ import { useRef } from "react";
 import { Container, Form, FormGroup, Button } from 'react-bootstrap';
 import { IoIosArrowDown } from "react-icons/io";
 import { useNavigate } from "react-router";
+import useFilterStore from "../../../store";
 
 const Buscador = () => {
 
-    const tipoPropiedadRef = useRef(null)
-    const estadoRef = useRef(null)
-    const ubicacionRef = useRef(null)
+    const typeRef = useRef(null);
+    const operationRef = useRef(null);
+    const addressRef = useRef(null);
     const navigate = useNavigate()
 
-    const handleBuscar = () => {
-        const tipoPropiedad = tipoPropiedadRef.current.value;
-        const estado = estadoRef.current.value;
-        const ubicacion = ubicacionRef.current.value;
+    const setFilters = useFilterStore((state) => state.setFilters)
 
-        if (tipoPropiedad && estado && ubicacion) {
-            console.log('buscando')
-            navigate(`busqueda?tipo=${tipoPropiedad}&estado=${estado}&ubicacion=${ubicacion}`)
-        } else {
-            console.log('faltan campos')
+    const handleBuscar = () => {
+        const type = typeRef.current.value;
+        const operation = operationRef.current.value;
+        const address = addressRef.current.value;
+
+        const filters = {}
+
+        if (type && type !== "Tipo") {
+            filters.tipo = type;
         }
 
+        if (operation && operation !== "Operación") {
+            filters.operacion = operation;
+        }
+
+        if (address) {
+            filters.address = address;
+        }
+        // Establecer los filtros y navegar a la página de propiedades
+        setFilters(filters);
+        navigate("/propiedades");
     }
+
 
     return (
         <Container fluid className="search-container justify-content-center align-items-center p-0 vh-100">
@@ -34,23 +47,23 @@ const Buscador = () => {
 
                         <Form className="buscador-form">
                             <FormGroup className="buscador-form-group">
-                                <Form.Select className="d-flex" id="buscador-select" ref={tipoPropiedadRef}>
-                                    <option hidden selected> Tipo </option>
-                                    <option className="option-select">CASA</option>
-                                    <option className="option-select">DEPARTAMENTOS</option>
-                                    <option className="option-select">LOCAL</option>
-                                    <option className="option-select">OFICINA</option>
+                                <Form.Select className="d-flex" id="buscador-select" ref={typeRef}>
+                                    <option hidden> Tipo </option>
+                                    <option className="option-select" value="casa">CASA</option>
+                                    <option className="option-select" value="departamento">DEPARTAMENTO</option>
+                                    <option className="option-select" value="local">LOCAL</option>
+                                    <option className="option-select" value="oficina">OFICINA</option>
                                 </Form.Select>
                             </FormGroup>
                             <FormGroup className="buscador-form-group">
-                                <Form.Select className="d-flex" id="buscador-select" ref={estadoRef}>
-                                    <option hidden selected> Operación </option>
-                                    <option className="option-select">VENTA</option>
-                                    <option className="option-select">ALQUILER</option>
+                                <Form.Select className="d-flex" id="buscador-select" ref={operationRef}>
+                                    <option hidden> Operación </option>
+                                    <option className="option-select" value="venta">VENTA</option>
+                                    <option className="option-select" value="alquiler">ALQUILER</option>
                                 </Form.Select>
                             </FormGroup>
                             <Form.Group className="buscador-form-group">
-                                <Form.Control className="buscador-input-text" type="text" placeholder="Ubicación" id="buscador-select" ref={ubicacionRef} />
+                                <Form.Control className="buscador-input-text" type="text" placeholder="Ubicación" id="buscador-select" ref={addressRef} />
                             </Form.Group>
                             <Button id='buscador-boton' className="search-btn mb-3" type="button" onClick={handleBuscar} > Buscar </Button>
                         </Form>
@@ -60,11 +73,10 @@ const Buscador = () => {
                         <Button id="boton-conocermas" onClick={() => {
                             // Inicia el scroll suave
                             document.getElementById("titulo-tu-lugar").scrollIntoView({
-                                block: "start",
                                 behavior: "smooth"
                             });
                             setTimeout(() => {
-                                window.scrollBy(0, -90);
+                                window.scrollBy(0, -199);
                             }, 1); // realizo ajuste para que no caiga la navbar en color sobre el titulo de TuLugar
                         }}> Conocé Más <IoIosArrowDown /> </Button>
                     </div>

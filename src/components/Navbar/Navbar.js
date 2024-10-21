@@ -107,15 +107,7 @@ const NavbarComponent = () => {
               <Nav.Link
                 as={NavLink}
                 className="links-navbar"
-                onClick={() => {
-                  document
-                    .getElementById("contenedor-ingresos")
-                    .scrollIntoView({});
-
-                  setTimeout(() => {
-                    window.scrollBy(0, -78);
-                  }, 1);
-                }}
+                href=""
               >
                 CONTACTO
               </Nav.Link>

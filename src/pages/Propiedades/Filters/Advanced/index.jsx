@@ -64,8 +64,9 @@ const AdvancedFilters = ({ onFilterChange, filters }) => {
           <Form.Label style={{ color: "red" }}>Tipo de propiedad</Form.Label>
           <Form.Select
             value={filters?.type}
-            onChange={(e) =>
-              onFilterChange({ ...filters, type: e.target.value })
+            onChange={
+              ((e) => onFilterChange({ ...filters, type: e.target.value }),
+              console.log(filters))
             }
           >
             <option value="">Seleccione un tipo</option>
