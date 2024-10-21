@@ -20,15 +20,17 @@ const PropertiesLayout = () => {
     const [key, order] = e.target.value.split(":");
     setSortKey({ key, order: parseInt(order, 10) });
   };
-
+  
   const filteredProperties = filterAndSort(properties, filters, sortKey);
 
   return (
+    
     <FilterLayout
       onFilterChange={handleFilterChange}
       filters={filters}
       handleSortChange={handleSortChange}
       sortKey={sortKey}
+      
     >
       {filteredProperties.length > 0 ? (
         <Masonry
@@ -39,7 +41,8 @@ const PropertiesLayout = () => {
             <Link
               to={`${property.id}`}
               style={{ textDecoration: "none" }}
-              key={`${property.id}`}
+              key={`${property.id}`
+            }
             >
               <Item key={property.id} property={property} />
             </Link>
