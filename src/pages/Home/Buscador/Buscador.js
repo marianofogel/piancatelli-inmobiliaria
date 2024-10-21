@@ -60,10 +60,11 @@ const Buscador = () => {
                                     <option hidden> Operación </option>
                                     <option className="option-select" value="venta">VENTA</option>
                                     <option className="option-select" value="alquiler">ALQUILER</option>
+                                    <option className="option-select" value="alquiler temporal">ALQUILER TEMPORAL</option>
                                 </Form.Select>
                             </FormGroup>
                             <Form.Group className="buscador-form-group">
-                                <Form.Control className="buscador-input-text" type="text" placeholder="Ubicación" id="buscador-select" ref={addressRef} />
+                                <Form.Control className="buscador-input-text" type="text" placeholder="Localidad    " id="buscador-select" ref={addressRef} />
                             </Form.Group>
                             <Button id='buscador-boton' className="search-btn mb-3" type="button" onClick={handleBuscar} > Buscar </Button>
                         </Form>
