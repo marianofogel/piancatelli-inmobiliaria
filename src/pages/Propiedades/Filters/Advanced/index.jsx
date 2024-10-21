@@ -19,7 +19,7 @@ const AdvancedFilters = ({ onFilterChange, filters }) => {
               <>
                 <h5>Filtros aplicados:</h5>
                 {Object.keys(filters).map((key) => {
-                  if (filters[key]) {
+                  if (filters[key] && key !== "ccy") {
                     return (
                       <Button
                         key={key}
@@ -29,7 +29,29 @@ const AdvancedFilters = ({ onFilterChange, filters }) => {
                           onFilterChange({ ...filters, [key]: "" })
                         }
                       >
-                        {filters[key]} &times;
+                        {key === "age" && `< ${filters[key]} años`}
+                        {key === "rooms" &&
+                          `${
+                            filters[key] === 4 ? "+4" : filters[key]
+                          } dormitorio${filters[key] !== 1 ? "s" : ""}`}
+                        {key === "bathrooms" &&
+                          `${filters[key]} baño${
+                            filters[key] !== 1 ? "s" : ""
+                          }`}
+                        {key === "minPrice" &&
+                          `Min: ${formatPrice(filters[key])}`}
+                        {key === "maxPrice" &&
+                          `Max: ${formatPrice(filters[key])}`}
+                        {[
+                          "age",
+                          "rooms",
+                          "bathrooms",
+                          "minPrice",
+                          "maxPrice",
+                        ].includes(key)
+                          ? ""
+                          : filters[key]}{" "}
+                        &times;
                       </Button>
                     );
                   }
@@ -48,25 +70,29 @@ const AdvancedFilters = ({ onFilterChange, filters }) => {
       )}
       <Form>
         <Form.Group
-          controlId="formDireccion"
+          controlId="formLocalidad"
           className="border rounded p-2 mb-3"
         >
-          <Form.Label style={{ color: "red" }}>Dirección</Form.Label>
-          <Form.Control
-            type="text"
-            value={filters?.address}
+          <Form.Label style={{ color: "red" }}>Localidad</Form.Label>
+          <Form.Select
+            value={filters?.localidad}
             onChange={(e) =>
-              onFilterChange({ ...filters, address: e.target.value })
+              onFilterChange({ ...filters, localidad: e.target.value })
             }
-          />
+          >
+            <option value="">Seleccione una localidad</option>
+            <option value="localidad1">Localidad 1</option>
+            <option value="localidad2">Localidad 2</option>
+            <option value="localidad3">Localidad 3</option>
+            <option value="localidad4">Localidad 4</option>
+          </Form.Select>
         </Form.Group>
         <Form.Group controlId="formTipo" className="border rounded p-2 mb-3">
           <Form.Label style={{ color: "red" }}>Tipo de propiedad</Form.Label>
           <Form.Select
             value={filters?.type}
-            onChange={
-              ((e) => onFilterChange({ ...filters, type: e.target.value }),
-              console.log(filters))
+            onChange={(e) =>
+              onFilterChange({ ...filters, type: e.target.value })
             }
           >
             <option value="">Seleccione un tipo</option>
@@ -131,6 +157,7 @@ const AdvancedFilters = ({ onFilterChange, filters }) => {
                     minPrice: e.target.value.replace(/\D/g, ""),
                   })
                 }
+                disabled={!filters?.ccy}
               />
             </FloatingLabel>
             <FloatingLabel controlId="formMaxPrecio" label="Máximo">
@@ -143,39 +170,10 @@ const AdvancedFilters = ({ onFilterChange, filters }) => {
                     maxPrice: e.target.value.replace(/\D/g, ""),
                   })
                 }
+                disabled={!filters?.ccy}
               />
             </FloatingLabel>
           </div>
-        </div>
-        <div className="border rounded p-2 mb-3">
-          <h6 style={{ color: "red" }}>Dormitorios</h6>
-          <ButtonGroup className="mb-2">
-            {[0, 1, 2, 3, 4].map((num) => (
-              <Button
-                key={num}
-                variant={filters?.rooms === num ? "warning" : "outline-warning"}
-                onClick={() => onFilterChange({ ...filters, rooms: num })}
-              >
-                {num === 4 ? "+4" : num}
-              </Button>
-            ))}
-          </ButtonGroup>
-        </div>
-        <div className="border rounded p-2 mb-3">
-          <h6 style={{ color: "red" }}>Baños</h6>
-          <ButtonGroup className="mb-2">
-            {[0, 1, 2, 3].map((num) => (
-              <Button
-                key={num}
-                variant={
-                  filters?.bathrooms === num ? "warning" : "outline-warning"
-                }
-                onClick={() => onFilterChange({ ...filters, bathrooms: num })}
-              >
-                {num}
-              </Button>
-            ))}
-          </ButtonGroup>
         </div>
         <Form.Group
           controlId="formAntiguedad"
@@ -197,6 +195,38 @@ const AdvancedFilters = ({ onFilterChange, filters }) => {
             <option value="50">Más de 50 años</option>
           </Form.Select>
         </Form.Group>
+        <div className="border rounded p-2 mb-3">
+          <h6 style={{ color: "red" }}>Dormitorios</h6>
+          <ButtonGroup className="mb-2">
+            {[0, 1, 2, 3, 4].map((num) => (
+              <Button
+                key={num}
+                variant={
+                  filters?.rooms === num ? "secondary" : "outline-secondary"
+                }
+                onClick={() => onFilterChange({ ...filters, rooms: num })}
+              >
+                {num === 4 ? "+4" : num}
+              </Button>
+            ))}
+          </ButtonGroup>
+        </div>
+        <div className="border rounded p-2 mb-3">
+          <h6 style={{ color: "red" }}>Baños</h6>
+          <ButtonGroup className="mb-2">
+            {[0, 1, 2, 3].map((num) => (
+              <Button
+                key={num}
+                variant={
+                  filters?.bathrooms === num ? "secondary" : "outline-secondary"
+                }
+                onClick={() => onFilterChange({ ...filters, bathrooms: num })}
+              >
+                {num}
+              </Button>
+            ))}
+          </ButtonGroup>
+        </div>
       </Form>
     </Container>
   );
