@@ -2,9 +2,9 @@ import { Image } from "react-bootstrap";
 import './NuevoIngresoCard.css'
 import { Link } from "react-router-dom";
 
-const NuevosIngresosCard = ({ id, imageSrc, casaNombre, barrioCasa, casaValor, estadoCasa, metrosCuadradoCasa, dormitoriosCasa, banosCasa, createdAt }) => {
+const NuevosIngresosCard = ({ imageSrc, casaNombre, barrioCasa, casaValor, estadoCasa, metrosCuadradoCasa, dormitoriosCasa, banosCasa, createdAt }) => {
     return (
-        <Link to={`/propiedades/${id}`} className="link-card-nuevos-ingresos">
+        <Link to={`/detalle/${casaNombre}`} className="link-card-nuevos-ingresos">
             <div className="contenedor-nuevos-ingresos">
 
                 <Image className="imagen-nuevos-ingresos" src={process.env.PUBLIC_URL + imageSrc} alt={casaNombre} />

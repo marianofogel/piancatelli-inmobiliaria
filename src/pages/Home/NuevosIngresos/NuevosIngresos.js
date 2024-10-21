@@ -24,8 +24,7 @@ const NuevosIngresos = () => {
                                 casaDescripcion={nuevoIngreso.description}
                                 casaValor={nuevoIngreso.price}
                                 estadoCasa={nuevoIngreso.operation}
-                                createdAt={nuevoIngreso.createdAt}
-                                id={nuevoIngreso.id} />
+                                createdAt={nuevoIngreso.createdAt} />
 
                         ))}
                     </div>

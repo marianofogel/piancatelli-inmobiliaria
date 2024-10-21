@@ -4,10 +4,9 @@ import 'swiper/css/pagination';
 import "./DestacadasCard.css";
 import { Link } from 'react-router-dom';
 
-
-const DestacadasSwiperCard = ({ id, imageSrc, casaNombre, barrioCasa, casaValor, estadoCasa, metrosCuadradoCasa }) => {
+const DestacadasSwiperCard = ({ imageSrc, casaNombre, barrioCasa, casaValor, estadoCasa, metrosCuadradoCasa }) => {
     return (
-        <Link to={`propiedades/${id}`} className="link-card-propiedades-destacadas">
+        <Link to={`/detalle/`} className="link-card-propiedades-destacadas">
             <div className='div-slide-propiedades'>
                 <Image className='slide-imagen'
                     src={process.env.PUBLIC_URL + imageSrc} alt={casaNombre}
