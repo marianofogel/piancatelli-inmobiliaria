@@ -19,8 +19,21 @@ const Buscador = () => {
         const operation = operationRef.current.value;
         const address = addressRef.current.value;
 
+        const filters = {}
+
+        if (type && type !== "Tipo") {
+            filters.tipo = type;
+        }
+
+        if (operation && operation !== "Operación") {
+            filters.operacion = operation;
+        }
+
+        if (address) {
+            filters.address = address;
+        }
         // Establecer los filtros y navegar a la página de propiedades
-        setFilters({ type, operation, address });
+        setFilters(filters);
         navigate("/propiedades");
     }
 
@@ -34,8 +47,8 @@ const Buscador = () => {
 
                         <Form className="buscador-form">
                             <FormGroup className="buscador-form-group">
-                                <Form.Select className="d-flex" id="buscador-select" ref={typeRef} value={typeRef || ""}>
-                                    <option hidden selected> Tipo </option>
+                                <Form.Select className="d-flex" id="buscador-select" ref={typeRef}>
+                                    <option hidden> Tipo </option>
                                     <option className="option-select" value="casa">CASA</option>
                                     <option className="option-select" value="departamento">DEPARTAMENTO</option>
                                     <option className="option-select" value="local">LOCAL</option>
@@ -44,7 +57,7 @@ const Buscador = () => {
                             </FormGroup>
                             <FormGroup className="buscador-form-group">
                                 <Form.Select className="d-flex" id="buscador-select" ref={operationRef}>
-                                    <option hidden selected> Operación </option>
+                                    <option hidden> Operación </option>
                                     <option className="option-select" value="venta">VENTA</option>
                                     <option className="option-select" value="alquiler">ALQUILER</option>
                                 </Form.Select>
