@@ -19,7 +19,7 @@ const Detail = () => {
   const navigate = useNavigate();
   const property = properties.find((p) => p.id === parseInt(id));
   return (
-    <Container>
+    <Container className="mt-4">
       <Button onClick={() => navigate("/propiedades")}>Volver</Button>
       <h2>{property.title}</h2>
       <ImageGallery

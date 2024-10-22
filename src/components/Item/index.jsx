@@ -79,9 +79,6 @@ const Item = ({ property }) => {
             </Col>
           </Row>
         </Card.Body>
-        <Card.Footer className="d-flex justify-content-end">
-          <small className="text-muted">Más detalles</small>
-        </Card.Footer>
       </Card>
     </Col>
   );
