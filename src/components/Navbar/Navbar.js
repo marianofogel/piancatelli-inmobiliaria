@@ -3,14 +3,14 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Image from "react-bootstrap/Image";
-import { Button } from "react-bootstrap";
-import { Link, NavLink } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+
 
 import "./Navbar.css";
 
 const NavbarComponent = () => {
   const [navbarTransparente, setNavbarTransparente] = useState(false);
+  const navigate = useNavigate()
 
   const handleNavbarTransparente = () => {
     const pixeles = window.scrollY; // Mide cuantos pixeles se scrollearon
@@ -29,7 +29,36 @@ const NavbarComponent = () => {
     };
   });
 
-  const location = useLocation();
+  const goToServicios = () => {
+    if (location.pathname !== "/") {
+      navigate("/#servicios-piancatelli"); // Navegar a Home con el hash
+    } else {
+      const element = document.querySelector("#servicios-piancatelli");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+
+        window.history.replaceState(null, "", " "); 
+      }
+    }
+  };
+
+  const goToDestacadas = () => {
+    if (location.pathname !== "/") {
+      navigate("/#propiedades-destacadas-piancatelli"); // Navegar a Home con el hash
+    } else {
+      const element = document.querySelector("#propiedades-destacadas-piancatelli");
+      if (element) {
+        const navbarCompensacion = 94; // Ajusta este valor a la altura de tu navbar
+        const elementPosition = element.getBoundingClientRect().top + window.scrollY; // Obtener la posición del elemento
+        window.scrollTo({ top: elementPosition - navbarCompensacion, behavior: "smooth" }); // Desplazarse
+
+        window.history.replaceState(null, "", " "); 
+      }
+    }
+  };
+
+
+  
 
   return (
     <>
@@ -78,15 +107,14 @@ const NavbarComponent = () => {
               <Nav.Link
                 as="a"
                 className="links-navbar"
-                href="/#contenedor-principal-servicios"
-
+                onClick={goToServicios}
               >
                 SERVICIOS
               </Nav.Link>
               <Nav.Link
                 as="a"
                 className="links-navbar"
-                href="#titulo-swiper-destacadas"
+                onClick={goToDestacadas}
               >
                 DESTACADAS
               </Nav.Link>

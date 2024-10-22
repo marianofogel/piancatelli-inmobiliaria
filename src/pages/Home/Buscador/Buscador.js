@@ -71,15 +71,7 @@ const Buscador = () => {
                     </div>
 
                     <div className="contenedor-boton-conocermas">
-                        <Button id="boton-conocermas" onClick={() => {
-                            // Inicia el scroll suave
-                            document.getElementById("titulo-tu-lugar").scrollIntoView({
-                                behavior: "smooth"
-                            });
-                            setTimeout(() => {
-                                window.scrollBy(0, -199);
-                            }, 1); // realizo ajuste para que no caiga la navbar en color sobre el titulo de TuLugar
-                        }}> Conocé Más <IoIosArrowDown /> </Button>
+                        <Button id="boton-conocermas"><IoIosArrowDown /> Conocé Más <IoIosArrowDown /> </Button>
                     </div>
                 </div>
             </div>
