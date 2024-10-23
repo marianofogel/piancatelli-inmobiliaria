@@ -14,7 +14,8 @@ import {
     FaPhoneAlt,
     FaEnvelope,
     FaWhatsapp,
-    FaDotCircle
+    FaDotCircle,
+    FaInstagram
 
 } from "react-icons/fa"
 import "./Footer.css";
@@ -32,44 +33,51 @@ const Footer = () => {
                 <Container fluid>
                     <Row className="footer-row">
                         <Col className="py-3 sm=true">
-                            <Stack>
-                                <div className="mx-auto">
-                                    <Image className="logo-footer"
-                                        src={process.env.PUBLIC_URL + "/img/Piancatelli.png"}
-                                        alt="Company Logo"
-                                        width={230}
-                                        height={100}
-                                    />
-                                    <h2 className="nombre-footer">Alejandra Baeta</h2>
+                            <Stack className="stack-logo-name">
+                                <Image className="logo-footer"
+                                    src={process.env.PUBLIC_URL + "/img/Piancatelli.png"}
+                                    alt="Company Logo"
+                                    width={230}
+                                    height={100}
+                                />
+                                <h2 className="nombre-footer">Alejandra Baeta</h2>
+                                <h5 className="nombre-footer">Matricula</h5>
+                            </Stack>
+                        </Col>
 
-                                    <div className="footer-contact">
-                                        <FaMapMarkerAlt />
-                                        Ricchieri 1534 - Hurlingham
-                                    </div>
-
-                                    <div className="footer-contact">
-                                        <FaEnvelope />
-                                        tumail@gmail.com
-                                    </div>
-
-                                    <div className="footer-contact">
-                                        <FaPhoneAlt />
-                                        4665-2438
-                                    </div>
-
-                                    <div className="footer-contact">
-                                        <FaWhatsapp />
-                                        1132817839
-                                    </div>
-
+                        <Col className="py-3 sm=true">
+                            <div className="mx-auto">
+                                <h2 className="footer-busqueda">Contacto</h2>
+                                <Stack>
+                                    <Row>
+                                        <Col className="columnas-footer">
+                                            <div className="footer-contact">
+                                                <p> <FaMapMarkerAlt /> Ricchieri 1534 - Hurlingham</p>
+                                            </div>
+                                            <div className="footer-contact">
+                                                <p><FaPhoneAlt /> 4665-2438</p>
+                                            </div>
+                                        </Col>
+                                        <Col className="columnas-footer">
+                                            <div className="footer-contact">
+                                                <p><FaEnvelope /> tumail@gmail.com</p>
+                                            </div>
+                                            <div className="footer-contact">
+                                                <p><FaWhatsapp /> 1132817839 </p>
+                                            </div>
+                                        </Col>
+                                    </Row>
                                     <div className="link-insta" >
-                                        <Link className="link-seguinos">Seguinos en Instagram
-                                        </Link>
+                                        <Link className="link-seguinos">Seguinos en Instagram</Link>
+                                        <p className="logo-instagram"><FaInstagram /></p>
                                     </div>
+                                </Stack>
+
+                            </div>
+                        </Col>
 
 
-
-                                    {/* <div className="data-fiscal">
+                        {/* <div className="data-fiscal">
                                         <Image
                                             src={process.env.PUBLIC_URL + "/img/data-fiscal-ejemplo.jpg"}
                                             alt="Company Logo"
@@ -78,28 +86,29 @@ const Footer = () => {
                                         />
                                     </div>
                                      */}
-                                </div>
 
-                            </Stack>
+
+                        <Col className="py-3 sm=true manejo-de-accesos-rapidos">
+                            <div className="mx-auto">
+                                <h2 className="footer-busqueda">Búsqueda Rápida</h2>
+                                <Stack >
+                                    <Row>
+                                        <Col className="columnas-footer">
+                                            <Link className="footer-links" >Ventas en Barrio Privados</Link>
+                                            <Link className="footer-links">Ventas en Countries</Link>
+                                            <Link className="footer-links">Casas en zona</Link>
+                                            <Link className="footer-links">Lotes en zona</Link>
+                                        </Col>
+                                        <Col className="columnas-footer">
+                                            <Link className="footer-links">Alquileres en Barrios Privados</Link>
+                                            <Link className="footer-links">Alquileres en Countries</Link>
+                                            <Link className="footer-links">Casas en zona</Link>
+                                            <Link className="footer-links">Lotes en zona</Link>
+                                        </Col>
+                                    </Row>
+                                </Stack>
+                            </div>
                         </Col>
-
-                        <Col className="py-3 sm=true">
-                            <Stack >
-                                <div className="mx-auto">
-                                    <h2 className="footer-busqueda">Búsqueda Rápida</h2>
-                                    <Link className="footer-links" >Ventas en Barrio Privados</Link>
-                                    <Link className="footer-links">Ventas en Countries</Link>
-                                    <Link className="footer-links">Alquileres en Barrios Privados</Link>
-                                    <Link className="footer-links">Alquileres en Countries</Link>
-                                    <Link className="footer-links">Casas en zona</Link>
-                                    <Link className="footer-links">Lotes en zona</Link>
-                                    <Link className="footer-links">Casas en zona</Link>
-                                    <Link className="footer-links">Lotes en zona</Link>
-                                </div>
-                            </Stack>
-                        </Col>
-
-
                     </Row>
                 </Container>
             </footer >
