@@ -1,4 +1,4 @@
-#contenedor-principal-servicios {
+#servicios-piancatelli {
     width: 100%;
     margin: 0;
     padding: 0;
@@ -9,7 +9,8 @@
 }
 
 .grid-que-hacen-titulo {
-    margin: 20px;
+    width: 95%;
+    margin: 20px auto;
     color: #f8f7f7;
     text-align: center;
 }

@@ -22,11 +22,11 @@ const Buscador = () => {
         const filters = {}
 
         if (type && type !== "Tipo") {
-            filters.tipo = type;
+            filters.type = type;
         }
 
         if (operation && operation !== "Operación") {
-            filters.operacion = operation;
+            filters.operation = operation;
         }
 
         if (address) {
@@ -60,25 +60,18 @@ const Buscador = () => {
                                     <option hidden> Operación </option>
                                     <option className="option-select" value="venta">VENTA</option>
                                     <option className="option-select" value="alquiler">ALQUILER</option>
+                                    <option className="option-select" value="alquiler temporal">ALQUILER TEMPORAL</option>
                                 </Form.Select>
                             </FormGroup>
                             <Form.Group className="buscador-form-group">
-                                <Form.Control className="buscador-input-text" type="text" placeholder="Ubicación" id="buscador-select" ref={addressRef} />
+                                <Form.Control className="buscador-input-text" type="text" placeholder="Localidad    " id="buscador-select" ref={addressRef} />
                             </Form.Group>
                             <Button id='buscador-boton' className="search-btn mb-3" type="button" onClick={handleBuscar} > Buscar </Button>
                         </Form>
                     </div>
 
                     <div className="contenedor-boton-conocermas">
-                        <Button id="boton-conocermas" onClick={() => {
-                            // Inicia el scroll suave
-                            document.getElementById("titulo-tu-lugar").scrollIntoView({
-                                behavior: "smooth"
-                            });
-                            setTimeout(() => {
-                                window.scrollBy(0, -199);
-                            }, 1); // realizo ajuste para que no caiga la navbar en color sobre el titulo de TuLugar
-                        }}> Conocé Más <IoIosArrowDown /> </Button>
+                        <Button id="boton-conocermas"><IoIosArrowDown /> Conocé Más <IoIosArrowDown /> </Button>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Card, Image, Container } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -7,7 +7,7 @@ import { Autoplay, Pagination } from "swiper/modules";
 import "./PropiedadesDestacadas.css"
 import { DestacadasSwiperCard } from './DestacadasCard';
 import { properties } from "../../../_data/index"
-import { Navigate } from 'react-router';
+
 
 const filterByHighlighted = properties.filter(casa => casa.highlighted)
 const sortCreatedAt = filterByHighlighted.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
@@ -27,7 +27,7 @@ const PropertyCarousel = () => {
 
     return (
         <Container fluid className='p-0'>
-            <h1 id='titulo-swiper-destacadas'> Propiedades Destacadas </h1>
+            <h1 id='propiedades-destacadas-piancatelli'> Propiedades Destacadas </h1>
             <div className='swiper-container'>
                 <Swiper
                     spaceBetween={10}

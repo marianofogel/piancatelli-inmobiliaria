@@ -54,10 +54,12 @@
     border-radius: 3px;
 }
 
-#titulo-swiper-destacadas {
+#propiedades-destacadas-piancatelli {
     color: #cda523;
     display: flex;
     flex-direction: column;
+    width: 95%;
+    margin: auto;
     text-align: center;
     justify-content: center;
     font-weight: bold;

@@ -136,6 +136,8 @@ input.buscador-input-text:focus{
     /* Sin borde */
     align-items: center;
     /* Alinea verticalmente el texto */
+    cursor: not-allowed;
+    pointer-events:none;
 }
 
 /* Media query para pantallas grandes */

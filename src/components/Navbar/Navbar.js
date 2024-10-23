@@ -3,14 +3,14 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Image from "react-bootstrap/Image";
-import { Button } from "react-bootstrap";
-import { Link, NavLink } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+
 
 import "./Navbar.css";
 
 const NavbarComponent = () => {
   const [navbarTransparente, setNavbarTransparente] = useState(false);
+  const navigate = useNavigate()
 
   const handleNavbarTransparente = () => {
     const pixeles = window.scrollY; // Mide cuantos pixeles se scrollearon
@@ -29,7 +29,36 @@ const NavbarComponent = () => {
     };
   });
 
-  const location = useLocation();
+  const goToServicios = () => {
+    if (location.pathname !== "/") {
+      navigate("/#servicios-piancatelli"); // Navegar a Home con el hash
+    } else {
+      const element = document.querySelector("#servicios-piancatelli");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+
+        window.history.replaceState(null, "", " "); 
+      }
+    }
+  };
+
+  const goToDestacadas = () => {
+    if (location.pathname !== "/") {
+      navigate("/#propiedades-destacadas-piancatelli"); // Navegar a Home con el hash
+    } else {
+      const element = document.querySelector("#propiedades-destacadas-piancatelli");
+      if (element) {
+        const navbarCompensacion = 94; // Ajusta este valor a la altura de tu navbar
+        const elementPosition = element.getBoundingClientRect().top + window.scrollY; // Obtener la posición del elemento
+        window.scrollTo({ top: elementPosition - navbarCompensacion, behavior: "smooth" }); // Desplazarse
+
+        window.history.replaceState(null, "", " "); 
+      }
+    }
+  };
+
+
+  
 
   return (
     <>
@@ -46,8 +75,8 @@ const NavbarComponent = () => {
               <Image
                 src={process.env.PUBLIC_URL + "/img/Piancatelli.png"}
                 alt="Company Logo"
-                width={130}
-                height={60}
+                width={110}
+                height={45}
               />
             </Link>
           </Navbar.Brand>
@@ -76,31 +105,16 @@ const NavbarComponent = () => {
 
               </Nav.Link>
               <Nav.Link
-                as={NavLink}
+                as="a"
                 className="links-navbar"
-                onClick={() => {
-                  document
-                    .getElementById("contenedor-principal-servicios")
-                    .scrollIntoView({});
-                  setTimeout(() => {
-                    window.scrollBy(0, -78);
-                  }, 1);
-                }}
+                onClick={goToServicios}
               >
                 SERVICIOS
               </Nav.Link>
               <Nav.Link
-                as={NavLink}
+                as="a"
                 className="links-navbar"
-                onClick={() => {
-                  document
-                    .getElementById("titulo-swiper-destacadas")
-                    .scrollIntoView({});
-
-                  setTimeout(() => {
-                    window.scrollBy(0, -98);
-                  }, 1);
-                }}
+                onClick={goToDestacadas}
               >
                 DESTACADAS
               </Nav.Link>
@@ -114,7 +128,7 @@ const NavbarComponent = () => {
             </Nav>
           </Navbar.Collapse>
         </Container>
-      </Navbar>
+      </Navbar >
     </>
   );
 };
