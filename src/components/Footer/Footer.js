@@ -55,12 +55,10 @@ const Footer = () => {
                                                 <p> <FaMapMarkerAlt /> Ricchieri 1534 - Hurlingham</p>
                                             </div>
                                             <div className="footer-contact">
-                                                <p><FaPhoneAlt /> 4665-2438</p>
-                                            </div>
-                                        </Col>
-                                        <Col className="columnas-footer">
-                                            <div className="footer-contact">
                                                 <p><FaEnvelope /> tumail@gmail.com</p>
+                                            </div>
+                                            <div className="footer-contact">
+                                                <p><FaPhoneAlt /> 4665-2438</p>
                                             </div>
                                             <div className="footer-contact">
                                                 <p><FaWhatsapp /> 1132817839 </p>
@@ -68,8 +66,8 @@ const Footer = () => {
                                         </Col>
                                     </Row>
                                     <div className="link-insta" >
-                                        <Link className="link-seguinos">Seguinos en Instagram</Link>
-                                        <p className="logo-instagram"><FaInstagram /></p>
+                                        <Link className="link-seguinos"> Seguinos en Instagram</Link>
+                                        <p className="logo-instagram"></p>
                                     </div>
                                 </Stack>
 
@@ -118,6 +116,8 @@ const Footer = () => {
                     <Row className="footer-bottom">
                         <div className="footer-rights">
                             © {anioActual}  Todos los derechos reservados.
+                            <a href="" className="links-legales"> - Terminos y condiciones </a>
+                            <a href="" className="links-legales"> - Politica de Privacidad </a>
                         </div>
 
                     </Row>

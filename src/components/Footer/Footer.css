@@ -1,3 +1,4 @@
+/* Footer general */
 .footer-row {
   background-color: #49545e;
   color: #c7c7c7;
@@ -8,6 +9,21 @@
   color: white;
 }
 
+.footer {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  background-color: #808d80;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.footer-rights {
+  text-align: center;
+  align-items: center;
+}
+
+/* Links del footer */
 .footer-links {
   display: flex;
   padding-bottom: 9px !important;
@@ -16,37 +32,15 @@
 }
 
 .footer-links:hover {
-  color: rgb(255, 255, 255);
+  color: #fff;
 }
 
-
+/* Botones */
 .boton-form {
   border-radius: 8px;
 }
 
-.footer-rights {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.footer {
-  width: 100%;
-  height: 40px;
-  line-height: 40px;
-  background-color: #808d80;
-  font-weight: 600;
-  font-size: 12px;
-
-}
-
-.footer-icons {
-  display: flex;
-  gap: 5%;
-  padding-top: 10px;
-
-}
-
+/* Contacto */
 .footer-contact {
   display: flex;
   gap: 5px;
@@ -57,25 +51,14 @@
   float: right;
 }
 
-.link-seguinos {
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
+/* Iconos del footer */
+.footer-icons {
+  display: flex;
+  gap: 5%;
+  padding-top: 10px;
 }
 
-.link-seguinos:hover {
-  color: #f8f7f7;
-  font-weight: bold;
-}
-
-.link-insta {
-  text-align: center;
-
-  .logo-instagram {
-    font-size: 20px;
-  }
-}
-
+/* Logo y nombre */
 .nombre-footer {
   color: white;
 }
@@ -85,6 +68,26 @@
   gap: 5px;
 }
 
+/* Seguinos en Instagram */
+.link-seguinos {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.link-seguinos:hover {
+  color: #f8f7f7;
+}
+
+.link-insta {
+  text-align: center;
+}
+
+.logo-instagram {
+  font-size: 20px;
+}
+
+/* Estilo de las columnas del footer */
 .columnas-footer {
   display: flex;
   flex-direction: column;
@@ -93,12 +96,20 @@
   justify-content: center;
 }
 
+/* Título de la búsqueda rápida */
 .footer-busqueda {
   padding-bottom: 15px;
   text-align: center;
   color: white;
 }
 
+/* Links legales */
+.links-legales {
+  text-decoration: none;
+  color: white;
+}
+
+/* Media queries */
 @media (max-width: 768px) {
   .footer-row {
     flex-direction: column;
