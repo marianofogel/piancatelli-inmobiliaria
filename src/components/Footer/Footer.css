@@ -45,6 +45,7 @@
   display: flex;
   gap: 5px;
   align-items: center;
+  
 }
 
 .text-right {
@@ -83,8 +84,7 @@
   text-align: center;
 }
 
-.logo-instagram {
-  font-size: 20px;
+
 }
 
 /* Estilo de las columnas del footer */

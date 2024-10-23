@@ -37,7 +37,7 @@ const NavbarComponent = () => {
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
 
-        window.history.replaceState(null, "", " "); 
+        window.history.replaceState(null, "", " ");
       }
     }
   };
@@ -52,13 +52,13 @@ const NavbarComponent = () => {
         const elementPosition = element.getBoundingClientRect().top + window.scrollY; // Obtener la posición del elemento
         window.scrollTo({ top: elementPosition - navbarCompensacion, behavior: "smooth" }); // Desplazarse
 
-        window.history.replaceState(null, "", " "); 
+        window.history.replaceState(null, "", " ");
       }
     }
   };
 
 
-  
+
 
   return (
     <>
@@ -119,9 +119,9 @@ const NavbarComponent = () => {
                 DESTACADAS
               </Nav.Link>
               <Nav.Link
-                as={NavLink}
+                as="a"
                 className="links-navbar"
-                href=""
+                href="/contacto"
               >
                 CONTACTO
               </Nav.Link>

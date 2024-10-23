@@ -6,7 +6,7 @@ import {
     Container,
     Stack,
     Image,
-    NavLink,
+
 } from "react-bootstrap";
 import { GoDot } from "react-icons/go";
 import {
@@ -19,7 +19,7 @@ import {
 
 } from "react-icons/fa"
 import "./Footer.css";
-
+import { useNavigate } from "react-router";
 
 
 const fecha = new Date(); //tomamos la fecha actual
@@ -27,6 +27,8 @@ const anioActual = fecha.getFullYear(); //se toma el año actual
 
 
 const Footer = () => {
+
+    const navigate = useNavigate();
     return (
         <>
             <footer id="contact-form">
@@ -66,8 +68,8 @@ const Footer = () => {
                                         </Col>
                                     </Row>
                                     <div className="link-insta" >
-                                        <Link className="link-seguinos"> Seguinos en Instagram</Link>
-                                        <p className="logo-instagram"></p>
+                                        <Link className="link-seguinos">Seguinos en Instagram</Link>
+
                                     </div>
                                 </Stack>
 
@@ -108,7 +110,7 @@ const Footer = () => {
                             </div>
                         </Col>
                     </Row>
-                </Container>
+                </Container >
             </footer >
 
             <footer>

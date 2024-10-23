@@ -17,6 +17,7 @@ const TuLugar = () => {
                 <SliderTuLugar />
 
 
+
             </Container >
         </>
     )
