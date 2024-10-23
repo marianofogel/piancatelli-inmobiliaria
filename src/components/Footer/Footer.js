@@ -117,7 +117,7 @@ const Footer = () => {
                 <Container fluid>
                     <Row className="footer-bottom">
                         <div className="footer-rights">
-                            © {anioActual}  Todos los derechos reservados
+                            © {anioActual}  Todos los derechos reservados.
                         </div>
 
                     </Row>
