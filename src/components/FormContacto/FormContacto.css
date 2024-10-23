@@ -5,9 +5,9 @@
 }
 
 .boton-form{
-  margin-left: 130px;
+ border: none !important;
   width: 150px;
-  background-color: #99610d !important;
+  background-color: #cda523 !important;
 }
 
 @layer base {
