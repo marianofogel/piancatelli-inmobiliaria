@@ -6,7 +6,7 @@ import {
     Container,
     Stack,
     Image,
-    NavLink,
+
 } from "react-bootstrap";
 import { GoDot } from "react-icons/go";
 import {
@@ -19,7 +19,7 @@ import {
 
 } from "react-icons/fa"
 import "./Footer.css";
-
+import { useNavigate } from "react-router";
 
 
 const fecha = new Date(); //tomamos la fecha actual
@@ -27,6 +27,8 @@ const anioActual = fecha.getFullYear(); //se toma el año actual
 
 
 const Footer = () => {
+
+    const navigate = useNavigate();
     return (
         <>
             <footer id="contact-form">
@@ -55,12 +57,10 @@ const Footer = () => {
                                                 <p> <FaMapMarkerAlt /> Ricchieri 1534 - Hurlingham</p>
                                             </div>
                                             <div className="footer-contact">
-                                                <p><FaPhoneAlt /> 4665-2438</p>
-                                            </div>
-                                        </Col>
-                                        <Col className="columnas-footer">
-                                            <div className="footer-contact">
                                                 <p><FaEnvelope /> tumail@gmail.com</p>
+                                            </div>
+                                            <div className="footer-contact">
+                                                <p><FaPhoneAlt /> 4665-2438</p>
                                             </div>
                                             <div className="footer-contact">
                                                 <p><FaWhatsapp /> 1132817839 </p>
@@ -69,7 +69,7 @@ const Footer = () => {
                                     </Row>
                                     <div className="link-insta" >
                                         <Link className="link-seguinos">Seguinos en Instagram</Link>
-                                        <p className="logo-instagram"><FaInstagram /></p>
+
                                     </div>
                                 </Stack>
 
@@ -110,7 +110,7 @@ const Footer = () => {
                             </div>
                         </Col>
                     </Row>
-                </Container>
+                </Container >
             </footer >
 
             <footer>
