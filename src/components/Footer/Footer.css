@@ -15,7 +15,10 @@
  color: #c7c7c7;
  width: 220px;
  text-decoration: none;
+ text-align: center;
+ justify-content: center;
 }
+
 
 .footer-links:hover{
    color: rgb(255, 255, 255);
@@ -54,10 +57,15 @@
   gap: 5px;
   padding-top: 8px;
   align-items: center;
+  
 }
 
 .text-right {
   float: right;
+}
+
+.nombre-footer{
+ text-align: center;
 }
 
 .link-seguinos{
@@ -73,6 +81,12 @@
 
 .link-insta{
   padding-top: 8px;
+  text-align: center;
+}
+
+.logo-footer{
+  margin: auto;
+  display: block;
 }
 
 .nombre-footer{
@@ -84,7 +98,7 @@
   color: white;
 }
 
-@media (max-width: 750px) {
+@media (max-width: 1000px) {
   .footer-row{
     flex-direction: column;
   }
@@ -97,6 +111,11 @@
     justify-content: center;
     text-align: center;
   }
-  
+}
 
+@media (max-width:510px){
+
+  .links-row{
+    flex-direction: column;  
+  }
 }
