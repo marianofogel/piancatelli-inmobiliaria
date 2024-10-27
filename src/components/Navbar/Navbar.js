@@ -45,9 +45,7 @@ const NavbarComponent = () => {
     if (location.pathname !== "/") {
       navigate("/#propiedades-destacadas-piancatelli"); // Navegar a Home con el hash
     } else {
-      const element = document.querySelector(
-        "#propiedades-destacadas-piancatelli"
-      );
+      const element = document.querySelector("#propiedades-destacadas-piancatelli");
       if (element) {
         const navbarCompensacion = 94; // Ajusta este valor a la altura de tu navbar
         const elementPosition = element.getBoundingClientRect().top + window.scrollY; // Obtener la posición del elemento
