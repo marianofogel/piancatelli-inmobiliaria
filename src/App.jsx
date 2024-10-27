@@ -3,7 +3,7 @@ import Layout from "./components/Layout";
 import NotFound from "./pages/NotFound";
 import Home from "./pages/Home";
 import Propiedades from "./pages/Propiedades";
-import Contacto from "./pages/Contacto"
+import Contacto from "./pages/Contacto";
 import Detail from "./pages/Detail";
 import { useEffect } from "react";
 

@@ -1,4 +1,4 @@
-import FormContacto from "../../components/FormContacto/FormContacto";
+import {FormContacto} from "../../components/FormContacto/FormContacto";
 import {
     Col,
     Row,
@@ -31,7 +31,7 @@ return(
             <Stack>
                 <h2 className="pb-3">Envianos tu Mensaje!    </h2>
                 <div className="col-contacto">
-             <FormContacto/>
+             <FormContacto />
             </div>
             </Stack>
             </Col>
