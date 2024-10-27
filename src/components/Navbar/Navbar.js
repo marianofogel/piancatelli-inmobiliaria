@@ -50,12 +50,8 @@ const NavbarComponent = () => {
       );
       if (element) {
         const navbarCompensacion = 94; // Ajusta este valor a la altura de tu navbar
-        const elementPosition =
-          element.getBoundingClientRect().top + window.scrollY; // Obtener la posición del elemento
-        window.scrollTo({
-          top: elementPosition - navbarCompensacion,
-          behavior: "smooth",
-        }); // Desplazarse
+        const elementPosition = element.getBoundingClientRect().top + window.scrollY; // Obtener la posición del elemento
+        window.scrollTo({ top: elementPosition - navbarCompensacion, behavior: "smooth" }); // Desplazarse
 
         window.history.replaceState(null, "", " ");
       }
