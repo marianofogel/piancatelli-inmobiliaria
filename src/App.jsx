@@ -20,6 +20,7 @@ export default function App() {
         <Route index element={<Home />} />
         <Route path="propiedades/:id" element={<Detail />} />
         <Route path="propiedades" element={<Propiedades />}></Route>
+        <Route path="contacto" element={<Contacto />}></Route>
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>

@@ -77,8 +77,8 @@ const NavbarComponent = () => {
               <Image
                 src={process.env.PUBLIC_URL + "/img/Piancatelli.png"}
                 alt="Company Logo"
-                width={130}
-                height={60}
+                width={110}
+                height={45}
               />
             </Link>
           </Navbar.Brand>
@@ -109,22 +109,14 @@ const NavbarComponent = () => {
                 SERVICIOS
               </Nav.Link>
               <Nav.Link
-                as={NavLink}
+                as="a"
                 className="links-navbar"
-                onClick={() => {
-                  document
-                    .getElementById("titulo-swiper-destacadas")
-                    .scrollIntoView({});
-
-                  setTimeout(() => {
-                    window.scrollBy(0, -98);
-                  }, 1);
-                }}
+                onClick={goToDestacadas}
               >
                 DESTACADAS
               </Nav.Link>
               <Nav.Link
-                as={NavLink}
+                as="a"
                 className="links-navbar"
                 to="contacto"
                 style={{
@@ -136,7 +128,7 @@ const NavbarComponent = () => {
             </Nav>
           </Navbar.Collapse>
         </Container>
-      </Navbar>
+      </Navbar >
     </>
   );
 };

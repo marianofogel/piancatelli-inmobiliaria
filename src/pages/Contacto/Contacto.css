@@ -1,0 +1,17 @@
+.container-contacto{
+      display: flex;
+    width: 95%;
+    justify-content: center;
+    padding: 25px;
+    margin: auto;
+    gap: 20px;   
+}
+
+
+.col-contacto{
+display: flex;
+flex-direction: column;
+ text-align: center;
+ align-items: center;
+}
+
