@@ -1,9 +1,19 @@
 .form-contacto{}
 
+.group-form-contact{
+ border: 2px solid #49545e !important;
+ border-radius: 8px;
+}
+
+.group-form-contact:focus{
+   border: 2px solid #cda523 !important;
+ border-radius: 8px;
+
+}
 .boton-form{
  border: none !important;
   width: 150px;
-  background-color: #cda523 !important;
+  background-color: #e3151b !important;
 }
 
 @layer base {

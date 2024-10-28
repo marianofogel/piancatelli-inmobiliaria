@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { Form, Button } from "react-bootstrap";
 import emailjs from "@emailjs/browser"
 import "./FormContacto.css"
-export function FormContacto({defaultValues}) {
+export function FormContacto({ defaultValues }) {
 
     const refForm = useRef();
 
@@ -25,6 +25,7 @@ export function FormContacto({defaultValues}) {
         <Form className="form-contacto w-100" ref={refForm} onSubmit={handleSubmit}>
             <Form.Group className="mb-3" >
                 <Form.Control
+                    className="group-form-contact"
                     name="from_name"
                     type="text"
                     placeholder="Nombre y Apellido"
@@ -35,16 +36,18 @@ export function FormContacto({defaultValues}) {
             </Form.Group>
             <Form.Group className="mb-3" >
                 <Form.Control
-                    className="number"
+                    className="group-form-contact"
                     type="number"
                     name="number"
                     placeholder="Telefono"
                     minLength={8}
                     maxLength={14}
+                    required
                 />
             </Form.Group>
             <Form.Group className="mb-3">
                 <Form.Control
+                    className="group-form-contact"
                     name="email"
                     id="email"
                     type="email"
@@ -55,6 +58,7 @@ export function FormContacto({defaultValues}) {
             </Form.Group>
             <Form.Group className="mb-3" >
                 <Form.Control
+                    className="group-form-contact"
                     name="property"
                     type="text"
                     placeholder="Propiedad de interes"
@@ -63,6 +67,7 @@ export function FormContacto({defaultValues}) {
             </Form.Group>
             <Form.Group className="mb-3">
                 <Form.Control
+                    className="group-form-contact"
                     as="textarea"
                     rows={5}
                     name="message"
@@ -71,7 +76,9 @@ export function FormContacto({defaultValues}) {
                 />
 
             </Form.Group>
-            <Button className="boton-form">Enviar</Button>
+            <Button
+                type="submit"
+                className="boton-form">Enviar</Button>
         </Form >
 
     )
