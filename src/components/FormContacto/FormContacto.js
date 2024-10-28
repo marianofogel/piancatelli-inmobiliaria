@@ -25,6 +25,7 @@ export default function FormContacto() {
         <Form className="form-contacto" ref={refForm} onSubmit={handleSubmit}>
             <Form.Group className="mb-3" >
                 <Form.Control
+                    className="group-form-contact"
                     name="from_name"
                     type="text"
                     placeholder="Nombre y Apellido"
@@ -35,16 +36,18 @@ export default function FormContacto() {
             </Form.Group>
             <Form.Group className="mb-3" >
                 <Form.Control
-                    className="number"
+                    className="group-form-contact"
                     type="number"
                     name="number"
                     placeholder="Telefono"
                     minLength={8}
                     maxLength={14}
+                    required
                 />
             </Form.Group>
             <Form.Group className="mb-3">
                 <Form.Control
+                    className="group-form-contact"
                     name="email"
                     id="email"
                     type="email"
@@ -55,6 +58,7 @@ export default function FormContacto() {
             </Form.Group>
             <Form.Group className="mb-3">
                 <Form.Control
+                    className="group-form-contact"
                     as="textarea"
                     rows={5}
                     name="message"
@@ -63,7 +67,9 @@ export default function FormContacto() {
                 />
 
             </Form.Group>
-            <Button className="boton-form">Enviar</Button>
+            <Button
+                type="submit"
+                className="boton-form">Enviar</Button>
         </Form >
 
     )
