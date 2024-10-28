@@ -5,6 +5,8 @@ import Home from "./pages/Home";
 import Propiedades from "./pages/Propiedades";
 import Contacto from "./pages/Contacto";
 import Detail from "./pages/Detail";
+import TerminoCondiciones from "./pages/TerminosYCondiciones";
+import PoliticasDePrivacidad from "./pages/PoliticasDePrivacidad";
 import { useEffect } from "react";
 
 export default function App() {
@@ -21,6 +23,8 @@ export default function App() {
         <Route path="propiedades/:id" element={<Detail />} />
         <Route path="propiedades" element={<Propiedades />}></Route>
         <Route path="contacto" element={<Contacto />}></Route>
+        <Route path="condiciones" element={<TerminoCondiciones />}></Route>
+        <Route path="privacidad" element={<PoliticasDePrivacidad />}></Route>
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>
