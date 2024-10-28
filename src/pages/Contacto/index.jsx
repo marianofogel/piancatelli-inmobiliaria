@@ -16,14 +16,14 @@ export default function Contacto () {
 
 
 return(
-
     <Container fluid className="mt-5">
+        
         <Row className="container-contacto">
             <Col className="col-contacto">
-            <Image
+            <Image 
              src={process.env.PUBLIC_URL + "/img/Piancatelli.png"}
              alt="Company Logo"
-             width={350}
+             width={600}
              height={400}
             />
             </Col>
@@ -36,8 +36,9 @@ return(
             </Stack>
             </Col>
         </Row>
-
+        
     </Container>
+    
 )
 
 

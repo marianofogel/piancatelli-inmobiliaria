@@ -1,4 +1,9 @@
 /* Footer general */
+
+.columnas-footer{
+  line-height: 10px;
+}
+
 .footer-row {
   background-color: #49545e;
   color: #c7c7c7;
