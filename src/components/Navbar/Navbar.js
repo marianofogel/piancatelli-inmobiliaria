@@ -5,12 +5,11 @@ import Navbar from "react-bootstrap/Navbar";
 import Image from "react-bootstrap/Image";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 
-
 import "./Navbar.css";
 
 const NavbarComponent = () => {
   const [navbarTransparente, setNavbarTransparente] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleNavbarTransparente = () => {
     const pixeles = window.scrollY; // Mide cuantos pixeles se scrollearon
@@ -57,9 +56,6 @@ const NavbarComponent = () => {
     }
   };
 
-
-
-
   return (
     <>
       <Navbar
@@ -98,17 +94,12 @@ const NavbarComponent = () => {
                 className="links-navbar"
                 to="propiedades"
                 style={{
-                  fontWeight: location.pathname !== "/" ? "bold" : "",
+                  fontWeight: location.pathname == "/propiedades" ? "bold" : "",
                 }}
               >
                 PROPIEDADES
-
               </Nav.Link>
-              <Nav.Link
-                as="a"
-                className="links-navbar"
-                onClick={goToServicios}
-              >
+              <Nav.Link as="a" className="links-navbar" onClick={goToServicios}>
                 SERVICIOS
               </Nav.Link>
               <Nav.Link
@@ -121,7 +112,10 @@ const NavbarComponent = () => {
               <Nav.Link
                 as="a"
                 className="links-navbar"
-                href="/contacto"
+                to="contacto"
+                style={{
+                  fontWeight: location.pathname == "/contacto" ? "bold" : "",
+                }}
               >
                 CONTACTO
               </Nav.Link>
