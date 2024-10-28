@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { Form, Button } from "react-bootstrap";
 import emailjs from "@emailjs/browser"
 import "./FormContacto.css"
-export function FormContacto({defaultValues}) {
+export function FormContacto({ defaultValues }) {
 
     const refForm = useRef();
 
@@ -58,6 +58,7 @@ export function FormContacto({defaultValues}) {
             </Form.Group>
             <Form.Group className="mb-3" >
                 <Form.Control
+                    className="group-form-contact"
                     name="property"
                     type="text"
                     placeholder="Propiedad de interes"
