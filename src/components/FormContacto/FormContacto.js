@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { Form, Button } from "react-bootstrap";
 import emailjs from "@emailjs/browser"
 import "./FormContacto.css"
-export default function FormContacto() {
+export function FormContacto({defaultValues}) {
 
     const refForm = useRef();
 
@@ -22,7 +22,7 @@ export default function FormContacto() {
 
     return (
 
-        <Form className="form-contacto" ref={refForm} onSubmit={handleSubmit}>
+        <Form className="form-contacto w-100" ref={refForm} onSubmit={handleSubmit}>
             <Form.Group className="mb-3" >
                 <Form.Control
                     className="group-form-contact"
@@ -55,6 +55,14 @@ export default function FormContacto() {
                     required
                 />
 
+            </Form.Group>
+            <Form.Group className="mb-3" >
+                <Form.Control
+                    name="property"
+                    type="text"
+                    placeholder="Propiedad de interes"
+                    value={defaultValues?.property}
+                />
             </Form.Group>
             <Form.Group className="mb-3">
                 <Form.Control

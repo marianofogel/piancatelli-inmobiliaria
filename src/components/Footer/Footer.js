@@ -118,6 +118,8 @@ const Footer = () => {
                     <Row className="footer-bottom">
                         <div className="footer-rights">
                             © {anioActual}  Todos los derechos reservados.
+                            <a href="/condiciones" className="links-legales"> - Terminos y condiciones </a>
+                            <a href="/privacidad" className="links-legales"> - Politica de Privacidad </a>
                         </div>
 
                     </Row>
