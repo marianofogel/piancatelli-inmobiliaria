@@ -110,7 +110,7 @@ const NavbarComponent = () => {
                 DESTACADAS
               </Nav.Link>
               <Nav.Link
-                as="a"
+                as={NavLink}
                 className="links-navbar"
                 to="contacto"
                 style={{
