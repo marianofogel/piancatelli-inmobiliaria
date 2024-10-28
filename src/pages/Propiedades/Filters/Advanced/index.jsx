@@ -198,7 +198,7 @@ const AdvancedFilters = ({ onFilterChange, filters }) => {
         <div className="border rounded p-2 mb-3">
           <h6 style={{ color: "red" }}>Dormitorios</h6>
           <ButtonGroup className="mb-2">
-            {[0, 1, 2, 3, 4].map((num) => (
+            {[1, 2, 3, 4].map((num) => (
               <Button
                 key={num}
                 variant={
@@ -214,7 +214,7 @@ const AdvancedFilters = ({ onFilterChange, filters }) => {
         <div className="border rounded p-2 mb-3">
           <h6 style={{ color: "red" }}>Baños</h6>
           <ButtonGroup className="mb-2">
-            {[0, 1, 2, 3].map((num) => (
+            {[1, 2, 3].map((num) => (
               <Button
                 key={num}
                 variant={
