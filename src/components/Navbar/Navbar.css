@@ -1,6 +1,7 @@
 .navbar {
   position: fixed;
   transition: background-color 1s ease;
+  
 }
 
 .navbar.scrolled {
@@ -23,7 +24,6 @@
 .collapsing {
   text-align: right;
   font-size: 15px;
-  
 }
 
 /* Estilo del botón de contacto */
@@ -32,4 +32,3 @@
   color: white !important; /* Color de texto del botón */
   width: 30%; /* Ancho del botón */
 }
-

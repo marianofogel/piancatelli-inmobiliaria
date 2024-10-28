@@ -5,6 +5,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import { useNavigate } from "react-router";
 import useFilterStore from "../../../store";
 
+
 const Buscador = () => {
 
     const typeRef = useRef(null);
@@ -37,9 +38,24 @@ const Buscador = () => {
         navigate("/propiedades");
     }
 
+    const goToTuLugar = () => {
+        if (location.pathname !== "/") {
+            navigate("/#propiedades-destacadas-piancatelli"); // Navegar a Home con el hash
+        } else {
+            const element = document.querySelector("#propiedades-destacadas-piancatelli");
+            if (element) {
+                const navbarCompensacion = 94; // Ajusta este valor a la altura de tu navbar
+                const elementPosition = element.getBoundingClientRect().top + window.scrollY; // Obtener la posición del elemento
+                window.scrollTo({ top: elementPosition - navbarCompensacion, behavior: "smooth" }); // Desplazarse
+
+                window.history.replaceState(null, "", " ");
+            }
+        }
+    };
+
 
     return (
-        <Container fluid className="search-container justify-content-center align-items-center p-0 vh-100">
+        <Container fluid className="perro justify-content-center align-items-center p-0 vh-100">
             <div>
                 <div className="buscador-contenedor">
                     <div className="buscador-fondo">
@@ -71,7 +87,7 @@ const Buscador = () => {
                     </div>
 
                     <div className="contenedor-boton-conocermas">
-                        <Button id="boton-conocermas"><IoIosArrowDown /> Conocé Más <IoIosArrowDown /> </Button>
+                        <Button id="boton-conocermas" type="button" onClick={goToTuLugar}><IoIosArrowDown /> Conocé Más <IoIosArrowDown /> </Button>
                     </div>
                 </div>
             </div>

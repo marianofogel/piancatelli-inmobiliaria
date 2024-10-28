@@ -21,14 +21,12 @@
 
 /* Fondo del buscador */
 .buscador-fondo {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.8);
     /* Fondo blanco semitransparente */
-    padding: 20px;
+    padding: 10em;
     /* Espaciado interior */
     border-radius: 15px;
     /* Bordes redondeados */
-    width: 60%;
-    /* Ancho del contenedor */
     text-align: center;
     /* Centra el texto */
 }
@@ -57,6 +55,7 @@
     /* Sombra */
     text-align: center;
     /* Centra el texto */
+    gap: 1em;
 }
 
 /* Estilo del botón del buscador */
@@ -69,7 +68,7 @@
     /* Tamaño de fuente */
     padding: 2px 30px;
     /* Espaciado interior */
-    border-radius: 5px;
+    border-radius: 8px;
     /* Bordes redondeados */
     cursor: pointer;
     /* Cambia el cursor al pasar sobre el botón */
@@ -94,6 +93,7 @@ input.buscador-input-text::placeholder {
     border: none;
     /* Sin borde */
     margin: 5px auto;
+    
 }
 
 /* Estilo del select al enfocarse */
@@ -102,7 +102,7 @@ input.buscador-input-text::placeholder {
     /* Sombra al enfocar */
 }
 
-input.buscador-input-text:focus{
+input.buscador-input-text:focus {
     box-shadow: 0px 0px 5px 0.5px #ff0000 !important;
 }
 
@@ -136,8 +136,6 @@ input.buscador-input-text:focus{
     /* Sin borde */
     align-items: center;
     /* Alinea verticalmente el texto */
-    cursor: not-allowed;
-    pointer-events:none;
 }
 
 /* Media query para pantallas grandes */
@@ -149,14 +147,7 @@ input.buscador-input-text:focus{
         /* Ancho completo */
         justify-content: center;
         /* Centra horizontalmente */
-    }
-
-    #buscador-select {
-        width: 220px; /* Ancho específico */
-    }
-
-    .buscador-fondo{
-        width: 70%;
+        
     }
 
     .buscador-titulo {

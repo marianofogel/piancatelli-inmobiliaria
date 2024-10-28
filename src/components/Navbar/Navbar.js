@@ -28,6 +28,8 @@ const NavbarComponent = () => {
     };
   });
 
+  // HACER UN CUSTOM HOOK
+
   const goToServicios = () => {
     if (location.pathname !== "/") {
       navigate("/#servicios-piancatelli"); // Navegar a Home con el hash
@@ -110,7 +112,7 @@ const NavbarComponent = () => {
                 DESTACADAS
               </Nav.Link>
               <Nav.Link
-                as="a"
+                as={NavLink}
                 className="links-navbar"
                 to="contacto"
                 style={{
