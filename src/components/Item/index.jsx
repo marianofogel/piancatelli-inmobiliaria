@@ -14,7 +14,7 @@ const Item = ({ property }) => {
     >
       <Card className="shadow p-0" style={{ borderRadius: "100" }}>
         <div style={{ position: "relative" }}>
-          <Card.Img variant="top" src={property.images[0]} alt="..." />
+          <Card.Img variant="top" src={property.photos[0].image} alt="..." />
           <Badge
             bg="danger"
             style={{
@@ -27,7 +27,7 @@ const Item = ({ property }) => {
               textTransform: "capitalize",
             }}
           >
-            {property.operation}
+            {property.operations[0].operation_type}
           </Badge>
           <Badge
             bg="warning"
@@ -41,7 +41,7 @@ const Item = ({ property }) => {
               textTransform: "capitalize",
             }}
           >
-            {property.type}
+            {property.type.name}
           </Badge>
         </div>
         <Card.Body className="pb-0">
@@ -64,13 +64,13 @@ const Item = ({ property }) => {
             <Col xs={12} className="mt-auto m-1 p-2">
               <div className="d-flex justify-content-around">
                 <div>
-                  <FaBed color="#c59f37" /> {property.rooms}
+                  <FaBed color="#c59f37" /> {property.room_amount}
                 </div>
                 <div>
-                  <FaBath color="#c59f37" /> {property.bathrooms}
+                  <FaBath color="#c59f37" /> {property.bathroom_amount}
                 </div>
                 <div>
-                  <FaCar color="#c59f37" /> {property.garage}
+                  <FaCar color="#c59f37" /> {property.parking_lot_amount}
                 </div>
                 <div>
                   <FaRulerCombined color="#c59f37" /> {property.surface} m²

@@ -1,18 +1,34 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import useFilterStore from "../store";
 
-const useFetchData = (url, limit, offset) => {
+const useFetchData = (endpoint, limit = 25, offset = 0) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { filters, sortKey } = useFilterStore();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          `${url}?format=json&key=${process.env.TOKKO_API_KEY}&lang=es_ar&limit=${limit}&offset=${offset}`
+        const queryParams = new URLSearchParams({
+          format: 'json',
+          key: '3cbc5baf1ad3ebb4672111e2f3aa215c17f962eb',
+          lang: 'es_ar',
+          limit,
+          offset,
+          ...filters,
+          order_by: sortKey.key,
+          order: sortKey.order === 1 ? "ASC" : "DESC",
+        });
+
+        const response = await fetch(
+          `http://tokkobroker.com/api/v1/${endpoint}?${queryParams.toString()}`
         );
-        setData(response.data);
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const result = await response.json();
+        setData(result);
       } catch (err) {
         setError(err);
       } finally {
@@ -21,7 +37,7 @@ const useFetchData = (url, limit, offset) => {
     };
 
     fetchData();
-  }, [url]);
+  }, [endpoint]);
 
   return { data, loading, error };
 };

@@ -1,6 +1,14 @@
 import React, { useState } from "react";
 import { FormContacto } from "../../components/FormContacto";
-import { Container, Card, Row, Col, Badge, Button } from "react-bootstrap";
+import {
+  Container,
+  Card,
+  Row,
+  Col,
+  Badge,
+  Button,
+  Spinner,
+} from "react-bootstrap";
 import {
   FaRulerCombined,
   FaBuilding,
@@ -13,21 +21,31 @@ import { useParams, useNavigate } from "react-router-dom";
 import ImageGallery from "react-image-gallery";
 import { formatPrice } from "../../utils";
 import GoogleMapComponent from "../../components/Map";
+import useFetchData from "../../hooks/useFetchData";
 import "./styles.css";
 
 const Detail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const property = properties.find((p) => p.id === parseInt(id));
+  const { data: property, loading } = useFetchData(`property/${id}`);
+
+  if (loading) {
+    <Spinner />;
+  }
+
+  if (!property) {
+    return null;
+  }
+
   return (
-    <Container className="mt-4">
+    <Container style={{ marginTop: "5em" }}>
       <Button onClick={() => navigate("/propiedades")}>Volver</Button>
-      <h2>{property.title}</h2>
+      <h2>{property.publication_title}</h2>
       <ImageGallery
         className="rounded"
-        items={property.images.map((img) => ({
-          original: img,
-          thumbnail: img,
+        items={property.photos.map((img) => ({
+          original: img.image,
+          thumbnail: img.thumb,
         }))}
         infinite
         showThumbnails
@@ -48,7 +66,7 @@ const Detail = () => {
                     className="me-2"
                     style={{ textTransform: "capitalize" }}
                   >
-                    {property.operation}
+                    {property.operations[0].operation_type}
                   </Badge>
                   {property.reserved && <Badge bg="primary">Reservada</Badge>}
                 </Col>
@@ -58,7 +76,8 @@ const Detail = () => {
                 className="mb-2"
                 style={{ fontSize: "24px", fontWeight: "bold" }}
               >
-                {formatPrice(property.price)} USD
+                {formatPrice(property.operations[0].prices[0].price.toString())}{" "}
+                {property.operations[0].prices[0].currency}
               </Card.Title>
 
               {property.operation === "alquiler" && (
@@ -74,19 +93,19 @@ const Detail = () => {
                 </Col>
                 <Col xs="auto">
                   <FaRulerCombined className="me-2" />
-                  <strong>{property.surface}</strong> m² cubiertos
+                  <strong>{property.roofed_surface}</strong> m² cubiertos
                 </Col>
                 <Col xs="auto">
                   <FaBuilding className="me-2" />
-                  <strong>{property.rooms}</strong> ambientes
+                  <strong>{property.room_amount}</strong> ambientes
                 </Col>
                 <Col xs="auto">
                   <FaBath className="me-2" />
-                  <strong>{property.bathrooms}</strong> baño
+                  <strong>{property.bathroom_amount}</strong> baño
                 </Col>
                 <Col xs="auto">
                   <FaBed className="me-2" />
-                  <strong>{property.rooms}</strong> dormitorios
+                  <strong>{property.suite_amount}</strong> dormitorios
                 </Col>
                 <Col xs="auto">
                   <FaCalendarAlt className="me-2" />
@@ -99,14 +118,16 @@ const Detail = () => {
             <Card.Body>
               <Card.Title>Ubicación</Card.Title>
               <Card.Text>{property.address}</Card.Text>
-              <GoogleMapComponent address={property.address} />
+              <GoogleMapComponent
+                address={{ lat: +property.geo_lat, lng: +property.geo_long }}
+              />
             </Card.Body>
           </Card>
         </Col>
         <Col md={4}>
           <Card className="mt-3 shadow-sm">
             <Card.Body>
-              <FormContacto defaultValues={{property: property.id}}/>
+              <FormContacto defaultValues={{ property: property.id }} />
             </Card.Body>
           </Card>
         </Col>

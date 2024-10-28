@@ -23,10 +23,7 @@ function GoogleMapComponent({ address }) {
     }
     try {
       // fetchGeocode(); TODO conseguir APIKEY
-      setCenter({
-        lat: -34.602756, 
-        lng: -58.375298,
-      });
+      setCenter(address);
     } catch (error) {}
   }, [address]);
 

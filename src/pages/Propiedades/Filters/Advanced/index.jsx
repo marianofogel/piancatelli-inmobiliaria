@@ -34,20 +34,20 @@ const AdvancedFilters = ({ onFilterChange, filters }) => {
                           `${
                             filters[key] === 4 ? "+4" : filters[key]
                           } dormitorio${filters[key] !== 1 ? "s" : ""}`}
-                        {key === "bathrooms" &&
+                        {key === "bathroom_amount" &&
                           `${filters[key]} baño${
                             filters[key] !== 1 ? "s" : ""
                           }`}
-                        {key === "minPrice" &&
+                        {key === "price_from" &&
                           `Min: ${formatPrice(filters[key])}`}
-                        {key === "maxPrice" &&
+                        {key === "price_to" &&
                           `Max: ${formatPrice(filters[key])}`}
                         {[
                           "age",
                           "rooms",
-                          "bathrooms",
-                          "minPrice",
-                          "maxPrice",
+                          "bathroom_amount",
+                          "price_from",
+                          "price_to",
                         ].includes(key)
                           ? ""
                           : filters[key]}{" "}
@@ -131,15 +131,15 @@ const AdvancedFilters = ({ onFilterChange, filters }) => {
             </Form.Label>
             <Form.Select
               size="sm"
-              value={filters?.ccy}
+              value={filters?.currency}
               onChange={(e) =>
-                onFilterChange({ ...filters, ccy: e.target.value })
+                onFilterChange({ ...filters, currency: e.target.value })
               }
               className="w-50"
             >
               <option value="">Moneda</option>
-              <option value="ars">ARS</option>
-              <option value="usd">USD</option>
+              <option value="ARS">ARS</option>
+              <option value="USD">USD</option>
             </Form.Select>
           </div>
           <div className="d-flex justify-content-between">
@@ -150,27 +150,27 @@ const AdvancedFilters = ({ onFilterChange, filters }) => {
             >
               <Form.Control
                 type="text"
-                value={formatPrice(filters?.minPrice)}
+                value={formatPrice(filters?.price_from)}
                 onChange={(e) =>
                   onFilterChange({
                     ...filters,
-                    minPrice: e.target.value.replace(/\D/g, ""),
+                    price_from: e.target.value.replace(/\D/g, ""),
                   })
                 }
-                disabled={!filters?.ccy}
+                disabled={!filters?.currency}
               />
             </FloatingLabel>
             <FloatingLabel controlId="formMaxPrecio" label="Máximo">
               <Form.Control
                 type="text"
-                value={formatPrice(filters?.maxPrice)}
+                value={formatPrice(filters?.price_to)}
                 onChange={(e) =>
                   onFilterChange({
                     ...filters,
-                    maxPrice: e.target.value.replace(/\D/g, ""),
+                    price_to: e.target.value.replace(/\D/g, ""),
                   })
                 }
-                disabled={!filters?.ccy}
+                disabled={!filters?.currency}
               />
             </FloatingLabel>
           </div>
@@ -218,9 +218,9 @@ const AdvancedFilters = ({ onFilterChange, filters }) => {
               <Button
                 key={num}
                 variant={
-                  filters?.bathrooms === num ? "secondary" : "outline-secondary"
+                  filters?.bathroom_amount === num ? "secondary" : "outline-secondary"
                 }
-                onClick={() => onFilterChange({ ...filters, bathrooms: num })}
+                onClick={() => onFilterChange({ ...filters, bathroom_amount: num })}
               >
                 {num}
               </Button>
