@@ -94,16 +94,16 @@ const Footer = () => {
                                 <Stack >
                                     <Row>
                                         <Col className="columnas-footer">
-                                            <Link className="footer-links" >Ventas en Barrio Privados</Link>
-                                            <Link className="footer-links">Ventas en Countries</Link>
-                                            <Link className="footer-links">Casas en zona</Link>
-                                            <Link className="footer-links">Lotes en zona</Link>
+                                            <p><Link className="footer-links" >Ventas en Barrio Privados</Link></p>
+                                            <p><Link className="footer-links">Ventas en Countries</Link></p>
+                                            <p><Link className="footer-links" >Casas en zona</Link></p>
+                                            <p><Link className="footer-links">Lotes en zona</Link></p>
                                         </Col>
                                         <Col className="columnas-footer">
-                                            <Link className="footer-links">Alquileres en Barrios Privados</Link>
-                                            <Link className="footer-links">Alquileres en Countries</Link>
-                                            <Link className="footer-links">Casas en zona</Link>
-                                            <Link className="footer-links">Lotes en zona</Link>
+                                            <p><Link className="footer-links">Alquileres en Barrios Privados</Link></p>
+                                            <p><Link className="footer-links">Alquileres en Countries</Link></p>
+                                            <p><Link className="footer-links">Casas en zona</Link></p>
+                                            <p><Link className="footer-links">Lotes en zona</Link></p>
                                         </Col>
                                     </Row>
                                 </Stack>
