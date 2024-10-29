@@ -61,8 +61,9 @@ const NavbarComponent = () => {
   return (
     <>
       <Navbar
-        className={`navbar sticky-top ${navbarTransparente ? "scrolled" : ""}`}
+        className={`navbar ${navbarTransparente ? "scrolled" : ""}`}
         expand="lg"
+        fixed="top"
         style={{
           backgroundColor: location.pathname !== "/" ? "#42505a" : "",
         }}

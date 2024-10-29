@@ -55,7 +55,7 @@ const Buscador = () => {
 
 
     return (
-        <Container fluid className="perro justify-content-center align-items-center p-0 vh-100">
+        <Container fluid className="p-0 vh-100">
             <div>
                 <div className="buscador-contenedor">
                     <div className="buscador-fondo">

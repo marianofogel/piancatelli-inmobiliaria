@@ -13,10 +13,6 @@
     /* Centra horizontalmente */
     align-items: center;
     /* Centra verticalmente */
-    position: absolute;
-    /* Permite que el contenedor esté fijo en la posición */
-      top:0;
-    /* Coloca el contenedor en la parte superior */
   
 }
 

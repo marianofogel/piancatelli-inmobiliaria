@@ -30,8 +30,6 @@ const FilterLayout = ({
                 style={{ color: "#c59f37", borderColor: "#c59f37" }}
               >
                 <option value="">Ordenar por</option>
-                <option value={`createdAt:-1`}>Más recientes</option>
-                <option value={`createdAt:1`}>Menos recientes</option>
                 <option value={`price:-1`}>Mayor precio</option>
                 <option value={`price:1`}>Menor precio</option>
               </Form.Select>
