@@ -37,6 +37,15 @@ const Detail = () => {
     return null;
   }
 
+  if (!property.photos || !property.photos.length) {
+    property.photos = [
+      {
+        image: process.env.PUBLIC_URL + "/img/edificio-buscador.jpeg",
+        thumb: process.env.PUBLIC_URL + "/img/edificio-buscador.jpeg",
+      },
+    ];
+  }
+
   return (
     <Container style={{ marginTop: "5em" }}>
       <Button onClick={() => navigate("/propiedades")}>Volver</Button>
@@ -80,9 +89,9 @@ const Detail = () => {
                 {property.operations[0].prices[0].currency}
               </Card.Title>
 
-              {property.operation === "alquiler" && (
+              {property.operations[0].operation_type === "Alquiler" && (
                 <Card.Text className="text-muted">
-                  Expensas: 90.000 ARS
+                  Expensas: {formatPrice(property.expenses.toString())} ARS
                 </Card.Text>
               )}
 
@@ -109,7 +118,10 @@ const Detail = () => {
                 </Col>
                 <Col xs="auto">
                   <FaCalendarAlt className="me-2" />
-                  <strong>{property.age}</strong> años antigüedad
+                  <strong>
+                    {property.age === 0 ? "A estrenar" : property.age}
+                  </strong>
+                  {property.age === 0 ? "" : " años de antigüedad"} 
                 </Col>
               </Row>
             </Card.Body>

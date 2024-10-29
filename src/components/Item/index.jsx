@@ -14,7 +14,7 @@ const Item = ({ property }) => {
     >
       <Card className="shadow p-0" style={{ borderRadius: "100" }}>
         <div style={{ position: "relative" }}>
-          <Card.Img variant="top" src={property.photos[0].image} alt="..." />
+          <Card.Img variant="top" src={property.photos[0]?.image || process.env.PUBLIC_URL + '/img/edificio-buscador.jpeg' } alt="..." />
           <Badge
             bg="danger"
             style={{

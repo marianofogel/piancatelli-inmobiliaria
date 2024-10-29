@@ -7,8 +7,10 @@ import {
   Dropdown,
 } from "react-bootstrap";
 import { formatPrice } from "../../../../utils/formatPrice";
+import useFetchData from "../../../../hooks/useFetchData";
 
 const AdvancedFilters = ({ onFilterChange, filters }) => {
+  const { data: dataTypes } = useFetchData("property_type");
   return (
     <Container className="mt-2">
       {filters && (
@@ -90,15 +92,17 @@ const AdvancedFilters = ({ onFilterChange, filters }) => {
         <Form.Group controlId="formTipo" className="border rounded p-2 mb-3">
           <Form.Label style={{ color: "red" }}>Tipo de propiedad</Form.Label>
           <Form.Select
-            value={filters?.type}
+            value={filters?.propertyTypes}
             onChange={(e) =>
-              onFilterChange({ ...filters, type: e.target.value })
+              onFilterChange({ ...filters, propertyTypes: e.target.value })
             }
           >
             <option value="">Seleccione un tipo</option>
-            <option value="casa">Casa</option>
-            <option value="departamento">Departamento</option>
-            <option value="pozo">Terreno o lote</option>
+            {dataTypes?.objects.map((type) => (
+              <option key={type.id} value={type.id}>
+                {type.name}
+              </option>
+            ))}
           </Form.Select>
         </Form.Group>
         <Form.Group
@@ -107,15 +111,15 @@ const AdvancedFilters = ({ onFilterChange, filters }) => {
         >
           <Form.Label style={{ color: "red" }}>Tipo de operación</Form.Label>
           <Form.Select
-            value={filters?.operation}
+            value={filters?.operationTypes}
             onChange={(e) =>
-              onFilterChange({ ...filters, operation: e.target.value })
+              onFilterChange({ ...filters, operationTypes: e.target.value })
             }
           >
             <option value="">Seleccione un tipo de operación</option>
-            <option value="venta">Venta</option>
-            <option value="alquiler">Alquiler</option>
-            <option value="alquiler temporal">Alquiler Temporal</option>
+            <option value="1">Venta</option>
+            <option value="2">Alquiler</option>
+            <option value="3">Alquiler Temporal</option>
           </Form.Select>
         </Form.Group>
         <div className="border rounded p-2 mb-3">

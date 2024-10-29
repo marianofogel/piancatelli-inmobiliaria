@@ -12,17 +12,16 @@ const PropertiesLayout = () => {
   const { filters, setFilters, sortKey, setSortKey } = useFilterStore();
   const handleFilterChange = (newFilters) => {
     setFilters(newFilters);
+    refetchData(); // Trigger fetch when filters change
   };
 
   const handleSortChange = (e) => {
     const [key, order] = e.target.value.split(":");
     setSortKey({ key, order: parseInt(order, 10) });
+    refetchData(); // Trigger fetch when sort key changes
   };
 
-  const {
-    data,
-    loading,
-  } = useFetchData("property");
+  const { data, loading, refetch: refetchData } = useFetchData("property/search");
 
   return (
     <div style={{ margin: "5em 2em 2em" }}>
@@ -32,7 +31,9 @@ const PropertiesLayout = () => {
         handleSortChange={handleSortChange}
         sortKey={sortKey}
       >
-        {loading ? <Spinner></Spinner> : data?.objects.length > 0 ? (
+        {loading ? (
+          <Spinner></Spinner>
+        ) : data?.objects.length > 0 ? (
           <Masonry
             columns={{ 100: 1, 520: 2, 992: 3, 1200: 4, 1500: 5 }}
             gap={16}
