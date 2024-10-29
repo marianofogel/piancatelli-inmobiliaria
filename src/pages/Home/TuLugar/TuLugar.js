@@ -9,7 +9,7 @@ const TuLugar = () => {
         <>
             <Container className="p-0" fluid>
                 <div className="alternativa-div">
-                    <h2 className="titulo-bienes-raices">Una alternativa superior en Bienes Raices</h2>
+                    <h2 id="titulo-bienes-raices">Una alternativa superior en Bienes Raices</h2>
 
                 </div>
                 <h1 id="titulo-tu-lugar" className="text-center" >Descubri tu barrio ideal</h1>
