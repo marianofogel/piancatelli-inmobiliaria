@@ -1,31 +1,43 @@
 import { NuevosIngresosCard } from "./NuevoIngresoCard"
-import { Container } from "react-bootstrap"
+import { Container, Spinner } from "react-bootstrap"
 import './NuevosIngresos.css'
 import { properties } from "../../../_data/index"
+import useFetchData from '../../../hooks/useFetchData';
 
-const sortCreatedAt = properties.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-const lastThree = sortCreatedAt.slice(0, 3)
+
 
 const NuevosIngresos = () => {
+    const api = useFetchData('property/search')
+    const imageDefaultPiancatelli = process.env.PUBLIC_URL + "/img/Piancatelli.png"
+
+    if (api.loading) {
+        return (
+            <Spinner></Spinner>
+        )
+    }
+
     return (
         <>
             <Container fluid className="p-0">
                 <div id="contenedor-ingresos">
                     <h1 className="nuevos-ingresos-titulo"> Nuevos Ingresos </h1>
                     <div className="contenedor-cards">
-                        {lastThree.map((nuevoIngreso, index) => (
-                            <NuevosIngresosCard key={index}
-                                imageSrc={nuevoIngreso.images}
-                                casaNombre={nuevoIngreso.title}
-                                barrioCasa={nuevoIngreso.address}
-                                metrosCuadradoCasa={nuevoIngreso.surface + "m2"}
-                                dormitoriosCasa={nuevoIngreso.rooms + " habitaciones"}
-                                banosCasa={nuevoIngreso.bathrooms + " baños"}
-                                casaDescripcion={nuevoIngreso.description}
-                                casaValor={nuevoIngreso.price}
-                                estadoCasa={nuevoIngreso.operation}
-                                createdAt={nuevoIngreso.createdAt}
-                                id={nuevoIngreso.id} />
+                        {api.data.objects
+                        .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+                        .slice(0, 3)
+                        .map((nuevoIngreso, index) => (
+                        <NuevosIngresosCard key={index}
+                            imageSrc={nuevoIngreso.photos[0]?.image ? nuevoIngreso.photos[0].image : imageDefaultPiancatelli}
+                            casaNombre={nuevoIngreso.address}
+                            barrioCasa={nuevoIngreso.location.name}
+                            metrosCuadradoCasa={nuevoIngreso.surface + "m2"}
+                            dormitoriosCasa={nuevoIngreso.room_amount + " habitaciones"}
+                            banosCasa={nuevoIngreso.bathroom_amount + " baños"}
+                            casaDescripcion={nuevoIngreso.description}
+                            casaValor={"USD " + nuevoIngreso.operations[0].prices[0].price}
+                            estadoCasa={nuevoIngreso.operations[0].operation_type}
+                            createdAt={nuevoIngreso.created_at}
+                            id={nuevoIngreso.id} />
 
                         ))}
                     </div>

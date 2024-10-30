@@ -1,21 +1,15 @@
 import React, { useRef, useState } from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Spinner } from 'react-bootstrap';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Autoplay, Pagination } from "swiper/modules";
 import "./PropiedadesDestacadas.css"
 import { DestacadasSwiperCard } from './DestacadasCard';
-import { properties } from "../../../_data/index"
-
-
-const filterByHighlighted = properties.filter(casa => casa.highlighted)
-const sortCreatedAt = filterByHighlighted.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-const lastThreeAndHighlighted = sortCreatedAt.slice(0, 5)
+import useFetchData from '../../../hooks/useFetchData';
 
 const PropertyCarousel = () => {
-
-
+    const api = useFetchData('property/search')
 
     const progressCircle = useRef(null);
     const progressContent = useRef(null);
@@ -23,6 +17,14 @@ const PropertyCarousel = () => {
         progressCircle.current.style.setProperty('--progress', 1 - progress);
         progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
     };
+
+    const imageDefaultPiancatelli = process.env.PUBLIC_URL + "/img/Piancatelli.png"
+
+    if (api.loading) {
+        return (
+            <Spinner></Spinner>
+        )
+    }
 
 
     return (
@@ -48,15 +50,18 @@ const PropertyCarousel = () => {
                     className='swiperDestacadas'
                 >
 
-                    {lastThreeAndHighlighted.map((nuevaDestacada, index) => (
+                    {api.data.objects
+                    .filter((nuevaDestacada) => nuevaDestacada.is_starred_on_web)
+                    .map((nuevaDestacada, index) => (
                         <SwiperSlide className="slide-destacadas">
-                            <DestacadasSwiperCard key={index}
-                                imageSrc={nuevaDestacada.images}
-                                casaNombre={nuevaDestacada.title}
-                                barrioCasa={nuevaDestacada.address}
+                            <DestacadasSwiperCard
+                                key={index}
+                                imageSrc={nuevaDestacada.photos[0]?.image ? nuevaDestacada.photos[0].image : imageDefaultPiancatelli}
+                                casaNombre={nuevaDestacada.address}
+                                barrioCasa={nuevaDestacada.location.name}
                                 metrosCuadradoCasa={nuevaDestacada.surface + "m2"}
-                                estadoCasa={nuevaDestacada.operation}
-                                casaValor={nuevaDestacada.price}
+                                estadoCasa={nuevaDestacada.operations[0].operation_type}
+                                casaValor={"USD " + nuevaDestacada.operations[0].prices[0].price}
                                 id={nuevaDestacada.id} />
                         </SwiperSlide>
                     ))}
@@ -64,11 +69,14 @@ const PropertyCarousel = () => {
 
 
                 </Swiper>
+
             </div>
+
         </Container >
 
 
     )
+
 }
 
 export default PropertyCarousel;
