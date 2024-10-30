@@ -1,106 +1,73 @@
 /* Contenedor principal del buscador */
 .buscador-contenedor {
     background: url('../../../../public/img/edificio-buscador.jpeg') no-repeat center center;
-    /* Ajusta la imagen */
     background-size: cover;
-    /* Asegura que la imagen cubra todo el contenedor */
     width: 100%;
     min-height: 100vh;
-    /* Altura mínima del contenedor */
     display: flex;
-    /* Usa flexbox para centrar el contenido */
     justify-content: center;
-    /* Centra horizontalmente */
     align-items: center;
-    /* Centra verticalmente */
-    position: absolute;
-    /* Permite que el contenedor esté fijo en la posición */
-      top:0;
-    /* Coloca el contenedor en la parte superior */
-  
 }
 
 /* Fondo del buscador */
 .buscador-fondo {
     background-color: rgba(255, 255, 255, 0.8);
-    /* Fondo blanco semitransparente */
-    padding: 10em;
-    /* Espaciado interior */
+    padding-left: 4em;
+    padding-right: 4em;
+    padding-top: 2em;
+    padding-bottom: 2em;
     border-radius: 15px;
-    /* Bordes redondeados */
     text-align: center;
-    /* Centra el texto */
+    margin: 2em auto;
+    max-width: 90%;
 }
 
 /* Título del buscador */
 .buscador-titulo {
     font-size: 30px;
-    /* Tamaño de fuente */
     color: #e3151b;
-    /* Color del texto */
     font-weight: bold;
-    /* Negrita */
     padding-bottom: 25px;
-    /* Espacio debajo del título */
 }
 
 /* Formulario del buscador */
 .buscador-form {
     background-color: rgba(255, 255, 255, 0.9);
-    /* Fondo blanco semitransparente */
     padding: 10px;
-    /* Espaciado interior */
     border-radius: 15px;
-    /* Bordes redondeados */
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.638);
-    /* Sombra */
     text-align: center;
-    /* Centra el texto */
     gap: 1em;
 }
 
 /* Estilo del botón del buscador */
 #buscador-boton {
     color: #ffffff;
-    /* Color del texto */
     background-color: #e3151b;
-    /* Color de fondo */
     font-size: 20px;
-    /* Tamaño de fuente */
     padding: 2px 30px;
-    /* Espaciado interior */
     border-radius: 8px;
-    /* Bordes redondeados */
     cursor: pointer;
-    /* Cambia el cursor al pasar sobre el botón */
     border: none;
-    /* Sin borde */
     margin-top: 12px;
-    /* Espacio encima del botón */
 }
 
 /* Placeholder del input */
 input.buscador-input-text::placeholder {
     color: #000000;
-    /* Color del placeholder */
 }
 
 /* Estilo del select */
 #buscador-select {
     box-sizing: border-box;
-    /* Incluye padding y borde en el ancho */
     font-size: 20px;
-    /* Tamaño de fuente */
     border: none;
-    /* Sin borde */
     margin: 5px auto;
-    
 }
 
 /* Estilo del select al enfocarse */
 #buscador-select:focus {
     box-shadow: 0px 0px 5px 0.5px #ff0000;
-    /* Sombra al enfocar */
 }
 
 input.buscador-input-text:focus {
@@ -110,56 +77,62 @@ input.buscador-input-text:focus {
 /* Agrupación de formulario */
 .buscador-form-group {
     margin: auto;
-    /* Centra el grupo */
     text-align: center;
-    /* Centra el texto */
 }
 
 /* Contenedor para el botón "Conocer más" */
 .contenedor-boton-conocermas {
     position: absolute;
-    /* Permite posicionar el botón */
     top: 90%;
-    /* Ajusta la posición vertical */
 }
 
 /* Estilo del botón "Conocer más" */
 #boton-conocermas {
     background-color: #e3151b;
-    /* Color de fondo */
     color: #ffffff;
-    /* Color del texto */
     font-size: 20px;
-    /* Tamaño de fuente */
     border-radius: 7px;
-    /* Bordes redondeados */
     border: none;
-    /* Sin borde */
     align-items: center;
-    /* Alinea verticalmente el texto */
+    padding: .5rem;
+    text-decoration: none;
 }
 
 /* Media query para pantallas grandes */
 @media (min-width: 1275px) {
     .buscador-form {
         display: flex;
-        /* Usa flexbox para el formulario */
         width: 100%;
-        /* Ancho completo */
         justify-content: center;
-        /* Centra horizontalmente */
-        
     }
 
     .buscador-titulo {
         font-size: 45px;
-        /* Aumenta el tamaño del título */
         padding-bottom: 25px;
-        /* Espacio debajo del título */
     }
 
     .contenedor-boton-conocermas {
-        top: 75%;
-        /* Ajusta la posición vertical */
+        top: 80%;
+    }
+
+    .buscador-fondo {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 8em;
+        border-radius: 15px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 578px) {
+    .buscador-fondo {
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 15px;
+        text-align: center;
+        max-width: 90%;
+    }
+
+    .buscador-titulo {
+        font-size: 29px;
+        padding-bottom: 10px;
     }
 }

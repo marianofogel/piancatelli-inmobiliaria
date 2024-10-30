@@ -3,45 +3,48 @@ import { Item } from "../../components/Item";
 import Masonry from "react-layout-masonry";
 import FilterLayout from "./Filters";
 import { CgSearchFound } from "react-icons/cg";
-import { Container } from "react-bootstrap";
+import { Container, Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import useFilterStore from "../../store";
-import { properties } from "../../_data";
-import { filterAndSort } from "../../utils";
+import useFetchData from "../../hooks/useFetchData";
 
 const PropertiesLayout = () => {
   const { filters, setFilters, sortKey, setSortKey } = useFilterStore();
   const handleFilterChange = (newFilters) => {
     setFilters(newFilters);
+    refetchData(); // Trigger fetch when filters change
   };
 
   const handleSortChange = (e) => {
     const [key, order] = e.target.value.split(":");
     setSortKey({ key, order: parseInt(order, 10) });
+    refetchData(); // Trigger fetch when sort key changes
   };
 
-  const filteredProperties = filterAndSort(properties, filters, sortKey);
+  const { data, loading, refetch: refetchData } = useFetchData("property/search");
 
   return (
-    <div className="m-4">
+    <div style={{ margin: "5em 2em 2em" }}>
       <FilterLayout
         onFilterChange={handleFilterChange}
         filters={filters}
         handleSortChange={handleSortChange}
         sortKey={sortKey}
       >
-        {filteredProperties.length > 0 ? (
+        {loading ? (
+          <Spinner></Spinner>
+        ) : data?.objects.length > 0 ? (
           <Masonry
             columns={{ 100: 1, 520: 2, 992: 3, 1200: 4, 1500: 5 }}
             gap={16}
           >
-            {filteredProperties.map((property) => (
+            {data?.objects.map((property) => (
               <Link
                 to={`${property.id}`}
                 style={{ textDecoration: "none" }}
                 key={`${property.id}`}
               >
-                <Item key={property.id} property={property} />
+                <Item property={property} />
               </Link>
             ))}
           </Masonry>
