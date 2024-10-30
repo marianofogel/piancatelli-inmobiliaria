@@ -5,7 +5,7 @@ import "./DestacadasCard.css";
 import { Link } from 'react-router-dom';
 
 
-const DestacadasSwiperCard = ({ id, imageSrc, casaNombre, barrioCasa, casaValor, estadoCasa, metrosCuadradoCasa }) => {
+const DestacadasSwiperCard = ({ id, imageSrc, casaNombre, barrioCasa, casaValor, estadoCasa, metrosCuadradoCasa, destacadaCasa }) => {
     return (
         <Link to={`propiedades/${id}`} className="link-card-propiedades-destacadas">
             <div className='div-slide-propiedades'>

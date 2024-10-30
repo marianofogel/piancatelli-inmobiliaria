@@ -20,7 +20,7 @@ const NuevosIngresosCard = ({ id, imageSrc, casaNombre, barrioCasa, casaValor, e
 
                 </div>
                 <div>
-                    <h2 className="valor-casa m-0">{casaValor} Valor </h2>
+                    <h2 className="valor-casa m-0">{casaValor}</h2>
                 </div>
             </div>
         </Link>
