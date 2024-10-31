@@ -1,13 +1,12 @@
 import { NuevosIngresosCard } from "./NuevoIngresoCard"
 import { Container, Spinner } from "react-bootstrap"
 import './NuevosIngresos.css'
-import { properties } from "../../../_data/index"
 import useFetchData from '../../../hooks/useFetchData';
 
 
 
 const NuevosIngresos = () => {
-    const api = useFetchData('property/search')
+    const api = useFetchData('property')
     const imageDefaultPiancatelli = process.env.PUBLIC_URL + "/img/Piancatelli.png"
 
     if (api.loading) {
@@ -22,7 +21,7 @@ const NuevosIngresos = () => {
                 <div id="contenedor-ingresos">
                     <h1 className="nuevos-ingresos-titulo"> Nuevos Ingresos </h1>
                     <div className="contenedor-cards">
-                        {api.data.objects
+                        {api.data?.objects
                         .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
                         .slice(0, 3)
                         .map((nuevoIngreso, index) => (

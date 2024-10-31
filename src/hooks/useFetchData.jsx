@@ -1,17 +1,20 @@
 import { useState, useEffect, useCallback } from "react";
-import useFilterStore from "../store";
 
-const useFetchData = (endpoint, limit = 25, offset = 0) => {
+const useFetchData = (
+  endpoint,
+  { limit = 25, offset = 0, filters = {}, sortKey = {} } = {}
+) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const { filters, sortKey } = useFilterStore();
 
   if (filters.bathroom_amount) {
     if (filters.bathroom_amount === 3) {
       filters.customFilters = [["bathroom_amount", ">", 2]];
     } else {
-      filters.customFilters = [["bathroom_amount", "=", filters.bathroom_amount]];
+      filters.customFilters = [
+        ["bathroom_amount", "=", filters.bathroom_amount],
+      ];
     }
   }
 
@@ -22,7 +25,7 @@ const useFetchData = (endpoint, limit = 25, offset = 0) => {
       filters.customFilters = [["room_amount", "=", filters.rooms]];
     }
   }
-  
+
   const buildFilters = () => {
     const filterObject = {
       current_localization_id: filters.localizationId || 1,
@@ -55,10 +58,13 @@ const useFetchData = (endpoint, limit = 25, offset = 0) => {
         lang: "es_ar",
         limit,
         offset,
-        data: JSON.stringify(filterObject),
       });
 
-      if (sortKey.key !== "") {
+      if (Object.keys(filters).length > 0) {
+        queryParams.append("data", JSON.stringify(filterObject));
+      }
+
+      if (Object.keys(sortKey).length > 0 && sortKey.key !== "") {
         queryParams.append("order", sortKey.order === 1 ? "ASC" : "DESC");
         queryParams.append("order_by", sortKey.key);
       }
@@ -76,7 +82,7 @@ const useFetchData = (endpoint, limit = 25, offset = 0) => {
     } finally {
       setLoading(false);
     }
-  }, [endpoint, filters, sortKey, limit, offset]);
+  }, [endpoint, limit, offset]);
 
   useEffect(() => {
     fetchData();
