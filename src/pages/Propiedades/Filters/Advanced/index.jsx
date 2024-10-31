@@ -7,10 +7,34 @@ import {
   Dropdown,
 } from "react-bootstrap";
 import { formatPrice } from "../../../../utils/formatPrice";
-import useFetchData from "../../../../hooks/useFetchData";
+import { useState, useEffect } from "react";
+import useFilterStore from "../../../../store";
+const AdvancedFilters = () => {
+  const { cleanFilters, filters, setFilters } = useFilterStore();
+  const [dataTypes, setDataTypes] = useState(null);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const queryParams = new URLSearchParams({
+          format: "json",
+          key: "3cbc5baf1ad3ebb4672111e2f3aa215c17f962eb",
+          lang: "es_ar",
+          limit: 25,
+          offset: 0,
+        });
 
-const AdvancedFilters = ({ onFilterChange, filters }) => {
-  const { data: dataTypes } = useFetchData("property_type");
+        const response = await fetch(
+          `http://tokkobroker.com/api/v1/property_type?${queryParams.toString()}`
+        );
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const result = await response.json();
+        setDataTypes(result);
+      } catch (err) {}
+    };
+    fetchData();
+  }, []);
   return (
     <Container className="mt-2">
       {filters && (
@@ -21,16 +45,26 @@ const AdvancedFilters = ({ onFilterChange, filters }) => {
               <>
                 <h5>Filtros aplicados:</h5>
                 {Object.keys(filters).map((key) => {
-                  if (filters[key] && key !== "ccy") {
+                  if (
+                    filters[key] &&
+                    key !== "currency" &&
+                    key !== "customFilters"
+                  ) {
                     return (
                       <Button
                         key={key}
                         variant="outline-primary"
                         className="me-2 mb-2"
-                        onClick={() =>
-                          onFilterChange({ ...filters, [key]: "" })
-                        }
+                        onClick={() => setFilters({ ...filters, [key]: "" })}
                       >
+                        {key === "operationTypes" &&
+                          ["Venta", "Alquiler", "Alquiler Temporal"][
+                            filters[key] - 1
+                          ]}
+                        {key === "propertyTypes" &&
+                          dataTypes?.objects.find(
+                            (type) => type.id === +filters[key]
+                          )?.name}
                         {key === "age" && `< ${filters[key]} años`}
                         {key === "rooms" &&
                           `${
@@ -41,19 +75,14 @@ const AdvancedFilters = ({ onFilterChange, filters }) => {
                             filters[key] !== 1 ? "s" : ""
                           }`}
                         {key === "price_from" &&
-                          `Min: ${formatPrice(filters[key])}`}
+                          `Min: ${
+                            filters["currency"] === "ARS" ? "$" : "USD"
+                          } ${formatPrice(filters[key])}`}
                         {key === "price_to" &&
-                          `Max: ${formatPrice(filters[key])}`}
-                        {[
-                          "age",
-                          "rooms",
-                          "bathroom_amount",
-                          "price_from",
-                          "price_to",
-                        ].includes(key)
-                          ? ""
-                          : filters[key]}{" "}
-                        &times;
+                          `Max: ${
+                            filters["currency"] === "ARS" ? "$" : "USD"
+                          } ${formatPrice(filters[key])}`}
+                        &nbsp; &times;
                       </Button>
                     );
                   }
@@ -62,7 +91,7 @@ const AdvancedFilters = ({ onFilterChange, filters }) => {
                 <div
                   style={{ cursor: "pointer", color: "red" }}
                   className="me-2 mb-2"
-                  onClick={() => onFilterChange({})}
+                  onClick={() => cleanFilters()}
                 >
                   Limpiar filtros
                 </div>
@@ -79,7 +108,7 @@ const AdvancedFilters = ({ onFilterChange, filters }) => {
           <Form.Select
             value={filters?.localidad}
             onChange={(e) =>
-              onFilterChange({ ...filters, localidad: e.target.value })
+              setFilters({ ...filters, localidad: e.target.value })
             }
           >
             <option value="">Seleccione una localidad</option>
@@ -94,7 +123,7 @@ const AdvancedFilters = ({ onFilterChange, filters }) => {
           <Form.Select
             value={filters?.propertyTypes}
             onChange={(e) =>
-              onFilterChange({ ...filters, propertyTypes: e.target.value })
+              setFilters({ ...filters, propertyTypes: e.target.value })
             }
           >
             <option value="">Seleccione un tipo</option>
@@ -113,7 +142,7 @@ const AdvancedFilters = ({ onFilterChange, filters }) => {
           <Form.Select
             value={filters?.operationTypes}
             onChange={(e) =>
-              onFilterChange({ ...filters, operationTypes: e.target.value })
+              setFilters({ ...filters, operationTypes: e.target.value })
             }
           >
             <option value="">Seleccione un tipo de operación</option>
@@ -137,7 +166,7 @@ const AdvancedFilters = ({ onFilterChange, filters }) => {
               size="sm"
               value={filters?.currency}
               onChange={(e) =>
-                onFilterChange({ ...filters, currency: e.target.value })
+                setFilters({ ...filters, currency: e.target.value })
               }
               className="w-50"
             >
@@ -156,7 +185,7 @@ const AdvancedFilters = ({ onFilterChange, filters }) => {
                 type="text"
                 value={formatPrice(filters?.price_from)}
                 onChange={(e) =>
-                  onFilterChange({
+                  setFilters({
                     ...filters,
                     price_from: e.target.value.replace(/\D/g, ""),
                   })
@@ -169,7 +198,7 @@ const AdvancedFilters = ({ onFilterChange, filters }) => {
                 type="text"
                 value={formatPrice(filters?.price_to)}
                 onChange={(e) =>
-                  onFilterChange({
+                  setFilters({
                     ...filters,
                     price_to: e.target.value.replace(/\D/g, ""),
                   })
@@ -186,9 +215,7 @@ const AdvancedFilters = ({ onFilterChange, filters }) => {
           <Form.Label style={{ color: "red" }}>Antiguedad</Form.Label>
           <Form.Select
             value={filters?.age}
-            onChange={(e) =>
-              onFilterChange({ ...filters, age: e.target.value })
-            }
+            onChange={(e) => setFilters({ ...filters, age: e.target.value })}
           >
             <option value="">Seleccione la antiguedad</option>
             <option value="1">Menos de 1 año</option>
@@ -208,7 +235,7 @@ const AdvancedFilters = ({ onFilterChange, filters }) => {
                 variant={
                   filters?.rooms === num ? "secondary" : "outline-secondary"
                 }
-                onClick={() => onFilterChange({ ...filters, rooms: num })}
+                onClick={() => setFilters({ ...filters, rooms: num })}
               >
                 {num === 4 ? "+4" : num}
               </Button>
@@ -222,9 +249,11 @@ const AdvancedFilters = ({ onFilterChange, filters }) => {
               <Button
                 key={num}
                 variant={
-                  filters?.bathroom_amount === num ? "secondary" : "outline-secondary"
+                  filters?.bathroom_amount === num
+                    ? "secondary"
+                    : "outline-secondary"
                 }
-                onClick={() => onFilterChange({ ...filters, bathroom_amount: num })}
+                onClick={() => setFilters({ ...filters, bathroom_amount: num })}
               >
                 {num}
               </Button>

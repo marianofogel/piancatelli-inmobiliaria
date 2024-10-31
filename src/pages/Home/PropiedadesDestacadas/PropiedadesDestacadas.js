@@ -50,7 +50,7 @@ const PropertyCarousel = () => {
                     className='swiperDestacadas'
                 >
 
-                    {api.data.objects
+                    {api.data?.objects
                     .filter((nuevaDestacada) => nuevaDestacada.is_starred_on_web)
                     .map((nuevaDestacada, index) => (
                         <SwiperSlide className="slide-destacadas">

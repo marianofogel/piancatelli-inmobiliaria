@@ -22,7 +22,7 @@ const NuevosIngresos = () => {
                 <div id="contenedor-ingresos">
                     <h1 className="nuevos-ingresos-titulo"> Nuevos Ingresos </h1>
                     <div className="contenedor-cards">
-                        {api.data.objects
+                        {api.data?.objects
                         .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
                         .slice(0, 3)
                         .map((nuevoIngreso, index) => (

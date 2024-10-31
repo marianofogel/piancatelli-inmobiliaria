@@ -10,6 +10,15 @@ const useFilterStore = create((set) => ({
   sortKey: { key: "", order: 1 },
   setFilters: (filters) => set({ filters }),
   setSortKey: (sortKey) => set({ sortKey }),
+  cleanFilters: () =>
+    set({
+      filters: {
+        address: "",
+        type: "",
+        minPrice: "",
+        maxPrice: "",
+      },
+    }),
 }));
 
 export default useFilterStore;

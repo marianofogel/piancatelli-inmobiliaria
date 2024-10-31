@@ -4,7 +4,6 @@ import "./style.css";
 
 const FilterLayout = ({
   children,
-  onFilterChange,
   filters,
   handleSortChange,
   sortKey,
@@ -12,7 +11,7 @@ const FilterLayout = ({
   return (
     <div className="filter-layout mb-5">
       <aside className="filter-layout__aside">
-        <AdvancedFilters onFilterChange={onFilterChange} filters={filters} />
+        <AdvancedFilters />
       </aside>
       <header className="filter-layout__header">
         <Container fluid className="pt-2">

@@ -16,7 +16,6 @@ import {
   FaBed,
   FaCalendarAlt,
 } from "react-icons/fa";
-import { properties } from "../../_data";
 import { useParams, useNavigate } from "react-router-dom";
 import ImageGallery from "react-image-gallery";
 import { formatPrice } from "../../utils";
