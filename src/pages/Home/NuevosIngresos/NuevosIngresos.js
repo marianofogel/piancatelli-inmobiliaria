@@ -7,7 +7,7 @@ import useFetchData from '../../../hooks/useFetchData';
 
 
 const NuevosIngresos = () => {
-    const api = useFetchData('property/search')
+    const api = useFetchData('property')
     const imageDefaultPiancatelli = process.env.PUBLIC_URL + "/img/Piancatelli.png"
 
     if (api.loading) {

@@ -9,7 +9,7 @@ import { DestacadasSwiperCard } from './DestacadasCard';
 import useFetchData from '../../../hooks/useFetchData';
 
 const PropertyCarousel = () => {
-    const api = useFetchData('property/search')
+    const api = useFetchData('property')
 
     const progressCircle = useRef(null);
     const progressContent = useRef(null);
