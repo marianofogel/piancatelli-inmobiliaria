@@ -16,50 +16,69 @@ const PropertiesLayout = () => {
   const limit = 25;
   const offset = 0;
 
-  if (filters.bathroom_amount) {
-    if (filters.bathroom_amount === 3) {
-      filters.customFilters = [["bathroom_amount", ">", 2]];
-    } else {
-      filters.customFilters = [
-        ["bathroom_amount", "=", filters.bathroom_amount],
-      ];
-    }
-  }
-
-  if (filters.rooms) {
-    if (filters.rooms === 4) {
-      filters.customFilters = [["room_amount", ">", 3]];
-    } else {
-      filters.customFilters = [["room_amount", "=", filters.rooms]];
-    }
-  }
-
-  const buildFilters = () => {
-    const filterObject = {
-      current_localization_id: filters.localizationId || 1,
-      current_localization_type: filters.localizationType || "country",
-      price_from: filters.priceFrom || 0,
-      price_to: filters.priceTo || 4500000,
-      operation_types: (filters.operationTypes && [filters.operationTypes]) || [
-        1, 2, 3,
-      ],
-      property_types: (filters.propertyTypes && [filters.propertyTypes]) || [
-        1, 2, 3, 4, 5, 6, 7,
-      ],
-      currency: filters.currency || "USD",
-      filters: filters.customFilters || [],
-      with_tags: filters.withTags || [],
-      without_tags: filters.withoutTags || [],
-    };
-
-    return filterObject;
-  };
-
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       setError(null);
       try {
+        if (filters.bathroom_amount) {
+          filters.customFilters = filters.customFilters || [];
+          const bathroomFilter = filters.customFilters.find(
+            (filter) => filter[0] === "bathroom_amount"
+          );
+          if (bathroomFilter) {
+            filters.customFilters = filters.customFilters.filter(
+              (filter) => filter[0] !== "bathroom_amount"
+            );
+          }
+          if (filters.bathroom_amount === 3) {
+            filters.customFilters.push(["bathroom_amount", ">", 2]);
+          } else {
+            filters.customFilters.push([
+              "bathroom_amount",
+              "=",
+              filters.bathroom_amount,
+            ]);
+          }
+        }
+
+        if (filters.room_amount) {
+          filters.customFilters = filters.customFilters || [];
+          const roomFilter = filters.customFilters.find(
+            (filter) => filter[0] === "room_amount"
+          );
+          if (roomFilter) {
+            filters.customFilters = filters.customFilters.filter(
+              (filter) => filter[0] !== "room_amount"
+            );
+          }
+          if (filters.room_amount === 4) {
+            filters.customFilters.push(["room_amount", ">", 3]);
+          } else {
+            filters.customFilters.push(["room_amount", "=", filters.room_amount]);
+          }
+        }
+
+        const buildFilters = () => {
+          const filterObject = {
+            current_localization_id: filters.localizationId || 1,
+            current_localization_type: filters.localizationType || "country",
+            price_from: filters.priceFrom || 0,
+            price_to: filters.priceTo || 4500000,
+            operation_types: (filters.operationTypes && [
+              filters.operationTypes,
+            ]) || [1, 2, 3],
+            property_types: (filters.propertyTypes && [
+              filters.propertyTypes,
+            ]) || [1, 2, 3, 4, 5, 6, 7],
+            currency: filters.currency || "USD",
+            filters: filters.customFilters || [],
+            with_tags: filters.withTags || [],
+            without_tags: filters.withoutTags || [],
+          };
+
+          return filterObject;
+        };
         const filterObject = buildFilters();
         const queryParams = new URLSearchParams({
           format: "json",

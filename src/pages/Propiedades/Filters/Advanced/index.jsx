@@ -41,7 +41,9 @@ const AdvancedFilters = () => {
         <div className="mb-3">
           {filters &&
             Object.keys(filters).length > 0 &&
-            Object.values(filters).some((value) => value) && (
+            Object.values(filters).some(
+              (value) => value && (!Array.isArray(value) || value.length > 0)
+            ) && (
               <>
                 <h5>Filtros aplicados:</h5>
                 {Object.keys(filters).map((key) => {
@@ -55,7 +57,18 @@ const AdvancedFilters = () => {
                         key={key}
                         variant="outline-primary"
                         className="me-2 mb-2"
-                        onClick={() => setFilters({ ...filters, [key]: "" })}
+                        onClick={() => {
+                          setFilters({
+                            ...filters,
+                            [key]: "",
+                            customFilters:
+                              key === "bathroom_amount" || key === "room_amount"
+                                ? filters.customFilters.filter(
+                                    (filter) => filter[0] !== key
+                                  )
+                                : filters.customFilters,
+                          });
+                        }}
                       >
                         {key === "operationTypes" &&
                           ["Venta", "Alquiler", "Alquiler Temporal"][
@@ -66,7 +79,7 @@ const AdvancedFilters = () => {
                             (type) => type.id === +filters[key]
                           )?.name}
                         {key === "age" && `< ${filters[key]} años`}
-                        {key === "rooms" &&
+                        {key === "room_amount" &&
                           `${
                             filters[key] === 4 ? "+4" : filters[key]
                           } dormitorio${filters[key] !== 1 ? "s" : ""}`}
@@ -223,7 +236,7 @@ const AdvancedFilters = () => {
             <option value="10">Menos de 10 años</option>
             <option value="20">Menos de 20 años</option>
             <option value="30">Menos de 30 años</option>
-            <option value="50">Más de 50 años</option>
+            <option value="50">Menos de 50 años</option>
           </Form.Select>
         </Form.Group>
         <div className="border rounded p-2 mb-3">
@@ -233,9 +246,22 @@ const AdvancedFilters = () => {
               <Button
                 key={num}
                 variant={
-                  filters?.rooms === num ? "secondary" : "outline-secondary"
+                  filters?.room_amount === num
+                    ? "secondary"
+                    : "outline-secondary"
                 }
-                onClick={() => setFilters({ ...filters, rooms: num })}
+                onClick={() =>
+                  setFilters({
+                    ...filters,
+                    room_amount: filters?.room_amount === num ? null : num,
+                    customFilters:
+                      filters?.room_amount === num
+                        ? filters.customFilters.filter(
+                            (filter) => filter[0] !== "room_amount"
+                          )
+                        : filters.customFilters,
+                  })
+                }
               >
                 {num === 4 ? "+4" : num}
               </Button>
@@ -253,7 +279,19 @@ const AdvancedFilters = () => {
                     ? "secondary"
                     : "outline-secondary"
                 }
-                onClick={() => setFilters({ ...filters, bathroom_amount: num })}
+                onClick={() =>
+                  setFilters({
+                    ...filters,
+                    bathroom_amount:
+                      filters?.bathroom_amount === num ? null : num,
+                    customFilters:
+                      filters?.bathroom_amount === num
+                        ? filters.customFilters.filter(
+                            (filter) => filter[0] !== "bathroom_amount"
+                          )
+                        : filters.customFilters,
+                  })
+                }
               >
                 {num}
               </Button>
