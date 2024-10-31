@@ -1,7 +1,6 @@
 import { NuevosIngresosCard } from "./NuevoIngresoCard"
 import { Container, Spinner } from "react-bootstrap"
 import './NuevosIngresos.css'
-import { properties } from "../../../_data/index"
 import useFetchData from '../../../hooks/useFetchData';
 
 
