@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Image } from "react-bootstrap";
 import { Swiper, SwiperSlide, } from 'swiper/react';
+import { TuLugarCard } from './TuLugarCard';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
@@ -10,6 +11,8 @@ import "./slider.css"
 
 import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
 const SliderTuLugar = () => {
+    const imageDefaultPiancatelli = process.env.PUBLIC_URL + "/img/piancatelli-gris.jpeg"
+
 
     return (
         <div className='swiper-contenedor-tulugar'>
@@ -42,66 +45,42 @@ const SliderTuLugar = () => {
 
                 <SwiperSlide className='swiper-slide-tulugar'
                 >
-                    <Link>
-                        <div className='card-tulugar'>
-                            <Image className='imagen-tulugar'
-                                src={process.env.PUBLIC_URL + "/img/piancatelli-gris.jpeg"}
-                            />
-                            <p className='texto-tulugar'>Hurlingham</p>
-                        </div>
-                    </Link>
+                    <TuLugarCard
+                        imageSrc={imageDefaultPiancatelli}
+                        localidad={"Buenos Aires"}
+                    />
 
                 </SwiperSlide>
                 <SwiperSlide>
-                    <Link>
-                        <div className='card-tulugar'>
-                            <Image className='imagen-tulugar'
-                                src={process.env.PUBLIC_URL + "/img/piancatelli-blanco.jpeg"}
-                            />
-                            <p className='texto-tulugar'>Moron</p>
-                        </div>
-                    </Link>
+                    <TuLugarCard
+                        imageSrc={imageDefaultPiancatelli}
+                        localidad={"Jose C Paz"}
+                    />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <Link>
-                        <div className='card-tulugar'>
-                            <Image className='imagen-tulugar'
-                                src={process.env.PUBLIC_URL + "/img/piancatelli-gris.jpeg"}
-                            />
-                            <p className='texto-tulugar'>Haedo</p>
-                        </div>
-                    </Link>
+                    <TuLugarCard
+                        imageSrc={imageDefaultPiancatelli}
+                        localidad={"Moron"}
+                    />
                 </SwiperSlide>
                 <SwiperSlide
                 >
-                    <Link>
-                        <div className='card-tulugar'>
-                            <Image className='imagen-tulugar'
-                                src={process.env.PUBLIC_URL + "/img/piancatelli-blanco.jpeg"}
-                            />
-                            <p className='texto-tulugar'>Bella Vista</p>
-                        </div>
-                    </Link>
+                    <TuLugarCard
+                        imageSrc={imageDefaultPiancatelli}
+                        localidad={"La Boca"}
+                    />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <Link>
-                        <div className='card-tulugar'>
-                            <Image className='imagen-tulugar'
-                                src={process.env.PUBLIC_URL + "/img/piancatelli-gris.jpeg"}
-                            />
-                            <p className='texto-tulugar'>San Miguel</p>
-                        </div>
-                    </Link>
+                    <TuLugarCard
+                        imageSrc={imageDefaultPiancatelli}
+                        localidad={"Avellaneda"}
+                    />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <Link>
-                        <div className='card-tulugar'>
-                            <Image className='imagen-tulugar'
-                                src={process.env.PUBLIC_URL + "/img/piancatelli-blanco.jpeg"}
-                            />
-                            <p className='texto-tulugar'>Hurlingham</p>
-                        </div>
-                    </Link>
+                    <TuLugarCard
+                        imageSrc={imageDefaultPiancatelli}
+                        localidad={"Hurlingham"}
+                    />
                 </SwiperSlide>
 
             </Swiper >
