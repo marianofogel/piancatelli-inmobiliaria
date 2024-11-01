@@ -84,13 +84,13 @@ const Detail = () => {
                 className="mb-2"
                 style={{ fontSize: "24px", fontWeight: "bold" }}
               >
-                {formatPrice(property.operations[0].prices[0].price.toString())}{" "}
+                {formatPrice(property.operations[0].prices[0])}{" "}
                 {property.operations[0].prices[0].currency}
               </Card.Title>
 
               {property.operations[0].operation_type === "Alquiler" && (
                 <Card.Text className="text-muted">
-                  Expensas: {formatPrice(property.expenses.toString())} ARS
+                  Expensas: $ {formatPrice(property.expenses.toString())}
                 </Card.Text>
               )}
 

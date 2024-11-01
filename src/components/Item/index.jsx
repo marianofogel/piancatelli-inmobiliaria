@@ -53,7 +53,7 @@ const Item = ({ property }) => {
                 fontSize: "1.25rem",
               }}
             >
-              {formatPrice(property.price)}
+              {formatPrice(property.operations[0].prices[0])}
             </div>
           </Card.Title>
           <Row>
