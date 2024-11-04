@@ -1,6 +1,7 @@
 import { Container } from "react-bootstrap";
 import './ServiceOptions.css'
 import { ServiceCard } from "./ServiceCard";
+import { Element } from 'react-scroll';
 
 const servicios = [
     {
@@ -22,21 +23,23 @@ const servicios = [
 
 const ServiceOptions = () => {
     return (
-        <Container fluid className="p-0">
-            <div id="servicios-piancatelli">
-                <h1 className="grid-que-hacen-titulo"> Servicios </h1>
-                <h2 className="grid-que-hacen-titulo"> En Piancatelli Propiedades entendemos que... por eso, tambien ofrecemos... para que ...</h2>
+        <Element name="servicios">
+            <Container fluid className="p-0">
+                <div id="servicios-piancatelli">
+                    <h1 className="grid-que-hacen-titulo"> Servicios </h1>
+                    <h2 className="grid-que-hacen-titulo"> En Piancatelli Propiedades entendemos que... por eso, tambien ofrecemos... para que ...</h2>
 
-                <div className="services-card-contenedor">
-                    {servicios.map((servicio, index) => (
-                        <ServiceCard key={index}
-                            imageSrc={servicio.imageSrc}
-                            nameService={servicio.nameService}
-                            descriptionService={servicio.descriptionService} />
-                    ))}
+                    <div className="services-card-contenedor">
+                        {servicios.map((servicio, index) => (
+                            <ServiceCard key={index}
+                                imageSrc={servicio.imageSrc}
+                                nameService={servicio.nameService}
+                                descriptionService={servicio.descriptionService} />
+                        ))}
+                    </div>
                 </div>
-            </div>
-        </Container>
+            </Container>
+        </Element>
     );
 };
 

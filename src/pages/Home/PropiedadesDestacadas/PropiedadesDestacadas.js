@@ -7,6 +7,7 @@ import { Autoplay, Pagination } from "swiper/modules";
 import "./PropiedadesDestacadas.css"
 import { DestacadasSwiperCard } from './DestacadasCard';
 import useFetchData from '../../../hooks/useFetchData';
+import { Element } from 'react-scroll';
 
 const PropertyCarousel = () => {
     const api = useFetchData('property')
@@ -28,52 +29,53 @@ const PropertyCarousel = () => {
 
 
     return (
-        <Container fluid className='p-0'>
-            <h1 id='propiedades-destacadas-piancatelli'> Propiedades Destacadas </h1>
-            <div className='swiper-container'>
-                <Swiper
-                    spaceBetween={10}
-                    centeredSlides={true}
-                    loop={true}
-                    autoplay={{
-                        delay: 5000,
-                        disableOnInteraction: false,
-                    }}
-                    pagination={{
-                        clickable: true,
-                    }}
+        <Element name='destacadas'>
+            <Container fluid className='p-0'>
+                <h1 id='propiedades-destacadas-piancatelli'> Propiedades Destacadas </h1>
+                <div className='swiper-container'>
+                    <Swiper
+                        spaceBetween={10}
+                        centeredSlides={true}
+                        loop={true}
+                        autoplay={{
+                            delay: 5000,
+                            disableOnInteraction: false,
+                        }}
+                        pagination={{
+                            clickable: true,
+                        }}
 
-                    allowTouchMove={false}
+                        allowTouchMove={false}
 
-                    modules={[Autoplay, Pagination]}
+                        modules={[Autoplay, Pagination]}
 
-                    className='swiperDestacadas'
-                >
+                        className='swiperDestacadas'
+                    >
 
-                    {api.data?.objects
-                    .filter((nuevaDestacada) => nuevaDestacada.is_starred_on_web)
-                    .map((nuevaDestacada, index) => (
-                        <SwiperSlide className="slide-destacadas">
-                            <DestacadasSwiperCard
-                                key={index}
-                                imageSrc={nuevaDestacada.photos[0]?.image ? nuevaDestacada.photos[0].image : imageDefaultPiancatelli}
-                                casaNombre={nuevaDestacada.address}
-                                barrioCasa={nuevaDestacada.location.name}
-                                metrosCuadradoCasa={nuevaDestacada.surface + "m2"}
-                                estadoCasa={nuevaDestacada.operations[0].operation_type}
-                                casaValor={"USD " + nuevaDestacada.operations[0].prices[0].price}
-                                id={nuevaDestacada.id} />
-                        </SwiperSlide>
-                    ))}
+                        {api.data?.objects
+                            .filter((nuevaDestacada) => nuevaDestacada.is_starred_on_web)
+                            .map((nuevaDestacada, index) => (
+                                <SwiperSlide className="slide-destacadas">
+                                    <DestacadasSwiperCard
+                                        key={index}
+                                        imageSrc={nuevaDestacada.photos[0]?.image ? nuevaDestacada.photos[0].image : imageDefaultPiancatelli}
+                                        casaNombre={nuevaDestacada.address}
+                                        barrioCasa={nuevaDestacada.location.name}
+                                        metrosCuadradoCasa={nuevaDestacada.surface + "m2"}
+                                        estadoCasa={nuevaDestacada.operations[0].operation_type}
+                                        casaValor={"USD " + nuevaDestacada.operations[0].prices[0].price}
+                                        id={nuevaDestacada.id} />
+                                </SwiperSlide>
+                            ))}
 
 
 
-                </Swiper>
+                    </Swiper>
 
-            </div>
+                </div>
 
-        </Container >
-
+            </Container >
+        </Element>
 
     )
 
