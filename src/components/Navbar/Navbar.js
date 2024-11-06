@@ -32,11 +32,11 @@ const NavbarComponent = () => {
       const timeoutId = setTimeout(() => {
         scroller.scrollTo(targetSection, {
           smooth: false,
-          duration: 300,
+          duration: 400,
           offset: -100,
         });
         setTargetSection(null); // Resetear el targetSection después del scroll
-      }, 1000); // Ajusta el tiempo según sea necesario
+      }, 500); // Ajusta el tiempo según sea necesario
   
       return () => clearTimeout(timeoutId); // Limpia el timeout al desmontar
     }
@@ -50,7 +50,7 @@ const NavbarComponent = () => {
       // Si ya estamos en inicio, hace scroll inmediatamente
       scroller.scrollTo(sectionName, {
         smooth: false,
-        duration: 500,
+        duration: 100,
         offset: -100,
       });
     }
