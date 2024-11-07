@@ -47,7 +47,7 @@ const SliderTuLugar = () => {
                 >
                     <TuLugarCard
                         imageSrc={imageDefaultPiancatelli}
-                        localidad={"Buenos Aires"}
+                        localidad={"Hurlingham"}
                     />
 
                 </SwiperSlide>
