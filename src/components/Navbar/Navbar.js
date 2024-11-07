@@ -31,12 +31,12 @@ const NavbarComponent = () => {
       // Espera un poco antes de hacer el scroll para que el contenido se cargue
       const timeoutId = setTimeout(() => {
         scroller.scrollTo(targetSection, {
-          smooth: true,
-          duration: 500,
+          smooth: false,
+          duration: 400,
           offset: -100,
         });
         setTargetSection(null); // Resetear el targetSection después del scroll
-      }, 450); // Ajusta el tiempo según sea necesario
+      }, 500); // Ajusta el tiempo según sea necesario
   
       return () => clearTimeout(timeoutId); // Limpia el timeout al desmontar
     }
@@ -49,8 +49,8 @@ const NavbarComponent = () => {
     } else {
       // Si ya estamos en inicio, hace scroll inmediatamente
       scroller.scrollTo(sectionName, {
-        smooth: true,
-        duration: 500,
+        smooth: false,
+        duration: 100,
         offset: -100,
       });
     }
