@@ -1,17 +1,14 @@
-import { Link } from "react-router-dom";
 import { Image } from "react-bootstrap";
-const TuLugarCard = ({ imageSrc, localidad }) => {
+
+const TuLugarCard = ({ imageSrc, localidad, onClick}) => {
 
     return (
-        <Link value="localidad1" >
-            <div className='card-tulugar'>
+            <div className='card-tulugar' onClick={onClick}>
                 <Image className='imagen-tulugar'
                     src={imageSrc}
                 />
                 <p className='texto-tulugar'>{localidad}</p>
             </div>
-        </Link >
-
     )
 
 

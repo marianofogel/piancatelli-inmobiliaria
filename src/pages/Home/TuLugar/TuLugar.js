@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, Container } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import "./TuLugar.css"
 import { SliderTuLugar } from "./SliderTuLugar";
 const TuLugar = () => {

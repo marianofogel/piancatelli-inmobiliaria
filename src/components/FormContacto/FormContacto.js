@@ -25,8 +25,8 @@ export function FormContacto({ defaultValues = {} }) {
     };
 
     const sendDataToTokko = async (data) => {
-        const API_URL = "https://api.tokkobroker.com/api/v1/webcontact/?key=3cbc5baf1ad3ebb4672111e2f3aa215c17f962eb";
-        const TOKEN = "3cbc5baf1ad3ebb4672111e2f3aa215c17f962eb"
+        const TOKEN = process.env.REACT_APP_TOKKO_API_KEY;
+        const API_URL = `https://api.tokkobroker.com/api/v1/webcontact/?key=${TOKEN}`;
 
         try {
             const response = await fetch(API_URL, {

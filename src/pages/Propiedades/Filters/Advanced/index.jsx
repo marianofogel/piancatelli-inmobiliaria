@@ -9,6 +9,8 @@ import {
 import { formatPrice } from "../../../../utils/formatPrice";
 import { useState, useEffect } from "react";
 import useFilterStore from "../../../../store";
+import {localidades } from '../../../../pages/Home/TuLugar/localidades'
+
 const AdvancedFilters = () => {
   const { cleanFilters, filters, setFilters } = useFilterStore();
   const [dataTypes, setDataTypes] = useState(null);
@@ -35,6 +37,7 @@ const AdvancedFilters = () => {
     };
     fetchData();
   }, []);
+  
   return (
     <Container className="mt-2">
       {filters && (
@@ -95,6 +98,7 @@ const AdvancedFilters = () => {
                           `Max: ${
                             filters["currency"] === "ARS" ? "$" : "USD"
                           } ${formatPrice(filters[key])}`}
+                        {key === "localidad" && `${filters[key]}`}
                         &nbsp; &times;
                       </Button>
                     );
@@ -125,10 +129,11 @@ const AdvancedFilters = () => {
             }
           >
             <option value="">Seleccione una localidad</option>
-            <option value="localidad1">Localidad 1</option>
-            <option value="localidad2">Localidad 2</option>
-            <option value="localidad3">Localidad 3</option>
-            <option value="localidad4">Localidad 4</option>
+            {localidades.map((localidad, index) => (
+              <option key={index} value={localidad.localidad}>
+                {localidad.localidad}
+              </option>
+            ))}
           </Form.Select>
         </Form.Group>
         <Form.Group controlId="formTipo" className="border rounded p-2 mb-3">
