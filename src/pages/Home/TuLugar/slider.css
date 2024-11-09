@@ -9,14 +9,13 @@
   background-position: center;
   background-size: cover;
   width: 400px;
- 
+
 
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .swiper-contenedor-tulugar .swiper-slide-prev,
-.swiper-contenedor-tulugar .swiper-slide-next
-{
+.swiper-contenedor-tulugar .swiper-slide-next {
   opacity: 0.3;
   transform: scale (0.8);
   pointer-events: none;
@@ -26,7 +25,7 @@
 
 
 .swiper-contenedor-tulugar .swiper-slide-active {
-  
+
   opacity: 1;
   /*el slide activo sera completamente visible*/
   transform: scale(1);
@@ -44,33 +43,35 @@
   align-items: center;
   justify-content: center;
   background-color: rgb(255, 255, 255);
-  
+
 }
 
-.swiper-contenedor-tulugar .swiper-button-next, .swiper-button-prev{
-height: -20px;
+.swiper-contenedor-tulugar .swiper-button-next,
+.swiper-button-prev {
+  height: -20px;
 }
 
-.imagen-tulugar{
+.imagen-tulugar {
   border-radius: 6px;
 }
 
 
 
-.card-tulugar{
-  display:flex;
-justify-content: center;
-align-items:center;
+.card-tulugar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
-.texto-tulugar{
+.texto-tulugar {
   position: absolute;
-  bottom:  1%;
+  bottom: 1%;
   left: 3%;
   font-size: 20px;
   font-weight: bold;
   color: rgb(255, 255, 255);
-  text-shadow: -4px -1px 8px rgba(65,65,65,0.46);
+  text-shadow: -4px -1px 8px rgba(65, 65, 65, 0.46);
 }
 
 @media (max-width: 750px) {
