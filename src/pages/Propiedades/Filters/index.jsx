@@ -1,13 +1,8 @@
-import { Col, Container, Form, Row } from "react-bootstrap";
+import { Col, Container, Dropdown, Row } from "react-bootstrap";
 import AdvancedFilters from "../Filters/Advanced";
 import "./style.css";
 
-const FilterLayout = ({
-  children,
-  filters,
-  handleSortChange,
-  sortKey,
-}) => {
+const FilterLayout = ({ children, filters, handleSortChange, sortKey }) => {
   return (
     <div className="filter-layout mb-5">
       <aside className="filter-layout__aside">
@@ -22,22 +17,43 @@ const FilterLayout = ({
               </h3>
             </Col>
             <Col sm={12} xxl={2} lg={3} className="mt-2 mt-md-0">
-              <Form.Select
-                aria-label="Ordenar por"
-                onChange={handleSortChange}
-                value={`${sortKey.key}:${sortKey.order}`}
-                style={{ color: "#c59f37", borderColor: "#c59f37" }}
-              >
-                <option value="">Ordenar por</option>
-                <option value={`price:-1`}>Mayor precio</option>
-                <option value={`price:1`}>Menor precio</option>
-              </Form.Select>
+              <Dropdown>
+                <Dropdown.Toggle
+                  variant="outline-danger"
+                  id="dropdown-basic"
+                  className="w-100"
+                >
+                  {sortKey.key === ""
+                    ? "Ordenar por:"
+                    : sortKey.key === "price" && sortKey.order === -1
+                    ? "Mayor precio"
+                    : "Menor precio"}
+                </Dropdown.Toggle>
+                <Dropdown.Menu className="w-100">
+                  <Dropdown.Item
+                    onClick={() =>
+                      handleSortChange({ target: { value: "price:-1" } })
+                    }
+                  >
+                    Mayor precio
+                  </Dropdown.Item>
+                  <Dropdown.Item
+                    onClick={() =>
+                      handleSortChange({ target: { value: "price:1" } })
+                    }
+                  >
+                    Menor precio
+                  </Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
             </Col>
           </Row>
         </Container>
       </header>
-      <main className="filter-layout__main">
-        <Container fluid>{children}</Container>
+      <main className="filter-layout__main h-100">
+        <Container fluid className="h-100">
+          {children}
+        </Container>
       </main>
     </div>
   );

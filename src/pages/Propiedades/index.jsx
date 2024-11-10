@@ -55,7 +55,11 @@ const PropertiesLayout = () => {
           if (filters.room_amount === 4) {
             filters.customFilters.push(["room_amount", ">", 3]);
           } else {
-            filters.customFilters.push(["room_amount", "=", filters.room_amount]);
+            filters.customFilters.push([
+              "room_amount",
+              "=",
+              filters.room_amount,
+            ]);
           }
         }
 
@@ -132,7 +136,12 @@ const PropertiesLayout = () => {
         sortKey={sortKey}
       >
         {loading ? (
-          <Spinner></Spinner>
+          <Container
+            className="d-flex justify-content-center h-100"
+            style={{ alignItems: "center" }}
+          >
+            <Spinner variant="danger" ></Spinner>
+          </Container>
         ) : data?.objects.length > 0 ? (
           <Masonry
             columns={{ 100: 1, 520: 2, 992: 3, 1200: 4, 1500: 5 }}
