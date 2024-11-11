@@ -1,20 +1,17 @@
-
-.container-contacto{
-      display: fleX;
-    width: auto;
-    justify-content: center;
-    padding: 25px;
-    margin: auto;
-    gap: 20px;   
+.container-contacto {
+  display: fleX;
+  width: auto;
+  justify-content: center;
+  padding: 25px;
+  margin: auto;
+  gap: 20px;
 }
 
 
 
-.col-contacto{
-display: flex;
-flex-direction: column;
- text-align: center;
- align-items: center;
+.col-contacto {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
 }
-
-

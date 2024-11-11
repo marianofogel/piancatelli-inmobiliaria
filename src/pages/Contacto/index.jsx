@@ -21,7 +21,7 @@ export default function Contacto() {
             <Row className="container-contacto">
                 <Col className="col-contacto">
                     <Image
-                        src={process.env.PUBLIC_URL + "/img/Piancatelli.png"}
+                        src={process.env.PUBLIC_URL + "/img/piancatelus.jpg"}
                         alt="Company Logo"
                         width={600}
                         height={400}

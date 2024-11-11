@@ -49,6 +49,31 @@ const Buscador = () => {
         }
     };
 
+    // USAMOS MISMO USE EFFECT QUE EN EL INDEX.JS DE FILTERS ADVANCE.
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const queryParams = new URLSearchParams({
+                    format: "json",
+                    key: "3cbc5baf1ad3ebb4672111e2f3aa215c17f962eb",
+                    lang: "es_ar",
+                    limit: 25,
+                    offset: 0,
+                });
+
+                const response = await fetch(
+                    `http://tokkobroker.com/api/v1/property_type?${queryParams.toString()}`
+                );
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                const result = await response.json();
+                setDataTypes(result);
+            } catch (err) { }
+        };
+        fetchData();
+    }, []);
+
 
     return (
         <Container fluid className="p-0 vh-100">
@@ -59,12 +84,20 @@ const Buscador = () => {
 
                         <Form className="buscador-form">
                             <FormGroup className="buscador-form-group">
-                                <Form.Select className="d-flex" id="buscador-select" ref={typeRef}>
-                                    <option hidden> Tipo </option>
-                                    <option className="option-select" value="casa">CASA</option>
-                                    <option className="option-select" value="departamento">DEPARTAMENTO</option>
-                                    <option className="option-select" value="local">LOCAL</option>
-                                    <option className="option-select" value="oficina">OFICINA</option>
+                                <Form.Select
+                                    className="d-flex" id="buscador-select"
+                                    value={filters?.propertyTypes}
+                                    onChange={(e) =>
+                                        setFilters({ ...filters, propertyTypes: e.target.value })
+                                    }
+                                    ref={typeRef}
+                                >
+                                    <option hidden>Tipo</option>
+                                    {dataTypes?.objects.map((type) => (
+                                        <option className="option-select" key={type.id} value={type.id}>
+                                            {type.name}
+                                        </option>
+                                    ))}
                                 </Form.Select>
                             </FormGroup>
                             <FormGroup className="buscador-form-group">
@@ -98,3 +131,4 @@ const Buscador = () => {
 };
 
 export { Buscador };
+
