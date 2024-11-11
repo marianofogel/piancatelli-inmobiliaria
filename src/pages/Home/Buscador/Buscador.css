@@ -65,6 +65,47 @@ input.buscador-input-text::placeholder {
     margin: 5px auto;
 }
 
+.select-type-casa__control {
+    box-sizing: border-box !important;
+    font-size: 20px !important;
+    border: none !important;
+    margin: 5px auto !important;
+    width: 250px;
+    max-width: 100%;
+}
+
+.select-type-casa__placeholder {
+    color: #606060 !important;
+}
+
+.select-type-casa__control--is-focused {
+    box-shadow: 0px 0px 5px 0.5px #ff0000 !important;
+}
+
+.select-type-casa__option {
+    padding: 0.375rem 0.75rem !important;
+    color: #000000 !important;
+    font-weight: 500 !important;
+}
+
+.select-type-casa__option--is-focused {
+    background-color: #f8f9fa;
+}
+
+.select-type-casa__single-value {
+    color: #ff0000;
+}
+
+.select-type-casa__option--is-selected {
+    background-color: #e3151b !important;
+    color: #ffffff !important;
+}
+
+.select-type-casa__indicator-separator{
+    display: none;
+}
+
+
 /* Estilo del select al enfocarse */
 #buscador-select:focus {
     box-shadow: 0px 0px 5px 0.5px #ff0000;
@@ -105,6 +146,22 @@ input.buscador-input-text:focus {
         display: flex;
         width: 100%;
         justify-content: center;
+    }
+
+    .select-type-casa__control {
+        box-sizing: border-box !important;
+        font-size: 20px !important;
+        border: none !important;
+        margin: 5px auto !important;
+        width: 250px;
+        /* Ancho fijo del select */
+        max-width: 100%;
+    }
+
+    .select-type-casa__indicator-separator{
+        display: block;
+        height: 40px !important;
+        order: 2;
     }
 
     .buscador-titulo {

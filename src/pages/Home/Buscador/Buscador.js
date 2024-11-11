@@ -4,24 +4,24 @@ import { Container, Form, FormGroup, Button } from "react-bootstrap";
 import { IoIosArrowDown, IoMdSearch } from "react-icons/io";
 import { useNavigate } from "react-router";
 import useFilterStore from "../../../store";
+import Select from 'react-select';
 
 const Buscador = () => {
-    const { filters } = useFilterStore();
-    const [dataTypes, setDataTypes] = useState(null); const typeRef = useRef(null);
     const operationRef = useRef(null);
     const addressRef = useRef(null);
     const navigate = useNavigate();
-
+    const [selectedOption, setSelectedOption] = useState(null);
+    const [dataTypes, setDataTypes] = useState(null); // Definir valor inicial
     const setFilters = useFilterStore((state) => state.setFilters);
 
     const handleBuscar = () => {
-        const type = typeRef.current.value;
+        const type = selectedOption?.value;
         const operation = operationRef.current.value;
         const address = addressRef.current.value;
 
         const filters = {};
 
-        if (type && type !== "Tipo") {
+        if (type) {
             filters.type = type;
         }
 
@@ -44,12 +44,26 @@ const Buscador = () => {
 
         if (targetElement) {
             const navbarCompensacion = 82; // Para compensar el tamaño de la navbar
-            const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
-            window.scrollTo({ top: elementPosition - navbarCompensacion, behavior: "smooth" });
+            const elementPosition =
+                targetElement.getBoundingClientRect().top + window.scrollY;
+            window.scrollTo({
+                top: elementPosition - navbarCompensacion,
+                behavior: "smooth",
+            });
         }
     };
 
-    // USAMOS MISMO USE EFFECT QUE EN EL INDEX.JS DE FILTERS ADVANCE.
+    const handleChange = (option) => {
+        setSelectedOption(option);
+    };
+
+    // Transforma los datos en un formato compatible con react-select
+    const options = dataTypes?.objects.map((type) => ({
+        value: type.id,
+        label: type.name,
+    }));
+    console.log(dataTypes)
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -82,36 +96,75 @@ const Buscador = () => {
                     <div className="buscador-fondo">
                         <h2 className="buscador-titulo">Encontrá tu próximo hogar</h2>
 
-                        <Form className="buscador-form">
-                            <FormGroup className="buscador-form-group">
-                                <Form.Select
-                                    className="d-flex" id="buscador-select"
-                                    value={filters?.propertyTypes}
-                                    onChange={(e) =>
-                                        setFilters({ ...filters, propertyTypes: e.target.value })
-                                    }
+                        <Form className="d-xl-flex">
+                            <div className="buscador-form">
+                                <FormGroup className="buscador-form-group">
+                                    <Select
+                                        className="d-flex"
+                                        classNamePrefix="select-type-casa"
+                                        value={selectedOption}
+                                        onChange={handleChange}
+                                        placeholder="Tipo" // Placeholder cuando no hay selección
+                                        options={options}
+                                    />
+                                </FormGroup>
+
+
+                                { /* <Form.Select
+                                    className="d-flex"
+                                    id="buscador-select"
                                     ref={typeRef}
                                 >
-                                    <option hidden>Tipo</option>
-                                    {dataTypes?.objects.map((type) => (
-                                        <option className="option-select" key={type.id} value={type.id}>
-                                            {type.name}
+                                    <option hidden> Tipo </option>
+                                    <option className="option-select" value="casa">
+                                        CASA
+                                    </option>
+                                    <option className="option-select" value="departamento">
+                                        DEPARTAMENTO
+                                    </option>
+                                    <option className="option-select" value="local">
+                                        LOCAL
+                                    </option>
+                                    <option className="option-select" value="oficina">
+                                        OFICINA
+                                    </option>
+                                </Form.Select> */}
+                                <FormGroup className="buscador-form-group">
+                                    <Form.Select
+                                        className="d-flex"
+                                        id="buscador-select"
+                                        ref={operationRef}
+                                    >
+                                        <option hidden> Operación </option>
+                                        <option className="option-select" value="venta">
+                                            VENTA
                                         </option>
-                                    ))}
-                                </Form.Select>
-                            </FormGroup>
-                            <FormGroup className="buscador-form-group">
-                                <Form.Select className="d-flex" id="buscador-select" ref={operationRef}>
-                                    <option hidden> Operación </option>
-                                    <option className="option-select" value="venta">VENTA</option>
-                                    <option className="option-select" value="alquiler">ALQUILER</option>
-                                    <option className="option-select" value="alquiler temporal">ALQUILER TEMPORAL</option>
-                                </Form.Select>
-                            </FormGroup>
-                            <Form.Group className="buscador-form-group">
-                                <Form.Control className="buscador-input-text" type="text" placeholder="Localidad" id="buscador-select" ref={addressRef} />
-                            </Form.Group>
-                            <Button id='buscador-boton' className="search-btn mb-3" type="button" onClick={handleBuscar} > Buscar </Button>
+                                        <option className="option-select" value="alquiler">
+                                            ALQUILER
+                                        </option>
+                                        <option className="option-select" value="alquiler temporal">
+                                            ALQUILER TEMPORAL
+                                        </option>
+                                    </Form.Select>
+                                </FormGroup>
+                                <Form.Group className="buscador-form-group">
+                                    <Form.Control
+                                        className="buscador-input-text"
+                                        type="text"
+                                        placeholder="Localidad"
+                                        id="buscador-select"
+                                        ref={addressRef}
+                                    />
+                                </Form.Group>
+                            </div>
+                            <Button
+                                id="buscador-boton"
+                                className="mb-3"
+                                type="button"
+                                onClick={handleBuscar}
+                            >
+                                <IoMdSearch />
+                            </Button>
                         </Form>
                     </div>
 
@@ -131,4 +184,3 @@ const Buscador = () => {
 };
 
 export { Buscador };
-
