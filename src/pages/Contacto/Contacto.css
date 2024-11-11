@@ -5,10 +5,16 @@
     justify-content: center;
     padding: 25px;
     margin: auto;
-    gap: 20px;   
+
 }
 
+.imagen-contacto{
+  border-radius: 15px;
+}
 
+.titulo-mensaje{
+  font-weight: bold;
+}
 
 .col-contacto{
 display: flex;

@@ -19,17 +19,20 @@ export default function Contacto() {
         <Container fluid className="mt-5 py-5">
 
             <Row className="container-contacto">
-                <Col className="col-contacto">
+                <Col xs={12} md={6} className="col-contacto d-flex justify-content-center align-items-center py-5">
+
                     <Image
-                        src={process.env.PUBLIC_URL + "/img/Piancatelli.png"}
-                        alt="Company Logo"
+                        src={process.env.PUBLIC_URL + "/img/contacto-pianca.jpg"}
+                        alt="Piancatelli Company"
+                        className="imagen-contacto img-fluid"
                         width={600}
-                        height={400}
+                        height={420}
                     />
+
                 </Col>
-                <Col className="col-contacto">
+                <Col xs={12} md={6} className="col-contacto">
                     <Stack>
-                        <h2 className="pb-3">Envianos tu Mensaje!    </h2>
+                        <h2 className="pb-3 titulo-mensaje">Envianos tu Mensaje!</h2>
                         <div className="col-contacto">
                             <FormContacto />
                         </div>
