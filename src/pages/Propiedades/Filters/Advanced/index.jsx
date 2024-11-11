@@ -106,7 +106,7 @@ const AdvancedFilters = () => {
                   return null;
                 })}
                 <div
-                  style={{ cursor: "pointer", color: "red" }}
+                  style={{ cursor: "pointer", color: "#0d6efd" }}
                   className="me-2 mb-2"
                   onClick={() => cleanFilters()}
                 >
