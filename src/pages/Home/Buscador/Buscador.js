@@ -7,55 +7,55 @@ import useFilterStore from "../../../store";
 
 const Buscador = () => {
     const { filters } = useFilterStore();
-    const [dataTypes, setDataTypes] = useState(null);  const typeRef = useRef(null);
-  const operationRef = useRef(null);
-  const addressRef = useRef(null);
-  const navigate = useNavigate();
+    const [dataTypes, setDataTypes] = useState(null); const typeRef = useRef(null);
+    const operationRef = useRef(null);
+    const addressRef = useRef(null);
+    const navigate = useNavigate();
 
-  const setFilters = useFilterStore((state) => state.setFilters);
+    const setFilters = useFilterStore((state) => state.setFilters);
 
-  const handleBuscar = () => {
-    const type = typeRef.current.value;
-    const operation = operationRef.current.value;
-    const address = addressRef.current.value;
+    const handleBuscar = () => {
+        const type = typeRef.current.value;
+        const operation = operationRef.current.value;
+        const address = addressRef.current.value;
 
-    const filters = {};
+        const filters = {};
 
-    if (type && type !== "Tipo") {
-      filters.type = type;
-    }
+        if (type && type !== "Tipo") {
+            filters.type = type;
+        }
 
-    if (operation && operation !== "Operación") {
-      filters.operation = operation;
-    }
+        if (operation && operation !== "Operación") {
+            filters.operation = operation;
+        }
 
-    if (address) {
-      filters.address = address;
-    }
-    // Establecer los filtros y navegar a la página de propiedades
-    setFilters(filters);
-    navigate("/propiedades");
-  };
+        if (address) {
+            filters.address = address;
+        }
+        // Establecer los filtros y navegar a la página de propiedades
+        setFilters(filters);
+        navigate("/propiedades");
+    };
 
     const handleConoceMas = (e) => {
         e.preventDefault();
         const targetId = e.currentTarget.getAttribute("href").slice(1); // ID del enlace
         const targetElement = document.getElementById(targetId);
-        
+
         if (targetElement) {
             const navbarCompensacion = 82; // Para compensar el tamaño de la navbar
             const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
             window.scrollTo({ top: elementPosition - navbarCompensacion, behavior: "smooth" });
         }
     };
-    
 
-  return (
-    <Container fluid className="p-0 vh-100">
-      <div>
-        <div className="buscador-contenedor">
-          <div className="buscador-fondo">
-            <h2 className="buscador-titulo">Encontrá tu próximo hogar</h2>
+
+    return (
+        <Container fluid className="p-0 vh-100">
+            <div>
+                <div className="buscador-contenedor">
+                    <div className="buscador-fondo">
+                        <h2 className="buscador-titulo">Encontrá tu próximo hogar</h2>
 
                         <Form className="buscador-form">
                             <FormGroup className="buscador-form-group">
@@ -82,19 +82,19 @@ const Buscador = () => {
                         </Form>
                     </div>
 
-          <div className="contenedor-boton-conocermas">
-                <a
-              href="#titulo-bienes-raices"
-              id="boton-conocermas"
-              onClick={handleConoceMas}
-            >
-              Conocé Más <IoIosArrowDown />
-            </a>
-          </div>
-        </div>
-      </div>
-    </Container>
-  );
+                    <div className="contenedor-boton-conocermas">
+                        <a
+                            href="#titulo-bienes-raices"
+                            id="boton-conocermas"
+                            onClick={handleConoceMas}
+                        >
+                            Conocé Más <IoIosArrowDown />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </Container>
+    );
 };
 
 export { Buscador };
