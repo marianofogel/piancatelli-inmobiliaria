@@ -7,19 +7,20 @@ import useFilterStore from "../../../store";
 import Select from 'react-select';
 
 const Buscador = () => {
-    const operationRef = useRef(null);
     const addressRef = useRef(null);
     const navigate = useNavigate();
     const [selectedOption, setSelectedOption] = useState(null);
     const [selectedOptionOperation, setSelectedOptionOperation] = useState(null);
-    const [dataTypes, setDataTypes] = useState(null); // Definir valor inicial
+    const [selectedOptionLocalidad, setSelectedOptionLocalidad] = useState(null);
+    const [inputValue, setInputValue] = useState('');
+    const [dataTypes, setDataTypes] = useState(null);
     const setFilters = useFilterStore((state) => state.setFilters);
     const { filters } = useFilterStore();
 
     const handleBuscar = () => {
         const type = selectedOption?.value;
-        const operation = operationRef.current.value;
-        const address = addressRef.current.value;
+        const operation = selectedOptionOperation?.value;
+        const address = selectedOptionLocalidad?.value;
 
         const filters = {};
 
@@ -27,7 +28,7 @@ const Buscador = () => {
             filters.type = type;
         }
 
-        if (operation && operation !== "Operación") {
+        if (operation) {
             filters.operation = operation;
         }
 
@@ -38,12 +39,6 @@ const Buscador = () => {
         setFilters(filters);
         navigate("/propiedades");
     };
-
-    const optionsOperation = [
-        { value: '1', label: 'Venta' },
-        { value: '2', label: 'Alquiler' },
-        { value: '3', label: 'Alquiler Temporal' }
-    ];
 
     const handleConoceMas = (e) => {
         e.preventDefault();
@@ -61,21 +56,43 @@ const Buscador = () => {
         }
     };
 
-    const handleChange = (option) => {
-        setSelectedOption(option);
-        
-    };
-
-    const handleChangeOperation = (option) => {
-        setSelectedOptionOperation(option);
-        setFilters({ ...filters, operationTypes: option.value });
-    }
-
-    // Transforma los datos en un formato compatible con react-select
     const optionsType = dataTypes?.objects.map((type) => ({
         value: type.id,
         label: type.name,
     }));
+
+    const handleChangeType = (option) => {
+        setSelectedOption(option);
+
+    };
+
+    const optionsOperation = [
+        { value: '1', label: 'Venta' },
+        { value: '2', label: 'Alquiler' },
+        { value: '3', label: 'Alquiler Temporal' }
+    ];
+
+    const handleChangeOperation = (option) => {
+        setSelectedOptionOperation(option);
+    }
+
+    const optionsLocalidad = [
+        { value: 'hurlingham', label: 'Hurlingham' },
+        { value: 'moron', label: 'Moron' },
+        { value: 'haedo', label: 'Haedo' },
+        { value: 'jose-c-paz', label: 'Jose C Paz' },
+        { value: 'san-miguel', label: 'San Miguel' },
+    ]
+
+    const handleChangeLocalidad = (option) => {
+        setSelectedOptionLocalidad(option);
+    }
+
+    const filteredOptions = inputValue.length >= 2
+        ? optionsLocalidad.filter(option =>
+            option.label.toLowerCase().includes(inputValue.toLowerCase())
+        )
+        : [];
 
 
     useEffect(() => {
@@ -136,6 +153,7 @@ const Buscador = () => {
     }, []);
 
 
+
     return (
         <Container fluid className="p-0 vh-100">
             <div>
@@ -150,7 +168,7 @@ const Buscador = () => {
                                         className="d-flex"
                                         classNamePrefix="select-type-casa"
                                         value={selectedOption}
-                                        onChange={handleChange}
+                                        onChange={handleChangeType}
                                         placeholder="Tipo" // Placeholder cuando no hay selección
                                         options={optionsType}
                                     />
@@ -160,24 +178,33 @@ const Buscador = () => {
                                         className="d-flex"
                                         classNamePrefix="select-type-casa"
                                         value={selectedOptionOperation}
-                                        onChange={(option) => {
-                                            setSelectedOptionOperation(option);
-                                            setFilters({ ...filters, operationTypes: option.value });
-                                        }}
+                                        onChange={handleChangeOperation}
                                         placeholder="Operación" // Placeholder cuando no hay selección
                                         options={optionsOperation}
-
                                     />
                                 </FormGroup>
                                 <Form.Group className="buscador-form-group">
-                                    <Form.Control
-                                        className="buscador-input-text"
-                                        type="text"
-                                        placeholder="Localidad"
-                                        id="buscador-select"
-                                        ref={addressRef}
+                                    <Select
+                                        className="d-flex"
+                                        classNamePrefix="select-type-casa"
+                                        value={selectedOptionLocalidad}
+                                        onChange={handleChangeLocalidad}
+                                        placeholder="Localidad" // Placeholder cuando no hay selección
+                                        options={filteredOptions}
+                                        onInputChange={setInputValue}
+                                        noOptionsMessage={() => null}  // Elimina el mensaje "No options"
+                                        components={{
+                                            IndicatorSeparator: () => null, // Elimina la flechita del dropdown
+                                        }}
+                                        styles={{
+                                            dropdownIndicator: (provided) => ({
+                                                ...provided,
+                                                color: "white"
+                                            })
+                                        }}
                                     />
                                 </Form.Group>
+
                             </div>
                             <Button
                                 id="buscador-boton"
