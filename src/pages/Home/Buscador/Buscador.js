@@ -11,8 +11,10 @@ const Buscador = () => {
     const addressRef = useRef(null);
     const navigate = useNavigate();
     const [selectedOption, setSelectedOption] = useState(null);
+    const [selectedOptionOperation, setSelectedOptionOperation] = useState(null);
     const [dataTypes, setDataTypes] = useState(null); // Definir valor inicial
     const setFilters = useFilterStore((state) => state.setFilters);
+    const { filters } = useFilterStore();
 
     const handleBuscar = () => {
         const type = selectedOption?.value;
@@ -37,6 +39,12 @@ const Buscador = () => {
         navigate("/propiedades");
     };
 
+    const optionsOperation = [
+        { value: '1', label: 'Venta' },
+        { value: '2', label: 'Alquiler' },
+        { value: '3', label: 'Alquiler Temporal' }
+    ];
+
     const handleConoceMas = (e) => {
         e.preventDefault();
         const targetId = e.currentTarget.getAttribute("href").slice(1); // ID del enlace
@@ -55,14 +63,20 @@ const Buscador = () => {
 
     const handleChange = (option) => {
         setSelectedOption(option);
+        
     };
 
+    const handleChangeOperation = (option) => {
+        setSelectedOptionOperation(option);
+        setFilters({ ...filters, operationTypes: option.value });
+    }
+
     // Transforma los datos en un formato compatible con react-select
-    const options = dataTypes?.objects.map((type) => ({
+    const optionsType = dataTypes?.objects.map((type) => ({
         value: type.id,
         label: type.name,
     }));
-    console.log(dataTypes)
+
 
     useEffect(() => {
         const fetchData = async () => {
@@ -87,6 +101,39 @@ const Buscador = () => {
         };
         fetchData();
     }, []);
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const queryParams = new URLSearchParams({
+                    format: "json",
+                    key: "3cbc5baf1ad3ebb4672111e2f3aa215c17f962eb",
+                    lang: "es_ar",
+                    limit: 25,
+                    offset: 0,
+                });
+
+                const response = await fetch(
+                    `http://tokkobroker.com/api/v1/operation_type?${queryParams.toString()}`
+                );
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                const result = await response.json();
+
+                // Mapear los datos al formato de react-select
+                const mappedOptions = result.objects.map((operation) => ({
+                    value: operation.id,
+                    label: operation.name,
+                }));
+
+                setOptionsOperation(mappedOptions);
+            } catch (err) {
+                console.error("Error fetching operation types:", err);
+            }
+        };
+
+        fetchData();
+    }, []);
 
 
     return (
@@ -105,47 +152,22 @@ const Buscador = () => {
                                         value={selectedOption}
                                         onChange={handleChange}
                                         placeholder="Tipo" // Placeholder cuando no hay selección
-                                        options={options}
+                                        options={optionsType}
                                     />
                                 </FormGroup>
-
-
-                                { /* <Form.Select
-                                    className="d-flex"
-                                    id="buscador-select"
-                                    ref={typeRef}
-                                >
-                                    <option hidden> Tipo </option>
-                                    <option className="option-select" value="casa">
-                                        CASA
-                                    </option>
-                                    <option className="option-select" value="departamento">
-                                        DEPARTAMENTO
-                                    </option>
-                                    <option className="option-select" value="local">
-                                        LOCAL
-                                    </option>
-                                    <option className="option-select" value="oficina">
-                                        OFICINA
-                                    </option>
-                                </Form.Select> */}
                                 <FormGroup className="buscador-form-group">
-                                    <Form.Select
+                                    <Select
                                         className="d-flex"
-                                        id="buscador-select"
-                                        ref={operationRef}
-                                    >
-                                        <option hidden> Operación </option>
-                                        <option className="option-select" value="venta">
-                                            VENTA
-                                        </option>
-                                        <option className="option-select" value="alquiler">
-                                            ALQUILER
-                                        </option>
-                                        <option className="option-select" value="alquiler temporal">
-                                            ALQUILER TEMPORAL
-                                        </option>
-                                    </Form.Select>
+                                        classNamePrefix="select-type-casa"
+                                        value={selectedOptionOperation}
+                                        onChange={(option) => {
+                                            setSelectedOptionOperation(option);
+                                            setFilters({ ...filters, operationTypes: option.value });
+                                        }}
+                                        placeholder="Operación" // Placeholder cuando no hay selección
+                                        options={optionsOperation}
+
+                                    />
                                 </FormGroup>
                                 <Form.Group className="buscador-form-group">
                                     <Form.Control
