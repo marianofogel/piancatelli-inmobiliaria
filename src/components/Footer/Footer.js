@@ -24,6 +24,8 @@ import { useNavigate } from "react-router";
 
 const fecha = new Date(); //tomamos la fecha actual
 const anioActual = fecha.getFullYear(); //se toma el año actual
+const mensajeParaWhatsapp = "Hola, Piancatelli Propiedades, quería saber si me podia contactar con un tasador. Muchas gracias."
+const enlaceWhatsApp = `https://wa.me/1141746012?text=${mensajeParaWhatsapp}`
 
 
 const Footer = () => {
@@ -63,7 +65,7 @@ const Footer = () => {
                                                 <p><FaPhoneAlt /> 4665-2438</p>
                                             </div>
                                             <div className="footer-contact">
-                                                <p><FaWhatsapp /> 1132817839 </p>
+                                                <a href={enlaceWhatsApp} target="_blank" rel="noopener noreferrer" className="enlace-whatsapp-footer"><FaWhatsapp /> 1132817839 </a>
                                             </div>
                                         </Col>
                                     </Row>

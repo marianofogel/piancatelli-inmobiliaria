@@ -5,6 +5,7 @@ import { IoIosArrowDown, IoMdSearch } from "react-icons/io";
 import { useNavigate } from "react-router";
 import useFilterStore from "../../../store";
 import Select from 'react-select';
+import { localidades } from '../TuLugar/localidades'
 
 const Buscador = () => {
     const addressRef = useRef(null);
@@ -15,7 +16,6 @@ const Buscador = () => {
     const [inputValue, setInputValue] = useState('');
     const [dataTypes, setDataTypes] = useState(null);
     const setFilters = useFilterStore((state) => state.setFilters);
-    const { filters } = useFilterStore();
 
     const handleBuscar = () => {
         const type = selectedOption?.value;
@@ -199,7 +199,10 @@ const Buscador = () => {
                                         styles={{
                                             dropdownIndicator: (provided) => ({
                                                 ...provided,
-                                                color: "white"
+                                                color: "white",
+                                                "&:hover": {
+                                                    color: "white", // Cambia este color según prefieras
+                                                },
                                             })
                                         }}
                                     />
