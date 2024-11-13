@@ -1,14 +1,12 @@
 import "./Buscador.css";
-import { useRef, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Container, Form, FormGroup, Button } from "react-bootstrap";
 import { IoIosArrowDown, IoMdSearch } from "react-icons/io";
 import { useNavigate } from "react-router";
 import useFilterStore from "../../../store";
 import Select from 'react-select';
-import { localidades } from '../TuLugar/localidades'
 
 const Buscador = () => {
-    const addressRef = useRef(null);
     const navigate = useNavigate();
     const [selectedOption, setSelectedOption] = useState(null);
     const [selectedOptionOperation, setSelectedOptionOperation] = useState(null);
