@@ -3,16 +3,9 @@ import "../Contacto/Contacto.css";
 
 export default function PoliticasDePrivacidad() {
     return (
-        <Container fluid className="mt-5">
+        <Container fluid className="mt-5 py-5">
             <Row className="container-contacto">
-                <Col className="col-contacto">
-                    <Image
-                        src={process.env.PUBLIC_URL + "/img/Piancatelli.png"}
-                        alt="Company Logo"
-                        width={600}
-                        height={400}
-                    />
-                </Col>
+                
                 <Col className="col-contacto">
                     <Stack>
                         <h2 className="pb-3">Politicas de Privacidad</h2>
@@ -62,6 +55,16 @@ export default function PoliticasDePrivacidad() {
                             </p>
                         </div>
                     </Stack>
+                </Col>
+
+                <Col className="col-contacto">
+                    <Image
+                        src={process.env.PUBLIC_URL + "/img/contacto-pianca.jpg"}
+                        alt="Company Logo"
+                        className="imagen-contacto img-fluid"
+                        width={600}
+                        height={400}
+                    />
                 </Col>
             </Row>
         </Container>
