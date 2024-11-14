@@ -16,11 +16,9 @@
   font-weight: bold;
 }
 
-.col-contacto{
-display: flex;
-flex-direction: column;
- text-align: center;
- align-items: center;
+.col-contacto {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
 }
-
-
