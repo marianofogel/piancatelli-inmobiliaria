@@ -19,7 +19,7 @@ import {
 import { useParams, useNavigate } from "react-router-dom";
 import ImageGallery from "react-image-gallery";
 import { formatPrice } from "../../utils";
-import GoogleMapComponent from "../../components/Map";
+import MapComponent from "../../components/Map";
 import useFetchData from "../../hooks/useFetchData";
 import "./styles.css";
 
@@ -120,7 +120,7 @@ const Detail = () => {
                   <strong>
                     {property.age === 0 ? "A estrenar" : property.age}
                   </strong>
-                  {property.age === 0 ? "" : " años de antigüedad"} 
+                  {property.age === 0 ? "" : " años de antigüedad"}
                 </Col>
               </Row>
             </Card.Body>
@@ -129,7 +129,7 @@ const Detail = () => {
             <Card.Body>
               <Card.Title>Ubicación</Card.Title>
               <Card.Text>{property.address}</Card.Text>
-              <GoogleMapComponent
+              <MapComponent
                 address={{ lat: +property.geo_lat, lng: +property.geo_long }}
               />
             </Card.Body>
