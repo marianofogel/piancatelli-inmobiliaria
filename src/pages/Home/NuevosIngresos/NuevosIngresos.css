@@ -24,21 +24,8 @@
     padding: 1rem; /* Ajusta el padding según prefieras */
 }
 
-.item-card {
-    flex: 1; /* Permite que las tarjetas se estiren */
-    max-width: 300px; /* Ajusta el ancho máximo según prefieras */
-    min-width: 250px; /* Define un ancho mínimo para responsividad */
-    height: 400px; /* Fija una altura uniforme para las tarjetas */
-    display: flex;
-    flex-direction: column;
-    overflow: hidden; /* Oculta el desbordamiento si es necesario */
-}
 
-.item-card img {
-    width: 100%; /* Hace que la imagen ocupe todo el ancho */
-    height: 200px; /* Ajusta la altura de la imagen según prefieras */
-    object-fit: cover; /* Mantiene la imagen centrada y recortada */
-}
+
 
 @media (max-width: 1000px) {
     .contenedor-cards{

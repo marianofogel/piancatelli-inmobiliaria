@@ -15,3 +15,5 @@ body {
 .form-control:focus {
     box-shadow: none !important;
 }
+
+#map { height: 400px; }
