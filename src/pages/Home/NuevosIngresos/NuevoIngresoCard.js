@@ -1,6 +1,7 @@
 import { Image } from "react-bootstrap";
 import './NuevoIngresoCard.css'
 import { Link } from "react-router-dom";
+import { Item } from "../../../components/Item";
 
 const NuevosIngresosCard = ({ id, imageSrc, casaNombre, barrioCasa, casaValor, estadoCasa, metrosCuadradoCasa, dormitoriosCasa, banosCasa, createdAt }) => {
     return (

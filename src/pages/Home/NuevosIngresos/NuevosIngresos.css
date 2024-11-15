@@ -6,7 +6,8 @@
 
 .contenedor-cards{
     display: flex;
-    width: 95%;
+    flex-wrap: nowrap;
+    width: 33%;
     justify-content: center;
     padding: 25px;
     margin: auto;
@@ -16,6 +17,29 @@
 .nuevos-ingresos-titulo{
     padding: 20px;
     color: #f8f7f7;
+}
+
+.contenedor-card-div {
+    display: flex;
+    justify-content: center; /* Centra las tarjetas horizontalmente */
+    width: 100%; /* Asegura que ocupe el ancho completo */
+    padding: 1rem; /* Ajusta el padding según prefieras */
+}
+
+.item-card {
+    flex: 1; /* Permite que las tarjetas se estiren */
+    max-width: 300px; /* Ajusta el ancho máximo según prefieras */
+    min-width: 250px; /* Define un ancho mínimo para responsividad */
+    height: 400px; /* Fija una altura uniforme para las tarjetas */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Oculta el desbordamiento si es necesario */
+}
+
+.item-card img {
+    width: 100%; /* Hace que la imagen ocupe todo el ancho */
+    height: 200px; /* Ajusta la altura de la imagen según prefieras */
+    object-fit: cover; /* Mantiene la imagen centrada y recortada */
 }
 
 @media (max-width: 1000px) {

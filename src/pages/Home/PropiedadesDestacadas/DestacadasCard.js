@@ -14,7 +14,7 @@ const DestacadasSwiperCard = ({ id, imageSrc, casaNombre, barrioCasa, casaValor,
                 />
                 <div className='datos-destacadas'>
                     <Card className="card-destacadas">
-                        <Card.Body className='card-destacadas-body'>
+                        <Card.Body className='card-destacadas-body '>
                             <div className='card-fondo-title'>
                                 <Card.Title className='card-destacadas-estado'>{estadoCasa}</Card.Title>
                             </div>
