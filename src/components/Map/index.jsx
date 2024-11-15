@@ -1,59 +1,32 @@
 import React, { useState, useEffect } from "react";
-import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
-import { setDefaults, fromAddress } from "react-geocode";
+import { MapContainer, TileLayer, Marker } from "react-leaflet";
+import L from "leaflet";
 
-setDefaults({
-  key: "",
-  language: "en",
-  region: "es",
-});
+const icon = L.icon({ iconUrl: "/img/marker-icon.png" });
 
-const containerStyle = {
-  width: "100%",
-  height: "400px",
-};
-
-function GoogleMapComponent({ address }) {
+function MapComponent({ address }) {
   const [center, setCenter] = useState(null);
 
   useEffect(() => {
-    async function fetchGeocode() {
-      const results = await fromAddress(address);
-      setCenter(results[0].geometry.location);
+    if (address) {
+      const { lat, lng } = address;
+      setCenter([lat, lng]);
     }
-    try {
-      // fetchGeocode(); TODO conseguir APIKEY
-      setCenter(address);
-    } catch (error) {}
   }, [address]);
 
-  const { isLoaded } = useJsApiLoader({
-    id: "google-map-script",
-    googleMapsApiKey: "",
-  });
-
-  const onLoad = React.useCallback(
-    function callback(map) {
-      if (center) {
-        const bounds = new window.google.maps.LatLngBounds(center);
-        map.setCenter(bounds);
-      }
-    },
-    [center]
-  );
-
-  return isLoaded && center ? (
-    <GoogleMap
-      mapContainerStyle={containerStyle}
-      center={center}
-      zoom={15}
-      onLoad={onLoad}
-    >
-      <Marker position={center} />
-    </GoogleMap>
+  return center ? (
+    <div id="map">
+      <MapContainer center={center} zoom={13} scrollWheelZoom={false} className="h-100">
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        <Marker position={center} icon={icon}></Marker>
+      </MapContainer>
+    </div>
   ) : (
     <></>
   );
 }
 
-export default React.memo(GoogleMapComponent);
+export default React.memo(MapComponent);
