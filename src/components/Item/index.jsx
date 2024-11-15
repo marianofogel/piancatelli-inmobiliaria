@@ -9,10 +9,10 @@ const Item = ({ property }) => {
       md={4}
       lg={3}
       xl={3}
-      className="card-container rounded w-100"
+      className="card-container rounded w-100 h-100"
       style={{ cursor: "pointer" }}
     >
-      <Card className="shadow p-0" style={{ borderRadius: "100" }}>
+      <Card className="shadow p-0 h-100" style={{ borderRadius: "100" }}>
         <div style={{ position: "relative" }}>
           <Card.Img variant="top" src={property.photos[0]?.image || process.env.PUBLIC_URL + '/img/edificio-buscador.jpeg' } alt="..." />
           <Badge

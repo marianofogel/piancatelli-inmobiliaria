@@ -140,7 +140,7 @@ const PropertiesLayout = () => {
             className="d-flex justify-content-center h-100"
             style={{ alignItems: "center" }}
           >
-            <Spinner variant="danger" ></Spinner>
+            <Spinner variant="danger"></Spinner>
           </Container>
         ) : data?.objects.length > 0 ? (
           <Masonry

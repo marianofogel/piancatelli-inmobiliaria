@@ -6,8 +6,6 @@
 
 .contenedor-cards{
     display: flex;
-    flex-wrap: nowrap;
-    width: 33%;
     justify-content: center;
     padding: 25px;
     margin: auto;

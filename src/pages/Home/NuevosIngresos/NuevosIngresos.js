@@ -39,7 +39,7 @@ const NuevosIngresos = () => {
                                 .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
                                 .slice(0, 3)
                                 .map((nuevoIngreso, index) => (
-                                    <div style={{width:"800px", height:"500px"}}>
+                                    <div style={{width:"400px", height:"400px"}}>
                                         <Item
                                             key={index}
                                             property={nuevoIngreso}
