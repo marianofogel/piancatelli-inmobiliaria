@@ -1,6 +1,7 @@
 import { Image } from "react-bootstrap";
 import './NuevoIngresoCard.css'
 import { Link } from "react-router-dom";
+import { Item } from "../../../components/Item";
 
 const NuevosIngresosCard = ({ id, imageSrc, casaNombre, barrioCasa, casaValor, estadoCasa, metrosCuadradoCasa, dormitoriosCasa, banosCasa, createdAt }) => {
     return (
@@ -10,11 +11,11 @@ const NuevosIngresosCard = ({ id, imageSrc, casaNombre, barrioCasa, casaValor, e
                 <Image className="imagen-nuevos-ingresos" src={process.env.PUBLIC_URL + imageSrc} alt={casaNombre} />
 
                 <div className="contenedor-textos-nuevos-ingresos">
-                    <h2 className="nombre-casa">{casaNombre}</h2>
-                    <p>{barrioCasa}</p>
-                    <p>{metrosCuadradoCasa}</p>
-                    <p>{dormitoriosCasa}</p>
-                    <p>{banosCasa}</p>
+                    <h2 className="nombre-casa pt-2">{casaNombre}</h2>
+                    <p className="mb-2">{barrioCasa}</p>
+                    <p className="mb-2">{metrosCuadradoCasa}</p>
+                    <p className="mb-2">{dormitoriosCasa}</p>
+                    <p className="mb-2">{banosCasa}</p>
                     <p className="estado-casa"> {estadoCasa} </p>
                     <p className="fecha-de-publicacion"> {createdAt} </p>
 

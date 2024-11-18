@@ -8,12 +8,14 @@
     /* Centrar verticalmente */
     height: 100%;
     width: 100%;
+    
 }
 
 .slide-imagen {
     width: 85% !important;
     height: 90%;
     object-fit: cover;
+    border-radius: 8px !important;
 }
 
 .datos-destacadas {
@@ -21,11 +23,13 @@
     bottom: 0%;
     right: 5%;
     width: 20%;
+    border-radius: 20px !important;
 }
 
 
 .card-destacadas-body {
     background-color: rgb(234, 181, 57);
+    
 }
 
 .card-destacadas-estado {
@@ -35,6 +39,7 @@
     padding: 4px;
     margin: auto 2px !important;
     font-weight: 400 !important;
+    
 }
 
 .card-destacadas-textos {

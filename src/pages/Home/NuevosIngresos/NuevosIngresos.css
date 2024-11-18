@@ -6,7 +6,6 @@
 
 .contenedor-cards{
     display: flex;
-    width: 95%;
     justify-content: center;
     padding: 25px;
     margin: auto;
@@ -17,6 +16,16 @@
     padding: 20px;
     color: #f8f7f7;
 }
+
+.contenedor-card-div {
+    display: flex;
+    justify-content: center; /* Centra las tarjetas horizontalmente */
+    width: 100%; /* Asegura que ocupe el ancho completo */
+    padding: 1rem; /* Ajusta el padding según prefieras */
+}
+
+
+
 
 @media (max-width: 1000px) {
     .contenedor-cards{
