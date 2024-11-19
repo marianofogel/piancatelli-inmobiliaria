@@ -19,15 +19,15 @@ const Buscador = () => {
         const type = selectedOption?.value;
         const operation = selectedOptionOperation?.value;
         const address = selectedOptionLocalidad?.value;
-
+        
         const filters = {};
 
         if (type) {
-            filters.type = type;
+            filters.propertyTypes = type;
         }
 
         if (operation) {
-            filters.operation = operation;
+            filters.operationTypes = operation;
         }
 
         if (address) {
