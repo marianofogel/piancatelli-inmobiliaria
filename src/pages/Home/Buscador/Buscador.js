@@ -98,7 +98,7 @@ const Buscador = () => {
             try {
                 const queryParams = new URLSearchParams({
                     format: "json",
-                    key: "3cbc5baf1ad3ebb4672111e2f3aa215c17f962eb",
+                    key: process.env.REACT_APP_TOKKO_API_KEY,
                     lang: "es_ar",
                     limit: 25,
                     offset: 0,
@@ -121,7 +121,7 @@ const Buscador = () => {
             try {
                 const queryParams = new URLSearchParams({
                     format: "json",
-                    key: "3cbc5baf1ad3ebb4672111e2f3aa215c17f962eb",
+                    key: process.env.REACT_APP_TOKKO_API_KEY,
                     lang: "es_ar",
                     limit: 25,
                     offset: 0,

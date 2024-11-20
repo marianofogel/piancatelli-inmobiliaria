@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useRef } from "react";
 import { FormContacto } from "../../components/FormContacto";
 import {
   Container,
@@ -16,6 +16,7 @@ import {
   FaBed,
   FaCalendarAlt,
 } from "react-icons/fa";
+import { MdOutlineArrowBackIosNew } from "react-icons/md";
 import { useParams, useNavigate } from "react-router-dom";
 import ImageGallery from "react-image-gallery";
 import { formatPrice } from "../../utils";
@@ -24,6 +25,7 @@ import useFetchData from "../../hooks/useFetchData";
 import "./styles.css";
 
 const Detail = () => {
+  const imageGalleryRef = useRef();
   const { id } = useParams();
   const navigate = useNavigate();
   const { data: property, loading } = useFetchData(`property/${id}`);
@@ -45,9 +47,16 @@ const Detail = () => {
     ];
   }
 
+  const onClickHandler = () => {
+    imageGalleryRef.current.fullScreen();
+  };
+
   return (
     <Container style={{ marginTop: "5em" }}>
-      <Button onClick={() => navigate("/propiedades")}>Volver</Button>
+      <Button variant="danger" onClick={() => navigate("/propiedades")} className="mb-2">
+        <MdOutlineArrowBackIosNew />
+        &nbsp;Volver
+      </Button>
       <h2>{property.publication_title}</h2>
       <ImageGallery
         className="rounded"
@@ -55,12 +64,15 @@ const Detail = () => {
           original: img.image,
           thumbnail: img.thumb,
         }))}
+        fullScreen
         infinite
         showThumbnails
         showFullscreenButton={false}
         showPlayButton={false}
         thumbnailPosition="right"
         showIndex
+        ref={imageGalleryRef}
+        onClick={onClickHandler}
       />
       <Row>
         <Col md={8}>
@@ -94,7 +106,7 @@ const Detail = () => {
                 </Card.Text>
               )}
 
-              <Row className="mb-3">
+              <Row className="mb-3" style={{ fontWeight: 500, lineHeight: 2 }}>
                 <Col xs="auto">
                   <FaRulerCombined className="me-2" />
                   <strong>{property.surface}</strong> m² totales
