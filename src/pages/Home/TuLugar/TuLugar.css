@@ -42,3 +42,15 @@
     }
     
 }
+
+@media (max-width: 500px) {
+    #titulo-bienes-raices{
+        font-family: 'Merriweather';
+        font-weight: bold !important;
+        font-size: 25px !important; 
+        text-shadow: 0px 0px 25px #000000;
+        margin: auto 5% ;
+    }
+    
+}
+

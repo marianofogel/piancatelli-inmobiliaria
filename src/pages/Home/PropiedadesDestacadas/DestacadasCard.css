@@ -3,12 +3,9 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* Centrar horizontalmente */
     align-items: center;
-    /* Centrar verticalmente */
     height: 100%;
     width: 100%;
-    
 }
 
 .slide-imagen {
@@ -20,16 +17,14 @@
 
 .datos-destacadas {
     position: absolute;
-    bottom: 0%;
+    bottom: 0;
     right: 5%;
     width: 20%;
     border-radius: 20px !important;
 }
 
-
 .card-destacadas-body {
     background-color: rgb(234, 181, 57);
-    
 }
 
 .card-destacadas-estado {
@@ -39,22 +34,21 @@
     padding: 4px;
     margin: auto 2px !important;
     font-weight: 400 !important;
-    
 }
 
 .card-destacadas-textos {
     color: white;
     font-size: large;
+}
 
-    .card-destacada-propiedad-name {
-        font-size: xx-large;
-        font-weight: bold;
-    }
+.card-destacada-propiedad-name {
+    font-size: xx-large;
+    font-weight: bold;
 }
 
 .card-fondo-title {
     display: inline-block;
-    padding: 0px 1px;
+    padding: 0 1px;
     background-color: #5a5a5a;
     border-radius: 3px;
 }
@@ -68,14 +62,60 @@
     text-align: center;
     justify-content: center;
     font-weight: bold;
-    margin-top: 2%
+    margin-top: 2%;
+}
+
+@media (max-width: 1240px) {
+    .datos-destacadas {
+        bottom: 0;
+        width: 40%;
+    }
+
+    .card-destacadas-textos {
+        font-size: medium;
+    }
+
+    .card-destacada-propiedad-name {
+        font-size: x-large;
+        font-weight: bold;
+    }
 }
 
 @media (max-width: 800px) {
     .datos-destacadas {
-        position: absolute;
-        bottom: 0%;
-        width: 60%;
+        bottom: 0;
+        width: 70%;
+    }
+}
+
+@media (max-width: 450px) {
+    .datos-destacadas {
+        bottom: 0;
+        width: 75%;
     }
 
+    .card-destacadas-textos {
+        font-size: medium;
+    }
+
+    .card-destacada-propiedad-name {
+        font-size: large;
+        font-weight: bold;
+        padding-top: 5px
+    }
+
+    .card-destacadas-estado {
+        font-size: medium !important;
+        padding: 2px;
+        margin: auto 2px !important;
+    }
+
+    .card-fondo-title {
+        background-color: #5a5a5a;
+        border-radius: 3px;
+    }
+
+    .card-destacadas-body {
+        padding: 5px !important;
+    }
 }

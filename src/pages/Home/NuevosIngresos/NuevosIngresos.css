@@ -24,8 +24,10 @@
     padding: 1rem; /* Ajusta el padding según prefieras */
 }
 
-
-
+.div-item-destecada{
+    width: 550px;
+    height: 450px;
+}
 
 @media (max-width: 1000px) {
     .contenedor-cards{
@@ -35,5 +37,13 @@
         padding: 25px;
         margin: auto;
     }
+}
+
+@media (max-width:550px) {
+    .div-item-destecada{
+        width: 350px;
+        height: 400px;
+    }
+    
     
 }
