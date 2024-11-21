@@ -5,20 +5,22 @@ import { IoIosArrowDown, IoMdSearch } from "react-icons/io";
 import { useNavigate } from "react-router";
 import useFilterStore from "../../../store";
 import Select from 'react-select';
+import useFetchTiposYLocalidad from "../../../hooks/useFetchTiposYLocalidad";
 
 const Buscador = () => {
+    useFetchTiposYLocalidad();
     const navigate = useNavigate();
     const [selectedOption, setSelectedOption] = useState(null);
     const [selectedOptionOperation, setSelectedOptionOperation] = useState(null);
     const [selectedOptionLocalidad, setSelectedOptionLocalidad] = useState(null);
     const [inputValue, setInputValue] = useState('');
-    const [dataTypes, setDataTypes] = useState(null);
+    const { tipos, localidades } = useFilterStore();
     const setFilters = useFilterStore((state) => state.setFilters);
 
     const handleBuscar = () => {
         const type = selectedOption?.value;
         const operation = selectedOptionOperation?.value;
-        const address = selectedOptionLocalidad?.value;
+        const localizationId = selectedOptionLocalidad?.value;
         
         const filters = {};
 
@@ -30,8 +32,8 @@ const Buscador = () => {
             filters.operationTypes = operation;
         }
 
-        if (address) {
-            filters.address = address;
+        if (localizationId) {
+            filters.localizationId = localizationId;
         }
         // Establecer los filtros y navegar a la página de propiedades
         setFilters(filters);
@@ -54,7 +56,7 @@ const Buscador = () => {
         }
     };
 
-    const optionsType = dataTypes?.objects.map((type) => ({
+    const optionsType = tipos.map((type) => ({
         value: type.id,
         label: type.name,
     }));
@@ -85,72 +87,6 @@ const Buscador = () => {
     const handleChangeLocalidad = (option) => {
         setSelectedOptionLocalidad(option);
     }
-
-    const filteredOptions = inputValue.length >= 2
-        ? optionsLocalidad.filter(option =>
-            option.label.toLowerCase().includes(inputValue.toLowerCase())
-        )
-        : [];
-
-
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const queryParams = new URLSearchParams({
-                    format: "json",
-                    key: process.env.REACT_APP_TOKKO_API_KEY,
-                    lang: "es_ar",
-                    limit: 25,
-                    offset: 0,
-                });
-
-                const response = await fetch(
-                    `http://tokkobroker.com/api/v1/property_type?${queryParams.toString()}`
-                );
-                if (!response.ok) {
-                    throw new Error("Network response was not ok");
-                }
-                const result = await response.json();
-                setDataTypes(result);
-            } catch (err) { }
-        };
-        fetchData();
-    }, []);
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const queryParams = new URLSearchParams({
-                    format: "json",
-                    key: process.env.REACT_APP_TOKKO_API_KEY,
-                    lang: "es_ar",
-                    limit: 25,
-                    offset: 0,
-                });
-
-                const response = await fetch(
-                    `http://tokkobroker.com/api/v1/operation_type?${queryParams.toString()}`
-                );
-                if (!response.ok) {
-                    throw new Error("Network response was not ok");
-                }
-                const result = await response.json();
-
-                // Mapear los datos al formato de react-select
-                const mappedOptions = result.objects.map((operation) => ({
-                    value: operation.id,
-                    label: operation.name,
-                }));
-
-                setOptionsOperation(mappedOptions);
-            } catch (err) {
-                console.error("Error fetching operation types:", err);
-            }
-        };
-
-        fetchData();
-    }, []);
-
-
 
     return (
         <Container fluid className="p-0 vh-100">
@@ -188,21 +124,12 @@ const Buscador = () => {
                                         value={selectedOptionLocalidad}
                                         onChange={handleChangeLocalidad}
                                         placeholder="Localidad" // Placeholder cuando no hay selección
-                                        options={filteredOptions}
+                                        options={localidades.map((localidad) => ({
+                                            value: localidad.location_id,
+                                            label: localidad.location_name,
+                                        } ))}
                                         onInputChange={setInputValue}
                                         noOptionsMessage={() => null}  // Elimina el mensaje "No options"
-                                        components={{
-                                            IndicatorSeparator: () => null, // Elimina la flechita del dropdown
-                                        }}
-                                        styles={{
-                                            dropdownIndicator: (provided) => ({
-                                                ...provided,
-                                                color: "white",
-                                                "&:hover": {
-                                                    color: "white", // Cambia este color según prefieras
-                                                },
-                                            })
-                                        }}
                                     />
                                 </Form.Group>
 
