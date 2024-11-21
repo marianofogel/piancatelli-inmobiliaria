@@ -19,7 +19,7 @@ const Buscador = () => {
         const type = selectedOption?.value;
         const operation = selectedOptionOperation?.value;
         const address = selectedOptionLocalidad?.value;
-        
+
         const filters = {};
 
         if (type) {
@@ -34,7 +34,8 @@ const Buscador = () => {
             filters.address = address;
         }
         // Establecer los filtros y navegar a la página de propiedades
-        setFilters(filters);
+        if (Object.keys(filters).length > 0)
+            setFilters(filters);
         navigate("/propiedades");
     };
 

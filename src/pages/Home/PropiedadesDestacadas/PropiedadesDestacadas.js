@@ -11,14 +11,6 @@ import { Element } from 'react-scroll';
 
 const PropertyCarousel = () => {
     const api = useFetchData('property')
-
-    const progressCircle = useRef(null);
-    const progressContent = useRef(null);
-    const onAutoplayTimeLeft = (s, time, progress) => {
-        progressCircle.current.style.setProperty('--progress', 1 - progress);
-        progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
-    };
-
     const imageDefaultPiancatelli = process.env.PUBLIC_URL + "/img/Piancatelli.png"
 
     if (api.loading) {

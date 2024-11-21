@@ -70,12 +70,16 @@ input.buscador-input-text::placeholder {
     font-size: 20px !important;
     border: none !important;
     margin: 5px auto !important;
-    width: 250px;
+    width: 100% !important;
     max-width: 100%;
 }
 
 .select-type-casa__placeholder {
     color: #606060 !important;
+}
+
+.select-type-casa__input-container {
+    padding: 8px !important;
 }
 
 .select-type-casa__control--is-focused {
@@ -101,7 +105,7 @@ input.buscador-input-text::placeholder {
     color: #ffffff !important;
 }
 
-.select-type-casa__indicator-separator{
+.select-type-casa__indicator-separator {
     display: none;
 }
 
@@ -152,13 +156,12 @@ input.buscador-input-text:focus {
         box-sizing: border-box !important;
         font-size: 20px !important;
         border: none !important;
+        width: 250px !important;
         margin: 5px auto !important;
-        width: 250px;
-        /* Ancho fijo del select */
         max-width: 100%;
     }
 
-    .select-type-casa__indicator-separator{
+    .select-type-casa__indicator-separator {
         display: block;
         height: 40px !important;
         order: 2;

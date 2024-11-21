@@ -25,6 +25,7 @@
 
 .card-destacadas-body {
     background-color: rgb(234, 181, 57);
+    border-radius: 4px;
 }
 
 .card-destacadas-estado {

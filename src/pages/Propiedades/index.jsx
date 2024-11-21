@@ -5,6 +5,7 @@ import FilterLayout from "./Filters";
 import { CgSearchFound } from "react-icons/cg";
 import { Container, Spinner, Pagination } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import './Paginacion.css'
 import useFilterStore from "../../store";
 
 const PropertiesLayout = () => {
@@ -171,7 +172,7 @@ const PropertiesLayout = () => {
                 </Link>
               ))}
             </Masonry>
-            <Pagination className="justify-content-center mt-4">
+            <Pagination className="justify-content-center mt-4 paginacion-propiedades">
               <Pagination.Prev
                 onClick={() => handlePageChange(page - 1)}
                 disabled={page === 1}
