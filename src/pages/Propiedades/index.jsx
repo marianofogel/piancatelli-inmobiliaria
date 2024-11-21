@@ -14,7 +14,6 @@ const PropertiesLayout = () => {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const { filters, setFilters, sortKey, setSortKey } = useFilterStore();
-
   const limit = 25;
 
   useEffect(() => {
