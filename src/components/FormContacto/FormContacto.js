@@ -63,6 +63,7 @@ export function FormContacto({ defaultValues = {} }) {
     };
 
     return (
+
         <Form className="form-contacto w-100" onSubmit={handleSubmit}>
             <Form.Group className="mb-3">
                 <Form.Control
@@ -125,5 +126,7 @@ export function FormContacto({ defaultValues = {} }) {
             </Form.Group>
             <Button type="submit" className="boton-form">Enviar</Button>
         </Form>
+
+
     );
 }
