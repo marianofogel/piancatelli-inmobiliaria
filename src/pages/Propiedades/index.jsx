@@ -3,7 +3,7 @@ import { Item } from "../../components/Item";
 import Masonry from "react-layout-masonry";
 import FilterLayout from "./Filters";
 import { CgSearchFound } from "react-icons/cg";
-import { Container, Spinner } from "react-bootstrap";
+import { Container, Spinner, Pagination } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import useFilterStore from "../../store";
 
@@ -11,10 +11,11 @@ const PropertiesLayout = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
   const { filters, setFilters, sortKey, setSortKey } = useFilterStore();
 
   const limit = 25;
-  const offset = 0;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -89,7 +90,7 @@ const PropertiesLayout = () => {
           key: process.env.REACT_APP_TOKKO_API_KEY,
           lang: "es_ar",
           limit,
-          offset,
+          offset: (page - 1) * limit,
         });
 
         if (Object.keys(filters).length > 0) {
@@ -108,7 +109,8 @@ const PropertiesLayout = () => {
           throw new Error("Network response was not ok");
         }
         const result = await response.json();
-        setData(result);
+        setData(result.objects);
+        setTotalPages(Math.ceil(result.meta.total_count / limit));
       } catch (err) {
         setError(err);
       } finally {
@@ -116,17 +118,22 @@ const PropertiesLayout = () => {
       }
     };
     fetchData();
-  }, [filters, sortKey]);
+  }, [filters, sortKey, page]);
 
   const handleFilterChange = (newFilters) => {
     setFilters(newFilters);
+    setPage(1);
   };
 
   const handleSortChange = (e) => {
     const [key, order] = e.target.value.split(":");
     setSortKey({ key, order: parseInt(order, 10) });
+    setPage(1);
   };
 
+  const handlePageChange = (newPage) => {
+    setPage(newPage);
+  };
   return (
     <div style={{ margin: "5em 2em 2em" }}>
       <FilterLayout
@@ -142,21 +149,48 @@ const PropertiesLayout = () => {
           >
             <Spinner variant="danger"></Spinner>
           </Container>
-        ) : data?.objects.length > 0 ? (
-          <Masonry
-            columns={{ 100: 1, 520: 2, 992: 3, 1200: 4, 1500: 5 }}
-            gap={16}
-          >
-            {data?.objects.map((property) => (
-              <Link
-                to={`${property.id}`}
-                style={{ textDecoration: "none" }}
-                key={`${property.id}`}
-              >
-                <Item property={property} />
-              </Link>
-            ))}
-          </Masonry>
+        ) : data?.length > 0 ? (
+          <>
+            <div className="d-flex justify-content-between align-items-center mb-3">
+              <span>{`Mostrando ${data.length} ${
+                data.length === 1 ? "propiedad" : "propiedades"
+              }`}</span>
+              <span>{`Página ${page} de ${totalPages}`}</span>
+            </div>
+            <Masonry
+              columns={{ 100: 1, 520: 2, 992: 3, 1200: 4, 1500: 5 }}
+              gap={16}
+            >
+              {data?.map((property) => (
+                <Link
+                  to={`${property.id}`}
+                  style={{ textDecoration: "none" }}
+                  key={`${property.id}`}
+                >
+                  <Item property={property} />
+                </Link>
+              ))}
+            </Masonry>
+            <Pagination className="justify-content-center mt-4">
+              <Pagination.Prev
+                onClick={() => handlePageChange(page - 1)}
+                disabled={page === 1}
+              />
+              {[...Array(totalPages)].map((_, index) => (
+                <Pagination.Item
+                  key={index + 1}
+                  active={index + 1 === page}
+                  onClick={() => handlePageChange(index + 1)}
+                >
+                  {index + 1}
+                </Pagination.Item>
+              ))}
+              <Pagination.Next
+                onClick={() => handlePageChange(page + 1)}
+                disabled={page === totalPages}
+              />
+            </Pagination>
+          </>
         ) : (
           Object.keys(filters).length > 0 && (
             <Container className="text-center pt-5">
