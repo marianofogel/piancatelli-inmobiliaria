@@ -7,37 +7,14 @@ import {
   Dropdown,
 } from "react-bootstrap";
 import { formatPrice } from "../../../../utils/formatPrice";
-import { useState, useEffect } from "react";
+import useFetchTiposYLocalidad from "../../../../hooks/useFetchTiposYLocalidad";
 import useFilterStore from "../../../../store";
-import {localidades } from '../../../../pages/Home/TuLugar/localidades'
 
 const AdvancedFilters = () => {
-  const { cleanFilters, filters, setFilters } = useFilterStore();
-  const [dataTypes, setDataTypes] = useState(null);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const queryParams = new URLSearchParams({
-          format: "json",
-          key: process.env.REACT_APP_TOKKO_API_KEY,
-          lang: "es_ar",
-          limit: 25,
-          offset: 0,
-        });
+  useFetchTiposYLocalidad();
+  const { cleanFilters, filters, setFilters, localidades, tipos } =
+    useFilterStore();
 
-        const response = await fetch(
-          `http://tokkobroker.com/api/v1/property_type?${queryParams.toString()}`
-        );
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        const result = await response.json();
-        setDataTypes(result);
-      } catch (err) {}
-    };
-    fetchData();
-  }, []);
-  
   return (
     <Container className="mt-2">
       {filters && (
@@ -78,7 +55,7 @@ const AdvancedFilters = () => {
                             filters[key] - 1
                           ]}
                         {key === "propertyTypes" &&
-                          dataTypes?.objects.find(
+                          tipos?.find(
                             (type) => type.id === +filters[key]
                           )?.name}
                         {key === "age" && `< ${filters[key]} años`}
@@ -98,7 +75,10 @@ const AdvancedFilters = () => {
                           `Max: ${
                             filters["currency"] === "ARS" ? "$" : "USD"
                           } ${formatPrice(filters[key])}`}
-                        {key === "localidad" && `${filters[key]}`}
+                        {key === "localizationId" &&
+                          localidades?.find(
+                            (l) => l.location_id === +filters[key]
+                          )?.location_name}
                         &nbsp; &times;
                       </Button>
                     );
@@ -123,17 +103,18 @@ const AdvancedFilters = () => {
         >
           <Form.Label style={{ color: "red" }}>Localidad</Form.Label>
           <Form.Select
-            value={filters?.localidad}
+            value={filters?.localizationId}
             onChange={(e) =>
-              setFilters({ ...filters, localidad: e.target.value })
+              setFilters({ ...filters, localizationId: e.target.value })
             }
           >
             <option value="">Seleccione una localidad</option>
-            {localidades.map((localidad, index) => (
-              <option key={index} value={localidad.localidad}>
-                {localidad.localidad}
-              </option>
-            ))}
+            {localidades &&
+              localidades.map((localidad, index) => (
+                <option key={index} value={localidad.location_id}>
+                  {localidad.location_name}
+                </option>
+              ))}
           </Form.Select>
         </Form.Group>
         <Form.Group controlId="formTipo" className="border rounded p-2 mb-3">
@@ -145,7 +126,7 @@ const AdvancedFilters = () => {
             }
           >
             <option value="">Seleccione un tipo</option>
-            {dataTypes?.objects.map((type) => (
+            {tipos?.map((type) => (
               <option key={type.id} value={type.id}>
                 {type.name}
               </option>
