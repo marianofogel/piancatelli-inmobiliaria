@@ -75,8 +75,11 @@ input.buscador-input-text::placeholder {
 }
 
 .select-type-casa__placeholder {
-    color: #606060 !important;
+    color: #0000008e !important;
+    text-align: center;
+    padding-left: 37px;
 }
+
 
 .select-type-casa__input-container {
     padding: 8px !important;
@@ -143,6 +146,12 @@ input.buscador-input-text:focus {
     text-decoration: none;
 }
 
+.buscar-texto {
+    display: inline;
+    text-align: center;
+    justify-content: center;
+}
+
 /* Media query para pantallas grandes */
 @media (min-width: 1200px) {
     .buscador-form {
@@ -167,6 +176,11 @@ input.buscador-input-text:focus {
         order: 2;
     }
 
+    .select-type-casa__placeholder {
+        text-align: center;
+        padding-left: 0%;
+    }
+
     .buscador-titulo {
         font-size: 45px;
         margin-bottom: 1em;
@@ -183,6 +197,10 @@ input.buscador-input-text:focus {
     #buscador-boton {
         width: auto;
         border-radius: 0 15px 15px 0;
+    }
+
+    .buscar-texto {
+        display: none;
     }
 }
 

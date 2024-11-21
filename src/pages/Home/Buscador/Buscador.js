@@ -21,7 +21,7 @@ const Buscador = () => {
         const type = selectedOption?.value;
         const operation = selectedOptionOperation?.value;
         const localizationId = selectedOptionLocalidad?.value;
-        
+
         const filters = {};
 
         if (type) {
@@ -77,13 +77,6 @@ const Buscador = () => {
         setSelectedOptionOperation(option);
     }
 
-    const optionsLocalidad = [
-        { value: 'hurlingham', label: 'Hurlingham' },
-        { value: 'moron', label: 'Moron' },
-        { value: 'haedo', label: 'Haedo' },
-        { value: 'jose-c-paz', label: 'Jose C Paz' },
-        { value: 'san-miguel', label: 'San Miguel' },
-    ]
 
     const handleChangeLocalidad = (option) => {
         setSelectedOptionLocalidad(option);
@@ -106,6 +99,13 @@ const Buscador = () => {
                                         onChange={handleChangeType}
                                         placeholder="Tipo" // Placeholder cuando no hay selección
                                         options={optionsType}
+                                        styles={{
+                                            input: (provided) => ({
+                                                ...provided,
+                                                cursor: "default", // Evita que aparezca el cursor de escritura
+                                                caretColor: "transparent", // Opcional: Oculta el caret (la línea parpadeante)
+                                            })
+                                        }}
                                     />
                                 </FormGroup>
                                 <FormGroup className="buscador-form-group">
@@ -116,6 +116,13 @@ const Buscador = () => {
                                         onChange={handleChangeOperation}
                                         placeholder="Operación" // Placeholder cuando no hay selección
                                         options={optionsOperation}
+                                        styles={{
+                                            input: (provided) => ({
+                                                ...provided,
+                                                cursor: "default", // Evita que aparezca el cursor de escritura
+                                                caretColor: "transparent", // Opcional: Oculta el caret (la línea parpadeante)
+                                            })
+                                        }}
                                     />
                                 </FormGroup>
                                 <Form.Group className="buscador-form-group">
@@ -124,23 +131,44 @@ const Buscador = () => {
                                         classNamePrefix="select-type-casa"
                                         value={selectedOptionLocalidad}
                                         onChange={handleChangeLocalidad}
-                                        placeholder="Localidad" // Placeholder cuando no hay selección
-                                        options={localidades.map((localidad) => ({
-                                            value: localidad.location_id,
-                                            label: localidad.location_name,
-                                        } ))}
-                                        onInputChange={setInputValue}
+                                        placeholder="Barrio" // Placeholder cuando no hay selección
+                                        options={inputValue.length >= 2
+                                            ? localidades
+                                                .filter(localidad =>
+                                                    localidad.location_name && // Verifica que location_name no sea null o undefined
+                                                    localidad.location_name.toLowerCase().includes(inputValue.toLowerCase())
+                                                )
+                                                .map(localidad => ({
+                                                    value: localidad.location_id,
+                                                    label: localidad.location_name,
+                                                }))
+                                            : []}
+                                        onInputChange={value => setInputValue(value)}
                                         noOptionsMessage={() => null}  // Elimina el mensaje "No options"
+                                        components={{
+                                            IndicatorSeparator: () => null, // Elimina la flechita del dropdown
+                                        }}
+                                        styles={{
+                                            dropdownIndicator: (provided) => ({
+                                                ...provided,
+                                                color: "white",
+                                                "&:hover": {
+                                                    color: "white", // Cambia este color según prefieras
+                                                },
+                                            })
+                                        }}
                                     />
                                 </Form.Group>
 
                             </div>
                             <Button
                                 id="buscador-boton"
-                                className="mb-3"
+                                className="mb-3 d-flex align-items-center justify-content-center gap-2"
                                 type="button"
                                 onClick={handleBuscar}
+
                             >
+                                <p className="ms-2 mb-0 buscar-texto"> Buscar </p>
                                 <IoMdSearch />
                             </Button>
                         </Form>
