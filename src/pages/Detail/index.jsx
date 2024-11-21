@@ -31,7 +31,7 @@ const Detail = () => {
   const { data: property, loading } = useFetchData(`property/${id}`);
 
   if (loading) {
-    <Spinner />;
+    return <Spinner />;
   }
 
   if (!property) {
@@ -53,7 +53,11 @@ const Detail = () => {
 
   return (
     <Container style={{ marginTop: "5em" }}>
-      <Button variant="danger" onClick={() => navigate("/propiedades")} className="mb-2">
+      <Button
+        variant="danger"
+        onClick={() => navigate("/propiedades")}
+        className="mb-2"
+      >
         <MdOutlineArrowBackIosNew />
         &nbsp;Volver
       </Button>
@@ -80,36 +84,44 @@ const Detail = () => {
             <Card.Body>
               <Row className="mb-2">
                 <Col>
-                  <Badge
-                    bg="light"
-                    text="dark"
-                    className="me-2"
-                    style={{ textTransform: "capitalize" }}
-                  >
-                    {property.operations[0].operation_type}
-                  </Badge>
-                  {property.reserved && <Badge bg="primary">Reservada</Badge>}
+                  {property.operations.map((operation, index) => (
+                    <div key={index}>
+                      <Badge
+                        bg="light"
+                        text="dark"
+                        className="me-2"
+                        style={{ textTransform: "capitalize" }}
+                      >
+                        {operation.operation_type}
+                      </Badge>
+                      <Card.Title
+                        className="mt-2 mb-2"
+                        style={{ fontSize: "24px", fontWeight: "bold" }}
+                      >
+                        {formatPrice(operation.prices[0])}{" "}
+                        {operation.prices[0].currency}
+                      </Card.Title>
+
+                      {operation.operation_type === "Alquiler" && (
+                        <Card.Text className="text-muted">
+                          Expensas: ${" "}
+                          {formatPrice(property.expenses.toString())}
+                        </Card.Text>
+                      )}
+                    </div>
+                  ))}
+                  {property.reserved && <Badge bg="danger">Reservada</Badge>}
                 </Col>
               </Row>
-
-              <Card.Title
-                className="mb-2"
-                style={{ fontSize: "24px", fontWeight: "bold" }}
-              >
-                {formatPrice(property.operations[0].prices[0])}{" "}
-                {property.operations[0].prices[0].currency}
-              </Card.Title>
-
-              {property.operations[0].operation_type === "Alquiler" && (
-                <Card.Text className="text-muted">
-                  Expensas: $ {formatPrice(property.expenses.toString())}
-                </Card.Text>
-              )}
-
               <Row className="mb-3" style={{ fontWeight: 500, lineHeight: 2 }}>
                 <Col xs="auto">
                   <FaRulerCombined className="me-2" />
-                  <strong>{property.surface}</strong> m² totales
+                  <strong>
+                    {property.type.id === 1
+                      ? property.surface
+                      : property.total_surface}
+                  </strong>{" "}
+                  m² totales
                 </Col>
                 <Col xs="auto">
                   <FaRulerCombined className="me-2" />
@@ -139,6 +151,14 @@ const Detail = () => {
           </Card>
           <Card className="mt-3 shadow-sm">
             <Card.Body>
+              <Card.Title>Descripción</Card.Title>
+              <Card.Text style={{ whiteSpace: "pre-wrap" }}>
+                {property.description || "No tiene descripción"}
+              </Card.Text>
+            </Card.Body>
+          </Card>
+          <Card className="mt-3 shadow-sm">
+            <Card.Body>
               <Card.Title>Ubicación</Card.Title>
               <Card.Text>{property.address}</Card.Text>
               <MapComponent
@@ -151,6 +171,18 @@ const Detail = () => {
           <Card className="mt-3 shadow-sm">
             <Card.Body>
               <FormContacto defaultValues={{ property: property.id }} />
+            </Card.Body>
+          </Card>
+          <Card className="mt-3 shadow-sm">
+            <Card.Body>
+              <Card.Title>Características</Card.Title>
+              <Card.Body className="d-flex flex-wrap gap-1">
+                {property.tags.map((tag, index) => (
+                  <Badge key={index} bg="warning">
+                    {tag.name}
+                  </Badge>
+                ))}
+              </Card.Body>
             </Card.Body>
           </Card>
         </Col>

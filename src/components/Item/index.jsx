@@ -64,16 +64,16 @@ const Item = ({ property }) => {
             <Col xs={12} className="mt-auto m-1 p-2">
               <div className="d-flex justify-content-around">
                 <div>
-                  <FaBed color="#c59f37" /> {property.room_amount}
+                  <FaBed color="#c59f37" /> {property.room_amount || '-'}
                 </div>
                 <div>
-                  <FaBath color="#c59f37" /> {property.bathroom_amount}
+                  <FaBath color="#c59f37" /> {property.bathroom_amount || '-'}
                 </div>
                 <div>
-                  <FaCar color="#c59f37" /> {property.parking_lot_amount}
+                  <FaCar color="#c59f37" /> {property.parking_lot_amount || '-'}
                 </div>
                 <div>
-                  <FaRulerCombined color="#c59f37" /> {property.surface} m²
+                  <FaRulerCombined color="#c59f37" /> {property.type.id === 1 ? property.surface : property.total_surface} m²
                 </div>
               </div>
             </Col>
