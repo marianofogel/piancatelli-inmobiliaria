@@ -14,7 +14,6 @@ const PropertiesLayout = () => {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const { filters, setFilters, sortKey, setSortKey } = useFilterStore();
-
   const limit = 25;
 
   useEffect(() => {
@@ -66,8 +65,8 @@ const PropertiesLayout = () => {
 
         const buildFilters = () => {
           const filterObject = {
-            current_localization_id: filters.localizationId || 1,
-            current_localization_type: filters.localizationType || "country",
+            current_localization_id: [+filters.localizationId] || 1,
+            current_localization_type: filters.localizationType || "division",
             price_from: filters.priceFrom || 0,
             price_to: filters.priceTo || 4500000,
             operation_types: (filters.operationTypes && [
