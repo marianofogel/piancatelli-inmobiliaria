@@ -1,8 +1,9 @@
 import { Row } from "reactstrap";
-import { Item } from "../../../components/Item";
+import { ItemDestacadas } from "./ItemDestacadas";
 import { Container, Spinner } from "react-bootstrap"
 import './NuevosIngresos.css'
 import useFetchData from '../../../hooks/useFetchData';
+import { Link } from "react-router-dom";
 
 
 const NuevosIngresos = () => {
@@ -39,12 +40,18 @@ const NuevosIngresos = () => {
                                 .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
                                 .slice(0, 3)
                                 .map((nuevoIngreso, index) => (
-                                    <div style={{width:"400px", height:"400px"}}>
-                                        <Item
-                                            key={index}
-                                            property={nuevoIngreso}
-                                            className="item-card"
-                                        />
+                                    <div className="div-item-destecada">
+                                        <Link
+                                            to={`/propiedades/${nuevoIngreso.id}`}
+                                            style={{ textDecoration: "none" }}
+                                            key={`${nuevoIngreso.id}`}
+                                        >
+                                            <ItemDestacadas
+                                                key={index}
+                                                property={nuevoIngreso}
+                                                className="item-card"
+                                            />
+                                        </Link>
                                     </div>
                                 ))}
                         </Row>

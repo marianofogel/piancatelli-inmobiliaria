@@ -36,9 +36,12 @@ const SliderTuLugar = () => {
                 spaceBetween={12}
                 draggable={false}
                 centeredSlides={true}
-                pagination={false}
-                navigation={true}
+                pagination={{
+                    clickable: true,
+                }}
+                navigation={false}
                 loop={true}
+
                 modules={[Pagination, EffectCoverflow, Navigation]}
                 className='swiper-tulugar'
                 breakpoints={{

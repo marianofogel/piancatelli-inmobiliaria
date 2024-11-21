@@ -151,7 +151,7 @@ const Buscador = () => {
                             id="boton-conocermas"
                             onClick={handleConoceMas}
                         >
-                            Conocé Más <IoIosArrowDown />
+                            Conocé más <IoIosArrowDown />
                         </a>
                     </div>
                 </div>
