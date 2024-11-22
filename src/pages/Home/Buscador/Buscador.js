@@ -131,7 +131,7 @@ const Buscador = () => {
                                         classNamePrefix="select-type-casa"
                                         value={selectedOptionLocalidad}
                                         onChange={handleChangeLocalidad}
-                                        placeholder="Barrio" // Placeholder cuando no hay selección
+                                        placeholder="Ubicación" // Placeholder cuando no hay selección
                                         options={inputValue.length >= 2
                                             ? localidades
                                                 .filter(localidad =>
