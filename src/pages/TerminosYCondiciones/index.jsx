@@ -4,12 +4,12 @@ import "../Contacto/Contacto.css";
 export default function TerminoCondiciones() {
     return (
         <Container fluid className="mt-5 py-5">
-            <Row className="container-contacto">
+           <Row className="container-contacto">
                 <Col className="col-contacto">
-                    <Stack>
-                        <h2 className="pb-3">Terminos y Condiciones</h2>
+                    
+                        <h2 className="pb-3">Politicas de Privacidad</h2>
                         <div className="col-contacto">
-                            <p className="pt-5 m-1 w-50 text-align-center">
+                            <p className="pt-5 m-1 text-align-center">
                                 Al navegar y utilizar el sitio{" "}
                                 <span style={{ fontWeight: "bold" }}>
                                     www.piancatelli-propiedades.com.ar
@@ -74,7 +74,7 @@ export default function TerminoCondiciones() {
                                 y sus términos y condiciones se rigen por la ley argentina.
                             </p>
                         </div>
-                    </Stack>
+                    
                 </Col>
             </Row>
         </Container>
