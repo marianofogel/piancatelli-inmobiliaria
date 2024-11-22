@@ -70,15 +70,23 @@
 
 .imagen-tulugar {
   border-radius: 6px;
+  width: 100%; /* Hace que la imagen ocupe el 100% del ancho */
+    height: 350px; /* Hace que la imagen ocupe el 100% del alto */
+    object-fit: cover center; /* Ajusta la imagen para que ocupe todo el espacio sin deformarse */
+  position: relative;
 }
 
 
 
 .card-tulugar {
-  display: flex;
+  
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  width:  100%;
+
 }
 
 .texto-tulugar {
@@ -88,7 +96,7 @@
   font-size: 20px;
   font-weight: bold;
   color: rgb(255, 255, 255);
-  text-shadow: -4px -1px 8px rgba(65, 65, 65, 0.46);
+  text-shadow: 3px 5px 2px #474747;
 }
 
 @media (max-width: 750px) {
