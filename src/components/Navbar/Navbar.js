@@ -5,7 +5,6 @@ import Navbar from "react-bootstrap/Navbar";
 import Image from "react-bootstrap/Image";
 import { Link, NavLink, useNavigate, useLocation } from "react-router-dom";
 import { scroller } from "react-scroll";
-
 import "./Navbar.css";
 
 const NavbarComponent = () => {
@@ -27,17 +26,16 @@ const NavbarComponent = () => {
   }, []);
 
   useEffect(() => {
-    if (location.pathname === '/' && targetSection) {
+    if (location.pathname === "/" && targetSection) {
       // Espera un poco antes de hacer el scroll para que el contenido se cargue
       const timeoutId = setTimeout(() => {
         scroller.scrollTo(targetSection, {
           smooth: false,
-          duration: 400,
+          duration: 800,
           offset: -100,
         });
         setTargetSection(null); // Resetear el targetSection después del scroll
-      }, 500); // Ajusta el tiempo según sea necesario
-
+      }, 1000); // Ajusta el tiempo según sea necesario
       return () => clearTimeout(timeoutId); // Limpia el timeout al desmontar
     }
   }, [location.pathname, targetSection]);
@@ -50,7 +48,7 @@ const NavbarComponent = () => {
       // Si ya estamos en inicio, hace scroll inmediatamente
       scroller.scrollTo(sectionName, {
         smooth: false,
-        duration: 100,
+        duration: 400,
         offset: -100,
       });
     }
