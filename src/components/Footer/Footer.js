@@ -48,9 +48,9 @@ const Footer = () => {
                         <Col className="py-3 sm=true">
                             <Stack className="stack-logo-name">
                                 <Image className="logo-footer"
-                                    src={process.env.PUBLIC_URL + "/img/Piancatelli.png"}
+                                    src={process.env.PUBLIC_URL + "img/piancatelli logo.png"}
                                     alt="Company Logo"
-                                    width={230}
+                                    width={180}
                                     height={100}
                                 />
                                 <h2 className="nombre-footer">Christian Piancatelli</h2>
