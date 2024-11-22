@@ -101,14 +101,14 @@ const Footer = () => {
                                                             index)
                                                     .slice(0, 5)
                                                     .map((localidad, index) => (
-                                                        <p 
-                                                        className="footer-links" 
-                                                        key={index}
-                                                        onClick={() => handleFooterClick(localidad)}
-                                                        style={{
-                                                            cursor:"pointer",
-                                                            gap:"0px"
-                                                        }}
+                                                        <p
+                                                            className="footer-links"
+                                                            key={index}
+                                                            onClick={() => handleFooterClick(localidad)}
+                                                            style={{
+                                                                cursor: "pointer",
+                                                                gap: "0px"
+                                                            }}
                                                         >
                                                             {localidad.location?.name}
                                                         </p>

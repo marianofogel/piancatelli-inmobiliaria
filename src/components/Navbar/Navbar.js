@@ -36,7 +36,6 @@ const NavbarComponent = () => {
         });
         setTargetSection(null); // Resetear el targetSection después del scroll
       }, 1000); // Ajusta el tiempo según sea necesario
-  
       return () => clearTimeout(timeoutId); // Limpia el timeout al desmontar
     }
   }, [location.pathname, targetSection]);
@@ -68,10 +67,10 @@ const NavbarComponent = () => {
         <Navbar.Brand>
           <Link to="/">
             <Image
-              src={process.env.PUBLIC_URL + "/img/Piancatelli.png"}
+              src={process.env.PUBLIC_URL + "/img/piancatelli logo.png"}
               alt="Company Logo"
-              width={110}
-              height={45}
+              width={130}
+              height={65}
             />
           </Link>
         </Navbar.Brand>
