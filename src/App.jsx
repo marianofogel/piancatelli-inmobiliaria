@@ -19,6 +19,8 @@ export default function App() {
     window.scrollTo(0, 0);
   }, [location]);
 
+  REACT_APP_TOKKO_API_KEY="3cbc5baf1ad3ebb4672111e2f3aa215c17f962eb"
+
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
