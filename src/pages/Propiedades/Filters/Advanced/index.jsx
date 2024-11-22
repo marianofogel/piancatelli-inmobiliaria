@@ -101,14 +101,14 @@ const AdvancedFilters = () => {
           controlId="formLocalidad"
           className="border rounded p-2 mb-3"
         >
-          <Form.Label style={{ color: "red" }}>Localidad</Form.Label>
+          <Form.Label style={{ color: "red" }}>Ubicación</Form.Label>
           <Form.Select
             value={filters?.localizationId}
             onChange={(e) =>
               setFilters({ ...filters, localizationId: e.target.value })
             }
           >
-            <option value="">Seleccione una localidad</option>
+            <option value="">Seleccione una ubicación</option>
             {localidades &&
               localidades.map((localidad, index) => (
                 <option key={index} value={localidad.location_id}>
