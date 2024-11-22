@@ -5,7 +5,6 @@ import Navbar from "react-bootstrap/Navbar";
 import Image from "react-bootstrap/Image";
 import { Link, NavLink, useNavigate, useLocation } from "react-router-dom";
 import { scroller } from "react-scroll";
-
 import "./Navbar.css";
 
 const NavbarComponent = () => {
