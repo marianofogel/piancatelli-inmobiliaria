@@ -15,9 +15,11 @@ export default function Home() {
       <Element name="destacadas">
         <PropiedadesDestacadas />
       </Element>
+      {/* 
       <Element name="servicios">
         <ServiceOptions />
       </Element>
+      */}
     </>
   );
 }

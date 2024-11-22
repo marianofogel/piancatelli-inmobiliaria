@@ -8,18 +8,16 @@ import {
     Image,
 
 } from "react-bootstrap";
-import { GoDot } from "react-icons/go";
 import {
     FaMapMarkerAlt,
-    FaPhoneAlt,
     FaEnvelope,
     FaWhatsapp,
-    FaDotCircle,
-    FaInstagram
-
 } from "react-icons/fa"
 import "./Footer.css";
-import { useNavigate } from "react-router";
+import { useNavigate } from 'react-router-dom';
+import useFetchData from '../../hooks/useFetchData'
+import useFilterStore from '../../store'
+
 
 
 const fecha = new Date(); //tomamos la fecha actual
@@ -28,9 +26,20 @@ const mensajeParaWhatsapp = "Hola, Piancatelli Propiedades, quería saber si me 
 const enlaceWhatsApp = `https://wa.me/1144113191?text=${mensajeParaWhatsapp}`
 
 
+
 const Footer = () => {
 
+    const api = useFetchData('property')
     const navigate = useNavigate();
+    const setFilters = useFilterStore((state) => state.setFilters);
+
+    const handleFooterClick = (localidad) => {
+        const localizationId = localidad.location?.id
+
+        setFilters({ localizationId });
+        navigate("/propiedades");
+    };
+
     return (
         <>
             <footer id="contact-form">
@@ -60,7 +69,7 @@ const Footer = () => {
                                                 <p> <FaMapMarkerAlt /> Dirección DISTRITO T - Oficina 118 - Colectora Norte Acceso Oeste km 47 - General Rodriguez  - Bs As</p>
                                             </div>
                                             <div className="footer-contact">
-                                                <p><FaEnvelope /> info@piancatelli-propiedades.com.ar</p>
+                                                <a href="mailto:info@piancatelli-propiedades.com.ar" target="_blank" className="enlace-whatsapp-footer"><FaEnvelope /> info@piancatelli-propiedades.com.ar</a>
                                             </div>
 
                                             <div className="footer-contact">
@@ -77,34 +86,34 @@ const Footer = () => {
                             </div>
                         </Col>
 
-
-                        {/* <div className="data-fiscal">
-                                        <Image
-                                            src={process.env.PUBLIC_URL + "/img/data-fiscal-ejemplo.jpg"}
-                                            alt="Company Logo"
-                                            width={50}
-                                            height={65}
-                                        />
-                                    </div>
-                                     */}
-
-
                         <Col className="py-3 sm=true manejo-de-accesos-rapidos">
                             <div className="mx-auto">
                                 <h2 className="footer-busqueda">Búsqueda Rápida</h2>
                                 <Stack >
                                     <Row>
                                         <Col className="columnas-footer">
-                                            <p><Link className="footer-links" >Ventas en Barrio Privados</Link></p>
-                                            <p><Link className="footer-links">Ventas en Countries</Link></p>
-                                            <p><Link className="footer-links" >Casas en zona</Link></p>
-                                            <p><Link className="footer-links">Lotes en zona</Link></p>
-                                        </Col>
-                                        <Col className="columnas-footer">
-                                            <p><Link className="footer-links">Alquileres en Barrios Privados</Link></p>
-                                            <p><Link className="footer-links">Alquileres en Countries</Link></p>
-                                            <p><Link className="footer-links">Casas en zona</Link></p>
-                                            <p><Link className="footer-links">Lotes en zona</Link></p>
+                                            {
+                                                api.data?.objects
+                                                    .filter((localidad) => localidad.location?.id)
+                                                    .filter(
+                                                        (localidad, index, self) =>
+                                                            self.findIndex((loc) => loc.location.id === localidad.location.id) ===
+                                                            index)
+                                                    .slice(0, 5)
+                                                    .map((localidad, index) => (
+                                                        <p 
+                                                        className="footer-links" 
+                                                        key={index}
+                                                        onClick={() => handleFooterClick(localidad)}
+                                                        style={{
+                                                            cursor:"pointer",
+                                                            gap:"0px"
+                                                        }}
+                                                        >
+                                                            {localidad.location?.name}
+                                                        </p>
+                                                    ))
+                                            }
                                         </Col>
                                     </Row>
                                 </Stack>
