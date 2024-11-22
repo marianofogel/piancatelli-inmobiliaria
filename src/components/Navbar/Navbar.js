@@ -84,9 +84,11 @@ const NavbarComponent = () => {
             <Nav.Link as={NavLink} to="/propiedades" className="links-navbar" style={{ fontWeight: location.pathname === "/propiedades" ? "bold" : "" }}>
               PROPIEDADES
             </Nav.Link>
+            {/* 
             <Nav.Link className="links-navbar" onClick={() => handleScrollToSection('servicios')}>
               SERVICIOS
             </Nav.Link>
+            */}
             <Nav.Link className="links-navbar" onClick={() => handleScrollToSection('destacadas')}>
               DESTACADAS
             </Nav.Link>
