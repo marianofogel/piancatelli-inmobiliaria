@@ -29,7 +29,7 @@ const SliderTuLugar = () => {
     };
 
     return (
-        <div className='swiper-contenedor-tulugar'>
+        <div className='swiper-contenedor-tulugar container-fluid'>
             <Swiper
 
                 overflowEffect={{

@@ -168,7 +168,7 @@ const Buscador = () => {
                                 onClick={handleBuscar}
 
                             >
-                                <p className="ms-2 mb-0 buscar-texto"> Buscar </p>
+                                <p className="ms-2 mb-0 buscar-texto p-2"> Buscar </p>
                                 <IoMdSearch />
                             </Button>
                         </Form>
