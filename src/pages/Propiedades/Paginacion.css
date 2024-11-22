@@ -1,0 +1,20 @@
+.paginacion-propiedades .page-item {
+    margin: 0 2px; 
+}
+
+.paginacion-propiedades .page-item .page-link {
+    color: white;
+    background-color: #949393;
+    border: none;
+}
+
+.paginacion-propiedades .page-item.active .page-link {
+    background-color: #49545e;
+    color: white;
+    font-weight: bold;
+}
+
+.paginacion-propiedades .page-item.disabled .page-link {
+    background-color: #cac9c9;
+    color: #666;
+}
