@@ -1,26 +1,23 @@
 export const localidades = [
     {
-        localidad: "Hurlingham",
-        imageSrc: process.env.PUBLIC_URL + "/img/piancatelli-gris.jpeg"
+        localidad: "San Diego",
+        imageSrc: process.env.PUBLIC_URL + "/img/sandiego-barrio.jpg"
     },
     {
-        localidad: "Jose C Paz",
-        imageSrc: process.env.PUBLIC_URL + "/img/piancatelli-gris.jpeg"
+        localidad: "San Patricio",
+        imageSrc: process.env.PUBLIC_URL + "/img/sanpatricio-barrio.jpg"
     },
     {
-        localidad: "Moron",
-        imageSrc: process.env.PUBLIC_URL + "/img/piancatelli-gris.jpeg"
+        localidad: "Haras Maria Eugenia",
+        imageSrc: process.env.PUBLIC_URL + "/img/haras-barrio.jpg"
     },
     {
-        localidad: "La Boca",
-        imageSrc: process.env.PUBLIC_URL + "/img/piancatelli-gris.jpeg"
+        localidad: "Weston",
+        imageSrc: process.env.PUBLIC_URL + "/img/weston-barrio.jpg"
     },
     {
-        localidad: "Avellaneda",
-        imageSrc: process.env.PUBLIC_URL + "/img/piancatelli-gris.jpeg"
+        localidad: "Banco Provincia",
+        imageSrc: process.env.PUBLIC_URL + "/img/bancoprovincia-barrio.jpg"
     },
-    {
-        localidad: "San Miguel",
-        imageSrc: process.env.PUBLIC_URL + "/img/piancatelli-gris.jpeg"
-    },
+
 ]

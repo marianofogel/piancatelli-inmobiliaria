@@ -22,7 +22,7 @@ export default function Contacto() {
                 <Col xs={12} md={6} className="col-contacto d-flex justify-content-center align-items-center py-5">
 
                     <Image
-                        src={process.env.PUBLIC_URL + "/img/piancatelli-oficina.jpeg"}
+                        src={process.env.PUBLIC_URL + "/img/contacto-pianca.jpg"}
                         alt="Piancatelli Company"
                         className="imagen-contacto img-fluid"
                         width={600}

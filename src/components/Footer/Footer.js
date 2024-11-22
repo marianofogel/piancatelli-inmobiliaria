@@ -25,7 +25,7 @@ import { useNavigate } from "react-router";
 const fecha = new Date(); //tomamos la fecha actual
 const anioActual = fecha.getFullYear(); //se toma el año actual
 const mensajeParaWhatsapp = "Hola, Piancatelli Propiedades, quería saber si me podia contactar con un tasador. Muchas gracias."
-const enlaceWhatsApp = `https://wa.me/1141746012?text=${mensajeParaWhatsapp}`
+const enlaceWhatsApp = `https://wa.me/1144113191?text=${mensajeParaWhatsapp}`
 
 
 const Footer = () => {
@@ -44,8 +44,9 @@ const Footer = () => {
                                     width={230}
                                     height={100}
                                 />
-                                <h2 className="nombre-footer">Alejandra Baeta</h2>
-                                <h5 className="nombre-footer">Matricula</h5>
+                                <h2 className="nombre-footer">Christian Piancatelli</h2>
+                                <h5 className="matricula-footer">Colegio DJM-GR Matricula N: 349</h5>
+                                <h6 className="matricula-footer">Colegio Martilleros y Corresores Públicos DJMGR</h6>
                             </Stack>
                         </Col>
 
@@ -56,16 +57,14 @@ const Footer = () => {
                                     <Row>
                                         <Col className="columnas-footer">
                                             <div className="footer-contact">
-                                                <p> <FaMapMarkerAlt /> Ricchieri 1534 - Hurlingham</p>
+                                                <p> <FaMapMarkerAlt /> Dirección DISTRITO T - Oficina 118 - Colectora Norte Acceso Oeste km 47 - General Rodriguez  - Bs As</p>
                                             </div>
                                             <div className="footer-contact">
-                                                <p><FaEnvelope /> tumail@gmail.com</p>
+                                                <p><FaEnvelope /> info@piancatelli-propiedades.com.ar</p>
                                             </div>
+
                                             <div className="footer-contact">
-                                                <p><FaPhoneAlt /> 4665-2438</p>
-                                            </div>
-                                            <div className="footer-contact">
-                                                <a href={enlaceWhatsApp} target="_blank" rel="noopener noreferrer" className="enlace-whatsapp-footer"><FaWhatsapp /> 1132817839 </a>
+                                                <a href={enlaceWhatsApp} target="_blank" rel="noopener noreferrer" className="enlace-whatsapp-footer"><FaWhatsapp />  11 4411 3191</a>
                                             </div>
                                         </Col>
                                     </Row>
