@@ -1,15 +1,10 @@
 .swiper-container {
-  width: 95%;
-  height: 85vh;
-  /* Ancho del swiper ajustado al 80% del ancho de la pantalla */
-  /* Alto del swiper */
   margin: 0 auto;
   /* Centrar el swiper horizontalmente */
   background-color: rgb(255, 255, 255);
 }
 
 .swiper-container .swiperDestacadas {
-  width: 90%;
   height: 85vh;
   padding-bottom: 50px;
 }
@@ -38,4 +33,10 @@
 .swiper-container .swiper-pagination-bullet-active {
   background-color: #cda523;
   transform: scale(1); 
+}
+
+@media (max-width: 768px) {
+  .swiper-container .swiperDestacadas {
+    height: 50vh;
+  }
 }
