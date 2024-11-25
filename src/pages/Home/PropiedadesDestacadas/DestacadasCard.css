@@ -19,7 +19,6 @@
     position: absolute;
     bottom: 0;
     right: 5%;
-    width: 20%;
     border-radius: 20px !important;
 }
 
@@ -82,21 +81,15 @@
     }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 768px) {
     .datos-destacadas {
         bottom: 0;
-        width: 70%;
-    }
-}
-
-@media (max-width: 450px) {
-    .datos-destacadas {
-        bottom: 0;
-        width: 75%;
+        width: 50%;
     }
 
     .card-destacadas-textos {
-        font-size: medium;
+        font-size: small;
+        line-height: 1em;
     }
 
     .card-destacada-propiedad-name {

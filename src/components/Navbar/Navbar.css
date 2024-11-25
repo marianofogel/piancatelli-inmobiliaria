@@ -18,6 +18,7 @@
 
 #basic-navbar-nav {
   justify-content: flex-end;
+  text-align: center;
 }
 
 .collapse,
@@ -31,4 +32,10 @@
   background-color: red !important; /* Color de fondo del botón */
   color: white !important; /* Color de texto del botón */
   width: 30%; /* Ancho del botón */
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    background-color: #49545e
+  }
 }
