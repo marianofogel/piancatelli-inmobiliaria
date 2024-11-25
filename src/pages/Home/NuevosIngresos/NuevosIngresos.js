@@ -40,14 +40,12 @@ const NuevosIngresos = () => {
                                 .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
                                 .slice(0, 3)
                                 .map((nuevoIngreso, index) => (
-                                    <div className="div-item-destecada">
+                                    <div className="div-item-destecada" key={`${nuevoIngreso.id}`}>
                                         <Link
                                             to={`/propiedades/${nuevoIngreso.id}`}
                                             style={{ textDecoration: "none" }}
-                                            key={`${nuevoIngreso.id}`}
                                         >
                                             <ItemDestacadas
-                                                key={index}
                                                 property={nuevoIngreso}
                                                 className="item-card"
                                             />

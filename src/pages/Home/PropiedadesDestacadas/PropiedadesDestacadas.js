@@ -11,6 +11,8 @@ import { Element } from 'react-scroll';
 
 const PropertyCarousel = () => {
     const api = useFetchData('property')
+    console.log("Datos de la API:", api.data?.objects);
+
     const imageDefaultPiancatelli = process.env.PUBLIC_URL + "/img/Piancatelli.png"
 
     if (api.loading) {
@@ -18,6 +20,10 @@ const PropertyCarousel = () => {
             <Spinner></Spinner>
         )
     }
+
+    console.log("Datos:", JSON.stringify(api.data, null, 2));
+
+
 
 
     return (
@@ -45,20 +51,22 @@ const PropertyCarousel = () => {
                     >
 
                         {api.data?.objects
+
                             .filter((nuevaDestacada) => nuevaDestacada.is_starred_on_web)
                             .map((nuevaDestacada, index) => (
-                                <SwiperSlide className="slide-destacadas">
+                                <SwiperSlide className="slide-destacadas" key={`slide-${nuevaDestacada.id}-${index}`}>
                                     <DestacadasSwiperCard
-                                        key={index}
+                                        id={nuevaDestacada.id}
                                         imageSrc={nuevaDestacada.photos[0]?.image ? nuevaDestacada.photos[0].image : imageDefaultPiancatelli}
                                         casaNombre={nuevaDestacada.address}
                                         barrioCasa={nuevaDestacada.location.name}
                                         metrosCuadradoCasa={nuevaDestacada.surface + "m2"}
                                         estadoCasa={nuevaDestacada.operations[0].operation_type}
                                         casaValor={"USD " + nuevaDestacada.operations[0].prices[0].price}
-                                        id={nuevaDestacada.id} />
+                                    />
                                 </SwiperSlide>
                             ))}
+
 
 
 
