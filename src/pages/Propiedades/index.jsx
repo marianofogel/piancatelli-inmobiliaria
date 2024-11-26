@@ -110,6 +110,7 @@ const PropertiesLayout = () => {
         }
         const result = await response.json();
         setData(result.objects);
+        
         setTotalPages(Math.ceil(result.meta.total_count / limit));
       } catch (err) {
         setError(err);

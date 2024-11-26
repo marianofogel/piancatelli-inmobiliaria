@@ -44,6 +44,8 @@
 .card-destacada-propiedad-name {
     font-size: xx-large;
     font-weight: bold;
+    text-wrap: wrap;
+    
 }
 
 .card-fondo-title {
@@ -95,7 +97,8 @@
     .card-destacada-propiedad-name {
         font-size: large;
         font-weight: bold;
-        padding-top: 5px
+        padding-top: 5px;
+        line-height: 15px;
     }
 
     .card-destacadas-estado {

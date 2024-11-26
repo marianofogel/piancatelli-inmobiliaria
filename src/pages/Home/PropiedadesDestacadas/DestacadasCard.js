@@ -15,6 +15,10 @@ const DestacadasSwiperCard = ({
   metrosCuadradoCasa,
   destacadaCasa,
 }) => {
+
+  
+
+
   return (
     <Link to={`propiedades/${id}`} className="link-card-propiedades-destacadas">
       <div className="div-slide-propiedades">
