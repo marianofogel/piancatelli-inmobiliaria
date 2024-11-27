@@ -47,7 +47,7 @@ const Buscador = () => {
         const targetElement = document.getElementById(targetId);
 
         if (targetElement) {
-            const navbarCompensacion = 82; // Para compensar el tamaño de la navbar
+            const navbarCompensacion = 130; // Para compensar el tamaño de la navbar
             const elementPosition =
                 targetElement.getBoundingClientRect().top + window.scrollY;
             window.scrollTo({

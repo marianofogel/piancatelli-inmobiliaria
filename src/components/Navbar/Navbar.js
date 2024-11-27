@@ -69,8 +69,8 @@ const NavbarComponent = () => {
             <Image
               src={process.env.PUBLIC_URL + "/img/piancatelli logo.png"}
               alt="Company Logo"
-              width={110}
-              height={55}
+              width={150}
+              height={90}
             />
           </Link>
         </Navbar.Brand>
