@@ -198,7 +198,7 @@ const Detail = () => {
         <Col md={4}>
           <Card className="mt-3 shadow-sm">
             <Card.Body>
-              <FormContacto defaultValues={{ data: data.id }} />
+              <FormContacto defaultValues={{ property: data.id }} />
             </Card.Body>
           </Card>
           <Card className="mt-3 shadow-sm">
