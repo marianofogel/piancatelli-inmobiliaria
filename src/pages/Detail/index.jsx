@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { FormContacto } from "../../components/FormContacto";
 import {
   Container,
@@ -21,25 +21,53 @@ import { useParams, useNavigate } from "react-router-dom";
 import ImageGallery from "react-image-gallery";
 import { formatPrice } from "../../utils";
 import MapComponent from "../../components/Map";
-import useFetchData from "../../hooks/useFetchData";
 import "./styles.css";
 
 const Detail = () => {
   const imageGalleryRef = useRef();
   const { id } = useParams();
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
-  const { data: property, loading } = useFetchData(`property/${id}`);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const queryParams = new URLSearchParams({
+          format: "json",
+          key: process.env.REACT_APP_TOKKO_API_KEY,
+          lang: "es_ar",
+          limit: 1,
+          offset: 0,
+        });
+
+        const response = await fetch(
+          `http://tokkobroker.com/api/v1/property/${id}?${queryParams.toString()}`
+        );
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const result = await response.json();
+        setData(result);
+      } catch (err) {
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, []);
 
   if (loading) {
     return <Spinner />;
   }
 
-  if (!property) {
+  if (!data) {
     return null;
   }
 
-  if (!property.photos || !property.photos.length) {
-    property.photos = [
+  if (!data.photos || !data.photos.length) {
+    data.photos = [
       {
         image: process.env.PUBLIC_URL + "/img/edificio-buscador.jpeg",
         thumb: process.env.PUBLIC_URL + "/img/edificio-buscador.jpeg",
@@ -56,15 +84,15 @@ const Detail = () => {
       <Button
         variant="danger"
         onClick={() => navigate("/propiedades")}
-        className="mb-2"
+        className="mb-2 mt-2"
       >
         <MdOutlineArrowBackIosNew />
         &nbsp;Volver
       </Button>
-      <h2>{property.publication_title}</h2>
+      <h2>{data.publication_title}</h2>
       <ImageGallery
         className="rounded"
-        items={property.photos.map((img) => ({
+        items={data.photos.map((img) => ({
           original: img.image,
           thumbnail: img.thumb,
         }))}
@@ -84,7 +112,7 @@ const Detail = () => {
             <Card.Body>
               <Row className="mb-2">
                 <Col>
-                  {property.operations.map((operation, index) => (
+                  {data.operations.map((operation, index) => (
                     <div key={index}>
                       <Badge
                         bg="light"
@@ -105,46 +133,46 @@ const Detail = () => {
                       {operation.operation_type === "Alquiler" && (
                         <Card.Text className="text-muted">
                           Expensas: ${" "}
-                          {formatPrice(property.expenses.toString())}
+                          {formatPrice(data.expenses.toString())}
                         </Card.Text>
                       )}
                     </div>
                   ))}
-                  {property.reserved && <Badge bg="danger">Reservada</Badge>}
+                  {data.reserved && <Badge bg="danger">Reservada</Badge>}
                 </Col>
               </Row>
               <Row className="mb-3" style={{ fontWeight: 500, lineHeight: 2 }}>
                 <Col xs="auto">
                   <FaRulerCombined className="me-2" />
                   <strong>
-                    {property.type.id === 1
-                      ? property.surface
-                      : property.total_surface}
+                    {data.type.id === 1
+                      ? data.surface
+                      : data.total_surface}
                   </strong>{" "}
                   m² totales
                 </Col>
                 <Col xs="auto">
                   <FaRulerCombined className="me-2" />
-                  <strong>{property.roofed_surface}</strong> m² cubiertos
+                  <strong>{data.roofed_surface}</strong> m² cubiertos
                 </Col>
                 <Col xs="auto">
                   <FaBuilding className="me-2" />
-                  <strong>{property.room_amount}</strong> ambientes
+                  <strong>{data.room_amount}</strong> ambientes
                 </Col>
                 <Col xs="auto">
                   <FaBath className="me-2" />
-                  <strong>{property.bathroom_amount}</strong> baño
+                  <strong>{data.bathroom_amount}</strong> baño
                 </Col>
                 <Col xs="auto">
                   <FaBed className="me-2" />
-                  <strong>{property.suite_amount}</strong> dormitorios
+                  <strong>{data.suite_amount}</strong> dormitorios
                 </Col>
                 <Col xs="auto">
                   <FaCalendarAlt className="me-2" />
                   <strong>
-                    {property.age === 0 ? "A estrenar" : property.age}
+                    {data.age === 0 ? "A estrenar" : data.age}
                   </strong>
-                  {property.age === 0 ? "" : " años de antigüedad"}
+                  {data.age === 0 ? "" : " años de antigüedad"}
                 </Col>
               </Row>
             </Card.Body>
@@ -153,16 +181,16 @@ const Detail = () => {
             <Card.Body>
               <Card.Title>Descripción</Card.Title>
               <Card.Text style={{ whiteSpace: "pre-wrap" }}>
-                {property.description || "No tiene descripción"}
+                {data.description || "No tiene descripción"}
               </Card.Text>
             </Card.Body>
           </Card>
           <Card className="mt-3 shadow-sm">
             <Card.Body>
               <Card.Title>Ubicación</Card.Title>
-              <Card.Text>{property.address}</Card.Text>
+              <Card.Text>{data.address}</Card.Text>
               <MapComponent
-                address={{ lat: +property.geo_lat, lng: +property.geo_long }}
+                address={{ lat: +data.geo_lat, lng: +data.geo_long }}
               />
             </Card.Body>
           </Card>
@@ -170,14 +198,14 @@ const Detail = () => {
         <Col md={4}>
           <Card className="mt-3 shadow-sm">
             <Card.Body>
-              <FormContacto defaultValues={{ property: property.id }} />
+              <FormContacto defaultValues={{ data: data.id }} />
             </Card.Body>
           </Card>
           <Card className="mt-3 shadow-sm">
             <Card.Body>
               <Card.Title>Características</Card.Title>
               <Card.Body className="d-flex flex-wrap gap-1">
-                {property.tags.map((tag, index) => (
+                {data.tags.map((tag, index) => (
                   <Badge key={index} bg="warning">
                     {tag.name}
                   </Badge>
