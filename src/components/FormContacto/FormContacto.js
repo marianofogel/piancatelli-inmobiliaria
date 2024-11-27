@@ -119,6 +119,7 @@ export function FormContacto({ defaultValues = {} }) {
           value={formData.property}
           onChange={handleChange}
           placeholder="Propiedad de interés"
+          disabled={defaultValues.property}
         />
       </Form.Group>
       <Form.Group className="mb-3">

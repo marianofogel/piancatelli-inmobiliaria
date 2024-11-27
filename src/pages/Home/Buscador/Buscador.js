@@ -169,7 +169,7 @@ const Buscador = () => {
 
                             >
                                 <p className="ms-2 mb-0 buscar-texto p-2"> Buscar </p>
-                                <IoMdSearch />
+                                <IoMdSearch size='1.5em' />
                             </Button>
                         </Form>
                     </div>

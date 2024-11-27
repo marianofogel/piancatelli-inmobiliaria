@@ -55,9 +55,8 @@ const AdvancedFilters = () => {
                             filters[key] - 1
                           ]}
                         {key === "propertyTypes" &&
-                          tipos?.find(
-                            (type) => type.id === +filters[key]
-                          )?.name}
+                          tipos?.find((type) => type.id === +filters[key])
+                            ?.name}
                         {key === "age" && `< ${filters[key]} años`}
                         {key === "room_amount" &&
                           `${
@@ -103,7 +102,7 @@ const AdvancedFilters = () => {
         >
           <Form.Label style={{ color: "red" }}>Ubicación</Form.Label>
           <Form.Select
-            value={filters?.localizationId}
+            value={filters?.localizationId || ""}
             onChange={(e) =>
               setFilters({ ...filters, localizationId: e.target.value })
             }
@@ -120,7 +119,7 @@ const AdvancedFilters = () => {
         <Form.Group controlId="formTipo" className="border rounded p-2 mb-3">
           <Form.Label style={{ color: "red" }}>Tipo de propiedad</Form.Label>
           <Form.Select
-            value={filters?.propertyTypes}
+            value={filters?.propertyTypes || ""}
             onChange={(e) =>
               setFilters({ ...filters, propertyTypes: e.target.value })
             }
@@ -139,7 +138,7 @@ const AdvancedFilters = () => {
         >
           <Form.Label style={{ color: "red" }}>Tipo de operación</Form.Label>
           <Form.Select
-            value={filters?.operationTypes}
+            value={filters?.operationTypes || ""}
             onChange={(e) =>
               setFilters({ ...filters, operationTypes: e.target.value })
             }
@@ -163,7 +162,7 @@ const AdvancedFilters = () => {
             </Form.Label>
             <Form.Select
               size="sm"
-              value={filters?.currency}
+              value={filters?.currency || ""}
               onChange={(e) =>
                 setFilters({ ...filters, currency: e.target.value })
               }
@@ -213,7 +212,7 @@ const AdvancedFilters = () => {
         >
           <Form.Label style={{ color: "red" }}>Antiguedad</Form.Label>
           <Form.Select
-            value={filters?.age}
+            value={filters?.age || ""}
             onChange={(e) => setFilters({ ...filters, age: e.target.value })}
           >
             <option value="">Seleccione la antiguedad</option>
