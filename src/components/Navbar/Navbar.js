@@ -32,7 +32,7 @@ const NavbarComponent = () => {
         scroller.scrollTo(targetSection, {
           smooth: false,
           duration: 800,
-          offset: -100,
+          offset: -140,
         });
         setTargetSection(null); // Resetear el targetSection después del scroll
       }, 1000); // Ajusta el tiempo según sea necesario
@@ -49,7 +49,7 @@ const NavbarComponent = () => {
       scroller.scrollTo(sectionName, {
         smooth: false,
         duration: 400,
-        offset: -100,
+        offset: -140,
       });
     }
   };
