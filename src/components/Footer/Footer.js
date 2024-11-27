@@ -24,6 +24,7 @@ const fecha = new Date(); //tomamos la fecha actual
 const anioActual = fecha.getFullYear(); //se toma el año actual
 const mensajeParaWhatsapp = "Hola, Piancatelli Propiedades, quería saber si me podia contactar con un tasador. Muchas gracias."
 const enlaceWhatsApp = `https://wa.me/1144113191?text=${mensajeParaWhatsapp}`
+const enlaceInstagram = 'https://www.instagram.com/piancatelli.propiedades?igsh=cXp5YWRlZ3Q5dGZ2'
 
 
 
@@ -78,7 +79,7 @@ const Footer = () => {
                                         </Col>
                                     </Row>
                                     <div className="link-insta" >
-                                        <Link className="link-seguinos">Seguinos en Instagram</Link>
+                                        <Link to={enlaceInstagram} target="_blank" className="link-seguinos">Seguinos en Instagram</Link>
 
                                     </div>
                                 </Stack>

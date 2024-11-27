@@ -4,10 +4,41 @@ import { Container, Spinner } from "react-bootstrap"
 import './NuevosIngresos.css'
 import useFetchData from '../../../hooks/useFetchData';
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 
 const NuevosIngresos = () => {
     const api = useFetchData('property')
+
+    const [properties, setProperties] = useState([]);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch(
+                    `https://www.tokkobroker.com/api/v1/property/search/?lang=es_ar&format=json&limit=3&data={"operation_types":[1,2,3],"property_types":[1,2,3,4,5,6,7],"price_from":0,"price_to":99999999,"filters":[]}&key=${process.env.REACT_APP_TOKKO_API_KEY}&lang=es_ar&order_by=-id`
+                );
+
+                // Verifica si el response es exitoso
+                if (!response.ok) {
+                    throw new Error(`Error: ${response.status} ${response.statusText}`);
+                }
+
+                const data = await response.json();
+                setProperties(data.objects); // Asegúrate de que la estructura de datos sea correcta
+            } catch (err) {
+                setError(err.message);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    if (error) {
+        return <p>Error al cargar propiedades: {error}</p>;
+    }
+
 
     if (api.loading) {
         return (
@@ -15,19 +46,6 @@ const NuevosIngresos = () => {
         )
     }
 
-    const formatDate = (created_at) => {
-        if (!created_at) return "";
-
-        const date = new Date(created_at);
-
-        // Obtenemos los componentes de la fecha
-        const day = date.getDate();
-        const month = date.toLocaleString('es-ES', { month: 'short' });
-        const year = date.getFullYear();
-
-        // Devolvemos la fecha en formato "día mes año"
-        return `${day} ${month.toUpperCase()} ${year}`;
-    };
 
     return (
         <>
@@ -36,7 +54,7 @@ const NuevosIngresos = () => {
                     <h1 className="nuevos-ingresos-titulo"> Nuevos Ingresos </h1>
                     <div className="width">
                         <Row className="contenedor-cards">
-                            {api.data?.objects
+                            {properties
                                 .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
                                 .slice(0, 3)
                                 .map((nuevoIngreso, index) => (
