@@ -9,6 +9,7 @@ import { DestacadasSwiperCard } from "./DestacadasCard";
 import { Element } from "react-scroll";
 
 const PropertyCarousel = () => {
+
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
