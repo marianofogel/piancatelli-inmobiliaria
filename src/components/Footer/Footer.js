@@ -41,61 +41,14 @@ const Footer = () => {
                 />
                 <h2 className="nombre-footer">Christian Piancatelli</h2>
                 <h5 className="matricula-footer">
-                  Colegio DJM-GR Matricula N: 349
+                  CMCPDJMGR.MATRICULA: N°349
                 </h5>
                 <h6 className="matricula-footer">
-                  Colegio Martilleros y Corresores Públicos DJMGR
+                  Colegio Martilleros y Corresores Públicos del Departamento Judicial Moreno-General Rodriguez
                 </h6>
               </Stack>
             </Col>
 
-
-
-            <Col className="py-3 sm=true manejo-de-accesos-rapidos">
-              <div className="mx-auto">
-                <h2 className="footer-busqueda">Búsqueda Rápida</h2>
-                <Stack>
-                  <Row>
-                    <Col className="columnas-footer">
-                      {localidades
-                        .sort((a, b) => b.count - a.count)
-                        .slice(0, 5)
-                        .map((localidad, index) => (
-                          <p
-                            className="footer-links"
-                            key={index}
-                            onClick={() => handleFooterClick(localidad)}
-                            style={{
-                              cursor: "pointer",
-                              gap: "0px",
-                            }}
-                          >
-                            {localidad.location_name}
-                          </p>
-                        ))}
-                    </Col>
-                    <Col className="columnas-footer">
-                      {localidades
-                        .sort((a, b) => b.count - a.count)
-                        .slice(5, 11)
-                        .map((localidad, index) => (
-                          <p
-                            className="footer-links"
-                            key={index}
-                            onClick={() => handleFooterClick(localidad)}
-                            style={{
-                              cursor: "pointer",
-                              gap: "0px",
-                            }}
-                          >
-                            {localidad.location_name}
-                          </p>
-                        ))}
-                    </Col>
-                  </Row>
-                </Stack>
-              </div>
-            </Col>
 
             <Col className="py-3 sm=true">
               <div className="mx-auto">
@@ -113,8 +66,6 @@ const Footer = () => {
                       </div>
                       <div className="footer-contact">
                         <a
-                          href="mailto:info@piancatelli-propiedades.com.ar"
-                          target="_blank"
                           className="enlace-whatsapp-footer"
                         >
                           <FaEnvelope /> info@piancatelli-propiedades.com.ar
@@ -136,6 +87,63 @@ const Footer = () => {
                   <div className="link-insta">
                     <Link className="link-seguinos">Seguinos en Instagram</Link>
                   </div>
+                </Stack>
+              </div>
+            </Col>
+
+            <Col className="py-3 sm=true manejo-de-accesos-rapidos">
+              <div className="mx-auto">
+                <h2 className="footer-busqueda">Búsqueda Rápida</h2>
+                <Stack>
+                  <Row>
+                    <Col className="columnas-footer-rapidos">
+                      <Row>
+                        <Col className="links-rapidos-columnas">
+                          {localidades
+                            .sort((a, b) => b.count - a.count)
+                            .slice(0, 5)
+                            .map((localidad, index) => {
+                              if (localidad.location_name === "Moreno") return null;
+                              return (
+                                <p
+                                  className="footer-links-rapidos"
+                                  key={index}
+                                  onClick={() => handleFooterClick(localidad)}
+                                  style={{
+                                    cursor: "pointer",
+                                    gap: "0px",
+                                  }}
+                                >
+                                  {localidad.location_name}
+                                </p>
+                              )
+                            })}
+                        </Col>
+                        <Col className="links-rapidos-columnas">
+                          {localidades
+                            .sort((a, b) => b.count - a.count)
+                            .slice(5, 11)
+                            .map((localidad, index) => {
+                              if (localidad.location_name === "Moreno") return null;
+                              return (
+                                <p
+                                  className="footer-links-rapidos"
+                                  key={index}
+                                  onClick={() => handleFooterClick(localidad)}
+                                  style={{
+                                    cursor: "pointer",
+                                    gap: "0px",
+                                  }}
+                                >
+                                  {localidad.location_name}
+                                </p>
+                              )
+                            })}
+                        </Col>
+                      </Row>
+
+                    </Col>
+                  </Row>
                 </Stack>
               </div>
             </Col>
