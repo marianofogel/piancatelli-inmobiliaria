@@ -13,7 +13,6 @@ const TuLugar = () => {
 
                 </div>
                 <h1 id="titulo-tu-lugar" className="text-center" >Descubri tu barrio ideal</h1>
-
                 <SliderTuLugar />
 
 
