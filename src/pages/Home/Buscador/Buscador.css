@@ -211,6 +211,7 @@ input.buscador-input-text:focus {
 @media (max-width: 578px) {
     .buscador-fondo {
         max-width: 90%;
+        background-color: transparent;
     }
 
     .buscador-titulo {
