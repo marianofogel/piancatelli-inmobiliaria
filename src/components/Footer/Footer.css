@@ -33,7 +33,6 @@
 /* Links del footer */
 .footer-links {
   display: flex;
-  padding-bottom: 9px !important;
   color: #c7c7c7;
   text-decoration: none;
 
@@ -107,7 +106,6 @@
 
 /* Título de la búsqueda rápida */
 .footer-busqueda {
-  padding-bottom: 15px;
   text-align: center;
   color: white;
 }
