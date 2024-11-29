@@ -1,6 +1,6 @@
 /* Footer general */
 
-.columnas-footer{
+.columnas-footer {
   line-height: 10px;
 }
 
@@ -13,7 +13,7 @@
   background-color: #191919;
   color: white;
   padding: 3px;
- 
+
 }
 
 .footer {
@@ -36,7 +36,7 @@
   padding-bottom: 9px !important;
   color: #c7c7c7;
   text-decoration: none;
- 
+
 }
 
 .footer-links:hover {
@@ -55,7 +55,7 @@
   align-items: center;
   text-wrap: balance;
   line-height: 20px;
-  
+
 }
 
 
@@ -102,7 +102,7 @@
   align-items: center;
   text-align: center;
   justify-content: center;
-  
+
 }
 
 /* Título de la búsqueda rápida */
@@ -118,12 +118,37 @@
   color: white;
 }
 
-.enlace-whatsapp-footer{
+.enlace-whatsapp-footer {
   color: white;
   text-decoration: none;
   margin-bottom: 12px;
   gap: 5px;
 }
+
+.matricula-footer{
+  text-align: center;
+  text-wrap: wrap;
+}
+
+.columnas-footer-rapidos{
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.footer-links-rapidos{
+  margin: 10px;
+}
+
+.footer-links-rapidos:hover{
+  color: white
+}
+
+.links-rapidos-columnas{
+  text-align: center;
+}
+
+
 
 /* Media queries */
 @media (max-width: 768px) {

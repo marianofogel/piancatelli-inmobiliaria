@@ -41,10 +41,10 @@ const Footer = () => {
                 />
                 <h2 className="nombre-footer">Christian Piancatelli</h2>
                 <h5 className="matricula-footer">
-                  Colegio DJM-GR Matricula N: 349
+                  CMCPDJMGR.MATRICULA: N°349
                 </h5>
                 <h6 className="matricula-footer">
-                  Colegio Martilleros y Corresores Públicos DJMGR
+                  Colegio Martilleros y Corresores Públicos del Departamento Judicial Moreno-General Rodriguez
                 </h6>
               </Stack>
             </Col>
@@ -65,8 +65,6 @@ const Footer = () => {
                       </div>
                       <div className="footer-contact">
                         <a
-                          href="mailto:info@piancatelli-propiedades.com.ar"
-                          target="_blank"
                           className="enlace-whatsapp-footer"
                         >
                           <FaEnvelope /> info@piancatelli-propiedades.com.ar
