@@ -34,18 +34,18 @@ const Footer = () => {
               <Stack className="stack-logo-name" style={{ textAlign: "center" }}>
                 <Image
                   className="logo-footer"
-                  src={process.env.PUBLIC_URL + "img/piancatelli logo.png"}
+                  src={process.env.PUBLIC_URL + "/img/piancatelli logo.png"}
                   alt="Company Logo"
-                  width={180}
-                  height={100}
+                  width={250}
+                  height={150}
                 />
-                <h2 className="nombre-footer">Christian Piancatelli</h2>
-                <h5 className="matricula-footer">
+                <span className="nombre-footer">Christian Piancatelli</span>
+                <span className="matricula-footer">
                   Colegio DJM-GR Matricula N: 349
-                </h5>
-                <h6 className="matricula-footer">
+                </span>
+                <span className="matricula-footer">
                   Colegio Martilleros y Corresores Públicos DJMGR
-                </h6>
+                </span>
               </Stack>
             </Col>
 

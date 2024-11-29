@@ -9,6 +9,7 @@ import "./Paginacion.css";
 import useFilterStore from "../../store";
 
 const PropertiesLayout = () => {
+  const [total_count, setTotalCount] = useState(0);
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -110,7 +111,7 @@ const PropertiesLayout = () => {
         }
         const result = await response.json();
         setData(result.objects);
-
+        setTotalCount(result.meta.total_count);
         setTotalPages(Math.ceil(result.meta.total_count / limit));
       } catch (err) {
         setError(err);
@@ -171,7 +172,7 @@ const PropertiesLayout = () => {
                   <option value={50}>50</option>
                   <option value={100}>100</option>
                 </select>
-                {" propiedades por página"}
+                {" de"} {total_count} {"propiedades"}
               </div>
               <div className="d-flex gap-2 align-items-center">
                 <button

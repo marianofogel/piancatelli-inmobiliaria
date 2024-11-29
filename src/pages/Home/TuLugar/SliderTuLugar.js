@@ -1,29 +1,16 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { TuLugarCard } from "./TuLugarCard";
-import useFilterStore from "../../../store";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "./slider.css";
 import { EffectCoverflow, Pagination, Navigation } from "swiper/modules";
-import useFetchTiposYLocalidad from "../../../hooks/useFetchTiposYLocalidad";
+import { barrios } from "../../../utils";
 
 const SliderTuLugar = () => {
-  useFetchTiposYLocalidad();
-  const { setFilters, localidades } = useFilterStore();
-  const navigate = useNavigate();
-
-  const handleCardClick = (localidad) => {
-    const localizationId = localidad.location_id;
-
-    setFilters({ localizationId });
-    // Lo que le pasemos en localidad va a ser el filtro que va a aparecer despues del navigate
-    navigate("/propiedades");
-  };
-
   return (
     <div className="swiper-contenedor-tulugar container-fluid">
       <Swiper
@@ -52,14 +39,15 @@ const SliderTuLugar = () => {
           },
         }}
       >
-        {localidades.map((localidad, index) => (
+        {barrios.map((barrio, index) => (
           <SwiperSlide key={index} className="swiper-slide-tulugar">
-            <TuLugarCard
-              imageSrc={process.env.PUBLIC_URL + "/img/Piancatelli.png"}
-              localidad={localidad.location_name}
-              value={localidad.location_id}
-              onClick={() => handleCardClick(localidad)}
-            />
+            <Link to={`/barrios/${barrio.location_id}`}>
+              <TuLugarCard
+                imageSrc={process.env.PUBLIC_URL + "/img/barrios/" + barrio.location_id + ".webp"}
+                barrio={barrio.location_name}
+                value={barrio.location_id}
+              />
+            </Link>
           </SwiperSlide>
         ))}
       </Swiper>
