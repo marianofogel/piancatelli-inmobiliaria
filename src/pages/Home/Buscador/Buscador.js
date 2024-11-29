@@ -7,6 +7,7 @@ import useFilterStore from "../../../store";
 import Select from 'react-select';
 import useFetchTiposYLocalidad from "../../../hooks/useFetchTiposYLocalidad";
 
+
 const Buscador = () => {
     useFetchTiposYLocalidad();
     const navigate = useNavigate();
@@ -86,6 +87,7 @@ const Buscador = () => {
         <Container fluid className="p-0 vh-100">
             <div>
                 <div className="buscador-contenedor">
+                    <video src={process.env.PUBLIC_URL + " img/piancatelli-video.mp4"} autoPlay loop muted />
                     <div className="buscador-fondo">
                         <h2 className="buscador-titulo">Encontrá tu próximo hogar</h2>
 

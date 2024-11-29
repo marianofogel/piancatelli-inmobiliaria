@@ -31,7 +31,7 @@ const Footer = () => {
         <Container fluid>
           <Row className="footer-row">
             <Col className="py-3 sm=true">
-              <Stack className="stack-logo-name">
+              <Stack className="stack-logo-name" style={{ textAlign: "center" }}>
                 <Image
                   className="logo-footer"
                   src={process.env.PUBLIC_URL + "img/piancatelli logo.png"}
@@ -50,7 +50,7 @@ const Footer = () => {
             </Col>
 
             <Col className="py-3 sm=true">
-              <div className="mx-auto">
+              <div className="mx-auto" style={{ textAlign: "center" }}>
                 <h2 className="footer-busqueda">Contacto</h2>
                 <Stack>
                   <Row>
@@ -84,14 +84,20 @@ const Footer = () => {
                     </Col>
                   </Row>
                   <div className="link-insta">
-                    <Link className="link-seguinos">Seguinos en Instagram</Link>
+                    <Link
+                      to="https://www.instagram.com/piancatelli.propiedades/"
+                      target="_blank"
+                      className="link-seguinos"
+                    >
+                      Seguinos en Instagram
+                    </Link>
                   </div>
                 </Stack>
               </div>
             </Col>
 
             <Col className="py-3 sm=true manejo-de-accesos-rapidos">
-              <div className="mx-auto">
+              <div className="mx-auto" style={{ textAlign: "center" }}>
                 <h2 className="footer-busqueda">Búsqueda Rápida</h2>
                 <Stack>
                   <Row>
@@ -124,7 +130,7 @@ const Footer = () => {
       <footer>
         <Container fluid>
           <Row className="footer-bottom">
-            <div className="footer-rights">
+            <div className="footer-rights" style={{ textAlign: "center" }}>
               © {anioActual} Todos los derechos reservados.
               <a href="/condiciones" className="links-legales">
                 {" "}
@@ -140,7 +146,6 @@ const Footer = () => {
       </footer>
     </>
   );
-
 };
 
 export { Footer };

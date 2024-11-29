@@ -206,7 +206,7 @@ const Detail = () => {
               <Card.Title>Características</Card.Title>
               <Card.Body className="d-flex flex-wrap gap-1">
                 {data.tags.map((tag, index) => (
-                  <Badge key={index} bg="warning">
+                  <Badge key={index} bg="secondary">
                     {tag.name}
                   </Badge>
                 ))}

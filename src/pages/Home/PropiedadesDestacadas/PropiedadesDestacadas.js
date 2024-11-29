@@ -9,7 +9,6 @@ import { DestacadasSwiperCard } from "./DestacadasCard";
 import { Element } from "react-scroll";
 
 const PropertyCarousel = () => {
-
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
@@ -83,9 +82,8 @@ const PropertyCarousel = () => {
             {data
               .filter((nuevaDestacada) => nuevaDestacada.is_starred_on_web)
               .map((nuevaDestacada, index) => (
-                <SwiperSlide className="slide-destacadas">
+                <SwiperSlide className="slide-destacadas" key={index}>
                   <DestacadasSwiperCard
-                    key={index}
                     imageSrc={
                       nuevaDestacada.photos[0]?.image
                         ? nuevaDestacada.photos[0].image
