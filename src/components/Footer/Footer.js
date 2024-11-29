@@ -31,7 +31,10 @@ const Footer = () => {
         <Container fluid>
           <Row className="footer-row">
             <Col className="py-3 sm=true">
-              <Stack className="stack-logo-name" style={{ textAlign: "center" }}>
+              <Stack
+                className="stack-logo-name"
+                style={{ textAlign: "center" }}
+              >
                 <Image
                   className="logo-footer"
                   src={process.env.PUBLIC_URL + "/img/piancatelli logo.png"}
@@ -41,10 +44,11 @@ const Footer = () => {
                 />
                 <span className="nombre-footer">Christian Piancatelli</span>
                 <span className="matricula-footer">
-                  Colegio DJM-GR Matricula N: 349
+                  CMCPDJMGR.MATRICULA: N°349
                 </span>
                 <span className="matricula-footer">
-                  Colegio Martilleros y Corresores Públicos DJMGR
+                  Colegio Martilleros y Corresores Públicos del Departamento
+                  Judicial Moreno-General Rodriguez
                 </span>
               </Stack>
             </Col>
@@ -64,11 +68,7 @@ const Footer = () => {
                         </p>
                       </div>
                       <div className="footer-contact">
-                        <a
-                          href="mailto:info@piancatelli-propiedades.com.ar"
-                          target="_blank"
-                          className="enlace-whatsapp-footer"
-                        >
+                        <a className="enlace-whatsapp-footer">
                           <FaEnvelope /> info@piancatelli-propiedades.com.ar
                         </a>
                       </div>
