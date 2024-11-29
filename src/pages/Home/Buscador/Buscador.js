@@ -83,11 +83,14 @@ const Buscador = () => {
         setSelectedOptionLocalidad(option);
     }
 
+
+
+
     return (
         <Container fluid className="p-0 vh-100">
             <div>
                 <div className="buscador-contenedor">
-                    <video src={process.env.PUBLIC_URL + " img/piancatelli-video.mp4"} autoPlay loop muted />
+                    <video src={process.env.PUBLIC_URL + " img/piancatelli-video.mp4"} autoPlay loop muted className="video-buscador" />
                     <div className="buscador-fondo">
                         <h2 className="buscador-titulo">Encontrá tu próximo hogar</h2>
 
