@@ -67,10 +67,9 @@ const NavbarComponent = () => {
         <Navbar.Brand>
           <Link to="/">
             <Image
-              src={process.env.PUBLIC_URL + "/img/piancatelli logo.png"}
+              src={process.env.PUBLIC_URL + "/img/piancatelli-logo.png"}
               alt="Company Logo"
-              width={150}
-              height={90}
+              width={100}
             />
           </Link>
         </Navbar.Brand>

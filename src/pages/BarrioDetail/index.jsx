@@ -21,7 +21,7 @@ const BarrioInfo = () => {
           format: "json",
           key: process.env.REACT_APP_TOKKO_API_KEY,
           lang: "es_ar",
-          limit: 10,
+          limit: 4,
           data: JSON.stringify({
             operation_types: [1, 2, 3],
             property_types: [1, 2, 3, 4, 5, 6, 7],

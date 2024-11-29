@@ -37,16 +37,15 @@ const Footer = () => {
               >
                 <Image
                   className="logo-footer"
-                  src={process.env.PUBLIC_URL + "/img/piancatelli logo.png"}
+                  src={process.env.PUBLIC_URL + "/img/piancatelli-logo.png"}
                   alt="Company Logo"
                   width={250}
-                  height={150}
                 />
                 <span className="nombre-footer">Christian Piancatelli</span>
-                <span className="matricula-footer">
+                <span className="matricula-footer" style={{ fontSize: "12px" }}>
                   CMCPDJMGR.MATRICULA: N°349
                 </span>
-                <span className="matricula-footer">
+                <span className="matricula-footer" style={{ fontSize: "10px" }}>
                   Colegio Martilleros y Corresores Públicos del Departamento
                   Judicial Moreno-General Rodriguez
                 </span>
@@ -99,30 +98,31 @@ const Footer = () => {
             </Col>
 
             <Col className="py-3 sm=true manejo-de-accesos-rapidos">
-              <div className="mx-auto" style={{ textAlign: "center" }}>
+              <div className="mx-auto h-100" style={{ textAlign: "center" }}>
                 <h2 className="footer-busqueda">Búsqueda Rápida</h2>
-                <Stack>
-                  <Row>
-                    <Col className="columnas-footer">
-                      {localidades
-                        .sort((a, b) => b.count - a.count)
-                        .slice(0, 5)
-                        .map((localidad, index) => (
-                          <p
-                            className="footer-links"
-                            key={index}
-                            onClick={() => handleFooterClick(localidad)}
-                            style={{
-                              cursor: "pointer",
-                              gap: "0px",
-                            }}
-                          >
-                            {localidad.location_name}
-                          </p>
-                        ))}
-                    </Col>
-                  </Row>
-                </Stack>
+                <Row className="h-75">
+                  <Col
+                    className="columnas-footer d-flex h-100"
+                    style={{ justifyContent: "space-around" }}
+                  >
+                    {localidades
+                      .sort((a, b) => b.count - a.count)
+                      .slice(0, 5)
+                      .map((localidad, index) => (
+                        <p
+                          className="footer-links"
+                          key={index}
+                          onClick={() => handleFooterClick(localidad)}
+                          style={{
+                            cursor: "pointer",
+                            margin: 0,
+                          }}
+                        >
+                          {localidad.location_name}
+                        </p>
+                      ))}
+                  </Col>
+                </Row>
               </div>
             </Col>
           </Row>
