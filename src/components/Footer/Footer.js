@@ -49,7 +49,6 @@ const Footer = () => {
               </Stack>
             </Col>
 
-
             <Col className="py-3 sm=true">
               <div className="mx-auto">
                 <h2 className="footer-busqueda">Contacto</h2>
@@ -96,60 +95,29 @@ const Footer = () => {
                 <h2 className="footer-busqueda">Búsqueda Rápida</h2>
                 <Stack>
                   <Row>
-                    <Col className="columnas-footer-rapidos">
-                      <Row>
-                        <Col className="links-rapidos-columnas">
-                          {localidades
-                            .sort((a, b) => b.count - a.count)
-                            .slice(0, 5)
-                            .map((localidad, index) => {
-                              if (localidad.location_name === "Moreno") return null;
-                              return (
-                                <p
-                                  className="footer-links-rapidos"
-                                  key={index}
-                                  onClick={() => handleFooterClick(localidad)}
-                                  style={{
-                                    cursor: "pointer",
-                                    gap: "0px",
-                                  }}
-                                >
-                                  {localidad.location_name}
-                                </p>
-                              )
-                            })}
-                        </Col>
-                        <Col className="links-rapidos-columnas">
-                          {localidades
-                            .sort((a, b) => b.count - a.count)
-                            .slice(5, 11)
-                            .map((localidad, index) => {
-                              if (localidad.location_name === "Moreno") return null;
-                              return (
-                                <p
-                                  className="footer-links-rapidos"
-                                  key={index}
-                                  onClick={() => handleFooterClick(localidad)}
-                                  style={{
-                                    cursor: "pointer",
-                                    gap: "0px",
-                                  }}
-                                >
-                                  {localidad.location_name}
-                                </p>
-                              )
-                            })}
-                        </Col>
-                      </Row>
-
+                    <Col className="columnas-footer">
+                      {localidades
+                        .sort((a, b) => b.count - a.count)
+                        .slice(0, 5)
+                        .map((localidad, index) => (
+                          <p
+                            className="footer-links"
+                            key={index}
+                            onClick={() => handleFooterClick(localidad)}
+                            style={{
+                              cursor: "pointer",
+                              gap: "0px",
+                            }}
+                          >
+                            {localidad.location_name}
+                          </p>
+                        ))}
                     </Col>
                   </Row>
                 </Stack>
               </div>
             </Col>
           </Row>
-
-
         </Container>
       </footer>
 
