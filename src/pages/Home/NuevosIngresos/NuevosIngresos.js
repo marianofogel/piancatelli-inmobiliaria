@@ -55,8 +55,6 @@ const NuevosIngresos = () => {
                     <div className="width">
                         <Row className="contenedor-cards">
                             {properties
-                                .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
-                                .slice(0, 3)
                                 .map((nuevoIngreso, index) => (
                                     <div className="div-item-destecada" key={`${nuevoIngreso.id}`}>
                                         <Link

@@ -5,7 +5,7 @@ import FilterLayout from "./Filters";
 import { CgSearchFound } from "react-icons/cg";
 import { Container, Spinner, Pagination } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import './Paginacion.css'
+import "./Paginacion.css";
 import useFilterStore from "../../store";
 
 const PropertiesLayout = () => {
@@ -14,8 +14,8 @@ const PropertiesLayout = () => {
   const [error, setError] = useState(null);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [limit, setLimit] = useState(25);
   const { filters, setFilters, sortKey, setSortKey } = useFilterStore();
-  const limit = 25;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -110,7 +110,7 @@ const PropertiesLayout = () => {
         }
         const result = await response.json();
         setData(result.objects);
-        
+
         setTotalPages(Math.ceil(result.meta.total_count / limit));
       } catch (err) {
         setError(err);
@@ -119,7 +119,7 @@ const PropertiesLayout = () => {
       }
     };
     fetchData();
-  }, [filters, sortKey, page]);
+  }, [filters, sortKey, page, limit]);
 
   const handleFilterChange = (newFilters) => {
     setFilters(newFilters);
@@ -135,6 +135,12 @@ const PropertiesLayout = () => {
   const handlePageChange = (newPage) => {
     setPage(newPage);
   };
+
+  const handleLimitChange = (e) => {
+    setLimit(parseInt(e.target.value, 10));
+    setPage(1);
+  };
+
   return (
     <div style={{ margin: "5em 2em 2em" }}>
       <FilterLayout
@@ -153,10 +159,39 @@ const PropertiesLayout = () => {
         ) : data?.length > 0 ? (
           <>
             <div className="d-flex justify-content-between align-items-center mb-3">
-              <span>{`Mostrando ${data.length} ${
-                data.length === 1 ? "propiedad" : "propiedades"
-              }`}</span>
-              <span>{`Página ${page} de ${totalPages}`}</span>
+              <div style={{textAlign: 'center'}}>
+                {"Mostrando"}{" "}
+                <select
+                  id="limit-select"
+                  value={limit}
+                  onChange={handleLimitChange}
+                >
+                  <option value={10}>10</option>
+                  <option value={25}>25</option>
+                  <option value={50}>50</option>
+                  <option value={100}>100</option>
+                </select>
+                {" propiedades por página"}
+              </div>
+              <div className="d-flex gap-2 align-items-center">
+                <button
+                  onClick={() => handlePageChange(page - 1)}
+                  disabled={page === 1}
+                  variant="link"
+                  style={{ border: "none", backgroundColor: "transparent" }}
+                >
+                  {"<"}
+                </button>
+                <span>{`Página ${page} de ${totalPages}`}</span>
+                <button
+                  onClick={() => handlePageChange(page + 1)}
+                  disabled={page === totalPages}
+                  variant="link"
+                  style={{ border: "none", backgroundColor: "transparent" }}
+                >
+                  {">"}
+                </button>
+              </div>
             </div>
             <Masonry
               columns={{ 100: 1, 520: 2, 992: 3, 1200: 4, 1500: 5 }}
