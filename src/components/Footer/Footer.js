@@ -59,7 +59,7 @@ const Footer = () => {
                   <Row>
                     <Col className="columnas-footer">
                       <div className="footer-contact">
-                        <span style={{fontSize: '14px', marginBottom: '12px'}}>
+                        <span style={{ fontSize: '14px', marginBottom: '12px', color: 'white' }}>
                           {" "}
                           <FaMapMarkerAlt /> Dirección DISTRITO T - Oficina 118
                           - Colectora Norte Acceso Oeste km 47 - General
@@ -84,7 +84,7 @@ const Footer = () => {
                       </div>
                     </Col>
                   </Row>
-                  <div className="link-insta" style={{fontSize: '14px'}}>
+                  <div className="link-insta" style={{ fontSize: '14px' }}>
                     <Link
                       to="https://www.instagram.com/piancatelli.propiedades/"
                       target="_blank"
