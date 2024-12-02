@@ -4,7 +4,7 @@ export const barrios = [
     location_name: "CLUB DE CAMPO EL NACIONAL",
     nombre: "El Nacional",
     ubicacion: "General Rodríguez",
-    acceso: "No especificado",
+    acceso: "Ruta 24 y Avenida Corrientes",
     caracteristicas_generales:
       "365 hectáreas, 906 lotes, promedio de 1350 m2 por lote, entorno natural privilegiado, microclima particular.",
     infraestructura_deportiva: [
@@ -78,7 +78,7 @@ export const barrios = [
       "Francisco Alvarez (kilómetro 44,5), Moreno. Acceso por calle Gorriti.",
     acceso:
       "Calle Gorriti totalmente pavimentada e iluminada, con garita de vigilancia las 24 horas a la bajada de la autopista.",
-    caracteristicas_generales: "No especificado",
+    caracteristicas_generales: "",
     infraestructura_deportiva: [
       "Golf (9 hoyos par 3)",
       "14 canchas de tenis (11 de polvo de ladrillo y 3 de cemento)",
@@ -111,7 +111,7 @@ export const barrios = [
       "Telefonía particular",
       "Internet por banda ancha",
     ],
-    lotes: "No especificado",
+    lotes: "",
   },
   {
     location_id: 26231,
@@ -153,8 +153,8 @@ export const barrios = [
     location_id: 25967,
     location_name: "TERRAVISTA",
     nombre: "Terravista",
-    ubicacion: "No especificado",
-    acceso: "No especificado",
+    ubicacion: "Ubicado en la intersección del mismo Acceso Oeste y la Ruta 24, en el epicentro del desarrollo del suburbano en el Oeste. ",
+    acceso: "Colectora Norte Acceso Oeste km 47, salida directa.",
     caracteristicas_generales:
       "Lotes de 1100 m2 promedio, con distintas tipologías y precios.",
     infraestructura_deportiva: [
@@ -213,7 +213,7 @@ export const barrios = [
     nombre: "Haras Maria Eugenia",
     ubicacion:
       "Moreno, Paso del Rey, Intendente Corvalan al 2400. A metros del puente de acceso Graham Bell, Acceso Oeste km 38.",
-    acceso: "No especificado",
+    acceso: "",
     caracteristicas_generales:
       "84 lotes desde 400 metros cuadrados. Cercano a colegios, supermercados y shoppings.",
     infraestructura_deportiva: [
@@ -242,6 +242,7 @@ export const barrios = [
   {
     location_id: 25143,
     location_name: "BOCA RATON",
+
   },
   {
     location_id: 26242,
@@ -268,16 +269,16 @@ export const barrios = [
       "Red cloaca interna y red de gas",
       "Prestigioso colegio bilingüe: Sworn College",
     ],
-    lotes: "No especificado",
+    lotes: "",
   },
   {
     location_id: 52055,
     location_name: "FINCAS DE ALVAREZ",
     nombre: "Fincas de Alvarez",
-    ubicacion: "A 600 metros de la Autopista del Oeste.",
-    acceso: "No especificado",
+    ubicacion: "La Tradición 702, B1746 Francisco Alvarez",
+    acceso: "A 600 metros de la Autopista del Oeste.",
     caracteristicas_generales: "Lotes desde 720 m2.",
-    infraestructura_deportiva: ["No especificado"],
+    infraestructura_deportiva: [""],
     infraestructura_servicios: [
       "House 100% equipado",
       "Seguridad privada",
