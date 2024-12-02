@@ -39,10 +39,10 @@ const Footer = () => {
                   className="logo-footer"
                   src={process.env.PUBLIC_URL + "/img/piancatelli-logo.png"}
                   alt="Company Logo"
-                  width={250}
+                  width={200}
                 />
                 <span className="nombre-footer">Christian Piancatelli</span>
-                <span className="matricula-footer" style={{ fontSize: "12px" }}>
+                <span className="matricula-footer" style={{ fontSize: "14px" }}>
                   CMCPDJMGR.MATRICULA: N°349
                 </span>
                 <span className="matricula-footer" style={{ fontSize: "10px" }}>
@@ -54,17 +54,17 @@ const Footer = () => {
 
             <Col className="py-3 sm=true">
               <div className="mx-auto" style={{ textAlign: "center" }}>
-                <h2 className="footer-busqueda">Contacto</h2>
+                <h5 className="footer-busqueda">Contacto</h5>
                 <Stack>
                   <Row>
                     <Col className="columnas-footer">
                       <div className="footer-contact">
-                        <p>
+                        <span style={{fontSize: '14px', marginBottom: '12px'}}>
                           {" "}
                           <FaMapMarkerAlt /> Dirección DISTRITO T - Oficina 118
                           - Colectora Norte Acceso Oeste km 47 - General
                           Rodriguez - Bs As
-                        </p>
+                        </span>
                       </div>
                       <div className="footer-contact">
                         <a className="enlace-whatsapp-footer">
@@ -84,7 +84,7 @@ const Footer = () => {
                       </div>
                     </Col>
                   </Row>
-                  <div className="link-insta">
+                  <div className="link-insta" style={{fontSize: '14px'}}>
                     <Link
                       to="https://www.instagram.com/piancatelli.propiedades/"
                       target="_blank"
@@ -99,7 +99,7 @@ const Footer = () => {
 
             <Col className="py-3 sm=true manejo-de-accesos-rapidos">
               <div className="mx-auto h-100" style={{ textAlign: "center" }}>
-                <h2 className="footer-busqueda">Búsqueda Rápida</h2>
+                <h5 className="footer-busqueda">Búsqueda Rápida</h5>
                 <Row className="h-75">
                   <Col
                     className="columnas-footer d-flex h-100"
@@ -109,17 +109,18 @@ const Footer = () => {
                       .sort((a, b) => b.count - a.count)
                       .slice(0, 5)
                       .map((localidad, index) => (
-                        <p
+                        <span
                           className="footer-links"
                           key={index}
                           onClick={() => handleFooterClick(localidad)}
                           style={{
                             cursor: "pointer",
                             margin: 0,
+                            fontSize: "14px",
                           }}
                         >
                           {localidad.location_name}
-                        </p>
+                        </span>
                       ))}
                   </Col>
                 </Row>
