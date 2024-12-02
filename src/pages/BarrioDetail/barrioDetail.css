@@ -8,3 +8,39 @@
     border-radius: 10px;
     padding: 10px;
 }
+
+.img-barrio{
+    border-radius: 10px;
+    width: auto;
+    height: 450px;
+}
+.boton-barrio{
+    float: right;
+    background-color: #e3151b;
+    border: none;
+}
+
+.boton-barrio:hover{
+        background-color: #e3151b;
+}
+
+
+@media (max-width: 768px){
+    .img-barrio{
+        height: 250px;
+        display: flex;
+        justify-self: center;
+    }
+
+
+}
+
+@media (max-width: 400px){
+    .img-barrio{
+        height: 200px;
+        display: flex;
+        justify-self: center;
+    }
+
+
+}

@@ -4,7 +4,7 @@ export const barrios = [
     location_name: "CLUB DE CAMPO EL NACIONAL",
     nombre: "El Nacional",
     ubicacion: "General Rodríguez",
-    acceso: "",
+    acceso: "Ruta 24 y Avenida Corrientes",
     caracteristicas_generales:
       "365 hectáreas, 906 lotes, promedio de 1350 m2 por lote, entorno natural privilegiado, microclima particular.",
     infraestructura_deportiva: [
@@ -153,8 +153,8 @@ export const barrios = [
     location_id: 25967,
     location_name: "TERRAVISTA",
     nombre: "Terravista",
-    ubicacion: "",
-    acceso: "",
+    ubicacion: "Ubicado en la intersección del mismo Acceso Oeste y la Ruta 24, en el epicentro del desarrollo del suburbano en el Oeste. ",
+    acceso: "Colectora Norte Acceso Oeste km 47, salida directa.",
     caracteristicas_generales:
       "Lotes de 1100 m2 promedio, con distintas tipologías y precios.",
     infraestructura_deportiva: [
@@ -242,6 +242,7 @@ export const barrios = [
   {
     location_id: 25143,
     location_name: "BOCA RATON",
+
   },
   {
     location_id: 26242,
@@ -274,8 +275,8 @@ export const barrios = [
     location_id: 52055,
     location_name: "FINCAS DE ALVAREZ",
     nombre: "Fincas de Alvarez",
-    ubicacion: "A 600 metros de la Autopista del Oeste.",
-    acceso: "",
+    ubicacion: "La Tradición 702, B1746 Francisco Alvarez",
+    acceso: "A 600 metros de la Autopista del Oeste.",
     caracteristicas_generales: "Lotes desde 720 m2.",
     infraestructura_deportiva: [""],
     infraestructura_servicios: [

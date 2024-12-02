@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Col, Container, Row, Image, Button } from "react-bootstrap";
 import { useParams } from "react-router";
 import { barrios } from "../../utils";
-import { IoLocationSharp, IoAccessibilitySharp } from "react-icons/io5";
+import { IoLocationSharp } from "react-icons/io5";
 import { MdOutlineRoute } from "react-icons/md";
 import { ItemDestacadas } from "../Home/NuevosIngresos/ItemDestacadas"
 import "./barrioDetail.css"
@@ -67,41 +67,48 @@ const BarrioInfo = () => {
 
   return (
     <Container>
-      <h1 className="barrio-titulo p-5 m-5">{barrio.nombre}</h1>
-      <div className="infra-barrio shadow h-100 mb-3">
+      <h1 className="barrio-titulo p-5 mt-5">{barrio.nombre}</h1>
+      <div className="infra-barrio shadow h-100 mb-3 pt-3">
         <p>
           <IoLocationSharp /> <strong>Ubicación:</strong> {barrio.ubicacion}
         </p>
       </div>
-      <div className="infra-barrio shadow h-100 mb-3">
+      <div className="infra-barrio shadow h-100 mb-3 pt-3">
         <p>
           <MdOutlineRoute /> <strong>Acceso:</strong> {barrio.acceso}
         </p>
       </div>
-      <div className="infra-barrio shadow h-100 mb-3">
+      <div className="infra-barrio shadow h-100 mb-3 pt-3">
         <h2>Características Generales</h2>
         <p>{barrio.caracteristicas_generales}</p>
       </div>
       <div className="d-flex mb-3">
-        <div className="infra-barrio shadow h-100 ">
-          <h2>Infraestructura Deportiva y de Esparcimiento</h2>
-          <ul>
-            {barrio.infraestructura_deportiva.map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <Image
-            className="img-barrio"
-            src={process.env.PUBLIC_URL + "/img/piancatelli-logo.png"}
-            alt="Company Logo"
-            width={250}
-          />
+        <div className="infra-barrio shadow h-100 card-foto pt-3">
+          <Row>
+            <Col>
+              <h2>Infraestructura Deportiva y de Esparcimiento</h2>
+              <ul>
+                {barrio.infraestructura_deportiva.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
+            </Col>
+
+            <Col>
+              <div>
+                <Image
+                  className="img-barrio"
+                  src={process.env.PUBLIC_URL + "/img/barrios/" + barrio.location_id + ".webp"}
+                  alt="Company Logo"
+
+                />
+              </div>
+            </Col>
+          </Row>
         </div>
 
       </div>
-      <div className="infra-barrio shadow h-100 mb-3">
+      <div className="infra-barrio shadow h-100 mb-3 pt-3">
         <h2>Infraestructura de Servicios</h2>
         <ul>
           {barrio.infraestructura_servicios.map((item, index) => (
@@ -110,7 +117,7 @@ const BarrioInfo = () => {
         </ul>
       </div>
 
-      <div className="infra-barrio shadow h-100 mb-3">
+      <div className="infra-barrio shadow h-100 mb-3 pt-3">
         <h2>Lotes</h2>
         <p>{barrio.lotes}</p>
       </div>
@@ -138,9 +145,11 @@ const BarrioInfo = () => {
       </Row>
 
 
-      {data && data.length && <Button onClick={() => handleCardClick()}
-      >Ver mas propiedades </Button>
-        || ""}
+      {
+        data && data.length && <Button className="mt-2 mb-3 boton-barrio" onClick={() => handleCardClick()}
+        >Ver mas propiedades </Button>
+        || ""
+      }
 
     </Container >
   );
