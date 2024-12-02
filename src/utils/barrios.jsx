@@ -153,7 +153,8 @@ export const barrios = [
     location_id: 25967,
     location_name: "TERRAVISTA",
     nombre: "Terravista",
-    ubicacion: "Ubicado en la intersección del mismo Acceso Oeste y la Ruta 24, en el epicentro del desarrollo del suburbano en el Oeste. ",
+    ubicacion:
+      "Ubicado en la intersección del mismo Acceso Oeste y la Ruta 24, en el epicentro del desarrollo del suburbano en el Oeste. ",
     acceso: "Colectora Norte Acceso Oeste km 47, salida directa.",
     caracteristicas_generales:
       "Lotes de 1100 m2 promedio, con distintas tipologías y precios.",
@@ -242,7 +243,36 @@ export const barrios = [
   {
     location_id: 25143,
     location_name: "BOCA RATON",
-
+    nombre: "Boca Raton Country Club",
+    ubicacion: "Ruta 25 km 12, Pilar.",
+    acceso: "No especificado",
+    caracteristicas_generales:
+      "Más de 200 hectáreas con desarrollo paisajístico. Casas listas en lotes de 800, 1000 y hasta 1900 m2. Calles pavimentadas.",
+    infraestructura_deportiva: [
+      "Cancha de golf con certificación internacional",
+      "Canchas de fútbol",
+      "Canchas de hockey",
+      "Canchas de paddle",
+      "Pileta olímpica",
+      "Driving",
+      "Cancha de polo",
+      "Cancha de equitación",
+      "Canchas de patín",
+      "Canchas de básquet",
+    ],
+    infraestructura_servicios: [
+      "Restaurant",
+      "Proveduría",
+      "Pileta climatizada",
+      "Club house principal",
+      "Gimnasio",
+      "Plaza de juegos",
+      "Gas natural",
+      "Teléfono",
+      "Cable",
+      "Vigilancia con instalaciones de seguridad de última generación",
+    ],
+    lotes: "Desde 800 m2.",
   },
   {
     location_id: 26242,
@@ -278,7 +308,7 @@ export const barrios = [
     ubicacion: "La Tradición 702, B1746 Francisco Alvarez",
     acceso: "A 600 metros de la Autopista del Oeste.",
     caracteristicas_generales: "Lotes desde 720 m2.",
-    infraestructura_deportiva: [""],
+    infraestructura_deportiva: [],
     infraestructura_servicios: [
       "House 100% equipado",
       "Seguridad privada",
