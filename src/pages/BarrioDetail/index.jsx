@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row, Image, Button } from "react-bootstrap";
 import { useParams } from "react-router";
 import { barrios } from "../../utils";
-import { Item } from "../../components/Item";
-
+import { IoLocationSharp, IoAccessibilitySharp } from "react-icons/io5";
+import { MdOutlineRoute } from "react-icons/md";
+import { ItemDestacadas } from "../Home/NuevosIngresos/ItemDestacadas"
+import "./barrioDetail.css"
+import { useNavigate } from "react-router-dom";
+import useFilterStore from "../../../src/store/index";
 const BarrioInfo = () => {
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
@@ -49,31 +53,69 @@ const BarrioInfo = () => {
     fetchData();
   }, []);
 
+
+  const { setFilters } = useFilterStore();
+  const navigate = useNavigate();
+
+  const handleCardClick = () => {
+
+
+    setFilters({ localizationId: +barrio.location_id });
+    // Lo que le pasemos en localidad va a ser el filtro que va a aparecer despues del navigate
+    navigate("/propiedades");
+  };
+
   return (
     <Container>
-      <h1>{barrio.nombre}</h1>
-      <p>
-        <strong>Ubicación:</strong> {barrio.ubicacion}
-      </p>
-      <p>
-        <strong>Acceso:</strong> {barrio.acceso}
-      </p>
-      <h2>Características Generales</h2>
-      <p>{barrio.caracteristicas_generales}</p>
-      <h2>Infraestructura Deportiva y de Esparcimiento</h2>
-      <ul>
-        {barrio.infraestructura_deportiva.map((item, index) => (
-          <li key={index}>{item}</li>
-        ))}
-      </ul>
-      <h2>Infraestructura de Servicios</h2>
-      <ul>
-        {barrio.infraestructura_servicios.map((item, index) => (
-          <li key={index}>{item}</li>
-        ))}
-      </ul>
-      <h2>Lotes</h2>
-      <p>{barrio.lotes}</p>
+      <h1 className="barrio-titulo p-5 m-5">{barrio.nombre}</h1>
+      <div className="infra-barrio shadow h-100 mb-3">
+        <p>
+          <IoLocationSharp /> <strong>Ubicación:</strong> {barrio.ubicacion}
+        </p>
+      </div>
+      <div className="infra-barrio shadow h-100 mb-3">
+        <p>
+          <MdOutlineRoute /> <strong>Acceso:</strong> {barrio.acceso}
+        </p>
+      </div>
+      <div className="infra-barrio shadow h-100 mb-3">
+        <h2>Características Generales</h2>
+        <p>{barrio.caracteristicas_generales}</p>
+      </div>
+      <div className="d-flex mb-3">
+        <div className="infra-barrio shadow h-100 ">
+          <h2>Infraestructura Deportiva y de Esparcimiento</h2>
+          <ul>
+            {barrio.infraestructura_deportiva.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <Image
+            className="img-barrio"
+            src={process.env.PUBLIC_URL + "/img/piancatelli-logo.png"}
+            alt="Company Logo"
+            width={250}
+          />
+        </div>
+
+      </div>
+      <div className="infra-barrio shadow h-100 mb-3">
+        <h2>Infraestructura de Servicios</h2>
+        <ul>
+          {barrio.infraestructura_servicios.map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="infra-barrio shadow h-100 mb-3">
+        <h2>Lotes</h2>
+        <p>{barrio.lotes}</p>
+      </div>
+
+
       <h2>Propiedades</h2>
       <Row>
         {data && data.length ? (
@@ -83,15 +125,24 @@ const BarrioInfo = () => {
                 to={`/propiedades/${nuevoIngreso.id}`}
                 style={{ textDecoration: "none" }}
               >
-                <Item property={nuevoIngreso} className="item-card" />
+                <ItemDestacadas property={nuevoIngreso} className="item-card" />
               </Link>
             </Col>
+
           ))
+
+
         ) : (
-          <h2>No hay propiedades disponibles</h2>
+          < h5 > No hay propiedades disponibles</h5>
         )}
       </Row>
-    </Container>
+
+
+      {data && data.length && <Button onClick={() => handleCardClick()}
+      >Ver mas propiedades </Button>
+        || ""}
+
+    </Container >
   );
 };
 
