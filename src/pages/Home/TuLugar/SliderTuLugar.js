@@ -7,7 +7,7 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "./slider.css";
-import { EffectCoverflow, Pagination, Navigation } from "swiper/modules";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { barrios } from "../../../utils";
 
 const SliderTuLugar = () => {
@@ -21,6 +21,10 @@ const SliderTuLugar = () => {
           modifier: 1,
           slideShadows: true,
         }}
+        autoplay={{
+          delay: 3500,
+          disableOnInteraction: false,
+        }}
         slidesPerView={1}
         spaceBetween={12}
         draggable={false}
@@ -30,7 +34,7 @@ const SliderTuLugar = () => {
         }}
         navigation={false}
         loop={true}
-        modules={[Pagination, EffectCoverflow, Navigation]}
+        modules={[Pagination, Autoplay, Navigation]}
         className="swiper-tulugar"
         breakpoints={{
           1000: {
