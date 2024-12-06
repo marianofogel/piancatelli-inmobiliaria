@@ -42,12 +42,12 @@ const Footer = () => {
                   width={200}
                 />
                 <span className="nombre-footer">Christian Piancatelli</span>
-                <span className="matricula-footer" style={{ fontSize: "14px" }}>
-                  CMCPDJMGR.MATRICULA: N°349
-                </span>
                 <span className="matricula-footer" style={{ fontSize: "10px" }}>
                   Colegio Martilleros y Corresores Públicos del Departamento
                   Judicial Moreno-General Rodriguez
+                </span>
+                <span className="matricula-footer" style={{ fontSize: "14px" }}>
+                  MATRICULA: N°349
                 </span>
               </Stack>
             </Col>
@@ -61,9 +61,14 @@ const Footer = () => {
                       <div className="footer-contact">
                         <span style={{ fontSize: '14px', marginBottom: '12px', color: 'white' }}>
                           {" "}
-                          <FaMapMarkerAlt /> Dirección DISTRITO T - Oficina 118
-                          - Colectora Norte Acceso Oeste km 47 - General
-                          Rodriguez - Bs As
+                          <a href="https://maps.app.goo.gl/uoMtt5qPabxYJRLPA"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="enlace-whatsapp-footer">
+                            <FaMapMarkerAlt /> Dirección DISTRITO T - Oficina 118
+                            - Colectora Norte Acceso Oeste km 47 - General
+                            Rodriguez - Bs As
+                          </a>
                         </span>
                       </div>
                       <div className="footer-contact">
