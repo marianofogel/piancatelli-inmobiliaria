@@ -61,12 +61,15 @@ const SliderTuLugar = () => {
   const { setFilters } = useFilterStore();
   const navigate = useNavigate();
 
-  const handleCardClick = (locationId) => {
-    setFilters({ localizationId: locationId  });
+  const handleButtonClick = (barrioId) => {
+    setFilters({ localizationId: barrioId });
     // Lo que le pasemos en localidad va a ser el filtro que va a aparecer despues del navigate
     navigate("/propiedades");
   };
 
+  const handleCardClick = (barrioId) => {
+    navigate(`/barrios/${barrioId}`); // Redirige a la página individual del barrio
+  };
 
 
   return (
@@ -103,14 +106,15 @@ const SliderTuLugar = () => {
       >
         {barrios.map((barrio, index) => (
           <SwiperSlide key={index} className="swiper-slide-tulugar">
-            <Link to={`/barrios/${barrio.location_id}`}>
+            
               <TuLugarCard
                 imageSrc={process.env.PUBLIC_URL + "/img/barrios/" + barrio.location_id + ".webp"}
                 barrio={barrio.location_name}
                 data={data} // Pasamos los datos a la card
-                onButtonClick={() => handleCardClick(barrio.location_id)} // Pasamos la función
+                onClick={() => handleCardClick(barrio.location_id)}
+                onButtonClick={() => handleButtonClick(barrio.location_id)} // Pasamos la función
               />
-            </Link>
+            
           </SwiperSlide>
         ))}
       </Swiper>

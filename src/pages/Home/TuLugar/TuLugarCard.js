@@ -3,6 +3,11 @@ import { Image, Button } from "react-bootstrap";
 
 const TuLugarCard = ({ imageSrc, barrio, onClick, data, onButtonClick }) => {
 
+    const handleButtonClick = (e) => {
+        e.stopPropagation(); // Detiene la propagación del clic al contenedor (la tarjeta)
+        onButtonClick(); // Ejecuta la acción del botón
+      };
+
     return (
         <>
             <div className='card-tulugar' onClick={onClick}>
@@ -16,7 +21,7 @@ const TuLugarCard = ({ imageSrc, barrio, onClick, data, onButtonClick }) => {
                         variant="danger"
                         className="mt-2 mb-3 boton-filtros-tulugar"
                         onClick={ 
-                            onButtonClick
+                            handleButtonClick
                         }
                     >
                         Ver más propiedades
