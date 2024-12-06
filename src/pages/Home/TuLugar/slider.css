@@ -85,6 +85,7 @@
   overflow: hidden;
   position: relative;
   width:  100%;
+  z-index: 1;
 
 }
 
@@ -96,6 +97,22 @@
   font-weight: bold;
   color: rgb(255, 255, 255);
   text-shadow: 3px 5px 2px #474747;
+  width: 50%;
+}
+
+.boton-filtros-tulugar{
+  position: absolute;
+  bottom: 1.5%;
+  right: 3%;
+  font-size: 12px;
+  color: rgb(255, 255, 255);
+  background-color: #e3151b;
+  border: none;
+  z-index: 1000;
+}
+
+.boton-filtros-tulugar:hover{
+  background-color: #e3151b;
 }
 
 @media (max-width: 750px) {
@@ -103,5 +120,9 @@
     background-position: center;
     background-size: cover;
     width: 200px;
+  }
+
+  .texto-tulugar{
+    width: 50%;
   }
 }
