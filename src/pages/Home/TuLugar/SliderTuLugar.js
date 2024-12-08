@@ -29,7 +29,7 @@ const SliderTuLugar = () => {
 
 
   return (
-    <div className="swiper-contenedor-tulugar container-fluid">
+    <div className="swiper-contenedor-tulugar container-fluid" style={{padding: '0 1.5em'}}>
       <Swiper
         overflowEffect={{
           rotate: 50,
