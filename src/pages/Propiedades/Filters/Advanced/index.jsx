@@ -74,10 +74,17 @@ const AdvancedFilters = () => {
                           `Max: ${
                             filters["currency"] === "ARS" ? "$" : "USD"
                           } ${formatPrice(filters[key])}`}
-                        {key === "localizationId" &&
+                        {(key === "localizationId" &&
                           localidades?.find(
                             (l) => l.location_id === +filters[key]
-                          )?.location_name}
+                          )?.location_name) ||
+                          (filters[key] === 25960
+                            ? "EL NACIONAL"
+                            : filters[key] === 52055
+                            ? "FINCAS DE ALVAREZ"
+                            : filters[key] === 25143
+                            ? "BOCA RATON"
+                            : "GBA")}
                         &nbsp; &times;
                       </Button>
                     );
