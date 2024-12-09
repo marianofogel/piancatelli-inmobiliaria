@@ -7,6 +7,7 @@ import { Autoplay, Pagination } from "swiper/modules";
 import "./PropiedadesDestacadas.css";
 import { DestacadasSwiperCard } from "./DestacadasCard";
 import { Element } from "react-scroll";
+import { formatPrice } from "../../../utils";
 
 const PropertyCarousel = () => {
   const [loading, setLoading] = useState(true);
@@ -93,9 +94,9 @@ const PropertyCarousel = () => {
                     barrioCasa={nuevaDestacada.location.name}
                     metrosCuadradoCasa={nuevaDestacada.surface + "m2"}
                     estadoCasa={nuevaDestacada.operations[0].operation_type}
-                    casaValor={
-                      "USD " + nuevaDestacada.operations[0].prices[0].price
-                    }
+                    casaValor={formatPrice(
+                      nuevaDestacada.operations[0].prices[0]
+                    )}
                     id={nuevaDestacada.id}
                   />
                 </SwiperSlide>

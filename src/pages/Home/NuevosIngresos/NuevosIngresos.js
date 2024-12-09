@@ -1,6 +1,6 @@
 import { Row } from "reactstrap";
 import { ItemDestacadas } from "./ItemDestacadas";
-import { Container, Spinner } from "react-bootstrap"
+import { Col, Container, Spinner } from "react-bootstrap"
 import './NuevosIngresos.css'
 import useFetchData from '../../../hooks/useFetchData';
 import { Link } from "react-router-dom";
@@ -53,10 +53,10 @@ const NuevosIngresos = () => {
                 <div id="contenedor-ingresos">
                     <h1 className="nuevos-ingresos-titulo"> Nuevos Ingresos </h1>
                     <div className="width">
-                        <Row className="contenedor-cards">
+                        <Row style={{padding: '2em'}} className="contenedor-cards">
                             {properties
                                 .map((nuevoIngreso, index) => (
-                                    <div className="div-item-destecada" key={`${nuevoIngreso.id}`}>
+                                    <Col sm={12} md={4} key={`${nuevoIngreso.id}`}>
                                         <Link
                                             to={`/propiedades/${nuevoIngreso.id}`}
                                             style={{ textDecoration: "none" }}
@@ -66,7 +66,7 @@ const NuevosIngresos = () => {
                                                 className="item-card"
                                             />
                                         </Link>
-                                    </div>
+                                    </Col>
                                 ))}
                         </Row>
                     </div>
