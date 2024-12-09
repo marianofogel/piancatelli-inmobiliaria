@@ -43,7 +43,7 @@ const Footer = () => {
                 />
                 <span className="nombre-footer">Christian Piancatelli</span>
                 <span className="matricula-footer" style={{ fontSize: "10px" }}>
-                  Colegio Martilleros y Corresores Públicos del Departamento
+                  Colegio Martilleros y Corredores Públicos del Departamento
                   Judicial Moreno-General Rodriguez
                 </span>
                 <span className="matricula-footer" style={{ fontSize: "14px" }}>
