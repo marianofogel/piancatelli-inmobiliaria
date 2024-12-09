@@ -17,7 +17,6 @@ const SliderTuLugar = () => {
   const navigate = useNavigate();
 
   const handleButtonClick = (barrioId) => {
-    console.log(barrioId)
     setFilters({ localizationId: barrioId });
     // Lo que le pasemos en localidad va a ser el filtro que va a aparecer despues del navigate
     navigate("/propiedades");
