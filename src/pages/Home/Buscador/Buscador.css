@@ -131,12 +131,6 @@ input.buscador-input-text:focus {
     text-align: center;
 }
 
-/* Contenedor para el botón "Conocer más" */
-.contenedor-boton-conocermas {
-    position: absolute;
-    top: 90%;
-}
-
 /* Estilo del botón "Conocer más" */
 #boton-conocermas {
     background-color: #e3151b;
@@ -187,10 +181,6 @@ input.buscador-input-text:focus {
     .buscador-titulo {
         font-size: 45px;
         margin-bottom: 12em;
-    }
-
-    .contenedor-boton-conocermas {
-        top: 90%;
     }
 
     .buscador-fondo {

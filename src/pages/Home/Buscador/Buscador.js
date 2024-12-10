@@ -112,7 +112,7 @@ const Buscador = () => {
           <div className="buscador-fondo">
             <h2 className="buscador-titulo"></h2>
 
-            <Form className="d-lg-flex">
+            <Form className="d-lg-flex mb-4">
               <div className="buscador-form">
                 <FormGroup className="buscador-form-group">
                   <Select
@@ -198,16 +198,15 @@ const Buscador = () => {
                 <IoMdSearch size="1.5em" />
               </Button>
             </Form>
-          </div>
-
-          <div className="contenedor-boton-conocermas">
-            <a
-              href="#titulo-bienes-raices"
-              id="boton-conocermas"
-              onClick={handleConoceMas}
-            >
-              Conocé más <IoIosArrowDown />
-            </a>
+            <div className="contenedor-boton-conocermas">
+              <a
+                href="#titulo-bienes-raices"
+                id="boton-conocermas"
+                onClick={handleConoceMas}
+              >
+                Conocé más <IoIosArrowDown />
+              </a>
+            </div>
           </div>
         </div>
       </div>
