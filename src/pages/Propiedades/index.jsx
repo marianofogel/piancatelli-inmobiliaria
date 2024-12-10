@@ -7,6 +7,7 @@ import { Container, Spinner, Pagination } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./Paginacion.css";
 import useFilterStore from "../../store";
+import ReactGA from "react-ga4";
 
 const PropertiesLayout = () => {
   const [total_count, setTotalCount] = useState(0);
@@ -17,6 +18,14 @@ const PropertiesLayout = () => {
   const [totalPages, setTotalPages] = useState(1);
   const [limit, setLimit] = useState(25);
   const { filters, setFilters, sortKey, setSortKey } = useFilterStore();
+
+  useEffect(() => {
+    ReactGA.send({
+      hitType: "pageview",
+      page: "/propiedades",
+      title: "Pagina de propiedades",
+    });
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {

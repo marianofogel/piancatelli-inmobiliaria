@@ -49,11 +49,11 @@ const NuevosIngresos = () => {
 
     return (
         <>
-            <Container fluid className="p-0">
+            <Container className="p-0" fluid>
                 <div id="contenedor-ingresos">
                     <h1 className="nuevos-ingresos-titulo"> Nuevos Ingresos </h1>
                     <div className="width">
-                        <Row style={{padding: '2em'}} className="contenedor-cards">
+                        <Row style={{padding: '1em', margin: '0'}} className="contenedor-cards" fluid>
                             {properties
                                 .map((nuevoIngreso, index) => (
                                     <Col sm={12} md={4} key={`${nuevoIngreso.id}`}>
