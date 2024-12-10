@@ -55,7 +55,7 @@ const ItemDestacadas = ({ property }) => {
                         {property.operations[0].operation_type}
                     </Badge>
                     <Badge
-                        bg="warning"
+                        bg="secondary"
                         style={{
                             position: "absolute",
                             backgroundColor: "#c59f37",

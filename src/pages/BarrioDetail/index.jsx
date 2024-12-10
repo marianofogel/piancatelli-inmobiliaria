@@ -9,12 +9,22 @@ import { useNavigate } from "react-router-dom";
 import useFilterStore from "../../../src/store/index";
 import { FaCheck } from "react-icons/fa";
 import { IoMdArrowRoundForward } from "react-icons/io";
+import ReactGA from "react-ga4";
+
 const BarrioInfo = () => {
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
   const barrio = barrios.find((item) => item.location_id === +id);
+
+  useEffect(() => {
+    ReactGA.send({
+      hitType: "pageview",
+      page: "/barrios",
+      title: "Pagina de barrio",
+    });
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
