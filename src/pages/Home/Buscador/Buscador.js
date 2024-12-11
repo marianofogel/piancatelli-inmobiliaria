@@ -99,114 +99,113 @@ const Buscador = () => {
 
   return (
     <Container fluid className="p-0 vh-100">
-      <div>
-        <div className="buscador-contenedor">
-          <video
-            src={process.env.PUBLIC_URL + " img/piancatelli-video.mp4"}
-            autoPlay
-            loop
-            muted
-            className="video-buscador"
-            ref={videoRef}
-          />
-          <div className="buscador-fondo">
-            <h2 className="buscador-titulo"></h2>
-
-            <Form className="d-lg-flex mb-4">
-              <div className="buscador-form">
-                <FormGroup className="buscador-form-group">
-                  <Select
-                    className="d-flex"
-                    classNamePrefix="select-type-casa"
-                    value={selectedOption}
-                    onChange={handleChangeType}
-                    placeholder="Tipo" // Placeholder cuando no hay selección
-                    options={optionsType}
-                    styles={{
-                      input: (provided) => ({
-                        ...provided,
-                        cursor: "default", // Evita que aparezca el cursor de escritura
-                        caretColor: "transparent", // Opcional: Oculta el caret (la línea parpadeante)
-                      }),
-                    }}
-                  />
-                </FormGroup>
-                <FormGroup className="buscador-form-group">
-                  <Select
-                    className="d-flex"
-                    classNamePrefix="select-type-casa"
-                    value={selectedOptionOperation}
-                    onChange={handleChangeOperation}
-                    placeholder="Operación" // Placeholder cuando no hay selección
-                    options={optionsOperation}
-                    styles={{
-                      input: (provided) => ({
-                        ...provided,
-                        cursor: "default", // Evita que aparezca el cursor de escritura
-                        caretColor: "transparent", // Opcional: Oculta el caret (la línea parpadeante)
-                      }),
-                    }}
-                  />
-                </FormGroup>
-                <Form.Group className="buscador-form-group">
-                  <Select
-                    className="d-flex"
-                    classNamePrefix="select-type-casa"
-                    value={selectedOptionLocalidad}
-                    onChange={handleChangeLocalidad}
-                    placeholder="Ubicación" // Placeholder cuando no hay selección
-                    options={
-                      inputValue.length >= 2
-                        ? localidades
-                            .filter(
-                              (localidad) =>
-                                localidad.location_name && // Verifica que location_name no sea null o undefined
-                                localidad.location_name
-                                  .toLowerCase()
-                                  .includes(inputValue.toLowerCase())
-                            )
-                            .map((localidad) => ({
-                              value: localidad.location_id,
-                              label: localidad.location_name,
-                            }))
-                        : []
-                    }
-                    onInputChange={(value) => setInputValue(value)}
-                    noOptionsMessage={() => null} // Elimina el mensaje "No options"
-                    components={{
-                      IndicatorSeparator: () => null, // Elimina la flechita del dropdown
-                    }}
-                    styles={{
-                      dropdownIndicator: (provided) => ({
-                        ...provided,
-                        color: "white",
-                        "&:hover": {
-                          color: "white", // Cambia este color según prefieras
-                        },
-                      }),
-                    }}
-                  />
-                </Form.Group>
-              </div>
-              <Button
-                id="buscador-boton"
-                className="mb-3 d-flex align-items-center justify-content-center gap-2"
-                type="button"
-                onClick={handleBuscar}
-              >
-                <p className="ms-2 mb-0 buscar-texto p-2"> Buscar </p>
-                <IoMdSearch size="1.5em" />
-              </Button>
-            </Form>
-            <div className="contenedor-boton-conocermas">
-              <a
-                href="#titulo-bienes-raices"
-                id="boton-conocermas"
-                onClick={handleConoceMas}
-              >
-                Conocé más <IoIosArrowDown />
-              </a>
+      <div className="buscador-contenedor">
+        <video
+          src={process.env.PUBLIC_URL + " img/piancatelli-video.mp4"}
+          autoPlay
+          loop
+          muted
+          className="video-buscador"
+          ref={videoRef}
+        />
+        <div className="buscador-fondo h-100">
+          <Form className="d-md-flex mb-5">
+            <div className="buscador-form">
+              <FormGroup className="buscador-form-group">
+                <Select
+                  className="d-flex"
+                  classNamePrefix="select-type-casa"
+                  value={selectedOption}
+                  onChange={handleChangeType}
+                  placeholder="Tipo" // Placeholder cuando no hay selección
+                  options={optionsType}
+                  menuPlacement="top" 
+                  styles={{
+                    input: (provided) => ({
+                      ...provided,
+                      cursor: "default", // Evita que aparezca el cursor de escritura
+                      caretColor: "transparent", // Opcional: Oculta el caret (la línea parpadeante)
+                    }),
+                  }}
+                />
+              </FormGroup>
+              <FormGroup className="buscador-form-group">
+                <Select
+                  className="d-flex"
+                  classNamePrefix="select-type-casa"
+                  value={selectedOptionOperation}
+                  onChange={handleChangeOperation}
+                  placeholder="Operación" // Placeholder cuando no hay selección
+                  options={optionsOperation}
+                  menuPlacement="top" 
+                  styles={{
+                    input: (provided) => ({
+                      ...provided,
+                      cursor: "default", // Evita que aparezca el cursor de escritura
+                      caretColor: "transparent", // Opcional: Oculta el caret (la línea parpadeante)
+                    }),
+                  }}
+                />
+              </FormGroup>
+              <Form.Group className="buscador-form-group">
+                <Select
+                  className="d-flex"
+                  classNamePrefix="select-type-casa"
+                  value={selectedOptionLocalidad}
+                  onChange={handleChangeLocalidad}
+                  menuPlacement="top" 
+                  placeholder="Ubicación" // Placeholder cuando no hay selección
+                  options={
+                    inputValue.length >= 2 && localidades.length > 0
+                      ? localidades
+                          .filter(
+                            (localidad) =>
+                              localidad.location_name && // Verifica que location_name no sea null o undefined
+                              localidad.location_name
+                                .toLowerCase()
+                                .includes(inputValue.toLowerCase())
+                          )
+                          .map((localidad) => ({
+                            value: localidad.location_id,
+                            label: localidad.location_name,
+                          }))
+                      : []
+                  }
+                  onInputChange={(value) => setInputValue(value)}
+                  noOptionsMessage={() => null} // Elimina el mensaje "No options"
+                  components={{
+                    IndicatorSeparator: () => null, // Elimina la flechita del dropdown
+                  }}
+                  styles={{
+                    dropdownIndicator: (provided) => ({
+                      ...provided,
+                      color: "white",
+                      "&:hover": {
+                        color: "white", // Cambia este color según prefieras
+                      },
+                    }),
+                  }}
+                />
+              </Form.Group>
             </div>
+            <Button
+              id="buscador-boton"
+              className="mb-3 d-flex align-items-center justify-content-center gap-2"
+              type="button"
+              onClick={handleBuscar}
+            >
+              <p className="ms-2 mb-0 buscar-texto p-2"> Buscar </p>
+              <IoMdSearch size="1.5em" />
+            </Button>
+          </Form>
+          <div className="contenedor-boton-conocermas">
+            <a
+              href="#titulo-bienes-raices"
+              id="boton-conocermas"
+              onClick={handleConoceMas}
+            >
+              Conocé más <IoIosArrowDown />
+            </a>
           </div>
         </div>
       </div>

@@ -74,6 +74,27 @@ const PropertiesLayout = () => {
           }
         }
 
+        if (filters.floors_amount) {
+          filters.customFilters = filters.customFilters || [];
+          const floorFilter = filters.customFilters.find(
+            (filter) => filter[0] === "floors_amount"
+          );
+          if (floorFilter) {
+            filters.customFilters = filters.customFilters.filter(
+              (filter) => filter[0] !== "floors_amount"
+            );
+          }
+          if (filters.floors_amount === 3) {
+            filters.customFilters.push(["floors_amount", ">", 2]);
+          } else {
+            filters.customFilters.push([
+              "floors_amount",
+              "=",
+              filters.floors_amount,
+            ]);
+          }
+        }
+
         const buildFilters = () => {
           const filterObject = {
             current_localization_id: [+filters.localizationId] || 1,

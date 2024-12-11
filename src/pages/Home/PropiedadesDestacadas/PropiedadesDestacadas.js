@@ -80,7 +80,7 @@ const PropertyCarousel = () => {
             modules={[Autoplay, Pagination]}
             className="swiperDestacadas"
           >
-            {data
+            {data && data.length && data
               .filter((nuevaDestacada) => nuevaDestacada.is_starred_on_web)
               .map((nuevaDestacada, index) => (
                 <SwiperSlide className="slide-destacadas" key={index}>

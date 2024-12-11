@@ -15,6 +15,47 @@ const AdvancedFilters = () => {
   const { cleanFilters, filters, setFilters, localidades, tipos } =
     useFilterStore();
 
+  const getFilterLabel = (key, filters, tipos, localidades) => {
+    switch (key) {
+      case "operationTypes":
+        return ["Venta", "Alquiler", "Alquiler Temporal"][filters[key] - 1];
+      case "propertyTypes":
+        return tipos?.find((type) => type.id === +filters[key])?.name;
+      case "age":
+        return `< ${filters[key]} años`;
+      case "room_amount":
+        return `${filters[key] === 4 ? "+4" : filters[key]} dormitorio${
+          filters[key] !== 1 ? "s" : ""
+        }`;
+      case "bathroom_amount":
+        return `${filters[key]} baño${filters[key] !== 1 ? "s" : ""}`;
+      case "floors_amount":
+        return `${filters[key]} planta${filters[key] !== 1 ? "s" : ""}`;
+      case "price_from":
+        return `Min: ${
+          filters["currency"] === "ARS" ? "$" : "USD"
+        } ${formatPrice(filters[key])}`;
+      case "price_to":
+        return `Max: ${
+          filters["currency"] === "ARS" ? "$" : "USD"
+        } ${formatPrice(filters[key])}`;
+      case "localizationId":
+        return (
+          localidades?.find((l) => l.location_id === +filters[key])
+            ?.location_name ||
+          (filters[key] === 25960
+            ? "EL NACIONAL"
+            : filters[key] === 52055
+            ? "FINCAS DE ALVAREZ"
+            : filters[key] === 25143
+            ? "BOCA RATON"
+            : "GBA")
+        );
+      default:
+        return "";
+    }
+  };
+
   return (
     <Container className="mt-2">
       {filters && (
@@ -42,7 +83,9 @@ const AdvancedFilters = () => {
                             ...filters,
                             [key]: "",
                             customFilters:
-                              key === "bathroom_amount" || key === "room_amount"
+                              key === "bathroom_amount" ||
+                              key === "room_amount" ||
+                              key === "floors_amount"
                                 ? filters.customFilters.filter(
                                     (filter) => filter[0] !== key
                                   )
@@ -50,41 +93,7 @@ const AdvancedFilters = () => {
                           });
                         }}
                       >
-                        {key === "operationTypes" &&
-                          ["Venta", "Alquiler", "Alquiler Temporal"][
-                            filters[key] - 1
-                          ]}
-                        {key === "propertyTypes" &&
-                          tipos?.find((type) => type.id === +filters[key])
-                            ?.name}
-                        {key === "age" && `< ${filters[key]} años`}
-                        {key === "room_amount" &&
-                          `${
-                            filters[key] === 4 ? "+4" : filters[key]
-                          } dormitorio${filters[key] !== 1 ? "s" : ""}`}
-                        {key === "bathroom_amount" &&
-                          `${filters[key]} baño${
-                            filters[key] !== 1 ? "s" : ""
-                          }`}
-                        {key === "price_from" &&
-                          `Min: ${
-                            filters["currency"] === "ARS" ? "$" : "USD"
-                          } ${formatPrice(filters[key])}`}
-                        {key === "price_to" &&
-                          `Max: ${
-                            filters["currency"] === "ARS" ? "$" : "USD"
-                          } ${formatPrice(filters[key])}`}
-                        {(key === "localizationId" &&
-                          localidades?.find(
-                            (l) => l.location_id === +filters[key]
-                          )?.location_name) ||
-                          (filters[key] === 25960
-                            ? "EL NACIONAL"
-                            : filters[key] === 52055
-                            ? "FINCAS DE ALVAREZ"
-                            : filters[key] === 25143
-                            ? "BOCA RATON"
-                            : "GBA")}
+                        {getFilterLabel(key, filters, tipos, localidades)}{" "}
                         &nbsp; &times;
                       </Button>
                     );
@@ -280,6 +289,35 @@ const AdvancedFilters = () => {
                       filters?.bathroom_amount === num
                         ? filters.customFilters.filter(
                             (filter) => filter[0] !== "bathroom_amount"
+                          )
+                        : filters.customFilters,
+                  })
+                }
+              >
+                {num}
+              </Button>
+            ))}
+          </ButtonGroup>
+        </div>
+        <div className="border rounded p-2 mb-3">
+          <h6 style={{ color: "red" }}>Plantas</h6>
+          <ButtonGroup className="mb-2">
+            {[1, 2, 3].map((num) => (
+              <Button
+                key={num}
+                variant={
+                  filters?.floors_amount === num
+                    ? "secondary"
+                    : "outline-secondary"
+                }
+                onClick={() =>
+                  setFilters({
+                    ...filters,
+                    floors_amount: filters?.floors_amount === num ? null : num,
+                    customFilters:
+                      filters?.floors_amount === num
+                        ? filters.customFilters.filter(
+                            (filter) => filter[0] !== "floors_amount"
                           )
                         : filters.customFilters,
                   })
