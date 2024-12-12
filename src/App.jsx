@@ -17,7 +17,8 @@ const TerminoCondiciones = loadable(() =>
 const PoliticasDePrivacidad = loadable(() =>
   import("./pages/PoliticasDePrivacidad")
 );
-const BarrioDetail = loadable(() => import("./pages/BarrioDetail"));
+const Barrios = loadable(() => import("./pages/Barrios"));
+
 export default function App() {
   const location = useLocation();
 
@@ -43,7 +44,7 @@ export default function App() {
         <Route path="contacto" element={<Contacto />} />
         <Route path="condiciones" element={<TerminoCondiciones />} />
         <Route path="privacidad" element={<PoliticasDePrivacidad />} />
-        <Route path="barrios/:id" element={<BarrioDetail />} />
+        <Route path="barrios" element={<Barrios />} />
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>

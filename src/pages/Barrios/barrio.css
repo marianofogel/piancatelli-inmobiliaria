@@ -1,0 +1,13 @@
+.tab-barrios .nav-item > a {
+    color: rgb(255, 0, 0);
+}
+
+.tab-barrios .nav-item > a.active, .tab-barrios .nav-item > a:hover {
+    background-color: rgb(255, 0, 0);
+    color: white;
+}
+
+.exception:hover {
+    background-color: white!important;
+    color: red!important;
+}

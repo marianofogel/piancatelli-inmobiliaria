@@ -31,6 +31,8 @@ export const barrios = [
     ],
     lotes:
       "Entre 1.000 y 1.900 m2, con un promedio de 1.350 m2. Frentes amplios con mínimos de 25 metros.",
+    geo_lat: -34.64,
+    geo_long: -58.96,
   },
   {
     location_id: 26240,
@@ -69,6 +71,8 @@ export const barrios = [
     ],
     lotes:
       "1158 lotes de 1500 a 2750 metros cuadrados. 63 unidades en PH tipo dúplex o dormies con vista al golf o al house principal.",
+    geo_lat: -34.61476000833525,
+    geo_long: -58.85137161620987,
   },
   {
     location_id: 26229,
@@ -112,6 +116,8 @@ export const barrios = [
       "Internet por banda ancha",
     ],
     lotes: "",
+    geo_lat: -34.59378763537889,
+    geo_long: -58.85266137257204,
   },
   {
     location_id: 26231,
@@ -148,6 +154,8 @@ export const barrios = [
       "Agua corriente (cooperativa de agua del Pueblo)",
     ],
     lotes: "Desde 900 a 1200 m2.",
+    geo_lat: -34.62204824591015,
+    geo_long: -58.84334559262462,
   },
   {
     location_id: 25967,
@@ -180,6 +188,8 @@ export const barrios = [
       "Cable",
     ],
     lotes: "1100 m2 promedio.",
+    geo_lat: -34.5993339388535,
+    geo_long: -58.902878915893744,
   },
   {
     location_id: 52060,
@@ -207,6 +217,8 @@ export const barrios = [
       "Iluminación pública",
     ],
     lotes: "730m² promedio.",
+    geo_lat: -34.621336722854224,
+    geo_long: -58.84403443256069,
   },
   {
     location_id: 26237,
@@ -239,6 +251,8 @@ export const barrios = [
       "Seguridad 24Hs",
     ],
     lotes: "Desde 400 metros cuadrados.",
+    geo_lat: -34.637573995909584,
+    geo_long: -58.760306689026486,
   },
   {
     location_id: 25143,
@@ -273,6 +287,8 @@ export const barrios = [
       "Vigilancia con instalaciones de seguridad de última generación",
     ],
     lotes: "Desde 800 m2.",
+    geo_lat: -34.547573641094615,
+    geo_long: -58.863154718064656,
   },
   {
     location_id: 26242,
@@ -300,6 +316,8 @@ export const barrios = [
       "Prestigioso colegio bilingüe: Sworn College",
     ],
     lotes: "",
+    geo_lat: -34.57718599985259,
+    geo_long: -58.86697877388343,
   },
   {
     location_id: 52055,
@@ -342,5 +360,7 @@ export const barrios = [
       "Seguridad Portería",
     ],
     lotes: "Desde 720 m2.",
+    geo_lat: -34.62125777762192,
+    geo_long: -58.85316566324908,
   },
 ];

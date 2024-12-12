@@ -11,9 +11,8 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { barrios } from "../../../utils";
 import useFilterStore from "../../../store";
 
-
 const SliderTuLugar = () => {
-  const { setFilters } = useFilterStore();
+  const { setFilters, setBarrio } = useFilterStore();
   const navigate = useNavigate();
 
   const handleButtonClick = (barrioId) => {
@@ -23,12 +22,15 @@ const SliderTuLugar = () => {
   };
 
   const handleCardClick = (barrioId) => {
-    navigate(`/barrios/${barrioId}`); // Redirige a la página individual del barrio
+    setBarrio(barrioId);
+    navigate(`/barrios`); // Redirige a la página individual del barrio
   };
 
-
   return (
-    <div className="swiper-contenedor-tulugar container-fluid" style={{padding: '0 1.5em'}}>
+    <div
+      className="swiper-contenedor-tulugar container-fluid"
+      style={{ padding: "0 1.5em" }}
+    >
       <Swiper
         overflowEffect={{
           rotate: 50,
@@ -61,14 +63,17 @@ const SliderTuLugar = () => {
       >
         {barrios.map((barrio, index) => (
           <SwiperSlide key={index} className="swiper-slide-tulugar">
-            
-              <TuLugarCard
-                imageSrc={process.env.PUBLIC_URL + "/img/barrios/" + barrio.location_id + ".webp"}
-                barrio={barrio.location_name}
-                onClick={() => handleCardClick(barrio.location_id)}
-                onButtonClick={() => handleButtonClick(barrio.location_id)} // Pasamos la función
-              />
-            
+            <TuLugarCard
+              imageSrc={
+                process.env.PUBLIC_URL +
+                "/img/barrios/" +
+                barrio.location_id +
+                ".webp"
+              }
+              barrio={barrio.location_name}
+              onClick={() => handleCardClick(barrio.location_id)}
+              onButtonClick={() => handleButtonClick(barrio.location_id)} // Pasamos la función
+            />
           </SwiperSlide>
         ))}
       </Swiper>

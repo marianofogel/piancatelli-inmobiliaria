@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { MapContainer, TileLayer, Marker } from "react-leaflet";
 import L from "leaflet";
 
@@ -8,8 +8,9 @@ const icon = L.icon({
   iconAnchor: [12, 36],
 });
 
-function MapComponent({ address }) {
+function MapComponent({ address, selectedTab }) {
   const [center, setCenter] = useState(null);
+  const ref = useRef(null);
 
   useEffect(() => {
     if (address) {
@@ -18,13 +19,21 @@ function MapComponent({ address }) {
     }
   }, [address]);
 
+  useEffect(() => {
+    if (ref.current) {
+      ref.current.invalidateSize(false);
+    }
+  }, [selectedTab]);
+
   return center ? (
     <div id="map">
       <MapContainer
+        style={{ borderRadius: "10px" }}
         center={center}
         zoom={13}
         scrollWheelZoom={false}
         className="h-100"
+        ref={ref}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

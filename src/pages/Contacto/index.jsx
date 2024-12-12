@@ -2,6 +2,7 @@ import { FormContacto } from "../../components/FormContacto/FormContacto";
 import { Col, Row, Container, Stack, Image } from "react-bootstrap";
 import "../Contacto/Contacto.css";
 import ReactGA from "react-ga4";
+import { useEffect } from "react";
 
 export default function Contacto() {
   useEffect(() => {

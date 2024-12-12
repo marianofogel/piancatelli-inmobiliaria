@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Col, Container, Row, Image, Button } from "react-bootstrap";
-import { useParams } from "react-router";
-import { barrios } from "../../utils";
 import { ItemDestacadas } from "../Home/NuevosIngresos/ItemDestacadas";
 import "./barrioDetail.css";
 import { useNavigate } from "react-router-dom";
@@ -10,13 +8,12 @@ import useFilterStore from "../../../src/store/index";
 import { FaCheck } from "react-icons/fa";
 import { IoMdArrowRoundForward } from "react-icons/io";
 import ReactGA from "react-ga4";
+import MapComponent from "../../components/Map";
 
-const BarrioInfo = () => {
-  const { id } = useParams();
+const BarrioInfo = ({ barrio, selectedTab }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
-  const barrio = barrios.find((item) => item.location_id === +id);
 
   useEffect(() => {
     ReactGA.send({
@@ -35,13 +32,13 @@ const BarrioInfo = () => {
           format: "json",
           key: process.env.REACT_APP_TOKKO_API_KEY,
           lang: "es_ar",
-          limit: 4,
+          limit: 3,
           data: JSON.stringify({
             operation_types: [1, 2, 3],
             property_types: [1, 2, 3, 4, 5, 6, 7],
             price_from: 0,
             price_to: 99999999,
-            current_localization_id: [+id],
+            current_localization_id: [+barrio.location_id],
             current_localization_type: "division",
           }),
         });
@@ -74,23 +71,20 @@ const BarrioInfo = () => {
 
   return (
     <Container>
-      <h1 className="barrio-titulo pt-5 mt-5">{barrio.nombre}</h1>
-      <div className="infra-barrio shadow h-100 mb-3">
-        <h2>Ubicación</h2>
-        <p style={{ marginBottom: 0 }}> {barrio.ubicacion}</p>
-      </div>
-      {barrio.acceso ? (
-        <div className="infra-barrio shadow h-100 mb-3">
-          <h2>Acceso</h2>
-          <p style={{ marginBottom: 0 }}>{barrio.acceso}</p>
-        </div>
-      ) : (
-        ""
-      )}
+      <h1 className="barrio-titulo">{barrio.nombre}</h1>
+      <p>
+        {" "}
+        {barrio.ubicacion} - {barrio.acceso ? barrio.acceso : ""}
+      </p>
+      <MapComponent
+        address={{ lat: +barrio.geo_lat, lng: +barrio.geo_long }}
+        selectedTab={selectedTab}
+      />
+      <div className="m-3"> </div>
       {barrio.caracteristicas_generales ? (
-        <div className="infra-barrio shadow h-100 mb-3">
+        <div className=" h-100 mb-3">
           <h2>Características Generales</h2>
-          <p style={{ marginBottom: 0 }}>{barrio.caracteristicas_generales}</p>
+          <p>{barrio.caracteristicas_generales}</p>
         </div>
       ) : (
         ""
@@ -98,7 +92,7 @@ const BarrioInfo = () => {
       {barrio.infraestructura_deportiva &&
       barrio.infraestructura_deportiva.length ? (
         <div className="d-flex mb-3">
-          <div className="infra-barrio shadow h-100 card-foto">
+          <div className=" h-100 card-foto">
             <Row>
               <h2>Infraestructura Deportiva y de Esparcimiento</h2>
               <Col
@@ -136,7 +130,7 @@ const BarrioInfo = () => {
       ) : (
         ""
       )}
-      <div className="infra-barrio shadow h-100 mb-3">
+      <div className=" h-100 mb-3">
         <h2>Infraestructura de Servicios</h2>
         {barrio.infraestructura_servicios &&
         barrio.infraestructura_servicios.length
@@ -150,9 +144,9 @@ const BarrioInfo = () => {
       </div>
 
       {barrio.lotes ? (
-        <div className="infra-barrio shadow h-100 mb-3">
+        <div className=" h-100 mb-3">
           <h2>Lotes</h2>
-          <p style={{ marginBottom: 0 }}>{barrio.lotes}</p>
+          <p>{barrio.lotes}</p>
         </div>
       ) : (
         ""
@@ -162,7 +156,7 @@ const BarrioInfo = () => {
       <Row>
         {data && data.length ? (
           data.map((nuevoIngreso, index) => (
-            <Col key={index} xs={12} md={6} lg={3} className="mb-3">
+            <Col key={index} xs={12} md={6} lg={4} className="mb-3">
               <Link
                 to={`/propiedades/${nuevoIngreso.id}`}
                 style={{ textDecoration: "none" }}
