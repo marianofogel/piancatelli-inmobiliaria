@@ -9,5 +9,9 @@
 
 .exception:hover {
     background-color: white!important;
-    color: red!important;
+    color: black!important;
+}
+
+.exception {
+    color: black!important;
 }
